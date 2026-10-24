@@ -237,8 +237,36 @@ html[data-theme="light"] .auth-shell p,html[data-theme="light"] .auth-shell smal
 html[data-theme="light"] .auth-shell input{background:#fff!important;color:#172033!important;border-color:#dbe4f2!important}
 </style>
 
+
+<style id="xtools-motion-video-background">
+/* Video-backed glass UI: keep the existing layout and colors, but let the motion show through. */
+html{background:#070b16!important}
+body{position:relative;isolation:isolate;background:transparent!important;min-height:100vh}
+.motion-backdrop{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#070b16}
+.motion-backdrop video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.58;filter:saturate(1.16) contrast(1.06);}
+.motion-backdrop:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(5,10,23,.70),rgba(8,15,31,.48) 48%,rgba(10,13,30,.70)),radial-gradient(ellipse at 16% 12%,rgba(101,87,232,.20),transparent 43%),radial-gradient(ellipse at 85% 76%,rgba(11,200,190,.16),transparent 42%)}
+/* Translucent surfaces make the animated video visible without hurting readability. */
+html[data-theme="dark"] header{background:rgba(10,16,31,.66)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-color:rgba(155,177,224,.18)!important}
+html[data-theme="dark"] .card,html[data-theme="dark"] .feature,html[data-theme="dark"] .preview,html[data-theme="dark"] .app,html[data-theme="dark"] .model-card,html[data-theme="dark"] .db-toolbar,html[data-theme="dark"] .db-stats div,html[data-theme="dark"] .selected-card,html[data-theme="dark"] .select-placeholder,html[data-theme="dark"] .tile,html[data-theme="dark"] .pill,html[data-theme="dark"] .taskbar-dropdown{background:rgba(17,25,45,.66)!important;backdrop-filter:blur(15px)!important;-webkit-backdrop-filter:blur(15px)!important;border-color:rgba(145,169,222,.22)!important}
+html[data-theme="dark"] .auth-gate{background:rgba(4,8,20,.42)!important;backdrop-filter:blur(5px)}
+html[data-theme="dark"] .auth-shell{background:rgba(15,23,42,.76)!important;backdrop-filter:blur(24px)!important;-webkit-backdrop-filter:blur(24px)!important;border-color:rgba(135,158,222,.28)!important}
+html[data-theme="light"] header{background:rgba(255,255,255,.70)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+html[data-theme="light"] .card,html[data-theme="light"] .feature,html[data-theme="light"] .preview,html[data-theme="light"] .app,html[data-theme="light"] .model-card,html[data-theme="light"] .db-toolbar,html[data-theme="light"] .db-stats div,html[data-theme="light"] .selected-card,html[data-theme="light"] .select-placeholder,html[data-theme="light"] .tile,html[data-theme="light"] .pill,html[data-theme="light"] .taskbar-dropdown{background:rgba(255,255,255,.70)!important;backdrop-filter:blur(15px)!important;-webkit-backdrop-filter:blur(15px)!important;border-color:rgba(101,87,232,.18)!important}
+html[data-theme="light"] .auth-gate{background:rgba(239,244,255,.45)!important;backdrop-filter:blur(5px)}
+html[data-theme="light"] .auth-shell{background:rgba(255,255,255,.78)!important;backdrop-filter:blur(24px)!important;-webkit-backdrop-filter:blur(24px)!important}
+.motion-credit{position:fixed;bottom:5px;left:8px;z-index:2;font:10px/1.4 Arial,sans-serif;color:rgba(220,230,255,.58);pointer-events:auto}
+.motion-credit a{text-decoration:underline;text-underline-offset:2px}
+@media(prefers-reduced-motion:reduce){.motion-backdrop video{display:none}.motion-backdrop{background:radial-gradient(ellipse at 15% 10%,#182448,#070b16 70%)}}
+</style>
+
 </head>
 <body class="auth-locked">
+<!-- Looping motion background: Abstract Energy Flow by Free Stock Footage Archive (CC BY 4.0; attribution required). -->
+<div class="motion-backdrop" aria-hidden="true">
+  <video id="xtoolsMotionBackground" autoplay muted loop playsinline preload="metadata" tabindex="-1">
+    <source src="https://freestockfootagearchive.com/wp-content/uploads/2020/10/Abstract-Energy-Flow-Dark-Background-Video-Loop.mp4" type="video/mp4">
+  </video>
+</div>
 <div id="authGate" class="auth-gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
   <div class="auth-shell">
     <div class="auth-brand"><span class="logo">HX</span><div><strong>Hamouda <em>XTools</em></strong><small>بوابة الحساب الآمن</small></div></div>
@@ -491,4 +519,8 @@ document.getElementById('aiChatForm').addEventListener('submit',e=>{e.preventDef
 })();
 </script>
 
+<div class="motion-credit"><a href="https://freestockfootagearchive.com/abstract-energy-flow-dark-background-video-loop-effect/" target="_blank" rel="noopener noreferrer">Motion background: Free Stock Footage Archive</a></div>
+<script id="xtoolsVideoFallback">
+(()=>{const v=document.getElementById('xtoolsMotionBackground');if(!v)return;v.muted=true;const play=()=>v.play().catch(()=>{});play();v.addEventListener('canplay',play,{once:true});v.addEventListener('error',()=>{v.style.display='none';document.querySelector('.motion-backdrop').classList.add('video-unavailable')},{once:true});})();
+</script>
 </body></html>
