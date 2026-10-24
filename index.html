@@ -346,6 +346,13 @@ input:focus,select:focus,textarea:focus{outline:1px solid #ff303b!important;bord
 .card,.feature,.preview,.app,.tile,.toolimage{border-radius:14px}
 @media(prefers-reduced-motion:no-preference){.btn,.smallbtn,.card,.logo{transition:box-shadow .22s ease,filter .22s ease,transform .22s ease}.card:hover{transform:translateY(-3px)}}
 </style>
+
+<style>
+.service-types-section h2{font-size:clamp(22px,3vw,30px)}
+.service-types-section p{line-height:1.7}
+@media(max-width:600px){.service-types-section{margin:16px 10px!important;padding:22px 14px!important}}
+</style>
+
 </head>
 <body class="auth-locked">
 
@@ -512,7 +519,7 @@ input:focus,select:focus,textarea:focus{outline:1px solid #ff303b!important;bord
         <a class="btn" href="https://wa.me/201003267221?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B9%D9%84%D8%A7%D9%85%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%A5%D8%B6%D8%A7%D9%81%D9%8A%D8%A9%20%D9%84%D9%84%D8%A2%D9%8A%D9%81%D9%88%D9%86" target="_blank" rel="noopener">استعلم عن السعر ↗</a>
       </article>
     </div>
-    <p class="iphone-price-note">الأسعار النهائية غير معروضة حاليًا لتجنب نشر أرقام غير مؤكدة. أرسل موديل الجهاز وإصدار النظام على واتساب للحصول على عرض سعر.</p>
+    <p class="iphone-price-note">نستقبل استفسارات من جميع الدول. نسبة النجاح المعلنة تتجاوز 90% للحالات المؤهلة، لكن النتيجة تعتمد على الموديل وحالة الجهاز وشركة الاتصالات، ولا تُعد ضمانًا لكل جهاز. أرسل تفاصيل جهازك لتأكيد التوفر والسعر.</p>
   </div>
 </section>
 <style id="iphone-prices-redline-css">
@@ -531,6 +538,37 @@ input:focus,select:focus,textarea:focus{outline:1px solid #ff303b!important;bord
 @media(max-width:1000px){.iphone-price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.iphone-price-grid{grid-template-columns:1fr}.iphone-price-card{min-height:auto}.iphone-prices-section .heading h2 span{display:block;margin:6px 0 0}}
 </style>
+
+
+    <section class="iphone-check-sites" id="iphone-check-sites" aria-label="مواقع فحص الآيفون">
+      <div class="heading">
+        <div><span class="tag">DEVICE CHECK</span><h2>3 مواقع لفحص الآيفون قبل طلب الخدمة</h2><p>استخدم هذه الروابط للتحقق من بيانات الجهاز وحالة قفل الشبكة. كل موقع يفحص معلومات مختلفة.</p></div>
+      </div>
+      <div class="iphone-check-grid">
+        <a class="iphone-check-card" href="https://support.apple.com/en-za/109316" target="_blank" rel="noopener noreferrer">
+          <span class="check-number">01</span><strong>Apple Support</strong><span>شرح فحص قفل الشبكة رسميًا من الإعدادات، ومعرفة معنى “No SIM restrictions”.</span><em>افتح دليل Apple ↗</em>
+        </a>
+        <a class="iphone-check-card" href="https://checkcoverage.apple.com/" target="_blank" rel="noopener noreferrer">
+          <span class="check-number">02</span><strong>Apple Check Coverage</strong><span>فحص التغطية والضمان باستخدام الرقم التسلسلي؛ لا يؤكد وحده أهلية فك الشبكة.</span><em>افحص التغطية ↗</em>
+        </a>
+        <a class="iphone-check-card" href="https://www.imei.info/" target="_blank" rel="noopener noreferrer">
+          <span class="check-number">03</span><strong>IMEI.info</strong><span>معلومات تعريفية عن الجهاز عبر IMEI؛ بعض التقارير الإضافية قد تكون مدفوعة.</span><em>افحص IMEI ↗</em>
+        </a>
+      </div>
+      <p class="iphone-check-warning">تنبيه: لا تنشر رقم IMEI أو الرقم التسلسلي علنًا. نتائج مواقع الطرف الثالث قد لا تكون كاملة أو نهائية؛ تأكيد فك الشبكة يكون من شركة الاتصالات الأصلية.</p>
+    </section>
+    <style id="iphone-check-sites-css">
+      .iphone-check-sites{padding:20px 0 34px;position:relative;z-index:1}
+      .iphone-check-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+      .iphone-check-card{display:flex;flex-direction:column;gap:11px;padding:20px;text-decoration:none;border:1px solid rgba(255,42,53,.45);border-radius:16px;background:linear-gradient(145deg,rgba(27,19,21,.98),rgba(9,9,11,.98));color:#fff;min-height:190px;transition:transform .2s ease,border-color .2s ease}
+      .iphone-check-card:hover{transform:translateY(-3px);border-color:#ff303b}
+      .iphone-check-card .check-number{font-size:12px;font-weight:800;color:#ff3945;letter-spacing:2px}
+      .iphone-check-card strong{font-size:18px;color:#fff}
+      .iphone-check-card span:not(.check-number){font-size:13px;line-height:1.7;color:#c8c8c8}
+      .iphone-check-card em{margin-top:auto;font-size:13px;font-style:normal;color:#ff555e}
+      .iphone-check-warning{margin-top:13px;font-size:12px;line-height:1.8;color:#c2c2c2}
+      @media(max-width:800px){.iphone-check-grid{grid-template-columns:1fr}}
+    </style>
 
 <section id="devices"><div class="wrap"><div class="heading"><div><h2>قاعدة بيانات الموديلات المتقدمة</h2><p>ابحث بالاسم أو رقم الموديل أو الشركة أو المعالج. القائمة قابلة للبحث وتعمل محليًا داخل الصفحة.</p></div><span class="tag">XT DEVICE DATABASE</span></div>
 <div class="db-toolbar"><label class="searchbox"><svg class="icon" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg><input autocomplete="off" id="deviceSearch" placeholder="ابحث: SM-A556B، iPhone 15 Pro، Redmi Note 13…" type="search"/></label><select aria-label="فلترة الشركة" id="brandFilter"><option value="all">كل الشركات</option></select><select aria-label="اختيار الموديل" disabled="" id="modelFilter"><option value="">اختار البرند الأول</option></select></div>
@@ -987,5 +1025,25 @@ a:hover, button:hover { filter:brightness(1.12); }
   .card:hover, .feature:hover, .preview:hover { border-color:#ff303b !important; box-shadow:0 0 22px rgba(255,0,25,.18) !important; }
 }
 </style>
+
+
+<section id="service-types" class="service-types-section" style="padding:28px 18px;margin:24px auto;max-width:1100px;border:1px solid #3a2020;border-radius:18px;background:linear-gradient(135deg,#151515,#240909);color:#fff">
+  <h2 style="text-align:center;color:#ff3030;margin:0 0 8px">اختر نوع الخدمة</h2>
+  <p style="text-align:center;color:#ddd;margin:0 0 20px">نفس قائمة الأسعار الأساسية — خدمة Slow أقل بـ 5 دولار لكل جهاز.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+    <div style="border:1px solid #ff3030;border-radius:14px;padding:20px;background:#111">
+      <div style="font-size:12px;letter-spacing:2px;color:#ff4545;font-weight:800">FAST PREMIUM</div>
+      <h3 style="margin:8px 0;color:#fff">الخدمة السريعة بريميوم</h3>
+      <p style="color:#ddd">أولوية في تنفيذ الطلبات المؤهلة.</p>
+      <div style="font-weight:800;color:#ff4545">السعر الأساسي</div>
+    </div>
+    <div style="border:1px solid #555;border-radius:14px;padding:20px;background:#111">
+      <div style="font-size:12px;letter-spacing:2px;color:#bbb;font-weight:800">SLOOOOW</div>
+      <h3 style="margin:8px 0;color:#fff">الخدمة البطيئة — SLOOOOW</h3>
+      <p style="color:#ddd">نفس الخدمة بس وقت تنفيذ أطول.</p>
+      <div style="font-weight:800;color:#fff">خصم 5 دولار من سعر كل جهاز</div>
+    </div>
+  </div>
+</section>
 
 </body></html>
