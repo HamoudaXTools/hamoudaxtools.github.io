@@ -152,7 +152,7 @@ header,.card,.feature,.preview,.db-toolbar,.model-card,.selected-card,.select-pl
 
 
 /* Hero image carousel and developer portrait */
-.xtools-carousel{padding:12px!important;overflow:hidden}.carousel-frame{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:17px;background:#050b18;border:1px solid var(--line)}#xtoolsSlide{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .35s ease}.carousel-arrow{position:absolute;top:48%;transform:translateY(-50%);border:1px solid #ffffff45;background:#071326d9;color:white;border-radius:50%;width:39px;height:39px;font-size:18px;z-index:2}.carousel-arrow.prev{left:10px}.carousel-arrow.next{right:10px}.carousel-caption{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:linear-gradient(transparent,#030814ed);color:#fff}.carousel-caption span{font-size:12px;color:#9eeaff}.carousel-dots{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:12px 0 3px}.carousel-dot{width:8px;height:8px;border:0;border-radius:20px;padding:0;background:var(--muted);opacity:.5}.carousel-dot.active{width:24px;opacity:1;background:var(--primary)}.carousel-hint{margin:4px 0 0;text-align:center;font-size:12px;color:var(--muted)}.developer-card>img{width:160px;height:190px;object-fit:cover;object-position:center 25%;border-radius:20px;border:2px solid var(--primary);box-shadow:0 10px 30px #0004}.developer-signature{color:var(--primary);font-weight:800}@media(max-width:650px){.carousel-frame{aspect-ratio:4/3}.developer-card>img{width:120px;height:145px}}
+.xtools-carousel{padding:12px!important;overflow:hidden}.carousel-frame{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:17px;background:#050b18;border:1px solid var(--line)}#xtoolsSlide{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .35s ease}.carousel-arrow{position:absolute;top:48%;transform:translateY(-50%);border:1px solid #ffffff45;background:#071326d9;color:white;border-radius:50%;width:39px;height:39px;font-size:18px;z-index:2}.carousel-arrow.prev{left:10px}.carousel-arrow.next{right:10px}.carousel-caption{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:linear-gradient(transparent,#030814ed);color:#fff}.carousel-caption span{font-size:12px;color:#9eeaff}.carousel-dots{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:12px 0 3px}.carousel-dot{width:8px;height:8px;border:0;border-radius:20px;padding:0;background:var(--muted);opacity:.5}.carousel-dot.active{width:24px;opacity:1;background:var(--primary)}.carousel-hint{margin:4px 0 0;text-align:center;font-size:12px;color:var(--muted)}.developer-card>img{width:160px;height:190px;object-fit:cover;object-position:center 25%;border-radius:20px;border:2px solid var(--primary);box-shadow:0 10px 30px #0004}.developer-signature{color:var(--primary);font-weight:800}.developer-photo-fallback{width:160px;height:190px;border-radius:20px;border:2px solid var(--primary);display:grid;place-items:center;background:linear-gradient(135deg,#d4a34e,#187f73);color:white;font-size:42px;font-weight:900;flex-shrink:0}@media(max-width:650px){.carousel-frame{aspect-ratio:4/3}.developer-card>img{width:120px;height:145px}}
 </style>
 <style id="xtools-final-theme-fix">
 /* Final palette: clean pearl white + electric indigo; explicit working light/dark modes */
@@ -481,7 +481,7 @@ main > .hero.xtools-hero-hidden { display:none !important; }
 <div class="feature"><span>👨‍💻</span><div><b>Mahmoud Hamouda</b><small>مطور ومهتم بأدوات سوفت وير الهواتف وصيانتها، وبناء موارد تعليمية تساعد الفنيين على الوصول إلى الأدوات والمعلومات بشكل منظم.</small></div></div>
 <div class="feature"><span>🛠️</span><div><b>الخبرة والاهتمامات</b><small>سوفت وير الهواتف، أدوات الصيانة، التفليش، JTAG ومفاهيم الذاكرة، ومشاركة المعرفة الفنية.</small></div></div>
 <div class="feature"><span>🎯</span><div><b>رؤية Hamouda XTools</b><small>تجميع الأدوات والروابط الرسمية والكورسات في منصة واضحة وسهلة الاستخدام للمجتمع الفني.</small></div></div>
-</div><div class="card developer-card" style="margin-top:16px;display:flex;gap:24px;align-items:center;flex-wrap:wrap"><img src="mahmoud-hamouda.jpg" alt="Mahmoud Hamouda مطور Hamouda XTools" loading="lazy"/><div style="flex:1;min-width:220px"><span class="tag">THE DEVELOPER</span><h3 style="margin:8px 0">Mahmoud Hamouda</h3><p>مطور ومهتم بأدوات سوفت وير الهواتف وصيانتها، وبناء موارد تعليمية تساعد الفنيين على الوصول إلى الأدوات والمعلومات بشكل منظم.</p><p class="developer-signature">Developed with passion by Mahmoud Hamouda</p></div></div></div></section>
+</div><div class="card developer-card" style="margin-top:16px;display:flex;gap:24px;align-items:center;flex-wrap:wrap"><img src="mahmoud-hamouda.jpg" alt="Mahmoud Hamouda مطور Hamouda XTools" loading="lazy" onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<div class=\"developer-photo-fallback\" role=\"img\" aria-label=\"Mahmoud Hamouda\">MH</div>')"/><div style="flex:1;min-width:220px"><span class="tag">THE DEVELOPER</span><h3 style="margin:8px 0">Mahmoud Hamouda</h3><p>مطور ومهتم بأدوات سوفت وير الهواتف وصيانتها، وبناء موارد تعليمية تساعد الفنيين على الوصول إلى الأدوات والمعلومات بشكل منظم.</p><p class="developer-signature">Developed with passion by Mahmoud Hamouda</p></div></div></div></section>
 <section id="quick-tools"><div class="wrap"><div class="heading"><div><h2>مركز العمل السريع</h2><p>اختصارات تساعدك على الوصول إلى الأدوات والمحتوى بسهولة.</p></div><span class="tag">XTools Hub</span></div><div class="cards">
 <article class="card"><div class="icon-wrap"><svg class="icon" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg></div><h3>بحث الأدوات</h3><p>استخدم البحث أعلى دليل الأدوات للوصول إلى اسم الأداة بسرعة.</p><a class="smallbtn" href="#tools">تصفح الأدوات ↗</a></article>
 <article class="card"><div class="icon-wrap"><svg class="icon" viewbox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 13h5"></path></svg></div><h3>مكتبة الموديلات</h3><p>مكان مخصص لإضافة موديلات الهواتف والمعالجات وروابط الفيرموير الموثوقة.</p><a class="smallbtn" href="#contact">اقترح موديلًا ↗</a></article>
@@ -727,6 +727,59 @@ $('communityForm')?.addEventListener('submit',e=>{e.preventDefault();const text=
 <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-functions-compat.js"></script>
 <script type="module" src="./firebase-app.js"></script>
 <script>
-// Automatic XTools hero image carousel
-(()=>{const img=document.getElementById('xtoolsSlide');if(!img)return;const slides=Array.from({length:12},(_,i)=>`site-images/HamoudaXTools_SetA_${String(i+1).padStart(2,'0')}.jpg`).concat(Array.from({length:9},(_,i)=>`site-images/HamoudaXTools_SetB_${String(i+1).padStart(2,'0')}.jpg`));const titles=['Hamouda XTools','لوحة الأدوات الرئيسية','أدوات iPhone','أدوات Samsung','أدوات Android','توصيل الجهاز','مكتبة السوفت وير','إدارة الذاكرة والأقسام','الأدوات الإضافية','التفليش','الأجهزة المدعومة','صورة المطوّر'];let index=0;const title=document.getElementById('xtoolsSlideTitle'),count=document.getElementById('xtoolsSlideCount'),dots=document.getElementById('xtoolsDots');slides.forEach((src,i)=>{const b=document.createElement('button');b.className='carousel-dot'+(i===0?' active':'');b.setAttribute('aria-label','عرض الصورة '+(i+1));b.addEventListener('click',()=>show(i));dots.appendChild(b)});function show(i){index=(i+slides.length)%slides.length;img.style.opacity='.25';const next=new Image();next.onload=()=>{img.src=slides[index];img.style.opacity='1'};next.onerror=()=>{img.style.opacity='1'};next.src=slides[index];title.textContent=titles[index]||'Hamouda XTools';count.textContent=(index+1)+' / '+slides.length;dots.querySelectorAll('button').forEach((b,j)=>b.classList.toggle('active',j===index))}document.getElementById('xtoolsPrev').addEventListener('click',()=>show(index-1));document.getElementById('xtoolsNext').addEventListener('click',()=>show(index+1));let timer=setInterval(()=>show(index+1),4500);img.closest('.xtools-carousel').addEventListener('mouseenter',()=>clearInterval(timer));img.closest('.xtools-carousel').addEventListener('mouseleave',()=>{clearInterval(timer);timer=setInterval(()=>show(index+1),4500)});})();
+// Reliable Hamouda XTools image carousel: arrows, dots, autoplay, and missing-image fallback.
+(()=>{
+  const img=document.getElementById('xtoolsSlide');
+  const frame=img?.closest('.xtools-carousel');
+  if(!img||!frame||frame.dataset.carouselReady==='1') return;
+  frame.dataset.carouselReady='1';
+  const slides=[
+    ...Array.from({length:12},(_,i)=>`site-images/HamoudaXTools_SetA_${String(i+1).padStart(2,'0')}.jpg`),
+    ...Array.from({length:9},(_,i)=>`site-images/HamoudaXTools_SetB_${String(i+1).padStart(2,'0')}.jpg`)
+  ];
+  const titles=['Hamouda XTools','واجهة الأداة','أدوات iPhone','أدوات Samsung','أدوات Android','توصيل الجهاز','مكتبة السوفت وير','إدارة الذاكرة والأقسام','الأدوات الإضافية','التفليش','الأجهزة المدعومة','معرض الأداة','Hamouda XTools — B01','Hamouda XTools — B02','Hamouda XTools — B03','Hamouda XTools — B04','Hamouda XTools — B05','Hamouda XTools — B06','Hamouda XTools — B07','Hamouda XTools — B08','Hamouda XTools — B09'];
+  const title=document.getElementById('xtoolsSlideTitle');
+  const count=document.getElementById('xtoolsSlideCount');
+  const dots=document.getElementById('xtoolsDots');
+  const prev=document.getElementById('xtoolsPrev');
+  const next=document.getElementById('xtoolsNext');
+  if(!title||!count||!dots||!prev||!next) return;
+  let index=0, timer=null;
+  count.textContent=`1 / ${slides.length}`;
+  dots.replaceChildren();
+  slides.forEach((src,i)=>{
+    const b=document.createElement('button');
+    b.type='button'; b.className='carousel-dot'+(i===0?' active':'');
+    b.setAttribute('aria-label',`عرض الصورة ${i+1}`);
+    b.addEventListener('click',()=>show(i)); dots.appendChild(b);
+  });
+  function show(i){
+    index=(i+slides.length)%slides.length;
+    const target=new URL(slides[index],document.baseURI).href;
+    const preload=new Image();
+    preload.onload=()=>{img.src=target;img.style.opacity='1';img.alt=titles[index]||'Hamouda XTools';};
+    preload.onerror=()=>{
+      // Keep the last working image visible, but make the missing filename obvious for debugging.
+      img.style.opacity='1';
+      title.textContent='تعذر تحميل الصورة — راجع اسم الملف';
+      title.title=slides[index];
+    };
+    img.style.opacity='.45'; preload.src=target;
+    if(preload.complete && preload.naturalWidth) preload.onload();
+    title.textContent=titles[index]||'Hamouda XTools';
+    title.title=slides[index];
+    count.textContent=`${index+1} / ${slides.length}`;
+    dots.querySelectorAll('button').forEach((b,j)=>b.classList.toggle('active',j===index));
+  }
+  prev.addEventListener('click',()=>show(index-1));
+  next.addEventListener('click',()=>show(index+1));
+  const stop=()=>{if(timer){clearInterval(timer);timer=null;}};
+  const play=()=>{stop();timer=setInterval(()=>show(index+1),4500);};
+  frame.addEventListener('mouseenter',stop);
+  frame.addEventListener('mouseleave',play);
+  frame.addEventListener('focusin',stop);
+  frame.addEventListener('focusout',play);
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():play());
+  show(0); play();
+})();
 </script></body></html>
