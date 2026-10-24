@@ -311,47 +311,7 @@ main > .hero.xtools-hero-hidden { display:none !important; }
 </head>
 <body class="auth-locked">
 
-<section id="device-connect" class="hxt-device-section">
-  <div class="hxt-device-header">
-    <div>
-      <span class="hxt-eyebrow">HAMOUDA XTOOLS · DEVICE LAB</span>
-      <h2>Connect Device</h2>
-      <p>وصّل هاتفك عبر USB، وافتح قفل الشاشة، واختر نقل الملفات (MTP).</p>
-    </div>
-    <span class="hxt-usb-mark">USB / MTP</span>
-  </div>
-  <div class="hxt-device-panel">
-    <div class="hxt-device-status-row">
-      <div class="hxt-phone-icon" aria-hidden="true">▯</div>
-      <div class="hxt-device-copy">
-        <strong id="hxt-device-status" data-state="idle">في انتظار توصيل الهاتف</strong>
-        <p id="hxt-device-detail">وصّل الهاتف بكابل USB، افتح قفل الشاشة، ثم اختر نقل الملفات (MTP) من إشعار USB. اضغط «اكتشاف جهاز» للمتابعة.</p>
-      </div>
-    </div>
-    <div class="hxt-device-buttons">
-      <button type="button" id="hxt-connect-btn" class="hxt-primary">اكتشاف جهاز USB</button>
-      <button type="button" id="hxt-choose-btn" class="hxt-secondary">اختيار منفذ Serial متوافق</button>
-      <button type="button" id="hxt-refresh-btn" class="hxt-secondary">إعادة ضبط</button>
-    </div>
-    <p class="hxt-device-note">تنبيه: MTP مخصص لنقل الملفات. المتصفح لا يستطيع قراءة كل بيانات الهاتف أو تنفيذ التفليش مباشرةً. الوظائف المتقدمة تحتاج برنامج Windows مساعدًا وتعريفات مناسبة وموافقة المستخدم.</p>
-    <div id="hxt-actions" class="hxt-device-actions" hidden>
-      <h3>الجهاز اتحدد — عايز تعمل إيه؟</h3>
-      <div class="hxt-action-grid">
-        <button type="button" data-device-action="info">معلومات الجهاز</button>
-        <button type="button" data-device-action="files">استعراض الملفات</button>
-        <button type="button" data-device-action="diagnostics">تشخيص USB</button>
-        <button type="button" data-device-action="firmware">فحص Firmware</button>
-        <button type="button" data-device-action="backup">نسخ احتياطي</button>
-        <button type="button" data-device-action="disconnect">إنهاء الاتصال</button>
-      </div>
-      <pre id="hxt-device-output" hidden></pre>
-    </div>
-  </div>
-</section>
-<style>
-.hxt-device-section{margin:28px auto;padding:24px;max-width:1180px;border:1px solid rgba(148,163,184,.24);border-radius:24px;background:linear-gradient(145deg,#111827,#0b1220);color:#e5e7eb;box-shadow:0 18px 50px rgba(0,0,0,.22)}
-.hxt-device-header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}.hxt-device-header h2{margin:7px 0;font-size:clamp(24px,3vw,34px);color:#fff}.hxt-device-header p,.hxt-device-copy p{margin:0;color:#aab7c9;line-height:1.7}.hxt-eyebrow{font-size:11px;letter-spacing:2px;color:#60a5fa;font-weight:800}.hxt-usb-mark{padding:9px 12px;border:1px solid #334155;border-radius:12px;color:#93c5fd;font-size:12px;white-space:nowrap}.hxt-device-panel{padding:22px;border:1px solid #293548;border-radius:18px;background:rgba(3,7,18,.55)}.hxt-device-status-row{display:flex;gap:16px;align-items:center}.hxt-phone-icon{display:grid;place-items:center;width:56px;height:70px;border:2px solid #60a5fa;border-radius:13px;color:#60a5fa;font-size:36px;flex-shrink:0}.hxt-device-copy strong{font-size:18px;color:#f8fafc}.hxt-device-copy strong[data-state=ok]{color:#86efac}.hxt-device-copy strong[data-state=warn]{color:#fbbf24}.hxt-device-copy strong[data-state=pending]{color:#93c5fd}.hxt-device-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.hxt-device-buttons button,.hxt-action-grid button{border-radius:11px;padding:11px 15px;font-weight:700;cursor:pointer;border:1px solid #334155;color:#e2e8f0;background:#172033}.hxt-device-buttons .hxt-primary{background:linear-gradient(100deg,#2563eb,#7c3aed);border:0;color:#fff}.hxt-device-buttons button:hover,.hxt-action-grid button:hover{filter:brightness(1.15)}.hxt-device-note{margin:18px 0 0;padding:12px 14px;border-radius:10px;background:rgba(30,64,175,.15);color:#a9c4ed;font-size:13px;line-height:1.7}.hxt-device-actions{margin-top:22px}.hxt-device-actions h3{margin:0 0 14px;color:#fff;font-size:20px}.hxt-action-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}.hxt-action-grid button{text-align:right;min-height:56px}.hxt-device-actions pre{white-space:pre-wrap;word-break:break-word;margin-top:14px;padding:14px;border-radius:12px;background:#050a14;color:#cbd5e1;line-height:1.7;font:13px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace}.hxt-device-section [hidden]{display:none!important}@media(max-width:600px){.hxt-device-section{padding:15px}.hxt-device-panel{padding:15px}.hxt-device-header{align-items:flex-start}.hxt-usb-mark{display:none}.hxt-device-buttons button{width:100%}}
-</style>
+
 
 <!-- Looping motion background: Abstract Energy Flow by Free Stock Footage Archive (CC BY 4.0; attribution required). -->
 <div aria-hidden="true" class="motion-backdrop">
@@ -763,5 +723,4 @@ $('communityForm')?.addEventListener('submit',e=>{e.preventDefault();const text=
 
 <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-functions-compat.js"></script>
 <script type="module" src="./firebase-app.js"></script>
-<script src="./device-connect.js"></script>
 </body></html>
