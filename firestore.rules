@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /licenses/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false; // Only Admin SDK Cloud Functions may modify licenses.
+    }
+    match /activationCodes/{codeId} { allow read, write: if false; }
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['displayName','email','createdAt']);
+      allow delete: if false;
+    }
+  }
+}
