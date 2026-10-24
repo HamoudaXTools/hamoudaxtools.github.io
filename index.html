@@ -272,6 +272,25 @@ main > .hero.xtools-hero-hidden { display:none !important; }
 .navlinks .taskbar-dropdown a:hover{background:var(--surface-2,rgba(124,92,255,.10));color:var(--accent,#7c5cff)}
 @media(max-width:900px){.navlinks .taskbar-menu{position:relative}.navlinks .taskbar-dropdown{max-width:min(86vw,300px);max-height:55vh}}
 </style>
+
+<style id="hamouda-promo-banner-style">
+#hamoudaPromoBanner{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);gap:28px;align-items:center;margin:22px auto 28px;padding:clamp(18px,3vw,34px);border:1px solid var(--line);border-radius:24px;background:linear-gradient(125deg,rgba(37,99,235,.10),var(--surface,rgba(255,255,255,.94)) 55%,rgba(14,165,233,.10));box-shadow:0 18px 55px rgba(30,64,175,.10);overflow:hidden;position:relative}
+#hamoudaPromoBanner[hidden]{display:none!important}
+#hamoudaPromoBanner .promo-copy{position:relative;z-index:1}
+#hamoudaPromoBanner .promo-kicker{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:7px 12px;background:rgba(37,99,235,.10);color:var(--primary,#2563eb);font-weight:800;font-size:12px;letter-spacing:.04em}
+#hamoudaPromoBanner h1{font-size:clamp(28px,4vw,46px);line-height:1.2;margin:16px 0 10px}
+#hamoudaPromoBanner p{color:var(--muted);line-height:1.9;margin:0;max-width:540px}
+#hamoudaPromoBanner .promo-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:22px}
+#hamoudaPromoBanner .promo-download{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;border-radius:12px;padding:12px 18px;font-weight:800;background:#16803c;color:white;box-shadow:0 8px 22px rgba(22,128,60,.22)}
+#hamoudaPromoBanner .promo-download:hover{transform:translateY(-2px);filter:brightness(1.04)}
+#hamoudaPromoBanner .promo-note{font-size:11px;margin-top:12px;opacity:.8}
+#hamoudaPromoBanner .promo-art{perspective:1000px;display:grid;place-items:center;min-width:0}
+#hamoudaPromoBanner .promo-art img{display:block;width:min(100%,660px);max-height:420px;object-fit:contain;border-radius:17px;box-shadow:0 22px 48px rgba(15,23,42,.18);transform-origin:center;animation:hamoudaPromoZoom 5.5s ease-in-out infinite;will-change:transform}
+@keyframes hamoudaPromoZoom{0%,100%{transform:scale(.96) rotateY(-2deg) rotateZ(-.35deg)}50%{transform:scale(1.045) rotateY(2deg) rotateZ(.35deg)}}
+@media(max-width:760px){#hamoudaPromoBanner{grid-template-columns:1fr;gap:22px}#hamoudaPromoBanner .promo-art{order:-1}#hamoudaPromoBanner .promo-art img{max-height:300px}}
+@media(prefers-reduced-motion:reduce){#hamoudaPromoBanner .promo-art img{animation:none;transform:none}}
+</style>
+
 </head>
 <body class="auth-locked">
 <!-- Looping motion background: Abstract Energy Flow by Free Stock Footage Archive (CC BY 4.0; attribution required). -->
@@ -313,7 +332,22 @@ main > .hero.xtools-hero-hidden { display:none !important; }
 <div class="taskbar-dropdown"><a href="#devices">كل الشركات</a><a data-jump="Samsung" href="#devices">Samsung</a><a data-jump="Apple" href="#devices">Apple / iPhone</a><a data-jump="Xiaomi" href="#devices">Xiaomi / Redmi / POCO</a><a data-jump="Google Pixel" href="#devices">Google Pixel</a><a data-jump="Transsion" href="#devices">TECNO / Infinix / itel</a></div></div>
 
 <div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الدمبات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#dumps">كل الدمبات</a><a href="#dumps">Samsung</a><a href="#dumps">Qualcomm</a><a href="#dumps">MediaTek</a><a href="#dumps">UFS</a><a href="#dumps">eMMC</a><a href="#dumps">Firmware / Stock ROM</a></div></div><a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#courses">الكورسات</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden="" id="headerUser"><span class="user-avatar" id="headerAvatar">MH</span><span class="user-meta"><b id="headerUserName">الحساب</b><small id="headerUserEmail"></small></span><button class="btn outline" id="logoutButton" type="button">خروج</button></div></div></div></header>
-<main><div class="wrap hero compact-hidden"><div><span class="pill"><span class="dot"></span> منصة صيانة الأجهزة الذكية</span><h1>كل أدواتك،<br/><span>في مكان واحد.</span></h1><p class="lead">أنا محمود حمودة، مهتم بتطوير أدوات السوفت وير وصيانة الهواتف وتبسيط المعرفة الفنية. جمعت هنا روابط الأدوات ومراجعها الرسمية، مع مساحة مخصصة للكورسات والمحتوى التعليمي.</p><div class="btnrow"><a class="btn" href="#tools">استكشف الأدوات　↙</a><a class="btn outline" href="#courses">استكشف الكورسات</a></div><div class="facts"><div><b>Android &amp; Apple</b><small>أقسام متخصصة</small></div><div><b>وضع فاتح وداكن</b><small>حسب تفضيلك</small></div><div><b>Mahmoud Hamouda</b><small>المطوّر</small></div></div></div>
+<main>
+
+<div class="wrap" id="hamoudaPromoBanner">
+  <div class="promo-copy">
+    <span class="promo-kicker">✦ HAMOUDA XTOOLS · OFFICIAL TOOL</span>
+    <h1>Hamouda <span>XTools</span></h1>
+    <p>أدوات احترافية لصيانة الهواتف وأجهزة Apple، وروابط ومراجع فنية في مكان واحد. أهلًا بك في منصة المطور محمود حمودة.</p>
+    <div class="promo-actions">
+      <a class="btn" href="#tools">استكشف الأدوات ↙</a>
+      <a class="promo-download" href="https://www.mediafire.com/" target="_blank" rel="noopener noreferrer">⬇ تحميل الأداة من MediaFire</a>
+    </div>
+    <p class="promo-note">ملاحظة: رابط MediaFire الحالي يفتح الموقع العام فقط، وليس ملف تحميل الأداة. بعد رفع ملفك على MediaFire استبدل الرابط بعنوان المشاركة الحقيقي.</p>
+  </div>
+  <div class="promo-art"><img src="hamouda-xtools-promo.png" alt="واجهة Hamouda XTools التي أرسلها المطور" fetchpriority="high"></div>
+</div>
+<div class="wrap hero compact-hidden"><div><span class="pill"><span class="dot"></span> منصة صيانة الأجهزة الذكية</span><h1>كل أدواتك،<br/><span>في مكان واحد.</span></h1><p class="lead">أنا محمود حمودة، مهتم بتطوير أدوات السوفت وير وصيانة الهواتف وتبسيط المعرفة الفنية. جمعت هنا روابط الأدوات ومراجعها الرسمية، مع مساحة مخصصة للكورسات والمحتوى التعليمي.</p><div class="btnrow"><a class="btn" href="#tools">استكشف الأدوات　↙</a><a class="btn outline" href="#courses">استكشف الكورسات</a></div><div class="facts"><div><b>Android &amp; Apple</b><small>أقسام متخصصة</small></div><div><b>وضع فاتح وداكن</b><small>حسب تفضيلك</small></div><div><b>Mahmoud Hamouda</b><small>المطوّر</small></div></div></div>
 <div class="preview"><div class="app"><div class="apphead"><span>HAMOUDA XTOOLS</span><span>● ONLINE</span></div><div class="appbody"><strong>مركز الأدوات</strong><div class="tiles"><div class="tile"><i>🤖</i><b>Android Tools</b><small>أدوات أندرويد</small></div><div class="tile"><i>🍎</i><b>Apple Tools</b><small>أدوات آيفون</small></div><div class="tile"><i>💾</i><b>Firmware</b><small>ملفات وإصدارات</small></div><div class="tile"><i>🧰</i><b>Repair Tools</b><small>موارد الصيانة</small></div></div><div class="online">✓ صور الأدوات مضافة إلى مكتبة الموقع</div></div></div></div></div>
 <section id="devices"><div class="wrap"><div class="heading"><div><h2>قاعدة بيانات الموديلات المتقدمة</h2><p>ابحث بالاسم أو رقم الموديل أو الشركة أو المعالج. القائمة قابلة للبحث وتعمل محليًا داخل الصفحة.</p></div><span class="tag">XT DEVICE DATABASE</span></div>
 <div class="db-toolbar"><label class="searchbox"><svg class="icon" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg><input autocomplete="off" id="deviceSearch" placeholder="ابحث: SM-A556B، iPhone 15 Pro، Redmi Note 13…" type="search"/></label><select aria-label="فلترة الشركة" id="brandFilter"><option value="all">كل الشركات</option></select><select aria-label="اختيار الموديل" disabled="" id="modelFilter"><option value="">اختار البرند الأول</option></select></div>
@@ -598,12 +632,14 @@ $('communityForm')?.addEventListener('submit',e=>{e.preventDefault();const text=
  const main=document.querySelector('main'); if(!main) return;
  const sections=[...main.querySelectorAll(':scope > section')];
  const hero=main.querySelector(':scope > .hero');
+ const promo=document.getElementById('hamoudaPromoBanner');
  const navLinks=[...document.querySelectorAll('nav.navlinks a[href^="#"]')];
  function showSection(id, updateHash=true){
    const target=sections.find(s=>s.id===id);
    if(!target) return;
    sections.forEach(s=>{s.classList.toggle('xtools-tab-active',s===target);s.classList.toggle('xtools-tab-hidden',s!==target);});
    if(hero) hero.classList.add('xtools-hero-hidden');
+   if(promo) promo.hidden=true;
    navLinks.forEach(a=>a.classList.toggle('xtools-nav-active',a.getAttribute('href')==='#'+id));
    document.querySelectorAll('.taskbar-menu').forEach(menu=>{menu.classList.remove('open');const b=menu.querySelector('.taskbar-trigger');if(b)b.setAttribute('aria-expanded','false');});
    if(updateHash && location.hash!=='#'+id) history.replaceState(null,'','#'+id);
@@ -612,6 +648,7 @@ $('communityForm')?.addEventListener('submit',e=>{e.preventDefault();const text=
  // Landing page starts uncluttered; sections appear only after choosing a taskbar item.
  sections.forEach(s=>{s.classList.add('xtools-tab-hidden');s.classList.remove('xtools-tab-active');});
  if(hero) hero.classList.remove('xtools-hero-hidden');
+ if(promo) promo.hidden=false;
  navLinks.forEach(a=>a.addEventListener('click',e=>{
    const id=(a.getAttribute('href')||'').slice(1);
    if(!sections.some(s=>s.id===id)) return;
@@ -623,6 +660,6 @@ $('communityForm')?.addEventListener('submit',e=>{e.preventDefault();const text=
  if(sections.some(s=>s.id===initial)) showSection(initial,false);
  // Escape hatch back to the home/landing view by clicking the brand.
  const brand=document.querySelector('header .brand');
- if(brand) brand.addEventListener('click',e=>{e.preventDefault();sections.forEach(s=>{s.classList.add('xtools-tab-hidden');s.classList.remove('xtools-tab-active');});if(hero)hero.classList.remove('xtools-hero-hidden');navLinks.forEach(a=>a.classList.remove('xtools-nav-active'));history.replaceState(null,'',location.pathname+location.search);window.scrollTo({top:0,behavior:'smooth'});});
+ if(brand) brand.addEventListener('click',e=>{e.preventDefault();sections.forEach(s=>{s.classList.add('xtools-tab-hidden');s.classList.remove('xtools-tab-active');});if(hero)hero.classList.remove('xtools-hero-hidden');if(promo)promo.hidden=false;navLinks.forEach(a=>a.classList.remove('xtools-nav-active'));history.replaceState(null,'',location.pathname+location.search);window.scrollTo({top:0,behavior:'smooth'});});
 })();
 </script></body></html>
