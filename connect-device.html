@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>Connect Device — Hamouda XTools</title>
+<style>
+:root{color-scheme:dark;--bg:#080d19;--panel:#111a2b;--panel2:#0d1524;--line:#26354d;--muted:#9aa9c0;--text:#f4f7fb;--blue:#4f8cff;--violet:#8b5cf6;--green:#4ade80;--amber:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#18294b 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh}
+.wrap{max-width:1050px;margin:auto;padding:28px 18px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:14px;object-fit:cover;background:#fff;border:1px solid #34445f}.brand b{display:block;font-size:16px;letter-spacing:.2px}.brand small{color:var(--muted)}.pill{font-size:12px;color:#a8c8ff;border:1px solid #324a71;border-radius:99px;padding:8px 12px}
+.hero{padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(140deg,rgba(18,31,52,.97),rgba(12,19,33,.97));box-shadow:0 24px 70px #0005}.eyebrow{font-size:11px;letter-spacing:2px;color:#8bb7ff;font-weight:800}.hero h1{font-size:clamp(28px,4vw,42px);margin:10px 0}.hero p{color:#aab8cc;line-height:1.9;max-width:760px;margin:0}.connect-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}.device-row{display:flex;align-items:center;gap:16px}.phone{width:64px;height:80px;border:2px solid #5792ff;border-radius:16px;display:grid;place-items:center;font-size:33px;color:#76a8ff;flex-shrink:0}.card h2{font-size:19px;margin:0 0 8px}.muted{color:var(--muted);line-height:1.8;font-size:13px}.status{font-weight:800;font-size:17px}.status[data-state=ok]{color:var(--green)}.status[data-state=warn]{color:var(--amber)}.status[data-state=pending]{color:#93c5fd}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:1px solid #34445f;background:#17243a;color:#e8eef9;border-radius:11px;padding:12px 15px;font-weight:750;cursor:pointer}.btn.primary{background:linear-gradient(100deg,#2878f0,#7654ef);border:0;color:white}.btn:disabled{opacity:.45;cursor:not-allowed}.info-list{display:grid;gap:10px;margin-top:14px}.info{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:10px;background:var(--panel2);font-size:13px}.info span:first-child{color:var(--muted)}.actions{margin-top:18px}.actions h2{margin-bottom:12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.action{min-height:90px;text-align:right;background:var(--panel2);border:1px solid #2b3a52;border-radius:14px;color:var(--text);padding:14px;cursor:pointer}.action b{display:block;margin-bottom:6px}.action small{color:var(--muted);line-height:1.5}.action:disabled{opacity:.42;cursor:not-allowed}.notice{margin-top:18px;padding:14px 16px;border:1px solid #5b4a24;background:#30261566;border-radius:13px;color:#f5d58d;line-height:1.8;font-size:13px}.log{margin-top:14px;background:#070b13;border:1px solid #253249;border-radius:13px;padding:14px;color:#b9c9df;white-space:pre-wrap;line-height:1.8;font:12px/1.8 ui-monospace,Consolas,monospace;min-height:50px}.footer{text-align:center;color:#70809a;font-size:12px;margin-top:24px}
+@media(max-width:760px){.connect-layout{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.hero{padding:19px}.top{align-items:flex-start}.pill{display:none}}
+@media(max-width:420px){.grid{grid-template-columns:1fr}.buttons .btn{width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand">
+    <img class="logo" src="./hamouda.png" alt="Hamouda XTools" onerror="this.style.display='none'">
+    <div><b>Hamouda XTools</b><small>Device Connection Lab</small></div>
+  </div>
+  <span class="pill">BROWSER MODE · MTP / USB</span>
+</header>
+<section class="hero">
+  <div class="eyebrow">DEVICE LAB / 01</div>
+  <h1>Connect Device</h1>
+  <p>وصّل الموبايل بالكمبيوتر، افتح قفل الشاشة، واختار <b>MTP / نقل الملفات</b>. بعد محاولة اكتشاف الجهاز، هتظهر لك بيانات USB المتاحة وخيارات الخطوة التالية.</p>
+  <div class="connect-layout">
+    <div class="card">
+      <div class="device-row">
+        <div class="phone">▯</div>
+        <div><div id="status" class="status" data-state="idle">في انتظار توصيل الهاتف</div><div id="substatus" class="muted">لا يوجد جهاز محدد حاليًا.</div></div>
+      </div>
+      <div class="buttons">
+        <button class="btn primary" id="connect">اكتشاف جهاز USB</button>
+        <button class="btn" id="reset">إعادة ضبط</button>
+      </div>
+      <div class="notice">المتصفح لا يوفر دعمًا عامًا موحدًا لـ MTP. قد لا يظهر الهاتف في نافذة الاختيار حتى لو كان ظاهرًا في مستكشف ملفات Windows. لن يتم إرسال أوامر أو تعديل بيانات الهاتف من هذه الصفحة.</div>
+    </div>
+    <div class="card">
+      <h2>بيانات الاتصال</h2>
+      <div class="muted">تظهر البيانات التي يسمح المتصفح بقراءتها بعد اختيار الجهاز يدويًا.</div>
+      <div class="info-list">
+        <div class="info"><span>اسم الجهاز</span><b id="name">—</b></div>
+        <div class="info"><span>Vendor ID</span><b id="vid">—</b></div>
+        <div class="info"><span>Product ID</span><b id="pid">—</b></div>
+        <div class="info"><span>نوع الاتصال</span><b id="transport">—</b></div>
+        <div class="info"><span>حالة MTP</span><b id="mtp">غير مؤكدة</b></div>
+      </div>
+    </div>
+  </div>
+  <section class="card actions" id="actions" hidden>
+    <h2>تم اختيار الجهاز — عايز تعمل إيه؟</h2>
+    <div class="grid">
+      <button class="action" data-action="info"><b>معلومات الجهاز</b><small>عرض بيانات USB المتاحة</small></button>
+      <button class="action" data-action="files"><b>نقل الملفات</b><small>تعليمات الوصول إلى ملفات MTP</small></button>
+      <button class="action" data-action="usb"><b>تشخيص USB</b><small>عرض حدود الاتصال الحالي</small></button>
+      <button class="action" data-action="firmware"><b>فحص Firmware</b><small>اختيار ملف للتحليل محليًا</small></button>
+      <button class="action" data-action="backup"><b>النسخ الاحتياطي</b><small>إرشادات قبل النسخ</small></button>
+      <button class="action" data-action="disconnect"><b>إنهاء الاتصال</b><small>مسح الجهاز المحدد من الصفحة</small></button>
+    </div>
+    <input type="file" id="firmwareFile" hidden>
+    <pre id="log" class="log" hidden></pre>
+  </section>
+</section>
+<div class="footer">Developed for Hamouda XTools · Browser-only prototype · No driver or server required for the USB chooser itself</div>
+</div>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  let device = null;
+  const status = (title, desc, state='idle') => {
+    $('status').textContent = title;
+    $('status').dataset.state = state;
+    $('substatus').textContent = desc;
+  };
+  const log = text => { $('log').hidden = false; $('log').textContent = text; };
+  const fmt = v => v == null ? '—' : '0x' + Number(v).toString(16).padStart(4,'0').toUpperCase();
+  function clear() {
+    device = null;
+    $('name').textContent = $('vid').textContent = $('pid').textContent = $('transport').textContent = '—';
+    $('mtp').textContent = 'غير مؤكدة';
+    $('actions').hidden = true; $('log').hidden = true;
+    status('في انتظار توصيل الهاتف', 'لا يوجد جهاز محدد حاليًا.');
+  }
+  $('connect').addEventListener('click', async () => {
+    if (!navigator.usb || !navigator.usb.requestDevice) {
+      status('المتصفح لا يدعم WebUSB', 'جرّب Chrome أو Edge حديثًا على Windows. تذكّر أن دعم MTP نفسه غير مضمون.', 'warn');
+      return;
+    }
+    try {
+      status('اختر الجهاز من نافذة المتصفح', 'اختيار الجهاز يحتاج موافقتك اليدوية.', 'pending');
+      device = await navigator.usb.requestDevice({filters:[]});
+      $('name').textContent = [device.manufacturerName, device.productName].filter(Boolean).join(' ') || 'USB device';
+      $('vid').textContent = fmt(device.vendorId);
+      $('pid').textContent = fmt(device.productId);
+      $('transport').textContent = 'WebUSB';
+      $('mtp').textContent = 'غير مؤكد — WebUSB لا يعني دعم MTP';
+      $('actions').hidden = false;
+      status('تم اختيار جهاز USB', 'تم التعرف على معرّف USB فقط؛ بيانات الموديل وإصدار Android قد لا تكون متاحة.', 'ok');
+      log('تم اختيار الجهاز بنجاح. لم يتم فتح اتصال أو إرسال أوامر للجهاز.\\nيمكنك الآن اختيار إحدى الخطوات أدناه.');
+    } catch (e) {
+      if (e.name === 'NotFoundError') status('لم يتم اختيار جهاز', 'تأكد من توصيل الهاتف واختيار نقل الملفات (MTP)، ثم أعد المحاولة.');
+      else status('تعذر اختيار الجهاز', e.message || 'رفض المتصفح الاتصال.', 'warn');
+    }
+  });
+  $('reset').addEventListener('click', clear);
+  document.querySelectorAll('[data-action]').forEach(btn => btn.addEventListener('click', () => {
+    const action = btn.dataset.action;
+    if (action === 'disconnect') { clear(); return; }
+    if (action === 'firmware') { $('firmwareFile').click(); return; }
+    const messages = {
+      info: `بيانات USB المتاحة:\\nالاسم: ${[device?.manufacturerName, device?.productName].filter(Boolean).join(' ') || 'غير متاح'}\\nVID: ${fmt(device?.vendorId)}\\nPID: ${fmt(device?.productId)}\\n\\nالمتصفح لا يضمن توفير موديل الهاتف أو إصدار النظام عبر MTP.`,
+      files: 'لا توجد واجهة MTP عامة في المتصفحات لعرض ملفات الهاتف مباشرة. افتح مستكشف ملفات Windows > This PC > اسم الهاتف، أو استخدم تطبيقًا موثوقًا لنقل الملفات.',
+      usb: 'تم اختيار الجهاز عبر WebUSB فقط. لم يتم فتح الجهاز أو إرسال أوامر. معلومات USB وحدها لا تكشف وضع الإقلاع أو حالة ADB.',
+      backup: 'قبل النسخ الاحتياطي، افتح قفل الهاتف وتأكد من اختيار نقل الملفات. هذه الصفحة لا تنسخ الملفات تلقائيًا ولا ترفعها إلى أي خادم.'
+    };
+    log(messages[action] || 'الإجراء غير متاح في النموذج الأولي.');
+  }));
+  $('firmwareFile').addEventListener('change', async e => {
+    const f = e.target.files?.[0];
+    if (!f) return;
+    log(`تم اختيار الملف: ${f.name}\\nالحجم: ${f.size.toLocaleString()} bytes\\n\\nهذه النسخة لا ترفع الملف إلى خادم. تحليل المحتوى المتقدم يحتاج إضافة محلل مناسب لصيغة الملف.`);
+    e.target.value = '';
+  });
+  if (navigator.usb?.addEventListener) {
+    navigator.usb.addEventListener('disconnect', e => {
+      if (device && e.device === device) clear();
+    });
+  }
+})();
+</script>
+</body>
+</html>
