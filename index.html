@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="Hamouda XTools — بوابتك الاحترافية لأدوات صيانة الهواتف والبرامج والفيرموير.">
+  <title>Hamouda XTools — أدواتك في مكان واحد</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Hamouda XTools الرئيسية"><span class="brand-mark">HX</span><span>Hamouda <b>XTools</b><small>DEVICE SERVICE PLATFORM</small></span></a>
+  <nav class="desktop-nav"><a class="active" href="#home">الرئيسية</a><a href="#tools">الأدوات</a><a href="#plans">الاشتراكات</a><a href="#about">عن المنصة</a></nav>
+  <div class="header-actions"><button id="themeToggle" class="icon-btn" aria-label="تغيير المظهر" title="تغيير المظهر">☾</button><button id="accountBtn" class="btn btn-outline">تسجيل الدخول</button><button id="mobileMenu" class="icon-btn mobile-only" aria-label="القائمة">☰</button></div>
+</header>
+<main>
+<section id="home" class="hero section-wrap">
+  <div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> منصة صيانة الأجهزة الذكية</div>
+    <h1>كل أدواتك.<br><span>في مكان واحد.</span></h1>
+    <p class="hero-desc">منصة منظمة لمحترفي صيانة الهواتف: اكتشف الأدوات، تابع الإصدارات، ونزّل الملفات المتاحة من مكان واحد.</p>
+    <div class="hero-actions"><a href="#tools" class="btn btn-primary">استكشف الأدوات <span>←</span></a><a href="#plans" class="btn btn-soft">اكتشف الاشتراكات</a></div>
+    <div class="hero-proof"><div class="avatar-stack"><span>H</span><span>X</span><span>+</span></div><div><strong>مصممة للمحترفين</strong><small>واجهة سريعة وتجربة عربية واضحة</small></div></div>
+  </div>
+  <div class="hero-art" aria-label="بطاقة واجهة المنصة">
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="device-card">
+      <div class="device-top"><span class="tiny-logo">HX</span><span class="online"><i></i> SYSTEM ONLINE</span><span>•••</span></div>
+      <div class="device-title">Device workspace <small>مساحة عمل الأجهزة</small></div>
+      <div class="device-stats"><div><span>الأدوات</span><b>TOOLS</b><strong>01</strong></div><div><span>الإصدارات</span><b>VERSIONS</b><strong>LIVE</strong></div></div>
+      <div class="device-row"><span class="app-icon app-blue">↗</span><div><b>Device Utilities</b><small>Android · Utilities</small></div><span class="row-check">✓</span></div>
+      <div class="device-row"><span class="app-icon app-violet">▤</span><div><b>Firmware Library</b><small>Firmware · Repository</small></div><span class="row-check">✓</span></div>
+      <div class="device-bottom"><span><i></i> مساحة منظمة وآمنة</span><span>HX / 01</span></div>
+    </div>
+    <div class="float-chip chip-top"><span>✦</span> واجهة احترافية</div><div class="float-chip chip-bottom"><span>↯</span> أدوات في مكان واحد</div>
+  </div>
+</section>
+<section class="trust-strip"><div><strong>01</strong><span>كتالوج أدوات<br><small>تصنيف وبحث سريع</small></span></div><div><strong>02</strong><span>تنزيلات منظمة<br><small>ملفات يديرها المشرف</small></span></div><div><strong>03</strong><span>حساب شخصي<br><small>جلسات دخول آمنة</small></span></div><div><strong>04</strong><span>جاهزة للتوسع<br><small>اشتراكات ودفع إلكتروني</small></span></div></section>
+<section id="tools" class="section-wrap tools-section">
+  <div class="section-heading"><div><div class="eyebrow">TOOL DIRECTORY / 01</div><h2>اكتشف الأدوات</h2><p>ابحث حسب الاسم أو التصنيف، واعرف تفاصيل كل أداة.</p></div><span class="catalog-count" id="toolCount">جارٍ تحميل الأدوات...</span></div>
+  <div class="toolbar"><label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="ابحث عن أداة أو برنامج..." aria-label="البحث عن أداة"></label><div class="filters" id="filters"><button class="filter active" data-category="الكل">الكل</button><button class="filter" data-category="Windows">Windows</button><button class="filter" data-category="Android">Android</button><button class="filter" data-category="Firmware">Firmware</button></div></div>
+  <div id="toolGrid" class="tool-grid"><div class="loading-card">جارٍ تجهيز كتالوج الأدوات…</div></div>
+</section>
+<section id="plans" class="plans-section"><div class="section-wrap"><div class="section-heading centered"><div><div class="eyebrow">MEMBERSHIP / 02</div><h2>اختر مساحة عملك</h2><p>ابدأ مجاناً، أو اختر باقة Pro عند تفعيل الدفع.</p></div></div>
+  <div class="plan-grid">
+    <article class="plan-card"><div class="plan-label">STARTER</div><h3>مجاني</h3><p>لاستكشاف المنصة والاطلاع على الأدوات.</p><div class="price">0 <small>USD</small></div><ul><li>✓ تصفح كتالوج الأدوات</li><li>✓ حساب شخصي</li><li>✓ تحديث بيانات الحساب</li></ul><button class="btn btn-outline full" data-account>إنشاء حساب مجاني</button></article>
+    <article class="plan-card featured"><div class="plan-ribbon">للمحترفين</div><div class="plan-label">HAMOUDA XTOOLS PRO</div><h3>شهري</h3><p>وصول احترافي عند تفعيل الدفع.</p><div class="price">9.99 <small>USD / شهر</small></div><ul><li>✓ باقة Pro</li><li>✓ دفع آمن عبر Stripe</li><li>✓ إدارة الاشتراك حسب إعداد الخادم</li></ul><button class="btn btn-primary full" data-plan="monthly">اشترك الآن <span>←</span></button></article>
+    <article class="plan-card"><div class="plan-label">ANNUAL</div><h3>سنوي</h3><p>خيار سنوي للمستخدمين الدائمين.</p><div class="price">79.99 <small>USD / سنة</small></div><ul><li>✓ باقة سنوية</li><li>✓ صفحة دفع مستضافة</li><li>✓ قابل للتوسعة</li></ul><button class="btn btn-outline full" data-plan="yearly">اختر الباقة السنوية</button></article>
+  </div><p class="billing-note">ملاحظة: الأسعار نموذجية للواجهة. الدفع لا يصبح فعلياً إلا بعد ضبط حساب Stripe ومفاتيح الخادم والتحقق من إشعارات الدفع.</p>
+</div></section>
+<section id="about" class="section-wrap contact-section"><div class="contact-panel"><div><div class="eyebrow">LET'S CONNECT / 03</div><h2>محتاج مساعدة؟<br><span>خلّينا نتواصل.</span></h2><p>للاستفسار عن أداة أو ملف أو خدمة، تواصل مع فريق Hamouda XTools مباشرة.</p></div><a id="whatsappLink" class="btn btn-primary" href="https://wa.me/" target="_blank" rel="noopener">تواصل عبر واتساب <span>↗</span></a></div></section>
+</main>
+<footer class="footer"><a class="brand footer-brand" href="#"><span class="brand-mark">HX</span><span>Hamouda <b>XTools</b><small>DEVICE SERVICE PLATFORM</small></span></a><span>© <span id="year"></span> Hamouda XTools. جميع الحقوق محفوظة.</span><span class="footer-status"><i></i> المنصة جاهزة للتطوير</span></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog id="authDialog" class="modal"><form id="authForm"><button type="button" class="modal-close" data-close aria-label="إغلاق">×</button><div class="modal-logo">HX</div><div class="eyebrow">YOUR WORKSPACE</div><h2 id="authTitle">أهلاً بعودتك</h2><p id="authSubtitle">سجّل الدخول إلى حسابك.</p><div id="nameField" class="field hidden"><label for="authName">الاسم</label><input id="authName" autocomplete="name" minlength="2" maxlength="70"></div><div class="field"><label for="authEmail">البريد الإلكتروني</label><input id="authEmail" type="email" autocomplete="email" required></div><div class="field"><label for="authPassword">كلمة المرور</label><input id="authPassword" type="password" autocomplete="current-password" minlength="10" required></div><button class="btn btn-primary full" id="authSubmit" type="submit">تسجيل الدخول</button><button class="text-btn" type="button" id="authSwitch">ليس لديك حساب؟ أنشئ حساباً</button><p class="form-note">كلمة المرور يجب ألا تقل عن 10 أحرف.</p></form></dialog>
+<dialog id="adminDialog" class="modal admin-modal"><form id="adminForm"><button type="button" class="modal-close" data-close aria-label="إغلاق">×</button><div class="eyebrow">ADMIN WORKSPACE</div><h2>لوحة إدارة الأدوات</h2><p>أضف أداة إلى الكتالوج. ضع ملفها داخل مجلد private-downloads على الخادم.</p><div class="field"><label for="toolName">اسم الأداة</label><input id="toolName" required maxlength="100"></div><div class="field"><label for="toolCategory">التصنيف</label><select id="toolCategory"><option>Windows</option><option>Android</option><option>Firmware</option><option>iOS</option><option>Utilities</option></select></div><div class="field"><label for="toolDescription">الوصف</label><textarea id="toolDescription" required maxlength="500"></textarea></div><div class="two-fields"><div class="field"><label for="toolVersion">الإصدار</label><input id="toolVersion" value="1.0.0"></div><div class="field"><label for="toolSize">الحجم</label><input id="toolSize" value="—"></div></div><div class="field"><label for="toolFile">اسم الملف على الخادم (اختياري)</label><input id="toolFile" placeholder="tool-setup.zip" pattern="[a-zA-Z0-9._-]+"></div><button class="btn btn-primary full" type="submit">إضافة الأداة</button><p class="form-note">يتطلب هذا الإجراء تسجيل الدخول بحساب مشرف.</p></form></dialog>
+<script src="/app.js" defer></script>
+</body></html>
