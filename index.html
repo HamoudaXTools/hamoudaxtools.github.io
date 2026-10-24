@@ -193,6 +193,26 @@ html[data-theme="dark"] .theme{background:#263341!important;color:#55d6c2!import
 @media(max-width:600px){.auth-gate{padding:12px}.auth-shell{padding:22px 18px;border-radius:20px}.header-user{gap:5px}.user-meta{display:none}.header-user .btn{padding:7px 9px;font-size:11px}}
 </style>
 
+
+<style id="auth-gate-dark-theme-fix">
+/* Keep the first email/password screen in the same dark neon theme as the site. */
+html[data-theme="dark"] .auth-gate{background:radial-gradient(ellipse at 12% 10%,rgba(168,85,247,.28),transparent 42%),radial-gradient(ellipse at 88% 85%,rgba(34,211,238,.18),transparent 40%),linear-gradient(145deg,#070b18,#0d1427 60%,#080d1d)!important;color:#f5f7ff!important}
+html[data-theme="dark"] .auth-shell{background:linear-gradient(145deg,rgba(17,24,43,.96),rgba(10,16,32,.97))!important;color:#f5f7ff!important;border-color:rgba(168,85,247,.42)!important;box-shadow:0 24px 90px rgba(0,0,0,.5),0 0 32px rgba(168,85,247,.12)!important}
+html[data-theme="dark"] .auth-shell .auth-welcome h1,html[data-theme="dark"] .auth-shell .auth-brand strong,html[data-theme="dark"] .auth-shell label{color:#f5f7ff!important}
+html[data-theme="dark"] .auth-shell p,html[data-theme="dark"] .auth-shell small,html[data-theme="dark"] .auth-shell .auth-small{color:#b5c2dc!important}
+html[data-theme="dark"] .auth-shell input{background:#0b1222!important;color:#f5f7ff!important;border-color:#303b5d!important}
+html[data-theme="dark"] .auth-shell input::placeholder{color:#8190ad!important}
+html[data-theme="dark"] .auth-switch{background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.08)}
+html[data-theme="dark"] .auth-switch button{color:#dce6ff!important}
+html[data-theme="dark"] .auth-switch button.active{background:linear-gradient(120deg,#8b5cf6,#22d3ee)!important;color:#fff!important}
+html[data-theme="dark"] .auth-shell .gate-link{color:#67e8f9!important}
+html[data-theme="light"] .auth-gate{background:radial-gradient(ellipse at 12% 10%,rgba(168,85,247,.13),transparent 42%),radial-gradient(ellipse at 88% 85%,rgba(34,211,238,.13),transparent 40%),#f4f7ff!important;color:#172033!important}
+html[data-theme="light"] .auth-shell{background:rgba(255,255,255,.97)!important;color:#172033!important;border-color:#dbe4f2!important}
+html[data-theme="light"] .auth-shell .auth-welcome h1,html[data-theme="light"] .auth-shell .auth-brand strong,html[data-theme="light"] .auth-shell label{color:#172033!important}
+html[data-theme="light"] .auth-shell p,html[data-theme="light"] .auth-shell small,html[data-theme="light"] .auth-shell .auth-small{color:#59677f!important}
+html[data-theme="light"] .auth-shell input{background:#fff!important;color:#172033!important;border-color:#dbe4f2!important}
+</style>
+
 </head>
 <body class="auth-locked">
 <div id="authGate" class="auth-gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
@@ -215,7 +235,7 @@ html[data-theme="dark"] .theme{background:#263341!important;color:#55d6c2!import
       <label for="signupPhone">رقم الهاتف مع مفتاح الدولة</label><input id="signupPhone" type="tel" autocomplete="tel" placeholder="+201XXXXXXXXX" required>
       <div class="otp-row"><button type="button" class="btn outline" id="sendOtpButton">إرسال رمز OTP</button><span id="otpStatus">تحقق الهاتف مطلوب</span></div>
       <label for="signupOtp">رمز التحقق المرسل برسالة SMS</label><input id="signupOtp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="أدخل الرمز المكوّن من 6 أرقام" required>
-      <div id="recaptcha-container"></div>
+      <div id="recaptcha-container"></div><p class="auth-small">إذا لم تصل الرسالة: تأكد من تفعيل Phone في Firebase، والسماح بمصر في SMS region policy، واستخدام رقم حقيقي بصيغة دولية مثل +20، وتحقق من حصة الرسائل. لا تطلب الرمز مرات متتالية بسرعة.</p>
       <button class="btn gate-primary" type="submit" id="createAccountButton">تحقق وأنشئ الحساب</button>
       <p class="auth-small">يتطلب OTP تفعيل Phone في Firebase Authentication، والسماح بالنطاق الحالي، وتوفر حصة SMS. قد تُطبّق رسوم رسائل حسب إعدادات المشروع.</p>
     </form>
@@ -283,7 +303,7 @@ html[data-theme="dark"] .theme{background:#263341!important;color:#55d6c2!import
 </div><p style="color:var(--muted);font-size:12px;margin-top:12px">ملاحظة: لوحة الإدارة، قاعدة البيانات، حفظ المفضلة، والعضويات الفعلية تحتاج إلى Backend وقاعدة بيانات؛ هذه الصفحة الثابتة لا تنشئ حسابات أو اشتراكات حقيقية بمفردها.</p></div></section>
 <section id="contact"><div class="wrap"><div class="contact"><div><h2>تواصل مع المطوّر</h2><p>للاستفسارات وطلبات الدعم حول Hamouda XTools.</p><div class="contactlinks"><a class="btn whatsapp" href="https://wa.me/201003267221" target="_blank" rel="noopener">واتساب مباشر</a><a class="btn call" href="tel:+201003267221">اتصال هاتفي</a></div></div><div style="font-size:42px">✦</div></div></div></section></main>
 <footer><div class="wrap foot"><span>© <span id="year"></span> Hamouda XTools. جميع الحقوق محفوظة.</span><span>Developed by Mahmoud Hamouda</span></div></footer>
-<script>const root=document.documentElement,btn=document.getElementById('theme');try{root.setAttribute('data-theme',localStorage.getItem('hxt-theme')||'light')}catch(e){root.setAttribute('data-theme','light')}function syncThemeButton(){btn.innerHTML=root.getAttribute('data-theme')==='dark'?'☀':'☾';}syncThemeButton();btn.addEventListener('click',()=>{const dark=root.getAttribute('data-theme')!=='dark';root.setAttribute('data-theme',dark?'dark':'light');try{localStorage.setItem('hxt-theme',dark?'dark':'light')}catch(e){}syncThemeButton();document.querySelector('meta[name="theme-color"]').content=dark?'#080d19':'#eef3fb'});document.getElementById('year').textContent=new Date().getFullYear();// Authentication handlers are initialized in the Firebase script below.
+<script>const root=document.documentElement,btn=document.getElementById('theme');try{root.setAttribute('data-theme',localStorage.getItem('hxt-theme')||'dark')}catch(e){root.setAttribute('data-theme','dark')}function syncThemeButton(){btn.innerHTML=root.getAttribute('data-theme')==='dark'?'☀':'☾';}syncThemeButton();btn.addEventListener('click',()=>{const dark=root.getAttribute('data-theme')!=='dark';root.setAttribute('data-theme',dark?'dark':'light');try{localStorage.setItem('hxt-theme',dark?'dark':'light')}catch(e){}syncThemeButton();document.querySelector('meta[name="theme-color"]').content=dark?'#080d19':'#eef3fb'});document.getElementById('year').textContent=new Date().getFullYear();// Authentication handlers are initialized in the Firebase script below.
 
 </script>
 <script>
@@ -360,7 +380,7 @@ html[data-theme="dark"] .theme,html[data-theme="dark"] .btn.outline,html[data-th
   const gate=$('authGate'),note=$('gateNote'),loginForm=$('gateLoginForm'),signupForm=$('gateSignupForm');
   let auth=null,recaptcha=null,confirmation=null,otpPhone='',otpVerifiedCredential=null;
   function say(text,ok=false){if(note){note.textContent=text;note.style.color=ok?'#0d9488':'var(--primary)';}}
-  function friendly(e){const m={'auth/invalid-email':'البريد الإلكتروني غير صحيح.','auth/user-not-found':'لا يوجد حساب بهذا البريد.','auth/wrong-password':'كلمة المرور غير صحيحة.','auth/invalid-credential':'البريد أو كلمة المرور غير صحيحة.','auth/email-already-in-use':'البريد مسجل بالفعل؛ سجّل الدخول بدلًا من إنشاء حساب.','auth/weak-password':'كلمة المرور ضعيفة؛ استخدم 6 أحرف على الأقل.','auth/popup-closed-by-user':'أُغلقت نافذة Google قبل إكمال الدخول.','auth/unauthorized-domain':'نطاق الموقع غير مصرح به في Firebase Authentication > Settings > Authorized domains.','auth/operation-not-allowed':'فعّل طريقة الدخول المطلوبة في Firebase Authentication > Sign-in method.','auth/network-request-failed':'تعذر الاتصال بالإنترنت؛ حاول مرة أخرى.','auth/too-many-requests':'محاولات كثيرة؛ انتظر قليلًا ثم حاول مجددًا.','auth/invalid-phone-number':'رقم الهاتف غير صحيح؛ استخدم الصيغة الدولية مثل +201XXXXXXXXX.','auth/quota-exceeded':'تم تجاوز حد إرسال الرسائل. تحقق من خطة Firebase وإعدادات SMS.','auth/captcha-check-failed':'فشل التحقق الأمني reCAPTCHA؛ حدّث الصفحة وحاول مرة أخرى.','auth/missing-phone-number':'اكتب رقم الهاتف أولًا.','auth/invalid-verification-code':'رمز OTP غير صحيح أو انتهت صلاحيته.','auth/code-expired':'انتهت صلاحية رمز OTP؛ أرسل رمزًا جديدًا.','auth/account-exists-with-different-credential':'هذا البريد مرتبط بطريقة دخول أخرى. جرّب تسجيل الدخول بالطريقة الأصلية.'};return m[e.code]||('تعذر إكمال العملية: '+(e.code||'unknown')+' — '+(e.message||'خطأ غير معروف'));}
+  function friendly(e){const m={'auth/invalid-email':'البريد الإلكتروني غير صحيح.','auth/user-not-found':'لا يوجد حساب بهذا البريد.','auth/wrong-password':'كلمة المرور غير صحيحة.','auth/invalid-credential':'البريد أو كلمة المرور غير صحيحة.','auth/email-already-in-use':'البريد مسجل بالفعل؛ سجّل الدخول بدلًا من إنشاء حساب.','auth/weak-password':'كلمة المرور ضعيفة؛ استخدم 6 أحرف على الأقل.','auth/popup-closed-by-user':'أُغلقت نافذة Google قبل إكمال الدخول.','auth/unauthorized-domain':'نطاق الموقع غير مصرح به في Firebase Authentication > Settings > Authorized domains.','auth/operation-not-allowed':'فعّل طريقة الدخول المطلوبة في Firebase Authentication > Sign-in method.','auth/network-request-failed':'تعذر الاتصال بالإنترنت؛ حاول مرة أخرى.','auth/too-many-requests':'محاولات كثيرة؛ انتظر قليلًا ثم حاول مجددًا.','auth/invalid-phone-number':'رقم الهاتف غير صحيح؛ استخدم الصيغة الدولية مثل +201XXXXXXXXX.','auth/quota-exceeded':'تجاوز المشروع حد رسائل SMS. تحقق من حصة Firebase أو جرّب لاحقًا.' ,'auth/billing-not-enabled':'قد يتطلب إرسال SMS تفعيل الفوترة في مشروع Firebase. راجع خطة المشروع وحدود الرسائل.' ,'auth/missing-app-credential':'تعذر التحقق الأمني. أكمل reCAPTCHA الظاهر وتأكد أن نطاق الموقع مضاف في Authorized domains.' ,'auth/captcha-check-failed':'فشل التحقق الأمني reCAPTCHA؛ أكمل مربع التحقق الظاهر ثم حاول مرة أخرى.','auth/captcha-check-failed':'فشل التحقق الأمني reCAPTCHA؛ حدّث الصفحة وحاول مرة أخرى.','auth/missing-phone-number':'اكتب رقم الهاتف أولًا.','auth/invalid-verification-code':'رمز OTP غير صحيح أو انتهت صلاحيته.','auth/code-expired':'انتهت صلاحية رمز OTP؛ أرسل رمزًا جديدًا.','auth/account-exists-with-different-credential':'هذا البريد مرتبط بطريقة دخول أخرى. جرّب تسجيل الدخول بالطريقة الأصلية.'};return m[e.code]||('تعذر إكمال العملية: '+(e.code||'unknown')+' — '+(e.message||'خطأ غير معروف'));}
   function showMode(mode){const signup=mode==='signup';loginForm.hidden=signup;signupForm.hidden=!signup;$('showLogin').classList.toggle('active',!signup);$('showSignup').classList.toggle('active',signup);$('gateTitle').innerHTML=signup?'أنشئ حسابك في <span>Hamouda XTools</span>':'أهلًا بك في <span>Hamouda XTools</span>';say(signup?'أدخل بياناتك، ثم تحقّق من رقم الهاتف برسالة SMS.':'سجّل الدخول للانتقال إلى الموقع.');}
   function setSignedIn(user){document.body.classList.remove('auth-locked');gate.hidden=true;$('headerLoginLink').hidden=true;$('headerUser').hidden=false;const name=user.displayName||((user.email||'').split('@')[0])||'عضو XTools';$('headerUserName').textContent=name;$('headerUserEmail').textContent=user.email||user.phoneNumber||'';$('headerAvatar').textContent=(name.trim().split(/\s+/).slice(0,2).map(x=>x[0]).join('')||'HX').toUpperCase();}
   function setSignedOut(){document.body.classList.add('auth-locked');gate.hidden=false;$('headerLoginLink').hidden=false;$('headerUser').hidden=true;}
@@ -370,7 +390,34 @@ html[data-theme="dark"] .theme,html[data-theme="dark"] .btn.outline,html[data-th
   loginForm.addEventListener('submit',async e=>{e.preventDefault();if(!loginForm.reportValidity())return;const b=$('gateLoginButton');b.disabled=true;b.textContent='جارٍ تسجيل الدخول…';try{await auth.signInWithEmailAndPassword($('gateEmail').value.trim(),$('gatePassword').value);say('تم تسجيل الدخول بنجاح.',true);}catch(err){say(friendly(err));}finally{b.disabled=false;b.textContent='تسجيل الدخول';}});
   $('gateGoogle').addEventListener('click',async()=>{try{const p=new firebase.auth.GoogleAuthProvider();await auth.signInWithPopup(p);}catch(e){say(friendly(e));}});
   $('gateReset').addEventListener('click',async()=>{const em=$('gateEmail').value.trim();if(!em){say('اكتب بريدك الإلكتروني أولًا ثم اضغط نسيت كلمة المرور.');$('gateEmail').focus();return;}try{await auth.sendPasswordResetEmail(em);say('أرسلنا رابط استعادة كلمة المرور إلى بريدك.',true);}catch(e){say(friendly(e));}});
-  $('sendOtpButton').addEventListener('click',async()=>{const phone=$('signupPhone').value.trim();if(!phone){say('اكتب رقم الهاتف مع مفتاح الدولة أولًا.');$('signupPhone').focus();return;}if(!/^\+[1-9]\d{7,14}$/.test(phone)){say('اكتب رقم الهاتف بصيغة دولية، مثال: +201XXXXXXXXX.');return;}const b=$('sendOtpButton');b.disabled=true;b.textContent='جارٍ الإرسال…';try{if(!recaptcha){recaptcha=new firebase.auth.RecaptchaVerifier('recaptcha-container',{size:'invisible',callback:()=>{say('تم التحقق الأمني، جارٍ إرسال رمز SMS…',true);},'expired-callback':()=>{say('انتهت صلاحية التحقق الأمني. اضغط إرسال الرمز مرة أخرى.');}});await recaptcha.render();}confirmation=await auth.signInWithPhoneNumber(phone,recaptcha);otpPhone=phone;$('otpStatus').textContent='تم إرسال الرمز إلى '+phone;say('تم إرسال رمز SMS. أدخل الرمز المكوّن من 6 أرقام ثم أنشئ الحساب.',true);}catch(e){say(friendly(e));if(recaptcha){try{recaptcha.clear();}catch(_){}recaptcha=null;}}finally{b.disabled=false;b.textContent='إعادة إرسال رمز OTP / إرسال الرمز';}});
+  $('sendOtpButton').addEventListener('click',async()=>{
+    const phone=$('signupPhone').value.trim();
+    if(!phone){say('اكتب رقم الهاتف مع مفتاح الدولة أولًا.');$('signupPhone').focus();return;}
+    if(!/^\+[1-9]\d{7,14}$/.test(phone)){say('اكتب رقم الهاتف بصيغة دولية، مثال: +201XXXXXXXXX.');return;}
+    const b=$('sendOtpButton');
+    if(confirmation && otpPhone===phone){say('تم طلب الرمز بالفعل. افحص رسائل SMS، ثم اكتب الرمز المكوّن من 6 أرقام.',true);return;}
+    b.disabled=true;b.textContent='جارٍ تجهيز التحقق…';
+    try{
+      if(!recaptcha){
+        recaptcha=new firebase.auth.RecaptchaVerifier('recaptcha-container',{
+          size:'normal',
+          callback:()=>say('تم التحقق الأمني. اضغط «إرسال رمز OTP» مرة أخرى لإرسال الرسالة.',true),
+          'expired-callback':()=>say('انتهت صلاحية reCAPTCHA. علّم مربع التحقق مرة أخرى.')
+        });
+        await recaptcha.render();
+        say('علّم مربع reCAPTCHA الظاهر، ثم اضغط «إرسال رمز OTP» مرة ثانية. لم يتم إرسال SMS بعد.',true);
+        return;
+      }
+      b.textContent='جارٍ إرسال الرمز…';
+      confirmation=await auth.signInWithPhoneNumber(phone,recaptcha);
+      otpPhone=phone;
+      $('otpStatus').textContent='تم طلب إرسال الرمز إلى '+phone;
+      say('تم طلب إرسال الرمز. افحص رسائل SMS، وقد يستغرق وصولها بعض الوقت.',true);
+    }catch(e){
+      say(friendly(e));
+      if(recaptcha){try{recaptcha.clear();}catch(_){}recaptcha=null;}
+    }finally{b.disabled=false;b.textContent='إرسال رمز OTP';}
+  });
   signupForm.addEventListener('submit',async e=>{e.preventDefault();if(!signupForm.reportValidity())return;const name=$('signupName').value.trim(),email=$('signupEmail').value.trim(),password=$('signupPassword').value,phone=$('signupPhone').value.trim(),code=$('signupOtp').value.trim(),b=$('createAccountButton');if(!confirmation||otpPhone!==phone){say('اضغط إرسال رمز OTP وانتظر وصول الرسالة أولًا.');return;}if(!/^\d{6}$/.test(code)){say('أدخل رمز OTP المكوّن من 6 أرقام.');return;}b.disabled=true;b.textContent='جارٍ التحقق وإنشاء الحساب…';try{const phoneCredential=firebase.auth.PhoneAuthProvider.credential(confirmation.verificationId,code);const result=await auth.createUserWithEmailAndPassword(email,password);const user=result.user;try{await user.linkWithCredential(phoneCredential);}catch(linkErr){if(linkErr.code==='auth/credential-already-in-use'||linkErr.code==='auth/provider-already-linked'){throw linkErr;}throw linkErr;}await user.updateProfile({displayName:name});await user.reload();confirmation=null;otpPhone='';say('تم إنشاء الحساب والتحقق من رقم الهاتف بنجاح.',true);setSignedIn(auth.currentUser||user);}catch(err){say(friendly(err));}finally{b.disabled=false;b.textContent='تحقق وأنشئ الحساب';}});
   $('logoutButton').addEventListener('click',async()=>{try{await auth.signOut();showMode('login');say('تم تسجيل الخروج.');}catch(e){say(friendly(e));}});
   auth.onAuthStateChanged(user=>{if(user){setSignedIn(user);}else{setSignedOut();}});
