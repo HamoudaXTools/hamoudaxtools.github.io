@@ -377,6 +377,35 @@ header .taskbar-dropdown a:hover{background:color-mix(in srgb,var(--primary) 16%
 @media(max-width:900px){header .navlinks{display:flex!important;flex-wrap:wrap!important;overflow:visible!important;max-height:none!important}header .taskbar-dropdown{top:100%!important;right:0!important;max-width:min(86vw,320px)!important;max-height:60vh!important;overflow-y:auto!important}}
 </style>
 
+
+<style id="xtools-unified-navigation-typography">
+/* Unified header alignment and consistent typography */
+:root{--xt-nav-font:13px}
+body,button,input,select,textarea{font-family:Tahoma,Arial,sans-serif}
+header{z-index:500;isolation:isolate}
+header .wrap{width:min(1240px,96%)}
+header .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px;height:auto;padding:8px 0}
+header .brand{display:flex;align-items:center;gap:9px;flex:0 0 auto;font-size:16px;line-height:1.3;white-space:nowrap}
+header .logo{flex:0 0 40px;width:40px;height:40px}
+header .navlinks{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;gap:4px;overflow-x:auto;overflow-y:visible;scrollbar-width:thin;padding:5px 2px}
+header .navlinks>a,header .navlinks>.taskbar-menu{flex:0 0 auto;display:inline-flex;align-items:center}
+header .navlinks>a{font-size:var(--xt-nav-font);font-weight:700;line-height:1.35;padding:9px 9px;border-radius:9px;white-space:nowrap}
+header .taskbar-trigger{font-family:inherit;font-size:var(--xt-nav-font);font-weight:700;line-height:1.35;padding:9px;white-space:nowrap}
+header .actions{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+header .actions .btn,header .actions button,header .theme{font-family:inherit;font-size:var(--xt-nav-font);font-weight:700;line-height:1.35}
+header .actions .btn{padding:10px 12px;white-space:nowrap}
+header .theme{width:39px;height:39px;flex:0 0 39px}
+header .taskbar-dropdown{z-index:10000;min-width:205px;max-width:min(300px,88vw);font-size:var(--xt-nav-font)}
+header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding:9px 11px;white-space:normal}
+@media(max-width:1050px){header .nav{flex-wrap:wrap;row-gap:5px}header .brand{font-size:15px}header .navlinks{order:3;flex:0 0 100%;width:100%;justify-content:flex-start;gap:4px}header .navlinks>a{font-size:12px;padding:8px}header .taskbar-trigger{font-size:12px;padding:8px}header .actions{margin-inline-start:auto}}
+@media(max-width:540px){header .wrap{width:94%}header .nav{padding:7px 0;min-height:0;gap:6px}header .brand{font-size:14px;gap:7px}header .logo{width:34px;height:34px;flex-basis:34px;border-radius:11px}header .navlinks{gap:3px;padding:4px 1px 7px}header .navlinks>a{font-size:11px;padding:7px 8px}header .taskbar-trigger{font-size:11px;padding:7px 8px;gap:4px}header .actions{gap:5px}header .actions .btn{font-size:11px;padding:8px 9px}header .theme{width:34px;height:34px;flex-basis:34px;font-size:15px}}
+/* Consistent heading and card text scale across sections */
+.heading h2{font-size:clamp(22px,2.2vw,28px);line-height:1.35;font-weight:800}
+.heading p,.card p,.feature small,.lead{line-height:1.7}
+.card h3{font-size:17px;line-height:1.45}
+.card p{font-size:13px}
+.btn,.smallbtn,.model-actions a{font-family:inherit;line-height:1.4}
+</style>
 </head>
 <body class="auth-locked">
 
