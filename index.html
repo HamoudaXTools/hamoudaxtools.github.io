@@ -363,6 +363,20 @@ input:focus,select:focus,textarea:focus{outline:1px solid #ff303b!important;bord
 @media(max-width:600px){.service-types-section{margin:16px 10px!important;padding:22px 14px!important}}
 </style>
 
+
+<style id="xtools-dropdown-layer-fix">
+/* Keep navigation menus above page content on desktop and mobile */
+header{position:sticky!important;top:0!important;z-index:99990!important;isolation:isolate;background:var(--surface,#101a2b)!important}
+header .nav{position:relative;z-index:99991;overflow:visible!important}
+header .navlinks{position:relative;z-index:99992;overflow:visible!important;overflow-x:visible!important;overflow-y:visible!important}
+header .taskbar-menu{position:relative;z-index:99993}
+header .taskbar-menu.open,header .taskbar-menu:focus-within{z-index:99994}
+header .taskbar-dropdown{position:absolute!important;z-index:99999!important;background:var(--surface,#101a2b)!important;opacity:1!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:0 18px 45px rgba(0,0,0,.42)!important;border:1px solid var(--line,#34405a)!important;isolation:isolate}
+header .taskbar-dropdown a{position:relative;z-index:1;background:transparent;color:var(--text,#f5f7ff)!important}
+header .taskbar-dropdown a:hover{background:color-mix(in srgb,var(--primary) 16%,var(--surface))!important}
+@media(max-width:900px){header .navlinks{display:flex!important;flex-wrap:wrap!important;overflow:visible!important;max-height:none!important}header .taskbar-dropdown{top:100%!important;right:0!important;max-width:min(86vw,320px)!important;max-height:60vh!important;overflow-y:auto!important}}
+</style>
+
 </head>
 <body class="auth-locked">
 
