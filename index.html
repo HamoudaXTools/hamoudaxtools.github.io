@@ -28,6 +28,14 @@ footer{border-top:1px solid var(--line);padding:23px 0;color:var(--muted);font-s
 .toolimage .icon{width:54px;height:54px;color:var(--primary)}
 
 
+/* Standard aligned navigation bar */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}
+.navlinks{display:flex;align-items:center;justify-content:flex-start;flex:1;min-width:0;gap:clamp(5px,0.7vw,12px);white-space:nowrap;overflow-x:auto;overflow-y:visible;scrollbar-width:thin;padding:5px 2px}
+.navlinks>a,.navlinks>.taskbar-menu{flex:0 0 auto;display:inline-flex;align-items:center}
+.navlinks>a{padding:9px 7px;border-radius:9px;font-size:clamp(11px,0.78vw,13px)}
+.navlinks>a:hover{background:color-mix(in srgb,var(--primary) 10%,var(--surface));color:var(--primary)}
+.actions{flex:0 0 auto}
+@media(max-width:1100px){.nav{flex-wrap:wrap}.navlinks{order:3;flex:0 0 100%;width:100%;max-width:100%;gap:7px}.navlinks>a{font-size:12px}.actions{margin-inline-start:auto}}
 /* Compact taskbar navigation */
 nav{display:flex;align-items:center;gap:clamp(8px,1.3vw,18px);flex-wrap:nowrap;white-space:nowrap}
 .taskbar-menu{position:relative;display:inline-flex;align-items:center}
@@ -403,7 +411,7 @@ input:focus,select:focus,textarea:focus{outline:1px solid #ff303b!important;bord
 <button aria-expanded="false" class="taskbar-trigger" type="button">الهواتف <span>⌄</span></button>
 <div class="taskbar-dropdown"><a href="#devices">كل الشركات</a><a data-jump="Samsung" href="#devices">Samsung</a><a data-jump="Apple" href="#devices">Apple / iPhone</a><a data-jump="Xiaomi" href="#devices">Xiaomi / Redmi / POCO</a><a data-jump="Google Pixel" href="#devices">Google Pixel</a><a data-jump="Transsion" href="#devices">TECNO / Infinix / itel</a></div></div>
 
-<div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الدمبات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#dumps">كل الدمبات</a><a href="#dumps">Samsung</a><a href="#dumps">Qualcomm</a><a href="#dumps">MediaTek</a><a href="#dumps">UFS</a><a href="#dumps">eMMC</a><a href="#dumps">Firmware / Stock ROM</a></div></div><a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#rest-frp">Rest FRP</a><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden="" id="headerUser"><span class="user-avatar" id="headerAvatar">MH</span><span class="user-meta"><b id="headerUserName">الحساب</b><small id="headerUserEmail"></small></span><button class="btn outline" id="logoutButton" type="button">خروج</button></div></div></div></header>
+<a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden="" id="headerUser"><span class="user-avatar" id="headerAvatar">MH</span><span class="user-meta"><b id="headerUserName">الحساب</b><small id="headerUserEmail"></small></span><button class="btn outline" id="logoutButton" type="button">خروج</button></div></div></div></header>
 <main>
 
 <div class="wrap" id="hamoudaPromoBanner">
@@ -1134,5 +1142,38 @@ a:hover, button:hover { filter:brightness(1.12); }
 </section>
 
 
+
+
+<style id="rest-frp-compact-overrides">
+/* Rest FRP stays embedded in the homepage; compact single-column command list */
+#rest-frp { scroll-margin-top: 100px; }
+#rest-frp .heading h2 { font-size: clamp(19px, 2vw, 24px); }
+#rest-frp .heading p { font-size: 11px; line-height: 1.5; }
+#rest-frp .rest-frp-toolbar { grid-template-columns: minmax(0,1fr); gap: 8px; padding: 9px; border-radius: 12px; }
+#rest-frp .rest-frp-search input, #rest-frp .rest-frp-toolbar select { font-size: 11px; padding: 8px 0; }
+#rest-frp .rest-frp-toolbar select { padding: 8px; }
+#rest-frp .rest-frp-categories { gap: 5px; margin: 8px 0; }
+#rest-frp .rest-filter { font-size: 10px; padding: 5px 8px; }
+#rest-frp .rest-frp-stats { gap: 5px; margin: 7px 0 9px; }
+#rest-frp .rest-frp-stats span { font-size: 10px; padding: 4px 7px; }
+#rest-frp .rest-frp-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 7px; }
+#rest-frp .rest-command { display: grid; grid-template-columns: 30px minmax(110px, 0.75fr) minmax(0,1.4fr) auto; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; box-shadow: none; }
+#rest-frp .rest-command-top { display: contents; }
+#rest-frp .rest-command-icon { width: 28px; height: 28px; border-radius: 8px; font-size: 15px; grid-column: 1; }
+#rest-frp .rest-command h3 { font-size: 11px; line-height: 1.35; grid-column: 2; }
+#rest-frp .rest-command p { font-size: 10px; line-height: 1.4; grid-column: 2; }
+#rest-frp .rest-command-code { font-size: 10px; padding: 5px 7px; border-radius: 6px; grid-column: 3; }
+#rest-frp .rest-command-actions { gap: 4px; margin: 0; grid-column: 4; }
+#rest-frp .rest-command-actions button, #rest-frp .rest-command-actions a { font-size: 10px; padding: 5px 7px; border-radius: 6px; white-space: nowrap; }
+#rest-frp .rest-frp-note { margin-top: 9px; padding: 8px 10px; font-size: 10px; line-height: 1.6; }
+#rest-frp .rest-empty { font-size: 11px; padding: 14px; }
+@media (max-width: 700px) {
+ #rest-frp .rest-command { grid-template-columns: 28px minmax(0,1fr); gap: 6px 8px; }
+ #rest-frp .rest-command h3 { grid-column: 2; }
+ #rest-frp .rest-command p { grid-column: 2; }
+ #rest-frp .rest-command-code { grid-column: 1 / -1; }
+ #rest-frp .rest-command-actions { grid-column: 1 / -1; }
+}
+</style>
 
 </body></html>
