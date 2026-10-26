@@ -1,1 +1,89 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GSMHi WebUSB | Hamouda XTools</title><style>body{margin:0;font-family:system-ui,Arial;background:#f4f7fb;color:#172338}.top{background:white;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 12px #152b4a16}.top a{color:#1466d4;text-decoration:none;font-weight:700}.wrap{max-width:1200px;margin:24px auto;padding:0 16px}.note{background:#eaf2ff;border:1px solid #bcd7ff;border-radius:14px;padding:14px;margin:15px 0}.panel{border:1px solid #dce3ed;border-radius:18px;overflow:hidden;background:white;min-height:620px}iframe{display:block;width:100%;height:850px;border:0}.error{padding:20px;color:#a02d2d}</style></head><body><div class="top"><strong>Hamouda XTools | GSMHi WebUSB</strong><a href="./index.html">← العودة للموقع</a></div><main class="wrap"><h1>قراءة بيانات أجهزة Android عبر USB</h1><div class="note">استخدم Chrome أو Edge على كمبيوتر، وصّل الهاتف بكابل USB وفعّل USB Debugging ووافق على طلب الاتصال من الهاتف. الاتصال يتطلب HTTPS. الأداة الأصلية من DIAA SABRY، بترخيص MIT.</div><div class="panel" id="panel"><p style="padding:20px">جارٍ تحميل الأداة الأصلية…</p></div><p>المصدر: <a href="https://github.com/diaa00/GSMHi-WebUSB-Tool" target="_blank" rel="noopener">GSMHi-WebUSB-Tool على GitHub</a>. تتطلب هذه النسخة اتصالًا بالإنترنت لتحميل ملفات الأداة.</p></main><script>const cdn='https://cdn.jsdelivr.net/gh/diaa00/GSMHi-WebUSB-Tool@main/';(async()=>{try{let r=await fetch(cdn+'index.html');if(!r.ok)throw Error('HTTP '+r.status);let html=await r.text();html=html.replace(/<head([^>]*)>/i,'<head$1><base href="'+cdn+'">');let frame=document.createElement('iframe');frame.title='GSMHi WebUSB Tool';frame.allow='usb';frame.srcdoc=html;document.getElementById('panel').replaceChildren(frame)}catch(e){document.getElementById('panel').innerHTML='<div class="error">تعذر تحميل الأداة. تحقق من الإنترنت أو افتح <a href="https://github.com/diaa00/GSMHi-WebUSB-Tool">المشروع الأصلي</a>.</div>'}})()</script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d19">
+<title>GSMHi WebUSB | Hamouda XTools</title>
+<style>
+:root{color-scheme:dark;--bg:#080d19;--panel:#111a2b;--panel2:#0d1524;--line:#26354d;--muted:#9aa9c0;--text:#f4f7fb;--blue:#4f8cff;--violet:#8b5cf6;--green:#4ade80;--amber:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#18294b 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh;line-height:1.8}
+a{color:#9fc4ff}.wrap{max-width:1100px;margin:auto;padding:24px 18px 60px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:25px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;object-fit:contain;border-radius:13px;background:#fff;padding:4px}.brand b{display:block}.brand small,.muted{color:var(--muted)}.hero,.card{border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(18,31,52,.98),rgba(12,19,33,.98));padding:23px;box-shadow:0 20px 55px #0003}.eyebrow{color:#8bb7ff;font-size:12px;font-weight:800;letter-spacing:1px}.hero h1{font-size:clamp(28px,4vw,42px);margin:8px 0}.hero p{color:#b5c2d6;margin:0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.status{font-size:18px;font-weight:800;margin-bottom:4px}.status[data-state=ok]{color:var(--green)}.status[data-state=warn]{color:var(--amber)}.status[data-state=pending]{color:#93c5fd}.buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #34445f;background:#17243a;color:#e8eef9;border-radius:11px;padding:11px 15px;font:inherit;font-weight:750;text-decoration:none;cursor:pointer}.btn.primary{background:linear-gradient(100deg,#2878f0,#7654ef);border:0;color:#fff}.btn:disabled{opacity:.5;cursor:not-allowed}.info{padding:12px;border:1px solid var(--line);background:var(--panel2);border-radius:12px;margin-top:10px}.log{margin-top:14px;background:#070b13;border:1px solid #253249;border-radius:13px;padding:14px;color:#b9c9df;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.8 ui-monospace,Consolas,monospace;min-height:64px}.notice{margin-top:16px;padding:14px;border:1px solid #5b4a24;background:#30261566;border-radius:13px;color:#f5d58d;line-height:1.9;font-size:13px}.footer{text-align:center;color:#70809a;font-size:12px;margin-top:24px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.hero,.card{padding:17px}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><img class="logo" src="./hamouda.png" alt="Hamouda XTools" onerror="this.style.display='none'"><div><b>Hamouda XTools</b><small>GSMHi WebUSB · Device Lab</small></div></div>
+ <a href="./index.html">← العودة للموقع</a>
+</header>
+<section class="hero">
+ <div class="eyebrow">ANDROID USB TOOLS</div>
+ <h1>GSMHi WebUSB</h1>
+ <p>صفحة اتصال مستقلة للموقع. جرّب فحص توافق المتصفح واختيار جهاز USB، أو افتح نسخة GSMHi الأصلية في تبويب مستقل. تشغيلها داخل iframe كان ممكن يمنع صلاحية USB، لذلك لم نعد نعتمد على iframe.</p>
+ <div class="buttons">
+  <a class="btn primary" id="launch-original" href="https://cdn.jsdelivr.net/gh/diaa00/GSMHi-WebUSB-Tool@main/index.html" target="_blank" rel="noopener noreferrer">فتح أداة GSMHi الأصلية ↗</a>
+  <button class="btn" id="connect">اختيار جهاز USB</button>
+  <button class="btn" id="reset">إعادة ضبط</button>
+ </div>
+</section>
+<div class="grid">
+ <section class="card">
+  <h2>حالة الاتصال</h2>
+  <div id="status" class="status" data-state="idle">في انتظار اختيار الجهاز</div>
+  <div id="substatus" class="muted">وصّل الهاتف بكابل بيانات وافتح قفل الشاشة قبل التجربة.</div>
+  <div class="info"><b>مهم:</b> ظهور جهاز USB لا يعني أن المتصفح يدعم MTP أو أوامر ADB أو التفليش.</div>
+  <div class="log" id="log" aria-live="polite">جاهز للفحص.</div>
+ </section>
+ <section class="card">
+  <h2>قبل الاتصال</h2>
+  <ul>
+   <li>افتح الصفحة المنشورة عبر HTTPS.</li>
+   <li>استخدم Chrome أو Edge حديثًا على الكمبيوتر.</li>
+   <li>استخدم كابل USB يدعم نقل البيانات، وليس الشحن فقط.</li>
+   <li>لأوامر ADB، فعّل USB debugging ووافق على رسالة الثقة على الهاتف عند الحاجة.</li>
+  </ul>
+  <div class="notice">لم يتم تضمين ملفات GSMHi الأصلية داخل ZIP لأن بيئة تجهيز الملف لا تستطيع الوصول إلى GitHub حاليًا. زر «فتح أداة GSMHi الأصلية» يفتح نسخة CDN مباشرة في تبويب مستقل، ويحتاج اتصال إنترنت. فحص USB الموجود هنا محلي ومستقل.</div>
+ </section>
+</div>
+<p class="footer">Hamouda XTools · Developed by Mahmoud Hamouda</p>
+</div>
+<script>
+(() => {
+ const status=document.getElementById('status');
+ const sub=document.getElementById('substatus');
+ const log=document.getElementById('log');
+ const connect=document.getElementById('connect');
+ const reset=document.getElementById('reset');
+ let selected=null;
+ const set=(title,description,state='idle',details='')=>{
+  status.textContent=title;status.dataset.state=state;sub.textContent=description;
+  log.textContent=details||`${new Date().toLocaleString()} — ${title}\n${description}`;
+ };
+ connect.addEventListener('click',async()=>{
+  if(!window.isSecureContext){set('الاتصال غير آمن','افتح الموقع من رابط HTTPS أو localhost.','warn');return;}
+  if(!('usb' in navigator)){set('WebUSB غير مدعوم','جرّب Chrome أو Edge على كمبيوتر. بعض الأجهزة لا تظهر عبر WebUSB.','warn');return;}
+  try{
+   set('في انتظار اختيارك','اختر الجهاز من نافذة المتصفح. لن يتم الاتصال قبل موافقتك.','pending');
+   selected=await navigator.usb.requestDevice({filters:[]});
+   const hex=n=>Number(n).toString(16).padStart(4,'0').toUpperCase();
+   const details=[
+    'تم اختيار جهاز USB بنجاح.',
+    `الاسم: ${[selected.manufacturerName,selected.productName].filter(Boolean).join(' ')||'غير متاح'}`,
+    `Vendor ID: 0x${hex(selected.vendorId)}`,
+    `Product ID: 0x${hex(selected.productId)}`,
+    `USB version: ${selected.usbVersionMajor}.${selected.usbVersionMinor}.${selected.usbVersionSubminor}`,
+    '',
+    'هذه معلومات تعريف USB فقط. لم يتم تنفيذ أوامر صيانة أو قراءة بيانات شخصية.'
+   ].join('\n');
+   set('تم اختيار جهاز USB','نجح المتصفح في إظهار معلومات تعريف الجهاز. هذا لا يضمن دعم MTP أو ADB.', 'ok',details);
+  }catch(e){
+   if(e.name==='NotFoundError')set('لم يتم اختيار جهاز','أغلقت نافذة الاختيار أو لم تختر جهازًا.','idle');
+   else set('تعذر اختيار الجهاز',e.message||'تحقق من أذونات المتصفح والكابل.','warn');
+  }
+ });
+ reset.addEventListener('click',()=>{selected=null;set('في انتظار اختيار الجهاز','وصّل الهاتف وافتح قفل الشاشة قبل التجربة.','idle','جاهز للفحص.');});
+})();
+</script>
+</body></html>
