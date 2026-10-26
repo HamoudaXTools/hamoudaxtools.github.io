@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d19">
+<title>AEmulator | Hamouda XTools</title>
+<style>
+:root{--bg:#080d19;--surface:#101a2b;--text:#f1f5ff;--muted:#a2b0c9;--line:#24334c;--primary:#8b7cff;--mint:#32ded0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,#27235a 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.7 Inter,system-ui,Arial,sans-serif}
+.wrap{width:min(900px,92%);margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--line);gap:12px}.brand{font-weight:900;font-size:18px}.brand span{color:var(--primary)}a{color:inherit;text-decoration:none}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:12px 16px;background:var(--primary);color:white;font-weight:800;margin:4px 6px 4px 0}.btn.alt{background:transparent;border:1px solid var(--line);color:var(--text)}.hero{padding:55px 0 25px}.pill{display:inline-block;border:1px solid var(--line);border-radius:30px;padding:5px 12px;color:var(--mint);font-size:12px;font-weight:800}h1{font-size:clamp(34px,6vw,54px);line-height:1.15;margin:16px 0}p{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:24px 0}.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}.card h2{margin:0;font-size:19px}.warn{border-inline-start:4px solid #f59e0b;background:#f59e0b12;padding:14px 16px;border-radius:12px;color:var(--text)}ul{padding-inline-start:22px;color:var(--muted)}footer{padding:25px 0;color:var(--muted);font-size:12px;border-top:1px solid var(--line);margin-top:40px}@media(max-width:600px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" href="index.html">Hamouda <span>XTools</span></a><a class="btn alt" href="index.html">← Back to website</a></header>
+<main>
+<section class="hero">
+<span class="pill">ANDROID FIRMWARE EMULATOR</span>
+<h1>AEmulator</h1>
+<p>Run supported Android firmware images on a compatible Android phone, including selected recovery ZIP, Odin, factory-image, system image and GSI formats.</p>
+<a class="btn" href="https://github.com/uxazu/aemulator/releases/latest" target="_blank" rel="noopener noreferrer">Download Android APK ↗</a>
+<a class="btn alt" href="https://github.com/uxazu/aemulator" target="_blank" rel="noopener noreferrer">View source code ↗</a>
+<a class="btn alt" href="https://aeforum.uxazuu.space/" target="_blank" rel="noopener noreferrer">Firmware compatibility forum ↗</a>
+</section>
+<div class="warn"><strong>Important:</strong> AEmulator is a native Android application, not a browser app. GitHub Pages cannot execute its Android emulator engine inside this website. Use the APK on a compatible Android phone.</div>
+<section class="grid">
+<article class="card"><h2>Requirements</h2><ul><li>Android 8.0 or later</li><li>64-bit ARM (arm64-v8a) phone</li><li>About 1–3 GB free space per firmware image</li><li>Recent Snapdragon, Dimensity or Tensor chip recommended</li></ul></article>
+<article class="card"><h2>Quick start</h2><ul><li>Open the official releases page and download the APK.</li><li>Install it on a compatible Android phone.</li><li>Choose “Add firmware” and select a firmware file you own or are authorized to use.</li><li>Start the virtual system and check the project forum for compatibility notes.</li></ul></article>
+</section>
+<p>Firmware support varies by device and file format. AEmulator does not mean every ZIP will boot; check the official project documentation and compatibility notes before trying a ROM.</p>
+</main>
+<footer>Unofficial integration page by Hamouda XTools. AEmulator is a separate open-source project; Android, vendor firmware, and trademarks belong to their respective owners. License: GPL-3.0.</footer>
+</div>
+</body>
+</html>

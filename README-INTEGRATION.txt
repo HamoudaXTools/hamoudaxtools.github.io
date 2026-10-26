@@ -1,13 +1,15 @@
-Hamouda XTools - iOS Simulator Integration
+Hamouda XTools Browser Simulator package
+=======================================
 
-Contents:
-- index.html: website homepage with an iOS Simulator navigation link and tools-directory card.
-- ios-simulator/: original simulator source files and app pages, kept in their folder so relative CSS/JS/app links continue to work.
+Files:
+- index.html: main site with project sidebar.
+- ios-simulator/: interactive iPhone-style browser simulator.
+- android-lab.html: interactive Android-style web UI, quick settings, demo apps, local ZIP archive inspector and simulated install console.
 
-Install:
-1. Extract the ZIP.
-2. Upload/commit index.html and the entire ios-simulator folder to the root of your GitHub Pages repository.
-3. Keep the folder name exactly ios-simulator.
-4. After GitHub Pages publishes, open /ios-simulator/ or use the new link on the homepage.
+Important technical boundary:
+- Android Lab is a browser simulation, not a full Android virtual machine.
+- The ZIP inspector reads archive entries locally in the browser using JSZip CDN. The ZIP is not uploaded.
+- The install console is explicitly a simulation and does not flash partitions, install ROMs, or boot Android.
+- GitHub Pages is static hosting and cannot run AEmulator's native Android/ARM emulator engine.
 
-Note: This is a browser-based interactive simulator, not Apple's original iOS operating system. Some features may require internet access (for example, weather data and web fonts).
+Deploy: upload/merge index.html, ios-simulator/ and android-lab.html into the root of the GitHub Pages repository. Keep all ios-simulator subfolders intact.

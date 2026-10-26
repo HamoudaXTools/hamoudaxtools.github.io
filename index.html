@@ -821,8 +821,67 @@ footer{margin-top:28px}
 }
 @media(min-width:1051px){.navlinks{flex-wrap:nowrap}.hx-menu-toggle{display:none}}
 </style>
+
+<style id="hx-project-sidebar-css">
+.hx-side-toggle{position:fixed;inset-inline-start:16px;top:92px;z-index:10020;display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:14px;padding:10px 13px;background:var(--surface);color:var(--text);box-shadow:var(--shadow);font-weight:800}
+.hx-side-toggle .hx-toggle-icon{font-size:20px;line-height:1}
+.hx-side-backdrop{position:fixed;inset:0;background:rgba(3,7,18,.62);backdrop-filter:blur(3px);z-index:10029;opacity:0;visibility:hidden;transition:.22s}
+.hx-project-sidebar{position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(340px,88vw);z-index:10030;background:var(--surface);color:var(--text);border-inline-end:1px solid var(--line);box-shadow:0 20px 70px #0004;transform:translateX(-105%);transition:transform .25s ease;display:flex;flex-direction:column;padding:20px;gap:16px;overflow-y:auto}
+html[dir="rtl"] .hx-project-sidebar{transform:translateX(105%)}
+.hx-project-sidebar.is-open{transform:translateX(0)}
+.hx-side-backdrop.is-open{opacity:1;visibility:visible}
+.hx-side-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:15px;border-bottom:1px solid var(--line)}
+.hx-side-brand{font-size:17px;font-weight:900}.hx-side-brand em{font-style:normal;color:var(--primary)}
+.hx-side-close{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;width:40px;height:40px;font-size:22px}
+.hx-side-label{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.08em}
+.hx-side-item{display:flex;align-items:center;gap:13px;padding:13px;border:1px solid var(--line);border-radius:15px;background:var(--bg);transition:border-color .2s,transform .2s}
+.hx-side-item:hover{border-color:var(--primary);transform:translateY(-1px)}
+.hx-side-icon{width:45px;height:45px;flex:0 0 45px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#6257f5,#08a6a6);color:#fff;font-size:22px}
+.hx-side-item strong{display:block;font-size:14px}.hx-side-item small{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:2px}
+.hx-side-note{margin-top:auto;border:1px solid var(--line);border-radius:13px;padding:12px;color:var(--muted);font-size:12px}
+@media(max-width:700px){.hx-side-toggle{top:82px;inset-inline-start:10px;padding:9px 11px;font-size:12px}.hx-side-toggle .hx-toggle-label{display:none}.hx-project-sidebar{padding:16px}}
+@media(prefers-reduced-motion:reduce){.hx-project-sidebar,.hx-side-backdrop,.hx-side-item{transition:none}}
+</style>
+
 </head>
 <body class="auth-locked">
+
+<button class="hx-side-toggle" id="hxProjectSidebarToggle" type="button" aria-controls="hxProjectSidebar" aria-expanded="false" aria-label="Open project sidebar">
+  <span class="hx-toggle-icon" aria-hidden="true">☰</span><span class="hx-toggle-label">Projects</span>
+</button>
+<div class="hx-side-backdrop" id="hxProjectSidebarBackdrop" hidden></div>
+<aside class="hx-project-sidebar" id="hxProjectSidebar" aria-label="Project tools" aria-hidden="true">
+  <div class="hx-side-head">
+    <div class="hx-side-brand">Hamouda <em>XTools</em><div style="font-size:11px;color:var(--muted);font-weight:500">Project launcher</div></div>
+    <button class="hx-side-close" id="hxProjectSidebarClose" type="button" aria-label="Close sidebar">×</button>
+  </div>
+  <div class="hx-side-label">YOUR PROJECTS</div>
+  <a class="hx-side-item" href="ios-simulator/index.html">
+    <span class="hx-side-icon" aria-hidden="true">📱</span>
+    <span><strong>iOS Simulator</strong><small>Interactive iPhone-style web simulator</small></span>
+  </a>
+  <a class="hx-side-item" href="android-lab.html">
+    <span class="hx-side-icon" aria-hidden="true">🤖</span>
+    <span><strong>Android Lab</strong><small>Interactive Android simulator + ZIP analyzer</small></span>
+  </a>
+  <div class="hx-side-note">iOS Simulator وAndroid Lab يفتحان داخل الموقع. تثبيت ROM هنا تجريبي فقط؛ لا يتم تشغيل نظام Android حقيقي على GitHub Pages.</div>
+</aside>
+<script id="hx-project-sidebar-js">
+(()=> {
+  const toggle=document.getElementById('hxProjectSidebarToggle');
+  const panel=document.getElementById('hxProjectSidebar');
+  const backdrop=document.getElementById('hxProjectSidebarBackdrop');
+  const closeBtn=document.getElementById('hxProjectSidebarClose');
+  if(!toggle||!panel||!backdrop||!closeBtn)return;
+  const open=()=>{backdrop.hidden=false;requestAnimationFrame(()=>backdrop.classList.add('is-open'));panel.classList.add('is-open');panel.setAttribute('aria-hidden','false');toggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';closeBtn.focus();};
+  const close=()=>{panel.classList.remove('is-open');backdrop.classList.remove('is-open');panel.setAttribute('aria-hidden','true');toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';setTimeout(()=>{if(!backdrop.classList.contains('is-open'))backdrop.hidden=true;},240);};
+  toggle.addEventListener('click',()=>panel.classList.contains('is-open')?close():open());
+  closeBtn.addEventListener('click',close);backdrop.addEventListener('click',close);
+  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('is-open'))close();});
+})();
+</script>
+
 
 
 
@@ -888,7 +947,7 @@ footer{margin-top:28px}
 <div class="taskbar-dropdown"><a href="#devices">All Brands</a><a data-jump="Samsung" href="#devices">Samsung</a><a data-jump="Apple" href="#devices">Apple / iPhone</a><a data-jump="Xiaomi" href="#devices">Xiaomi / Redmi / POCO</a><a data-jump="Google Pixel" href="#devices">Google Pixel</a><a data-jump="Transsion" href="#devices">TECNO / Infinix / itel</a></div></div>
 
 <div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">Tools <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">All Tools</a><a href="#dumps"><strong>Dump Library</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>Flashing Tools</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">USB Drivers</a><a href="#chipsets">Chipsets</a><a href="#repair-lab">Technician Lab</a><a href="#drivers">Drivers</a></div></div><a href="#iphone-prices">iPhone Pricing</a><a href="#courses">Courses</a><div class="taskbar-menu hx-framed-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">Web Tools Lab <span>⌄</span></button><div class="taskbar-dropdown"><a href="web-tools.html">🧰 Web Tools Lab</a><a href="connect-device.html">🔌 Connect Device</a></div></div><a href="#about">About</a><a href="#contact">Contact</a>
-<div class="taskbar-menu hx-framed-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">Payments <span>⌄</span></button><div class="taskbar-dropdown"><a href="#payments">💳 Payments &amp; Activation</a><a href="#serial-uploads">📤 Serial Uploads</a></div></div><a class="hx-ios-simulator-link" href="ios-simulator/index.html">📱 iOS Simulator</a></nav><div class="actions"><form class="hx-top-search" id="hxTopSearch" role="search"><input id="hxTopSearchInput" type="search" placeholder="Search the website..." aria-label="Search the website"><button type="submit" aria-label="Search">⌕</button></form><button aria-label="Toggle theme" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">Sign In</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="Open profile" title="Profile">MH</button></div></div></div></header>
+<div class="taskbar-menu hx-framed-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">Payments <span>⌄</span></button><div class="taskbar-dropdown"><a href="#payments">💳 Payments &amp; Activation</a><a href="#serial-uploads">📤 Serial Uploads</a></div></div></nav><div class="actions"><form class="hx-top-search" id="hxTopSearch" role="search"><input id="hxTopSearchInput" type="search" placeholder="Search the website..." aria-label="Search the website"><button type="submit" aria-label="Search">⌕</button></form><button aria-label="Toggle theme" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">Sign In</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="Open profile" title="Profile">MH</button></div></div></div></header>
 <div class="profile-modal" id="profileModal" hidden role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
  <div class="profile-backdrop" data-profile-close></div>
  <section class="profile-panel"><button class="profile-close" type="button" data-profile-close aria-label="Close">×</button>
