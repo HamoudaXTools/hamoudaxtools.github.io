@@ -163,6 +163,78 @@ header,.card,.feature,.preview,.db-toolbar,.model-card,.selected-card,.select-pl
 
 /* Hero image carousel and developer portrait */
 .xtools-carousel{padding:12px!important;overflow:hidden}.carousel-frame{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:17px;background:#050b18;border:1px solid var(--line)}#xtoolsSlide{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .35s ease}.carousel-arrow{position:absolute;top:48%;transform:translateY(-50%);border:1px solid #ffffff45;background:#071326d9;color:white;border-radius:50%;width:39px;height:39px;font-size:18px;z-index:2}.carousel-arrow.prev{left:10px}.carousel-arrow.next{right:10px}.carousel-caption{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:linear-gradient(transparent,#030814ed);color:#fff}.carousel-caption span{font-size:12px;color:#9eeaff}.carousel-dots{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:12px 0 3px}.carousel-dot{width:8px;height:8px;border:0;border-radius:20px;padding:0;background:var(--muted);opacity:.5}.carousel-dot.active{width:24px;opacity:1;background:var(--primary)}.carousel-hint{margin:4px 0 0;text-align:center;font-size:12px;color:var(--muted)}.developer-card>img{width:160px;height:190px;object-fit:cover;object-position:center 25%;border-radius:20px;border:2px solid var(--primary);box-shadow:0 10px 30px #0004}.developer-signature{color:var(--primary);font-weight:800}.developer-photo-fallback{width:160px;height:190px;border-radius:20px;border:2px solid var(--primary);display:grid;place-items:center;background:linear-gradient(135deg,#d4a34e,#187f73);color:white;font-size:42px;font-weight:900;flex-shrink:0}@media(max-width:650px){.carousel-frame{aspect-ratio:4/3}.developer-card>img{width:120px;height:145px}}
+/* Mobile-first cleanup for Hamouda XTools */
+@media (max-width: 700px){
+ html{scroll-padding-top:130px;overflow-x:hidden}
+ body{overflow-x:hidden;font-size:14px;line-height:1.65}
+ .wrap{width:calc(100% - 28px);max-width:100%}
+ header{position:sticky;top:0}
+ .nav{height:auto!important;min-height:0!important;padding:9px 0!important;gap:8px!important;align-items:center!important}
+ .brand{font-size:14px!important;gap:7px!important;max-width:58%;min-width:0}
+ .brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .logo{width:34px!important;height:34px!important;border-radius:11px!important;flex:0 0 34px}
+ .actions{gap:6px!important;max-width:100%}
+ .theme{width:35px!important;height:35px!important;border-radius:10px!important}
+ .actions .btn{padding:7px 9px!important;font-size:11px!important}
+ .hx-top-search{order:4;flex:1 0 100%;width:100%;max-width:none!important;min-width:0;height:38px!important;margin-top:3px}
+ .hx-top-search input{min-width:0;width:100%;font-size:13px!important}
+ .hx-top-search button{flex:0 0 36px}
+ .navlinks{order:5!important;display:flex!important;flex:1 0 100%!important;width:100%!important;max-width:100%!important;gap:6px!important;padding:3px 0 5px!important;overflow-x:auto!important;overscroll-behavior-x:contain;scrollbar-width:none;white-space:nowrap}
+ .navlinks::-webkit-scrollbar{display:none}
+ .navlinks>a,.navlinks .taskbar-trigger{font-size:11px!important;padding:7px 9px!important;flex:0 0 auto!important}
+ .hero{grid-template-columns:minmax(0,1fr)!important;gap:20px!important;padding:27px 0 20px!important}
+ h1{font-size:clamp(29px,8vw,38px)!important;line-height:1.25!important;letter-spacing:0!important;margin:12px 0 10px!important;overflow-wrap:anywhere}
+ .lead{font-size:14px!important;line-height:1.75!important}
+ .pill{font-size:11px!important}
+ .btnrow{gap:8px!important;margin-top:17px!important}
+ .btnrow .btn{font-size:12px!important;padding:10px 12px!important}
+ .facts{gap:12px!important;margin-top:18px!important;font-size:13px}
+ .preview{padding:10px!important;border-radius:17px!important}
+ .appbody{padding:12px!important}
+ .tiles{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ .tile{padding:10px!important;min-width:0}
+ section{padding:28px 0!important}
+ .heading{gap:8px!important;margin-bottom:16px!important}
+ .heading h2{font-size:23px!important;line-height:1.35}
+ .heading p{font-size:13px!important}
+ .cards{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+ .card{padding:13px!important;border-radius:15px!important;min-width:0}
+ .toolimage{height:145px!important}
+ .card h3{font-size:17px!important}
+ .card p{font-size:13px!important;min-height:0!important}
+ .cardfoot{flex-wrap:wrap!important}
+ .features{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+ .feature{padding:13px!important;min-width:0}
+ .contact{padding:18px!important;border-radius:17px!important;gap:13px!important}
+ .contact h2{font-size:22px!important}
+ .contact p{font-size:13px!important}
+ .contact .btn{white-space:normal!important}
+ .contactlinks{gap:7px!important}
+ .contactlinks .btn{font-size:12px!important}
+ footer{padding:18px 0!important}
+ .foot{font-size:11px!important;flex-direction:column!important;gap:5px!important}
+ .taskbar-dropdown{position:fixed!important;left:14px!important;right:14px!important;top:auto!important;max-height:60dvh!important;overflow:auto!important;z-index:30}
+ .db-toolbar{grid-template-columns:minmax(0,1fr)!important}
+ .db-toolbar>*{min-width:0!important;max-width:100%}
+ .model-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .selected-card{min-width:0!important;flex-wrap:wrap!important}
+}
+@media(max-width:420px){
+ .wrap{width:calc(100% - 22px)}
+ .brand{font-size:12px!important;max-width:55%}
+ .actions .phone-short{display:none!important}
+ .tiles{grid-template-columns:minmax(0,1fr)!important}
+ .model-grid{grid-template-columns:minmax(0,1fr)!important}
+ .btnrow .btn{flex:1 1 auto}
+ #authGate .auth-layout{width:calc(100% - 20px)!important;max-width:420px!important;margin:10px auto!important;border-radius:18px!important}
+ #authGate .auth-showcase{padding:18px 14px!important}
+ #authGate .hx-emblem{width:82px!important;height:82px!important}
+ #authGate .hx-wordmark{font-size:24px!important}
+ #authGate .auth-panel{padding:16px!important}
+ #authGate .gate-form input{min-height:42px!important;font-size:14px!important}
+}
+@media(min-width:701px){.wrap{max-width:1120px}}
+
 </style>
 <style id="xtools-final-theme-fix">
 /* Final palette: clean pearl white + electric indigo; explicit working light/dark modes */
@@ -589,6 +661,22 @@ input:focus,select:focus,textarea:focus{outline-color:#43f3ed!important;border-c
  document.addEventListener('DOMContentLoaded',sync);window.addEventListener('pageshow',sync);setInterval(sync,1200);
 })();
 </script>
+
+<style id="hx-homepage-scroll-and-color-fix">
+/* Homepage scrolling and remove red/coral accents across the entire site */
+html{height:auto!important;min-height:100%;overflow-x:hidden!important;overflow-y:auto!important;scroll-behavior:smooth;scrollbar-gutter:stable;}
+body{height:auto!important;min-height:100vh!important;overflow-x:hidden!important;overflow-y:auto!important;position:relative!important;}
+body,main,#app,.page,.site,.content,.main-content{max-height:none!important;}
+body{--mint:#20e3d2!important;--primary:#9b5cff!important;--accent:#20e3d2!important;}
+/* replace the old coral/orange gradient end-stops */
+.contact{background:linear-gradient(115deg,#171c38,#6257f5 58%,#20e3d2)!important;}
+button,.btn,.smallbtn,.model-actions a:first-child{background-image:linear-gradient(110deg,#7657ff,#19cfe0)!important;border-color:#36dff0!important;}
+button:hover,.btn:hover,.smallbtn:hover{filter:brightness(1.08);}
+/* prevent fixed-height containers from trapping the homepage scroll */
+#home,#homePage,#mainPage,main,.main,.page-content{height:auto!important;min-height:0;overflow:visible!important;}
+@media(max-width:700px){html,body{overflow-y:auto!important;overscroll-behavior-y:auto!important;} header{position:sticky!important;top:0;z-index:50;} .navlinks{scrollbar-width:thin!important;} .navlinks::-webkit-scrollbar{display:block!important;height:4px!important;} }
+</style>
+
 </head>
 <body class="auth-locked">
 
