@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d19">
+<title>Serial Upload Status | Hamouda XTools</title>
+<meta name="description" content="Serial upload status and device details for Hamouda XTools.">
+<style>
+:root{--bg:#080d19;--surface:#101a2b;--text:#f1f5ff;--muted:#a2b0c9;--line:#24334c;--primary:#8b7cff;--mint:#32ded0;--shadow:0 20px 55px #0005}
+[data-theme="light"]{color-scheme:light;--bg:#eef3fb;--surface:#fff;--text:#10182b;--muted:#64718a;--line:#dbe4f2;--primary:#6257f5;--mint:#08a6a6;--shadow:0 18px 48px #263a6817}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,color-mix(in srgb,var(--primary) 15%,transparent),transparent 35%),radial-gradient(ellipse at 95% 20%,color-mix(in srgb,var(--mint) 9%,transparent),transparent 30%),var(--bg);color:var(--text);font:16px/1.7 Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}.wrap{width:min(1080px,92%);margin:auto}
+header{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(16px)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:19px}.logo{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#6257f5,#08a6a6);color:white;font-weight:900;box-shadow:0 8px 24px #6257f544}.brand span em{font-style:normal;color:var(--primary)}.nav-actions{display:flex;align-items:center;gap:9px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--surface);color:var(--text);font-weight:750}.btn.primary{background:var(--primary);border-color:var(--primary);color:white}.btn.iconbtn{width:43px;height:43px;padding:0;font-size:18px}
+main{padding:44px 0 60px}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 12px;color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.pulse{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px color-mix(in srgb,var(--mint) 15%,transparent)}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.15;letter-spacing:-.04em;margin:18px 0 10px}.sub{color:var(--muted);margin:0;max-width:680px}.layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;margin-top:30px;align-items:stretch}.panel{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}.device{padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:25px;background:linear-gradient(145deg,color-mix(in srgb,var(--primary) 10%,var(--surface)),var(--surface))}.device-art{min-height:250px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:19px;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--primary) 20%,transparent),transparent 60%),var(--bg)}.phone{width:120px;height:220px;border:3px solid #aeb5c4;border-radius:28px;background:linear-gradient(135deg,#c6c9c9,#8c9399 45%,#d7d8d7);box-shadow:inset 0 0 0 2px #3335,0 25px 45px #0005;position:relative;transform:rotate(-8deg)}.phone:before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);width:42px;height:12px;border-radius:99px;background:#333}.camera{position:absolute;top:20px;left:10px;width:44px;height:48px;border-radius:13px;background:#747b80;border:2px solid #d6d8d8;display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px}.camera i{display:block;border-radius:50%;background:radial-gradient(circle at 35% 35%,#6579a1,#151c27 60%,#02040a);border:1px solid #aeb7c2}.device-name h2{font-size:25px;margin:0}.device-name p{margin:4px 0 0;color:var(--muted)}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.chip{padding:6px 10px;border:1px solid var(--line);border-radius:9px;background:var(--bg);font-size:12px;color:var(--muted);font-weight:750}
+.details{padding:26px}.panel-title{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line)}.panel-title h2{margin:0;font-size:19px}.status{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:10px;background:#10a8791a;color:#34d399;font-size:12px;font-weight:850;white-space:nowrap}.status .check{font-size:15px}.rows{margin-top:5px}.row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.label{color:var(--muted);font-size:14px}.value{text-align:right;font-weight:750;overflow-wrap:anywhere}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.01em}.copy{border:0;background:transparent;color:var(--primary);font:inherit;font-size:12px;font-weight:800;margin-left:7px;cursor:pointer}.wait{margin-top:18px;padding:18px;border:1px solid color-mix(in srgb,var(--primary) 35%,var(--line));border-radius:16px;background:color-mix(in srgb,var(--primary) 8%,var(--surface))}.wait-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.wait h3{font-size:15px;margin:0}.days{font-size:25px;font-weight:900;color:var(--primary)}.wait p{font-size:13px;color:var(--muted);margin:7px 0 0}.progress{height:6px;border-radius:99px;background:var(--line);margin-top:15px;overflow:hidden}.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--primary),var(--mint));border-radius:99px}.notice{margin-top:18px;border:1px solid #dca54a55;background:#dca54a12;color:var(--muted);padding:13px 15px;border-radius:13px;font-size:12px}.notice strong{color:var(--text)}footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.device{gap:18px}.device-art{min-height:210px}.phone{transform:scale(.88) rotate(-8deg)}main{padding-top:30px}.details,.device{padding:20px}.nav{height:auto;min-height:70px;flex-wrap:wrap;padding:10px 0}.brand{font-size:16px}}@media(max-width:430px){.panel-title{align-items:flex-start;flex-direction:column}.row{gap:10px}.label,.value{font-size:13px}.nav-actions .back-label{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="index.html"><span class="logo">HX</span><span>Hamouda <em>XTools</em></span></a>
+<div class="nav-actions"><a class="btn" href="index.html">← <span class="back-label">Back to Website</span></a><button class="btn iconbtn" id="themeBtn" type="button" aria-label="Toggle theme">☼</button></div>
+</div></header>
+<main class="wrap">
+<div class="eyebrow"><span class="pulse"></span> Device Service Record</div>
+<h1>Serial Upload Status</h1>
+<p class="sub">Device information, payment status, and expected waiting period.</p>
+<div class="layout">
+<section class="panel device">
+<div class="device-art" aria-label="Illustration of a natural titanium smartphone"><div class="phone"><div class="camera"><i></i><i></i><i></i><i></i></div></div></div>
+<div class="device-name"><h2>iPhone 15 Pro Max</h2><p>Natural Titanium · 256GB</p><div class="chips"><span class="chip">iOS 27.0.1</span><span class="chip">10-Day Waiting Period</span></div></div>
+</section>
+<section class="panel details">
+<div class="panel-title"><h2>Upload & Payment Details</h2><span class="status"><span class="check">✓</span> Confirmed (Demo)</span></div>
+<div class="rows">
+<div class="row"><span class="label">Device Model</span><span class="value">iPhone 15 Pro Max</span></div>
+<div class="row"><span class="label">Color</span><span class="value">Natural Titanium</span></div>
+<div class="row"><span class="label">Storage</span><span class="value">256GB</span></div>
+<div class="row"><span class="label">iOS Version</span><span class="value">27.0.1</span></div>
+<div class="row"><span class="label">Serial Number (SN)</span><span class="value mono">DEMO15PMNT256 <button class="copy" id="copySn" type="button">COPY</button></span></div>
+<div class="row"><span class="label">Payment Status</span><span class="value"><span class="status">Paid (Demo)</span></span></div>
+<div class="row"><span class="label">Upload Status</span><span class="value"><span class="status">Upload Confirmed (Demo)</span></span></div>
+<div class="row"><span class="label">Upload Date</span><span class="value">October 26, 2026</span></div>
+<div class="row"><span class="label">Upload Time</span><span class="value">9:57 PM (Egypt Time)</span></div>
+</div>
+<div class="wait"><div class="wait-head"><h3>Expected Waiting Period</h3><span class="days">10 Days</span></div><p>Expected follow-up: <strong>November 5, 2026 at 9:57 PM (Egypt Time)</strong></p><div class="progress" aria-label="Waiting period progress"><span></span></div></div>
+<div class="notice"><strong>Demo record:</strong> This page is a visual sample. Payment and upload statuses are not verified against a live service server. Replace the sample serial and statuses with authentic records before presenting this as a real service confirmation.</div>
+</section>
+</div>
+</main>
+<footer><div class="wrap foot"><span>© 2026 Hamouda XTools</span><span>Developed by Mahmoud Hamouda</span></div></footer>
+<script>
+const root=document.documentElement;
+const saved=localStorage.getItem('hxt-serial-theme');
+if(saved) root.dataset.theme=saved;
+document.getElementById('themeBtn').addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('hxt-serial-theme',root.dataset.theme)});
+document.getElementById('copySn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('DEMO15PMNT256');document.getElementById('copySn').textContent='COPIED';setTimeout(()=>document.getElementById('copySn').textContent='COPY',1400)}catch(e){document.getElementById('copySn').textContent='SELECT SN'}});
+</script>
+</body>
+</html>
