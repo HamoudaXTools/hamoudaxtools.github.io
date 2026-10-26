@@ -417,6 +417,19 @@ header .taskbar-trigger{padding:9px 10px!important;border-radius:10px!important}
 @media(max-width:600px){header .navlinks>a,header .taskbar-trigger{font-size:12px!important;text-shadow:0 0 6px rgba(37,139,255,.6),0 0 11px rgba(0,213,255,.25)!important}}
 </style>
 
+
+<style id="xt-organized-navigation-search">
+.xt-top-search{display:flex;align-items:center;gap:7px;flex:0 1 245px;min-width:155px;padding:4px 5px 4px 9px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--muted);box-shadow:0 4px 18px rgba(0,0,0,.06)}
+.xt-top-search>span{font-size:22px;line-height:1;padding-inline:4px;color:var(--primary)}
+.xt-top-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--text);font:inherit;font-size:12px;padding:7px 2px}
+.xt-top-search button{border:0;border-radius:8px;padding:7px 10px;background:linear-gradient(110deg,var(--primary),var(--mint));color:#fff;font:inherit;font-size:12px;font-weight:800;white-space:nowrap}
+@media(max-width:1180px){.xt-top-search{order:4;flex:1 0 100%;max-width:none}.navlinks{order:3}}
+@media(max-width:600px){.xt-top-search{min-width:0}.xt-top-search input{font-size:12px}}
+</style>
+<script id="xt-top-search-script">
+(()=>{const input=document.getElementById('xtTopSearch'),go=document.getElementById('xtTopSearchGo');if(!input||!go)return;function search(){const q=input.value.trim().toLocaleLowerCase('ar');if(!q)return;const sections=[...document.querySelectorAll('main section, main [id]')].filter(el=>el.id);const hit=sections.find(el=>{const t=(el.innerText||'').slice(0,1600).toLocaleLowerCase('ar');return t.includes(q)});if(hit){hit.scrollIntoView({behavior:'smooth',block:'start'});hit.style.outline='2px solid var(--primary)';setTimeout(()=>hit.style.removeProperty('outline'),1600)}else{const device=document.getElementById('deviceSearch');if(device){device.value=input.value;device.dispatchEvent(new Event('input',{bubbles:true}));document.getElementById('devices')?.scrollIntoView({behavior:'smooth',block:'start'})}}}go.addEventListener('click',search);input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();search()}})})();
+</script>
+
 </head>
 <body class="auth-locked">
 
@@ -470,9 +483,9 @@ header .taskbar-trigger{padding:9px 10px!important;border-radius:10px!important}
 <div class="taskbar-dropdown more-dropdown">
 <input class="more-menu-search" type="search" placeholder="ابحث عن قسم..." aria-label="ابحث عن قسم" autocomplete="off" />
 <div class="more-menu-results">
-<a href="#payment">الدفع</a><a href="#service-center">الخدمات</a><a href="#order-center">طلباتي وتتبع الطلبات</a><a href="#download-center">التحميلات</a><a href="#membership-center">العضويات والاشتراكات</a><a href="#admin-center">لوحة الإدارة</a><a href="#analytics-center">الإحصائيات</a><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a>
+<a href="#hamoudaPromoBanner">الواجهة الرئيسية</a><a href="#devices">أقسام الهواتف</a><a href="#tools">الأدوات والتحميلات</a><a href="#iphone-prices">خدمات الآيفون والأسعار</a><a href="#order-center">طريقة الطلب والدفع</a><a href="#tutorial-center">أحدث الشروحات</a><a href="#membership-center">العضويات والاشتراكات</a><a href="#about">عن المطور</a><a href="#contact">التواصل</a><a href="#payment">الدفع</a><a href="#service-center">الخدمات</a><a href="#order-center">طلباتي وتتبع الطلبات</a><a href="#download-center">التحميلات</a><a href="#membership-center">العضويات والاشتراكات</a><a href="#admin-center">لوحة الإدارة</a><a href="#analytics-center">الإحصائيات</a><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a>
 </div><p class="more-search-empty" hidden>مفيش قسم بالاسم ده.</p>
-</div></div></nav><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
+</div></div></nav><label class="xt-top-search" aria-label="البحث في الموقع"><span aria-hidden="true">⌕</span><input id="xtTopSearch" type="search" placeholder="ابحث في الموقع..." autocomplete="off"/><button id="xtTopSearchGo" type="button">بحث</button></label><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
 <div class="profile-modal" id="profileModal" hidden role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
  <div class="profile-backdrop" data-profile-close></div>
  <section class="profile-panel"><button class="profile-close" type="button" data-profile-close aria-label="إغلاق">×</button>
