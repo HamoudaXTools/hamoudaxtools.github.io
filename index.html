@@ -677,6 +677,30 @@ button:hover,.btn:hover,.smallbtn:hover{filter:brightness(1.08);}
 @media(max-width:700px){html,body{overflow-y:auto!important;overscroll-behavior-y:auto!important;} header{position:sticky!important;top:0;z-index:50;} .navlinks{scrollbar-width:thin!important;} .navlinks::-webkit-scrollbar{display:block!important;height:4px!important;} }
 </style>
 
+
+<style id="xtools-final-header-and-color-fix">
+/* Final homepage-only palette and responsive navigation correction */
+:root,[data-theme="dark"]{--primary:#8057ff!important;--mint:#35e6e0!important;--line:#30304b!important;--bg:#080b18!important;--surface:#11162a!important}
+[data-theme="light"]{--primary:#7048ef!important;--mint:#089fa9!important;--line:#d9d5f2!important;--bg:#f7f7ff!important;--surface:#fff!important}
+body{background:radial-gradient(ellipse at 15% -10%,rgba(128,87,255,.18),transparent 40%),radial-gradient(ellipse at 85% 0%,rgba(53,230,224,.10),transparent 35%),var(--bg)!important}
+header{background:rgba(8,13,29,.94)!important;border-bottom:1px solid rgba(53,230,224,.65)!important;box-shadow:0 0 12px rgba(53,230,224,.20),0 8px 28px rgba(128,87,255,.14)!important}
+header .nav{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:8px!important;height:auto!important;min-height:68px!important;padding:8px 0!important}
+header .brand{flex:0 0 auto!important}
+header .navlinks{flex:1 1 500px!important;min-width:0!important;display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:center!important;gap:4px!important;overflow:visible!important;white-space:normal!important;padding:4px!important}
+header .navlinks>a,header .taskbar-trigger{font-size:clamp(11px,1vw,13px)!important;padding:7px 8px!important;white-space:nowrap!important;text-shadow:0 0 7px rgba(53,230,224,.35)!important}
+header .actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;flex:0 1 auto!important;gap:7px!important;flex-wrap:wrap!important}
+header .brand em,header .navlinks a:hover,header .taskbar-trigger:hover{color:#35e6e0!important}
+header .brand .logo,.logo{background:linear-gradient(135deg,#9c7bff,#6541d9 48%,#16cbd0)!important;border:1px solid #8efbff!important;box-shadow:0 0 12px rgba(128,87,255,.55),0 0 22px rgba(53,230,224,.22)!important}
+.btn,.smallbtn,.activation-btn{background:linear-gradient(120deg,#7652e8,#4169df 55%,#0daeb8)!important;border-color:rgba(91,239,239,.65)!important;box-shadow:0 0 12px rgba(53,230,224,.12)!important}
+.btn:hover,.smallbtn:hover{filter:brightness(1.12)!important;box-shadow:0 0 18px rgba(53,230,224,.28)!important}
+.btn.outline,.theme,.taskbar-trigger,.pill,.dot,.online{background-color:#171a32!important;border-color:rgba(128,87,255,.55)!important;color:var(--text,#f7f7ff)!important}
+.preview,.feature,.card,.app,.model-card,.db-toolbar{border-color:rgba(128,87,255,.30)!important}
+/* Neutralize remaining red theme accents on homepage components */
+[style*="#ff20"],[style*="#ff30"],[style*="#ff39"],[style*="#e71928"],[style*="#f0323d"]{border-color:rgba(128,87,255,.4)!important}
+@media(max-width:900px){header .wrap{width:95%!important}header .nav{align-items:flex-start!important}header .brand{order:1}header .actions{order:2;margin-left:auto}header .navlinks{order:3!important;flex:0 0 100%!important;width:100%!important;justify-content:flex-start!important;gap:3px!important;border-top:1px solid rgba(53,230,224,.16)!important;padding-top:7px!important}header .navlinks>a,header .taskbar-trigger{font-size:12px!important;padding:7px 8px!important}header .taskbar-dropdown{max-width:min(88vw,320px)!important;max-height:65vh!important;overflow:auto!important}}
+@media(max-width:540px){header .nav{gap:5px!important;padding:7px 0!important}header .brand{font-size:13px!important}header .brand .logo{width:32px!important;height:32px!important;flex-basis:32px!important}header .actions{gap:4px!important}header .actions .btn{font-size:11px!important;padding:7px 8px!important}.hx-top-search{max-width:155px!important;width:42vw!important}#hxTopSearchInput{min-width:0!important;width:100%!important;font-size:12px!important}header .navlinks{max-height:none!important;overflow-x:auto!important;overflow-y:visible!important;flex-wrap:nowrap!important;justify-content:flex-start!important;scrollbar-width:thin!important}header .navlinks>a,header .taskbar-trigger{flex:0 0 auto!important;font-size:11px!important;padding:7px!important}}
+</style>
+
 </head>
 <body class="auth-locked">
 
