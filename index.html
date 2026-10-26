@@ -163,6 +163,78 @@ header,.card,.feature,.preview,.db-toolbar,.model-card,.selected-card,.select-pl
 
 /* Hero image carousel and developer portrait */
 .xtools-carousel{padding:12px!important;overflow:hidden}.carousel-frame{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:17px;background:#050b18;border:1px solid var(--line)}#xtoolsSlide{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .35s ease}.carousel-arrow{position:absolute;top:48%;transform:translateY(-50%);border:1px solid #ffffff45;background:#071326d9;color:white;border-radius:50%;width:39px;height:39px;font-size:18px;z-index:2}.carousel-arrow.prev{left:10px}.carousel-arrow.next{right:10px}.carousel-caption{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:linear-gradient(transparent,#030814ed);color:#fff}.carousel-caption span{font-size:12px;color:#9eeaff}.carousel-dots{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:12px 0 3px}.carousel-dot{width:8px;height:8px;border:0;border-radius:20px;padding:0;background:var(--muted);opacity:.5}.carousel-dot.active{width:24px;opacity:1;background:var(--primary)}.carousel-hint{margin:4px 0 0;text-align:center;font-size:12px;color:var(--muted)}.developer-card>img{width:160px;height:190px;object-fit:cover;object-position:center 25%;border-radius:20px;border:2px solid var(--primary);box-shadow:0 10px 30px #0004}.developer-signature{color:var(--primary);font-weight:800}.developer-photo-fallback{width:160px;height:190px;border-radius:20px;border:2px solid var(--primary);display:grid;place-items:center;background:linear-gradient(135deg,#d4a34e,#187f73);color:white;font-size:42px;font-weight:900;flex-shrink:0}@media(max-width:650px){.carousel-frame{aspect-ratio:4/3}.developer-card>img{width:120px;height:145px}}
+/* Mobile-first cleanup for Hamouda XTools */
+@media (max-width: 700px){
+ html{scroll-padding-top:130px;overflow-x:hidden}
+ body{overflow-x:hidden;font-size:14px;line-height:1.65}
+ .wrap{width:calc(100% - 28px);max-width:100%}
+ header{position:sticky;top:0}
+ .nav{height:auto!important;min-height:0!important;padding:9px 0!important;gap:8px!important;align-items:center!important}
+ .brand{font-size:14px!important;gap:7px!important;max-width:58%;min-width:0}
+ .brand span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .logo{width:34px!important;height:34px!important;border-radius:11px!important;flex:0 0 34px}
+ .actions{gap:6px!important;max-width:100%}
+ .theme{width:35px!important;height:35px!important;border-radius:10px!important}
+ .actions .btn{padding:7px 9px!important;font-size:11px!important}
+ .hx-top-search{order:4;flex:1 0 100%;width:100%;max-width:none!important;min-width:0;height:38px!important;margin-top:3px}
+ .hx-top-search input{min-width:0;width:100%;font-size:13px!important}
+ .hx-top-search button{flex:0 0 36px}
+ .navlinks{order:5!important;display:flex!important;flex:1 0 100%!important;width:100%!important;max-width:100%!important;gap:6px!important;padding:3px 0 5px!important;overflow-x:auto!important;overscroll-behavior-x:contain;scrollbar-width:none;white-space:nowrap}
+ .navlinks::-webkit-scrollbar{display:none}
+ .navlinks>a,.navlinks .taskbar-trigger{font-size:11px!important;padding:7px 9px!important;flex:0 0 auto!important}
+ .hero{grid-template-columns:minmax(0,1fr)!important;gap:20px!important;padding:27px 0 20px!important}
+ h1{font-size:clamp(29px,8vw,38px)!important;line-height:1.25!important;letter-spacing:0!important;margin:12px 0 10px!important;overflow-wrap:anywhere}
+ .lead{font-size:14px!important;line-height:1.75!important}
+ .pill{font-size:11px!important}
+ .btnrow{gap:8px!important;margin-top:17px!important}
+ .btnrow .btn{font-size:12px!important;padding:10px 12px!important}
+ .facts{gap:12px!important;margin-top:18px!important;font-size:13px}
+ .preview{padding:10px!important;border-radius:17px!important}
+ .appbody{padding:12px!important}
+ .tiles{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ .tile{padding:10px!important;min-width:0}
+ section{padding:28px 0!important}
+ .heading{gap:8px!important;margin-bottom:16px!important}
+ .heading h2{font-size:23px!important;line-height:1.35}
+ .heading p{font-size:13px!important}
+ .cards{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+ .card{padding:13px!important;border-radius:15px!important;min-width:0}
+ .toolimage{height:145px!important}
+ .card h3{font-size:17px!important}
+ .card p{font-size:13px!important;min-height:0!important}
+ .cardfoot{flex-wrap:wrap!important}
+ .features{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+ .feature{padding:13px!important;min-width:0}
+ .contact{padding:18px!important;border-radius:17px!important;gap:13px!important}
+ .contact h2{font-size:22px!important}
+ .contact p{font-size:13px!important}
+ .contact .btn{white-space:normal!important}
+ .contactlinks{gap:7px!important}
+ .contactlinks .btn{font-size:12px!important}
+ footer{padding:18px 0!important}
+ .foot{font-size:11px!important;flex-direction:column!important;gap:5px!important}
+ .taskbar-dropdown{position:fixed!important;left:14px!important;right:14px!important;top:auto!important;max-height:60dvh!important;overflow:auto!important;z-index:30}
+ .db-toolbar{grid-template-columns:minmax(0,1fr)!important}
+ .db-toolbar>*{min-width:0!important;max-width:100%}
+ .model-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .selected-card{min-width:0!important;flex-wrap:wrap!important}
+}
+@media(max-width:420px){
+ .wrap{width:calc(100% - 22px)}
+ .brand{font-size:12px!important;max-width:55%}
+ .actions .phone-short{display:none!important}
+ .tiles{grid-template-columns:minmax(0,1fr)!important}
+ .model-grid{grid-template-columns:minmax(0,1fr)!important}
+ .btnrow .btn{flex:1 1 auto}
+ #authGate .auth-layout{width:calc(100% - 20px)!important;max-width:420px!important;margin:10px auto!important;border-radius:18px!important}
+ #authGate .auth-showcase{padding:18px 14px!important}
+ #authGate .hx-emblem{width:82px!important;height:82px!important}
+ #authGate .hx-wordmark{font-size:24px!important}
+ #authGate .auth-panel{padding:16px!important}
+ #authGate .gate-form input{min-height:42px!important;font-size:14px!important}
+}
+@media(min-width:701px){.wrap{max-width:1120px}}
+
 </style>
 <style id="xtools-final-theme-fix">
 /* Final palette: clean pearl white + electric indigo; explicit working light/dark modes */
@@ -406,33 +478,292 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
 .card p{font-size:13px}
 .btn,.smallbtn,.model-actions a{font-family:inherit;line-height:1.4}
 </style>
+<style id="hx-luxury-split-login">
+.auth-gate{padding:clamp(12px,2.4vw,32px)!important;display:flex!important;align-items:stretch!important;justify-content:center!important;background:radial-gradient(ellipse at 12% 15%,rgba(112,74,255,.28),transparent 38%),radial-gradient(ellipse at 90% 85%,rgba(0,221,235,.20),transparent 38%),#060a15!important;color:#f6f8ff!important}
+.auth-layout{width:min(1240px,100%);min-height:min(760px,calc(100vh - 48px));display:grid;grid-template-columns:minmax(0,1.04fr) minmax(360px,.96fr);overflow:hidden;border:1px solid rgba(139,120,255,.35);border-radius:30px;background:rgba(9,14,30,.72);box-shadow:0 28px 100px #0009,0 0 55px #6d4aff1b;backdrop-filter:blur(22px)}
+.auth-showcase{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(28px,5vw,68px);overflow:hidden;background:radial-gradient(ellipse at 15% 20%,#6435dd55,transparent 48%),radial-gradient(ellipse at 88% 75%,#00d9e455,transparent 42%),linear-gradient(145deg,#0b1024,#0a1830 58%,#10112b);border-inline-end:1px solid #9d8aff30}
+.auth-showcase:before{content:"";position:absolute;z-index:-1;width:430px;height:430px;right:-160px;top:-150px;border-radius:50%;border:1px solid #9c85ff40;box-shadow:0 0 0 32px #8b5cf612,0 0 0 72px #8b5cf60b,0 0 90px #3edff21c}
+.hx-emblem{width:126px;height:126px;display:grid;place-items:center;position:relative;margin-bottom:22px;border-radius:34px;background:linear-gradient(145deg,#a98bff 0%,#6547ed 43%,#13dce0 100%);box-shadow:0 18px 45px #754cff55,inset 0 2px 1px #ffffff9c,inset 0 -8px 20px #080d2840;transform:rotate(-4deg)}
+.hx-emblem:before{content:"";position:absolute;inset:7px;border:1px solid #ffffff80;border-radius:27px}
+.hx-emblem span{font-family:Arial,sans-serif;font-weight:1000;font-size:61px;letter-spacing:-8px;color:#fff;text-shadow:0 3px 14px #15103899;transform:rotate(4deg);margin-left:-6px}
+.hx-wordmark{font-size:clamp(27px,3.1vw,42px);font-weight:1000;letter-spacing:-1px;line-height:1.2;color:#fff}.hx-wordmark em{font-style:normal;background:linear-gradient(90deg,#b8a0ff,#42f1ed);-webkit-background-clip:text;background-clip:text;color:transparent}.hx-developer{font-size:14px;font-weight:800;letter-spacing:2px;color:#b9c6e8;margin-top:12px}.hx-divider{height:3px;width:76px;border-radius:5px;background:linear-gradient(90deg,#9c73ff,#23e6e0);margin:24px 0}.hx-show-title{font-size:clamp(23px,2.5vw,34px);font-weight:900;line-height:1.45;margin:0 0 10px;color:#f8faff}.hx-show-title span{color:#4be7ed}.hx-show-copy{max-width:460px;color:#b9c7e2;font-size:14px;line-height:2;margin:0}.hx-points{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}.hx-points span{border:1px solid #9cafff35;background:#ffffff08;border-radius:12px;padding:8px 11px;color:#e2eaff;font-size:12px;font-weight:700}.hx-points b{color:#48e5df;margin-inline-end:5px}
+.auth-form-side{display:flex;align-items:center;justify-content:center;padding:clamp(18px,3vw,42px);min-width:0;background:linear-gradient(155deg,#0b1124e8,#10172ae8)}.auth-shell{width:100%;max-width:430px;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;backdrop-filter:none!important;box-shadow:none!important;color:#f6f8ff!important}.auth-brand{display:none!important}.auth-welcome .pill{background:#ffffff08!important;border-color:#a6b7e52b!important;color:#aebddd!important}.auth-welcome h1{font-size:clamp(27px,3vw,36px)!important;color:#f8faff!important;margin:16px 0 8px!important}.auth-welcome h1 span{background:linear-gradient(90deg,#b69bff,#47e9ed);-webkit-background-clip:text;background-clip:text;color:transparent!important}.auth-welcome p,.auth-small{color:#aab8d4!important}.auth-switch{background:#ffffff09!important;border:1px solid #aab8d41c;margin:20px 0!important}.auth-switch button{color:#c4cee4!important}.auth-switch button.active{background:linear-gradient(110deg,#8854f7,#5369ff 60%,#15cdd1)!important}.gate-form label{color:#e9edff!important}.gate-form input{background:#080f20!important;border-color:#354362!important;color:#f8faff!important;border-radius:12px!important}.gate-form input::placeholder{color:#7786a7!important}.gate-form input:focus{border-color:#9b80ff!important;box-shadow:0 0 0 3px #8b5cf625!important}.gate-primary{background:linear-gradient(110deg,#8752f7,#5965ff 55%,#11bfc9)!important;box-shadow:0 10px 28px #6952f746!important;border-radius:12px!important;min-height:48px}.gate-link{color:#7fe9f1!important}.gate-separator{color:#8d9bb8!important}.gate-separator span{background:#ffffff20!important}.gate-google{border:1px solid #63739466!important;background:#ffffff08!important;color:#f4f7ff!important;border-radius:12px!important;min-height:46px}.gate-social-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:10px}.gate-social{display:flex;align-items:center;justify-content:center;gap:7px;min-height:43px;border-radius:11px;border:1px solid #64749355;background:#ffffff07;color:#eaf0ff;font-size:12px;font-weight:800}.gate-social svg{width:17px;height:17px;fill:currentColor}.gate-social:hover,.gate-google:hover{border-color:#7e82ff!important;background:#7b65ff16!important}.auth-security{border-color:#ffffff1c!important;color:#8392b1!important}#gateNote{color:#63e4e7!important}
+@media(max-width:850px){.auth-layout{grid-template-columns:1fr;max-width:560px;min-height:auto}.auth-showcase{padding:22px 25px 18px;border-inline-end:0;border-bottom:1px solid #9d8aff30;align-items:center;text-align:center}.hx-emblem{width:74px;height:74px;border-radius:22px;margin-bottom:12px}.hx-emblem:before{inset:5px;border-radius:17px}.hx-emblem span{font-size:38px;letter-spacing:-5px}.hx-wordmark{font-size:25px}.hx-developer{font-size:11px;margin-top:6px}.hx-divider{margin:13px 0;width:55px}.hx-show-title{font-size:20px;margin-bottom:4px}.hx-show-copy{font-size:12px;line-height:1.7}.hx-points{justify-content:center;margin-top:12px}.hx-points span{padding:6px 8px;font-size:10px}.auth-form-side{padding:24px 25px 30px}.auth-welcome h1{font-size:27px!important}}
+@media(max-width:420px){.auth-gate{padding:8px!important}.auth-layout{border-radius:22px}.auth-showcase{padding:18px 16px 14px}.auth-form-side{padding:20px 17px 24px}.hx-points span:last-child{display:none}.gate-social-row{gap:6px}.gate-social{font-size:11px}}
 
-<style id="xtools-header-neon-type-fix">
-/* Slightly larger, softly glowing navigation typography */
-header .navlinks{gap:clamp(12px,1.6vw,22px)!important;align-items:center!important}
-header .navlinks>a,header .taskbar-trigger{font-size:15.5px!important;font-weight:800!important;letter-spacing:.1px!important;line-height:1.35!important;color:#dceeff!important;text-shadow:0 0 7px rgba(37,139,255,.72),0 0 15px rgba(0,213,255,.32)!important;transition:color .2s ease,text-shadow .2s ease,transform .2s ease!important}
-header .navlinks>a:hover,header .taskbar-trigger:hover,header .navlinks>a:focus-visible,header .taskbar-trigger:focus-visible{color:#fff!important;text-shadow:0 0 7px #258bff,0 0 17px #00d5ff,0 0 27px rgba(0,213,255,.65)!important;transform:translateY(-1px)}
-header .taskbar-trigger{padding:9px 10px!important;border-radius:10px!important}
-@media(max-width:900px){header .navlinks{gap:8px!important}header .navlinks>a,header .taskbar-trigger{font-size:14px!important;padding:7px 8px!important}}
-@media(max-width:600px){header .navlinks>a,header .taskbar-trigger{font-size:12px!important;text-shadow:0 0 6px rgba(37,139,255,.6),0 0 11px rgba(0,213,255,.25)!important}}
+/* Corrected exact 50/50 split: oversized logo left, account forms right */
+#authGate.auth-gate{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;min-height:100vh!important;padding:0!important;margin:0!important;display:flex!important;align-items:stretch!important;justify-content:stretch!important;overflow:auto!important;border-radius:0!important}
+#authGate .auth-layout{width:100%!important;max-width:none!important;height:100%!important;min-height:100vh!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;overflow:auto!important}
+#authGate .auth-showcase{padding:clamp(30px,5vw,88px)!important;align-items:center!important;text-align:center!important;justify-content:center!important;border-inline-end:1px solid rgba(157,138,255,.28)!important;border-bottom:0!important}
+#authGate .hx-emblem{width:clamp(190px,23vw,330px)!important;height:clamp(190px,23vw,330px)!important;border-radius:clamp(38px,4vw,66px)!important;margin:0 auto 32px!important;transform:rotate(-4deg)!important;box-shadow:0 28px 90px #754cff70,0 0 100px #12dce033,inset 0 2px 1px #ffffff9c,inset 0 -8px 20px #080d2840!important}
+#authGate .hx-emblem:before{inset:12px!important;border-radius:clamp(28px,3.2vw,52px)!important}
+#authGate .hx-emblem span{font-size:clamp(100px,12vw,170px)!important;letter-spacing:-.12em!important;margin-left:-.12em!important}
+#authGate .hx-wordmark{font-size:clamp(32px,3.5vw,54px)!important;line-height:1.2!important}
+#authGate .hx-developer{font-size:clamp(12px,1.15vw,17px)!important;letter-spacing:clamp(1px,.18vw,3px)!important;margin-top:18px!important}
+#authGate .hx-divider{margin:30px 0!important}
+#authGate .hx-show-title{font-size:clamp(24px,2.4vw,36px)!important}
+#authGate .auth-form-side{padding:clamp(24px,4vw,70px)!important;min-width:0!important}
+#authGate .auth-shell{max-width:480px!important}
+@media(max-width:850px){#authGate.auth-gate{height:100dvh!important}#authGate .auth-layout{grid-template-columns:1fr!important;min-height:100dvh!important;height:auto!important}#authGate .auth-showcase{padding:24px 20px 20px!important;border-inline-end:0!important;border-bottom:1px solid #9d8aff30!important}#authGate .hx-emblem{width:100px!important;height:100px!important;border-radius:26px!important;margin-bottom:14px!important}#authGate .hx-emblem span{font-size:52px!important;letter-spacing:-.12em!important}#authGate .hx-emblem:before{inset:6px!important;border-radius:20px!important}#authGate .hx-wordmark{font-size:27px!important}#authGate .hx-developer{font-size:11px!important;margin-top:7px!important}#authGate .hx-divider{margin:14px 0!important}#authGate .hx-show-title{font-size:20px!important}#authGate .hx-show-copy{font-size:12px!important}#authGate .hx-points{margin-top:10px!important}#authGate .auth-form-side{padding:24px 22px 32px!important}}
+
+
+/* HX fit-to-screen + compact authentication form */
+@media (min-width: 851px){
+  html,body{height:100%;min-height:100%;overflow:hidden!important}
+  #authGate.auth-gate{height:100dvh!important;min-height:0!important;overflow:hidden!important}
+  #authGate .auth-layout{height:100dvh!important;min-height:0!important;overflow:hidden!important}
+  #authGate .auth-showcase{padding:clamp(18px,3vh,36px) clamp(22px,3vw,48px)!important}
+  #authGate .hx-emblem{width:clamp(125px,20vh,210px)!important;height:clamp(125px,20vh,210px)!important;margin-bottom:clamp(10px,2vh,22px)!important;border-radius:36px!important}
+  #authGate .hx-emblem span{font-size:clamp(70px,12vh,112px)!important}
+  #authGate .hx-wordmark{font-size:clamp(27px,3vw,42px)!important}
+  #authGate .hx-developer{font-size:11px!important;margin-top:8px!important;letter-spacing:1.5px!important}
+  #authGate .hx-divider{margin:clamp(10px,2vh,20px) 0!important}
+  #authGate .hx-show-title{font-size:clamp(20px,2.5vh,27px)!important;margin-bottom:6px!important}
+  #authGate .hx-show-copy{font-size:12px!important;line-height:1.65!important}
+  #authGate .hx-points{margin-top:12px!important;gap:6px!important}
+  #authGate .hx-points span{font-size:10px!important;padding:5px 8px!important}
+  #authGate .auth-form-side{padding:clamp(14px,2.7vh,28px) clamp(22px,4vw,58px)!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important}
+  #authGate .auth-shell{width:min(100%,430px)!important;max-width:430px!important;padding:clamp(16px,2.7vh,26px)!important}
+  #authGate .auth-welcome h1,#authGate #gateTitle{font-size:clamp(21px,3vh,29px)!important;line-height:1.25!important;margin:0 0 5px!important}
+  #authGate .auth-welcome p{font-size:11px!important;line-height:1.5!important;margin:0 0 10px!important}
+  #authGate .gate-tabs{margin:10px 0!important}
+  #authGate .gate-form label{font-size:11px!important;margin:5px 0 3px!important}
+  #authGate .gate-form input{height:38px!important;min-height:38px!important;padding:8px 11px!important;font-size:12px!important}
+  #authGate .gate-primary,#authGate .gate-google{min-height:38px!important;padding:8px 12px!important;font-size:12px!important}
+  #authGate .gate-link{font-size:11px!important;padding:5px!important}
+  #authGate .gate-separator{margin:8px 0!important;font-size:10px!important}
+  #authGate .gate-note{font-size:11px!important;margin:5px 0!important}
+  #authGate .gate-social-row{margin-top:7px!important}
+}
+@media(max-width:850px){
+  #authGate.auth-gate{overflow-y:auto!important;overscroll-behavior:contain!important}
+  #authGate .auth-layout{overflow:visible!important}
+  #authGate .auth-form-side{overflow:visible!important}
+}
+</style>
+
+<style id="hx-final-login-fixes">
+/* Final overrides: respect hidden state so successful sign-in reveals the site. */
+#authGate[hidden], #firebaseLicensePanel[hidden], [hidden] { display: none !important; }
+@media (min-width: 851px) {
+  #authGate.auth-gate { height: 100vh !important; min-height: 0 !important; overflow: hidden !important; }
+  #authGate .auth-layout { height: 100vh !important; min-height: 0 !important; overflow: hidden !important; }
+  #authGate .auth-showcase { padding: 24px clamp(24px,3vw,48px) !important; }
+  #authGate .hx-emblem { width: clamp(125px,20vh,190px) !important; height: clamp(125px,20vh,190px) !important; margin-bottom: 14px !important; }
+  #authGate .hx-emblem span { font-size: clamp(70px,11vh,100px) !important; }
+  #authGate .hx-wordmark { font-size: clamp(27px,3vw,42px) !important; }
+  #authGate .hx-divider { margin: 14px 0 !important; }
+  #authGate .hx-show-title { font-size: clamp(20px,2.5vh,27px) !important; margin: 0 0 6px !important; }
+  #authGate .hx-show-copy { font-size: 11px !important; line-height: 1.55 !important; margin: 6px 0 !important; }
+  #authGate .hx-points { margin-top: 8px !important; gap: 5px !important; }
+  #authGate .hx-points span { font-size: 10px !important; padding: 4px 7px !important; }
+  #authGate .auth-form-side { padding: 10px clamp(20px,3vw,44px) !important; overflow: hidden !important; }
+  #authGate .auth-shell { width: min(100%,420px) !important; max-width: 420px !important; padding: 12px 18px !important; }
+  #authGate .auth-brand { margin-bottom: 8px !important; }
+  #authGate .auth-brand .logo { width: 36px !important; height: 36px !important; }
+  #authGate .auth-brand strong { font-size: 15px !important; }
+  #authGate .auth-brand small { font-size: 10px !important; }
+  #authGate .auth-welcome h1, #authGate #gateTitle { font-size: clamp(18px,2.5vh,24px) !important; margin: 4px 0 !important; }
+  #authGate .auth-welcome p { font-size: 10px !important; line-height: 1.4 !important; margin: 4px 0 7px !important; }
+  #authGate .auth-switch { margin: 8px 0 !important; padding: 3px !important; }
+  #authGate .auth-switch button { padding: 7px !important; font-size: 11px !important; }
+  #authGate .gate-form label { font-size: 10px !important; margin: 5px 0 3px !important; }
+  #authGate .gate-form input { height: 35px !important; min-height: 35px !important; padding: 6px 10px !important; font-size: 11px !important; }
+  #authGate .gate-primary, #authGate .gate-google { min-height: 35px !important; padding: 7px 10px !important; font-size: 11px !important; margin-top: 9px !important; }
+  #authGate .gate-link { font-size: 10px !important; margin-top: 4px !important; padding: 3px !important; }
+  #authGate .gate-separator { margin: 6px 0 !important; font-size: 10px !important; }
+  #authGate .gate-social-row { margin-top: 5px !important; }
+  #authGate #gateNote { font-size: 10px !important; margin: 5px 0 0 !important; }
+  #authGate .auth-security { font-size: 9px !important; padding-top: 5px !important; }
+}
+@media (max-height: 700px) and (min-width: 851px) {
+ #authGate .hx-emblem { width: 105px !important; height: 105px !important; }
+ #authGate .hx-emblem span { font-size: 58px !important; }
+ #authGate .auth-shell { padding: 8px 14px !important; }
+ #authGate .auth-welcome .pill { display:none !important; }
+}
 </style>
 
 
-<style id="hx-neon-home-design">
-#hx-neon-home{position:relative;overflow:hidden;padding:26px 0 34px;color:#f4f8ff;background:radial-gradient(ellipse at 50% 25%,#17245a 0,#080d20 47%,#030712 100%);isolation:isolate}
-#hx-neon-home *{box-sizing:border-box}#hx-neon-home .hx-home-bg{position:absolute;inset:0;z-index:-1;opacity:.75;background:radial-gradient(circle at 12% 30%,#5b21b6 0,transparent 22%),radial-gradient(circle at 90% 35%,#075985 0,transparent 25%),linear-gradient(180deg,transparent 60%,#02040c)}
-#hx-neon-home .hx-home-inner{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:20px;min-height:355px;position:relative}
-#hx-neon-home .hx-home-copy{text-align:center;position:relative;z-index:2}.hx-logo-mark{width:84px;height:72px;margin:0 auto 8px;display:flex;justify-content:center;align-items:center;gap:0;font-weight:1000;font-style:italic;font-size:53px;letter-spacing:-9px;color:#fff;filter:drop-shadow(0 0 8px #06b6ff);transform:skew(-8deg)}.hx-logo-mark span:first-child{background:linear-gradient(#7df7ff,#009eff 55%,#735bff);-webkit-background-clip:text;background-clip:text;color:transparent}.hx-logo-mark span:last-child{background:linear-gradient(#f0a7ff,#7d35ff 55%,#00d9ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hx-crown{display:block;color:#ffdc72;font-size:24px;text-shadow:0 0 15px #ffbc35;margin-bottom:-16px}
-#hx-neon-home h1{font-size:clamp(34px,4.5vw,64px);line-height:1.05;margin:8px 0 12px;font-weight:950;letter-spacing:-1px;color:#fff;text-shadow:0 0 18px #078dff99}#hx-neon-home h1 span{background:linear-gradient(90deg,#00e5ff,#8972ff,#f45bff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none}#hx-neon-home h2{font-size:clamp(20px,2.5vw,29px);margin:0 0 8px;color:#fff}#hx-neon-home .hx-home-sub{margin:0 auto 18px;color:#62eaff;font-weight:800}
-#hx-neon-home .hx-service-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;margin:18px auto;max-width:760px}.hx-service{min-height:94px;padding:10px 5px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none!important;border:1px solid #8857ff;border-radius:14px;background:linear-gradient(145deg,#111d3ddd,#090e22ed);box-shadow:inset 0 0 14px #623bff22,0 0 13px #532aff22;color:#f7faff!important}.hx-service:nth-child(3n){border-color:#00d9ff;box-shadow:inset 0 0 14px #00d9ff14,0 0 13px #00d9ff18}.hx-service b{font-size:28px;line-height:1.1;color:#5feaff;text-shadow:0 0 12px #08cfff}.hx-service strong{font-size:14px}.hx-service small{font-size:11px;color:#a9dfff;text-align:center}
-#hx-neon-home .hx-home-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:20px}.hx-btn{display:inline-flex;align-items:center;justify-content:center;min-width:200px;padding:13px 20px;border-radius:18px;text-decoration:none!important;color:#fff!important;font-weight:900;border:1px solid #8e64ff;box-shadow:0 0 22px #743cff55}.hx-purple{background:linear-gradient(110deg,#5c20ff,#b247ff)}.hx-cyan{background:linear-gradient(110deg,#007dba,#00d9e9);border-color:#2af1ff;box-shadow:0 0 22px #00d9ff55}
-#hx-neon-home .hx-phone-art{height:340px;position:relative;display:flex;align-items:center;justify-content:center;perspective:900px}.hx-phone{position:absolute;width:155px;height:280px;border-radius:28px;border:2px solid #91baff;background:linear-gradient(145deg,#283d79,#080d22 55%,#6d24ce);box-shadow:0 0 22px #117dff66,inset 0 0 25px #b16bff44;display:flex;flex-direction:column;justify-content:space-between;padding:22px 15px;transform:rotate(-10deg);z-index:2}.hx-iphone{left:12%;top:32px;background:linear-gradient(145deg,#525ba2,#11152d 60%,#7d21d5)}.hx-samsung{right:10%;top:20px;transform:rotate(10deg);background:linear-gradient(145deg,#7287a7,#10192b 65%,#007aa7)}.hx-cameras{font-size:24px;line-height:1.15;letter-spacing:3px;color:#050913;background:linear-gradient(135deg,#b5c8e8,#19294b);border-radius:15px;padding:8px;width:68px;box-shadow:inset 0 0 4px #fff}.hx-phone>span{font-size:28px;text-align:center;color:#ccecff;text-shadow:0 0 15px #3baaff}.hx-samsung>span{font-size:10px;letter-spacing:2px}.hx-orbit{position:absolute;width:340px;height:340px;border-radius:50%;border:1px solid #2a8cff77;box-shadow:0 0 45px #116cff33,inset 0 0 40px #752bff22}.hx-glow-ring{position:absolute;width:230px;height:230px;border-radius:50%;background:#4b1bd922;filter:blur(25px)}
-#hx-neon-home .hx-stats{display:grid;grid-template-columns:repeat(5,1fr);margin-top:20px;border:1px solid #087ed7;border-radius:15px;background:#061327dd;box-shadow:0 0 20px #008cff1a}.hx-stats>div{display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:center;padding:13px 16px;border-inline-end:1px solid #17315a}.hx-stats>div:last-child{border:0}.hx-stats b{grid-row:span 2;color:#48cfff;font-size:27px;text-shadow:0 0 14px #008cff}.hx-stats strong{color:#29baff;font-size:21px}.hx-stats small{color:#c5e7ff;font-size:12px}
-#hx-neon-home .hx-categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:20px}.hx-category{min-height:215px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 14px 14px;border-radius:17px;text-decoration:none!important;color:#f8faff!important;border:1px solid #7c3cff;background:radial-gradient(circle at 50% 0,#4421a866,transparent 60%),linear-gradient(150deg,#11172e,#070b1a);box-shadow:inset 0 0 24px #702fff18,0 0 15px #5b21b622}.hx-category>span{font-size:34px;color:#d5a4ff;text-shadow:0 0 15px #a855f7}.hx-category h3{font-size:20px;margin:5px 0}.hx-category p{font-size:13px;color:#73e8ff;margin:0}.hx-device-row{font-size:27px;letter-spacing:8px;color:#9ccfff;text-shadow:0 0 12px #008dff;margin:16px 0 10px}.hx-category>strong{margin-top:auto;padding:8px 20px;border:1px solid #a855ff;border-radius:99px;box-shadow:0 0 12px #8b5cf655;font-size:13px}.hx-cat-blue{border-color:#148dff;background:radial-gradient(circle at 50% 0,#063e8a88,transparent 65%),linear-gradient(150deg,#0d1831,#060b17)}.hx-cat-green{border-color:#00d8c4;background:radial-gradient(circle at 50% 0,#006e6a77,transparent 65%),linear-gradient(150deg,#0c202b,#060b17)}.hx-cat-green>span{color:#3df4c5}.hx-cat-blue>span{color:#77c8ff}
-#hx-neon-home .hx-benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}.hx-benefits>div{display:flex;align-items:center;justify-content:center;gap:10px;color:#45cfff;font-size:26px;text-shadow:0 0 12px #087dff}.hx-benefits span{display:flex;flex-direction:column;text-shadow:none}.hx-benefits b{font-size:13px;color:#a8e9ff}.hx-benefits small{font-size:11px;color:#92a9c8}
-@media(max-width:900px){#hx-neon-home .hx-home-inner{grid-template-columns:1fr}.hx-phone-art{height:250px!important;grid-row:1}.hx-phone{height:220px;width:125px}.hx-iphone{left:22%}.hx-samsung{right:22%}.hx-stats{grid-template-columns:repeat(2,1fr)!important}.hx-stats>div{border-bottom:1px solid #17315a}.hx-categories{grid-template-columns:repeat(2,minmax(0,1fr))!important}.hx-benefits{grid-template-columns:repeat(2,1fr)!important}.hx-service-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
-@media(max-width:540px){#hx-neon-home{padding-top:12px}.hx-home-inner{gap:0!important}.hx-phone-art{height:205px!important}.hx-phone{height:180px;width:102px;border-radius:20px;padding:14px 10px}.hx-iphone{left:18%}.hx-samsung{right:18%}.hx-orbit{width:220px;height:220px}#hx-neon-home h1{font-size:34px}.hx-home-sub{font-size:12px}.hx-service-grid{gap:6px!important}.hx-service{min-height:82px;padding:7px 3px}.hx-service b{font-size:24px}.hx-service strong{font-size:12px}.hx-service small{font-size:10px}.hx-btn{min-width:145px;padding:11px 12px;font-size:13px}.hx-stats>div{padding:10px 8px;column-gap:7px}.hx-stats strong{font-size:17px}.hx-stats small{font-size:10px}.hx-categories{gap:9px!important}.hx-category{min-height:190px;padding:13px 8px}.hx-category h3{font-size:16px}.hx-category p{font-size:11px}.hx-device-row{font-size:20px;letter-spacing:3px}.hx-benefits{gap:10px!important}}
-html[data-theme="light"] #hx-neon-home{color:#f4f8ff!important}
+<style id="hx-neon-polish">
+:root{--hx-neon-cyan:#43f3ed;--hx-neon-violet:#b9a0ff;--hx-neon-blue:#6fcaff;--hx-neon-green:#56f0c2;--hx-neon-pink:#d49bff}
+/* Slightly larger, cleaner login form; remove any remaining form frame */
+#authGate .auth-form-side{padding:clamp(24px,4vw,66px)!important}
+#authGate .auth-shell{padding:clamp(12px,1.5vw,22px)!important;border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important}
+#authGate .gate-form input{font-size:13px!important;min-height:42px!important}
+#authGate .gate-primary,#authGate .gate-google{min-height:42px!important;font-size:13px!important}
+#authGate .auth-welcome h1,#authGate .gate-form label,#authGate .auth-switch button{ text-shadow:0 0 7px #9b8cff45,0 0 16px #45e9e933 }
+/* Neon typography throughout, with restrained glow for readability */
+body:not(.plain-text) h1,body h2,body h3,body .brand,body .navlinks a,body .navlinks button,body .card strong,body .card h3,body .heading h2,body .hero h1,body .pill,body .btn,body label,body .hx-wordmark,body .hx-developer,body .hx-show-title,body .hx-points span,body .gate-link,body .gate-note{ text-shadow:0 0 7px #46e8ef30,0 0 15px #9c75ff22 }
+#authGate .hx-wordmark{color:#fff!important;text-shadow:0 0 10px #b39aff66,0 0 28px #4be9ed30!important}
+#authGate .hx-developer{color:#d3caff!important;text-shadow:0 0 9px #a98aff70!important}
+#authGate .hx-show-title span,#authGate .hx-points b{color:var(--hx-neon-cyan)!important;text-shadow:0 0 8px #43f3ed8c,0 0 20px #43f3ed45!important}
+#authGate .gate-primary{background:linear-gradient(110deg,#7658ed,#367de8 55%,#12bfc7)!important;box-shadow:0 0 16px #5b76ff30!important}
+#authGate .auth-switch button.active{background:linear-gradient(110deg,#7658ed,#367de8 60%,#12bfc7)!important}
+/* Replace red/error accents with violet/cyan; errors remain distinguishable by text */
+:root{--danger:#b98cff;--error:#b98cff}
+.error,.danger,.invalid,.status-error,[aria-invalid="true"]{border-color:#b98cff!important;color:#e5d6ff!important}
+/* Icon-only social tiles */
+#authGate .gate-social-row{grid-template-columns:repeat(3,54px)!important;justify-content:center!important;gap:12px!important}
+#authGate .gate-social{width:54px!important;height:46px!important;min-height:46px!important;padding:0!important;font-size:0!important;color:#b7f8ff!important;border-color:#5b78b866!important;background:linear-gradient(145deg,#ffffff0b,#8b7dff0c)!important;box-shadow:inset 0 0 14px #8c76ff0c,0 0 12px #3de7ed10!important}
+#authGate .gate-social svg{width:22px!important;height:22px!important;filter:drop-shadow(0 0 5px #47eaf0a0)}
+#authGate .gate-social:hover{border-color:#43f3ed!important;box-shadow:0 0 16px #43f3ed35!important}
+/* Header search */
+.hx-top-search{display:flex;align-items:center;gap:0;width:clamp(150px,17vw,245px);height:36px;border:1px solid #6d7dba66;border-radius:11px;overflow:hidden;background:#080f20aa;box-shadow:inset 0 0 12px #9c75ff0d,0 0 12px #43f3ed0c}
+.hx-top-search input{width:100%;min-width:0;height:100%;border:0!important;outline:0!important;background:transparent!important;color:#e9faff!important;padding:0 11px!important;font:inherit;font-size:12px!important;box-shadow:none!important}
+.hx-top-search input::placeholder{color:#a4b3d3!important}
+.hx-top-search button{height:100%;width:38px;flex:0 0 38px;border:0;background:linear-gradient(130deg,#7658ed,#1aaecb);color:white;font-size:23px;line-height:1;cursor:pointer;text-shadow:0 0 8px #fff8}
+header .actions{gap:9px}
+@media(max-width:1050px){.hx-top-search{order:4;width:100%;max-width:360px;margin:4px 0}header .actions{flex-wrap:wrap}}
+@media(max-width:540px){.hx-top-search{width:calc(100vw - 36px);max-width:none;order:5}.hx-top-search input{font-size:12px!important}}
+</style>
+
+
+<style id="hx-final-cyan-violet-fix">
+/* Final palette override: remove all red accents in both themes */
+:root,[data-theme="dark"],html[data-theme="dark"]{--bg:#080d1b!important;--surface:#10182b!important;--text:#f2f7ff!important;--muted:#a8b8d7!important;--line:#34456b!important;--primary:#8c70ff!important;--mint:#43f3ed!important;--danger:#b9a0ff!important;--error:#b9a0ff!important}
+[data-theme="light"],html[data-theme="light"]{--bg:#f4f6ff!important;--surface:#ffffff!important;--text:#17213a!important;--muted:#65718d!important;--line:#d8def5!important;--primary:#7658ed!important;--mint:#0daebc!important;--danger:#8b5cf6!important;--error:#8b5cf6!important}
+body{background:radial-gradient(ellipse at 18% 0%,#7658ed28,transparent 38%),radial-gradient(ellipse at 88% 30%,#12cdd51b,transparent 35%),var(--bg)!important;overflow-x:hidden!important}
+body:not(.auth-locked){overflow-y:auto!important;height:auto!important;min-height:100vh!important}
+body:not(.auth-locked)>main,body:not(.auth-locked)>footer,body:not(.auth-locked)>header{display:block!important;visibility:visible!important}
+#authGate[hidden]{display:none!important;visibility:hidden!important;pointer-events:none!important}
+body.auth-locked{overflow:hidden!important}
+header{background:rgba(8,13,29,.82)!important;border-bottom:1px solid #43f3ed99!important;box-shadow:0 0 14px #43f3ed2b,0 0 30px #8c70ff20!important;backdrop-filter:blur(18px) saturate(160%)!important}
+header .brand,header .brand em,header .navlinks a,header .navlinks button,header .actions button,header .actions a{text-shadow:0 0 7px #43f3ed66,0 0 16px #8c70ff55!important}
+header .brand .logo{background:linear-gradient(135deg,#a58aff,#7050ff 48%,#11d5df)!important;border:1px solid #8ffcff!important;box-shadow:0 0 14px #8c70ff99,0 0 26px #43f3ed45!important}
+header .brand em{color:#43f3ed!important}
+header .btn,header .smallbtn,.smallbtn{background:linear-gradient(120deg,#7658ed,#367de8 55%,#12bfc7)!important;border-color:#43f3ed88!important;box-shadow:0 0 14px #43f3ed22!important}
+.btn.outline,.theme,header .taskbar-trigger{border-color:#43f3ed66!important;box-shadow:0 0 12px #8c70ff18!important}
+.hx-top-search{border:1px solid #43f3ed!important;box-shadow:0 0 10px #43f3ed40,0 0 22px #8c70ff25,inset 0 0 14px #43f3ed12!important}
+.hx-top-search input{color:#efffff!important;text-shadow:0 0 8px #43f3ed55!important}
+.hx-top-search input::placeholder{color:#a7c7e6!important}
+.hx-top-search button{background:linear-gradient(135deg,#8c70ff,#43dce7)!important;box-shadow:0 0 15px #43f3ed66!important}
+/* Replace the blocky HX text with a more polished metallic neon emblem */
+#authGate .hx-emblem{background:linear-gradient(145deg,#d7caff 0%,#9270ff 22%,#5337d9 53%,#0bbdc9 100%)!important;border:1px solid #c7faff!important;box-shadow:0 0 0 1px #8c70ff99,0 16px 45px #5337d955,0 0 48px #43f3ed45,inset 0 3px 4px #ffffffbd,inset 0 -12px 22px #07102c88!important;transform:rotate(-3deg)!important}
+#authGate .hx-emblem:before{inset:10px!important;border:2px solid #ffffffa8!important;border-radius:inherit!important;box-shadow:inset 0 0 18px #43f3ed44,0 0 20px #43f3ed33!important}
+#authGate .hx-emblem span{font-family:Arial,sans-serif!important;font-weight:1000!important;letter-spacing:-.13em!important;color:#fff!important;text-shadow:0 2px 0 #4631a8,0 0 8px #fff,0 0 22px #43f3edaa,3px 5px 0 #18164a88!important;filter:drop-shadow(0 0 10px #43f3ed55)!important}
+#authGate .hx-wordmark,#authGate .hx-developer,#authGate .hx-show-title,#authGate .hx-show-copy,#authGate .hx-points span,#authGate .auth-welcome h1,#authGate .gate-form label,#authGate .gate-link,#authGate #gateNote{ text-shadow:0 0 7px #43f3ed45,0 0 18px #8c70ff38!important}
+#authGate .hx-wordmark em,#authGate .hx-show-title span{color:#43f3ed!important;text-shadow:0 0 10px #43f3ed99,0 0 24px #43f3ed55!important}
+#authGate .gate-primary,#authGate .auth-switch button.active,#authGate .gate-google{background:linear-gradient(110deg,#7658ed,#367de8 55%,#12bfc7)!important;border-color:#43f3ed66!important;box-shadow:0 0 18px #43f3ed2b!important}
+#authGate .gate-form input{border-color:#53658c!important;box-shadow:inset 0 0 12px #8c70ff0b!important}
+#authGate .gate-form input:focus{border-color:#43f3ed!important;box-shadow:0 0 0 3px #43f3ed22,0 0 15px #43f3ed22!important}
+#authGate .auth-layout{border-color:#43f3ed40!important;box-shadow:0 0 50px #8c70ff1c!important}
+/* Any old red gaming styles are neutralized globally */
+.card,.feature,.contact,.db-panel,.lab-panel,.preview,.app,.tile,.toolimage,.pill{border-color:color-mix(in srgb,var(--line) 75%,#43f3ed 25%)!important}
+.card:hover{border-color:#43f3ed!important;box-shadow:0 0 20px #43f3ed22,0 16px 44px #0005!important}
+input:focus,select:focus,textarea:focus{outline-color:#43f3ed!important;border-color:#43f3ed!important;box-shadow:0 0 0 3px #43f3ed22!important}
+::selection{background:#8c70ff;color:#fff}
+@media(max-width:850px){#authGate.auth-gate{overflow-y:auto!important}#authGate .auth-layout{min-height:100dvh!important;height:auto!important;overflow:visible!important}}
+</style>
+<script id="hx-auth-layout-scroll-recovery">
+(function(){
+ function sync(){var gate=document.getElementById('authGate');if(!gate)return;var hidden=gate.hidden||getComputedStyle(gate).display==='none';if(hidden){document.body.classList.remove('auth-locked');document.body.style.overflowY='auto';document.documentElement.style.overflowY='auto';}}
+ document.addEventListener('DOMContentLoaded',sync);window.addEventListener('pageshow',sync);setInterval(sync,1200);
+})();
+</script>
+
+<style id="hx-homepage-scroll-and-color-fix">
+/* Homepage scrolling and remove red/coral accents across the entire site */
+html{height:auto!important;min-height:100%;overflow-x:hidden!important;overflow-y:auto!important;scroll-behavior:smooth;scrollbar-gutter:stable;}
+body{height:auto!important;min-height:100vh!important;overflow-x:hidden!important;overflow-y:auto!important;position:relative!important;}
+body,main,#app,.page,.site,.content,.main-content{max-height:none!important;}
+body{--mint:#20e3d2!important;--primary:#9b5cff!important;--accent:#20e3d2!important;}
+/* replace the old coral/orange gradient end-stops */
+.contact{background:linear-gradient(115deg,#171c38,#6257f5 58%,#20e3d2)!important;}
+button,.btn,.smallbtn,.model-actions a:first-child{background-image:linear-gradient(110deg,#7657ff,#19cfe0)!important;border-color:#36dff0!important;}
+button:hover,.btn:hover,.smallbtn:hover{filter:brightness(1.08);}
+/* prevent fixed-height containers from trapping the homepage scroll */
+#home,#homePage,#mainPage,main,.main,.page-content{height:auto!important;min-height:0;overflow:visible!important;}
+@media(max-width:700px){html,body{overflow-y:auto!important;overscroll-behavior-y:auto!important;} header{position:sticky!important;top:0;z-index:50;} .navlinks{scrollbar-width:thin!important;} .navlinks::-webkit-scrollbar{display:block!important;height:4px!important;} }
+</style>
+
+
+<style id="xtools-final-header-and-color-fix">
+/* Final homepage-only palette and responsive navigation correction */
+:root,[data-theme="dark"]{--primary:#8057ff!important;--mint:#35e6e0!important;--line:#30304b!important;--bg:#080b18!important;--surface:#11162a!important}
+[data-theme="light"]{--primary:#7048ef!important;--mint:#089fa9!important;--line:#d9d5f2!important;--bg:#f7f7ff!important;--surface:#fff!important}
+body{background:radial-gradient(ellipse at 15% -10%,rgba(128,87,255,.18),transparent 40%),radial-gradient(ellipse at 85% 0%,rgba(53,230,224,.10),transparent 35%),var(--bg)!important}
+header{background:rgba(8,13,29,.94)!important;border-bottom:1px solid rgba(53,230,224,.65)!important;box-shadow:0 0 12px rgba(53,230,224,.20),0 8px 28px rgba(128,87,255,.14)!important}
+header .nav{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:8px!important;height:auto!important;min-height:68px!important;padding:8px 0!important}
+header .brand{flex:0 0 auto!important}
+header .navlinks{flex:1 1 500px!important;min-width:0!important;display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:center!important;gap:4px!important;overflow:visible!important;white-space:normal!important;padding:4px!important}
+header .navlinks>a,header .taskbar-trigger{font-size:clamp(11px,1vw,13px)!important;padding:7px 8px!important;white-space:nowrap!important;text-shadow:0 0 7px rgba(53,230,224,.35)!important}
+header .actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;flex:0 1 auto!important;gap:7px!important;flex-wrap:wrap!important}
+header .brand em,header .navlinks a:hover,header .taskbar-trigger:hover{color:#35e6e0!important}
+header .brand .logo,.logo{background:linear-gradient(135deg,#9c7bff,#6541d9 48%,#16cbd0)!important;border:1px solid #8efbff!important;box-shadow:0 0 12px rgba(128,87,255,.55),0 0 22px rgba(53,230,224,.22)!important}
+.btn,.smallbtn,.activation-btn{background:linear-gradient(120deg,#7652e8,#4169df 55%,#0daeb8)!important;border-color:rgba(91,239,239,.65)!important;box-shadow:0 0 12px rgba(53,230,224,.12)!important}
+.btn:hover,.smallbtn:hover{filter:brightness(1.12)!important;box-shadow:0 0 18px rgba(53,230,224,.28)!important}
+.btn.outline,.theme,.taskbar-trigger,.pill,.dot,.online{background-color:#171a32!important;border-color:rgba(128,87,255,.55)!important;color:var(--text,#f7f7ff)!important}
+.preview,.feature,.card,.app,.model-card,.db-toolbar{border-color:rgba(128,87,255,.30)!important}
+/* Neutralize remaining red theme accents on homepage components */
+[style*="#ff20"],[style*="#ff30"],[style*="#ff39"],[style*="#e71928"],[style*="#f0323d"]{border-color:rgba(128,87,255,.4)!important}
+@media(max-width:900px){header .wrap{width:95%!important}header .nav{align-items:flex-start!important}header .brand{order:1}header .actions{order:2;margin-left:auto}header .navlinks{order:3!important;flex:0 0 100%!important;width:100%!important;justify-content:flex-start!important;gap:3px!important;border-top:1px solid rgba(53,230,224,.16)!important;padding-top:7px!important}header .navlinks>a,header .taskbar-trigger{font-size:12px!important;padding:7px 8px!important}header .taskbar-dropdown{max-width:min(88vw,320px)!important;max-height:65vh!important;overflow:auto!important}}
+@media(max-width:540px){header .nav{gap:5px!important;padding:7px 0!important}header .brand{font-size:13px!important}header .brand .logo{width:32px!important;height:32px!important;flex-basis:32px!important}header .actions{gap:4px!important}header .actions .btn{font-size:11px!important;padding:7px 8px!important}.hx-top-search{max-width:155px!important;width:42vw!important}#hxTopSearchInput{min-width:0!important;width:100%!important;font-size:12px!important}header .navlinks{max-height:none!important;overflow-x:auto!important;overflow-y:visible!important;flex-wrap:nowrap!important;justify-content:flex-start!important;scrollbar-width:thin!important}header .navlinks>a,header .taskbar-trigger{flex:0 0 auto!important;font-size:11px!important;padding:7px!important}}
+</style>
+
+
+<style id="hx-reference-homepage-redesign">
+:root{--hx-cyan:#25e7ff;--hx-violet:#9b5cff;--hx-deep:#050a19}
+html{scroll-behavior:smooth}
+.hx-home-hero{position:relative;isolation:isolate;overflow:hidden;padding:44px 0 20px;background:radial-gradient(ellipse at 14% 35%,rgba(112,45,255,.25),transparent 34%),radial-gradient(ellipse at 86% 55%,rgba(0,204,255,.2),transparent 32%),linear-gradient(135deg,#05091a,#09152e 58%,#050a18);color:#f6f8ff;border-bottom:1px solid rgba(37,231,255,.28)}
+.hx-home-hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.25;background-image:linear-gradient(rgba(63,139,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(63,139,255,.09) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,#000,transparent)}
+.hx-hero-layout{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;min-height:380px}
+.hx-hero-copy{position:relative;z-index:2}
+.hx-kicker{display:inline-flex;border:1px solid rgba(37,231,255,.35);border-radius:30px;padding:6px 12px;color:var(--hx-cyan);font-weight:900;font-size:11px;letter-spacing:.09em;background:rgba(3,18,42,.7);box-shadow:0 0 22px rgba(37,231,255,.08)}
+.hx-hero-copy h1{position:relative;font-size:clamp(36px,4.6vw,64px);line-height:1.1;letter-spacing:-1.8px;margin:20px 0 12px;font-weight:1000;color:#fff;text-shadow:0 0 25px rgba(37,231,255,.16)}
+.hx-hero-copy h1 span{background:linear-gradient(90deg,#22eaff 5%,#8b72ff 55%,#ed69ff);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none}
+.hx-crown{position:absolute;font-size:22px;color:#ffd66e;top:-13px;margin-inline-start:5px;text-shadow:0 0 14px #ffb52c}
+.hx-hero-copy h2{font-size:clamp(22px,2.4vw,32px);line-height:1.3;margin:0 0 10px;color:#f8f9ff}
+.hx-hero-copy>p{color:#b8c9e9;font-size:15px;max-width:590px;margin:0;line-height:1.9}
+.hx-service-chips{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:20px 0}
+.hx-service-chips a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 4px;border:1px solid rgba(155,92,255,.65);border-radius:13px;background:linear-gradient(145deg,rgba(22,24,65,.9),rgba(4,15,36,.9));color:#f5f7ff;font-size:12px;font-weight:800;box-shadow:inset 0 1px rgba(255,255,255,.07);transition:.2s}
+.hx-service-chips a span{font-size:23px;color:var(--hx-cyan);text-shadow:0 0 13px currentColor}
+.hx-service-chips a:hover{transform:translateY(-3px);border-color:var(--hx-cyan);box-shadow:0 0 22px rgba(37,231,255,.16)}
+.hx-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hx-action{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 22px;border-radius:15px;color:#fff;font-weight:900;border:1px solid transparent;transition:.2s}
+.hx-action:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.hx-action-violet{background:linear-gradient(110deg,#7028ff,#ad4fff);box-shadow:0 0 25px rgba(139,54,255,.35)}
+.hx-action-cyan{background:linear-gradient(110deg,#007bcb,#00d5e6);box-shadow:0 0 25px rgba(0,213,230,.25)}
+.hx-hero-visual{position:relative;min-height:350px;display:grid;place-items:center;isolation:isolate}
+.hx-visual-glass{position:relative;width:min(100%,420px);padding:12px;border:1px solid rgba(114,213,255,.45);border-radius:26px;background:linear-gradient(145deg,rgba(17,37,75,.82),rgba(20,12,58,.72));box-shadow:0 20px 70px rgba(0,0,0,.35),0 0 35px rgba(44,110,255,.15),inset 0 1px rgba(255,255,255,.18);transform:perspective(1000px) rotateY(-4deg)}
+.hx-visual-top{display:flex;align-items:center;justify-content:space-between;color:#a9c9ff;font-size:11px;padding:4px 7px 10px}
+.hx-visual-top span:first-child{color:#ff6b9c;letter-spacing:3px}
+.hx-visual-top span:last-child{font-weight:1000;color:var(--hx-cyan);font-size:18px}
+.hx-visual-glass img{display:block;width:100%;height:260px;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(35,140,255,.2));border-radius:15px}
+.hx-visual-caption{display:flex;flex-direction:column;gap:2px;text-align:center;padding:10px 4px 5px;color:#fff}
+.hx-visual-caption span{font-size:10px;letter-spacing:.12em;color:#8cecff}
+.hx-orbit{position:absolute;border:1px solid rgba(53,131,255,.22);border-radius:50%;z-index:-1;transform:rotate(-25deg)}
+.hx-orbit-one{width:410px;height:220px;box-shadow:0 0 55px rgba(65,69,255,.1)}
+.hx-orbit-two{width:330px;height:310px;border-color:rgba(0,227,255,.18)}
+.hx-float{position:absolute;z-index:2;display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:13px;background:rgba(6,17,41,.88);border:1px solid rgba(37,231,255,.45);box-shadow:0 0 25px rgba(37,231,255,.12);color:#9cefff;font-size:23px}
+.hx-float small{font-size:10px;color:#f6f8ff;font-weight:800}
+.hx-float-left{left:-5px;bottom:45px}.hx-float-right{right:-4px;top:42px}
+.hx-trust-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:22px;border:1px solid rgba(37,231,255,.35);border-radius:17px;background:rgba(2,13,32,.7);box-shadow:0 0 25px rgba(0,130,255,.08)}
+.hx-trust-strip>div{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 10px;border-inline-start:1px solid rgba(100,151,255,.12)}
+.hx-trust-strip>div:first-child{border-inline-start:0}
+.hx-trust-strip>div>b{font-size:28px;color:var(--hx-cyan);text-shadow:0 0 15px rgba(37,231,255,.6)}
+.hx-trust-strip span{display:flex;flex-direction:column;line-height:1.45}.hx-trust-strip strong{font-size:13px;color:#fff}.hx-trust-strip small{font-size:11px;color:#9cb6dc}
+.hx-category-section{padding:30px 0 36px;background:linear-gradient(180deg,#070c1a,#0a1021)}
+.hx-category-heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:17px;color:#fff}
+.hx-category-heading>div>span{font-size:10px;letter-spacing:.15em;color:var(--hx-cyan);font-weight:900}
+.hx-category-heading h2{margin:4px 0 0;font-size:clamp(21px,2.5vw,29px);color:#f8f9ff}
+.hx-category-heading>a{color:#85edff;font-size:12px;font-weight:800;white-space:nowrap}
+.hx-category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.hx-category{position:relative;overflow:hidden;display:flex;flex-direction:column;min-width:0;min-height:260px;padding:18px;border:1px solid rgba(139,92,255,.7);border-radius:18px;background:radial-gradient(ellipse at 50% 110%,rgba(123,40,255,.28),transparent 58%),linear-gradient(145deg,rgba(18,23,64,.98),rgba(5,12,31,.98));color:#fff;box-shadow:0 13px 35px rgba(0,0,0,.25);transition:.22s}
+.hx-category:hover{transform:translateY(-4px);border-color:var(--hx-cyan);box-shadow:0 16px 40px rgba(0,0,0,.32),0 0 22px rgba(37,231,255,.12)}
+.hx-category-icon{font-size:32px;line-height:1.2;color:#e2c8ff;text-shadow:0 0 18px rgba(173,91,255,.7)}
+.hx-category h3{font-size:18px;margin:12px 0 5px;color:#fff}
+.hx-category p{font-size:12px;line-height:1.75;margin:0;color:#b7cbea;min-height:43px}
+.hx-device-art{display:flex;align-items:center;justify-content:center;flex:1;min-height:68px;font-size:39px;letter-spacing:4px;color:#92eaff;text-shadow:0 0 20px rgba(37,231,255,.55)}
+.hx-category-cta{align-self:flex-start;padding:7px 13px;border-radius:99px;border:1px solid rgba(37,231,255,.75);color:#fff;font-size:12px;font-weight:900;background:rgba(0,152,255,.16)}
+.hx-iphone{border-color:rgba(180,74,255,.75);background:radial-gradient(ellipse at 50% 100%,rgba(132,30,255,.35),transparent 55%),linear-gradient(145deg,#17113b,#080d22)}
+.hx-samsung{border-color:rgba(61,131,255,.8);background:radial-gradient(ellipse at 50% 100%,rgba(22,93,255,.3),transparent 55%),linear-gradient(145deg,#0b1c46,#080d22)}
+.hx-android{border-color:rgba(0,225,205,.7);background:radial-gradient(ellipse at 50% 100%,rgba(0,209,178,.23),transparent 55%),linear-gradient(145deg,#082c37,#080d22)}
+.hx-boxes{border-color:rgba(176,71,255,.75);background:radial-gradient(ellipse at 50% 100%,rgba(160,35,255,.26),transparent 55%),linear-gradient(145deg,#24103f,#080d22)}
+.hx-pricing-wrap{padding-top:10px;padding-bottom:16px}.hx-pricing-wrap .activation-pricing{margin-top:0;background:#0d1428;border-color:rgba(155,92,255,.32);color:#f5f7ff}.hx-pricing-wrap .activation-pricing p{color:#b7cbea}
+@media(max-width:900px){.hx-hero-layout{grid-template-columns:1fr 0.85fr;gap:18px}.hx-service-chips{grid-template-columns:repeat(3,minmax(0,1fr))}.hx-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hx-visual-glass img{height:220px}}
+@media(max-width:650px){.hx-home-hero{padding:28px 0 15px}.hx-hero-layout{grid-template-columns:minmax(0,1fr);gap:14px}.hx-hero-copy h1{font-size:clamp(34px,10vw,49px);margin-top:14px}.hx-hero-copy h2{font-size:23px}.hx-hero-copy>p{font-size:13px}.hx-service-chips{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:15px 0}.hx-service-chips a{padding:8px 3px;font-size:11px}.hx-service-chips a span{font-size:20px}.hx-action{flex:1 1 140px;padding:10px 12px;font-size:12px}.hx-hero-visual{min-height:260px}.hx-visual-glass{width:min(90%,360px);transform:none}.hx-visual-glass img{height:190px}.hx-float-left{left:0;bottom:25px}.hx-float-right{right:0;top:18px}.hx-float{font-size:18px;padding:7px 9px}.hx-float small{font-size:9px}.hx-trust-strip{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}.hx-trust-strip>div{justify-content:flex-start;padding:11px 9px}.hx-trust-strip>div:nth-child(3){border-inline-start:0}.hx-trust-strip>div>b{font-size:23px}.hx-trust-strip strong{font-size:11px}.hx-trust-strip small{font-size:10px}.hx-category-section{padding:24px 0}.hx-category-grid{gap:9px}.hx-category{padding:13px;min-height:235px}.hx-category h3{font-size:15px}.hx-category p{font-size:11px;min-height:56px}.hx-device-art{font-size:29px;min-height:50px}.hx-category-cta{font-size:11px;padding:6px 10px}.hx-category-heading{align-items:flex-start;flex-direction:column}.hx-category-heading h2{font-size:22px}.hx-pricing-wrap .activation-plans{grid-template-columns:1fr}}
+@media(max-width:380px){.hx-category-grid{grid-template-columns:1fr}.hx-category{min-height:215px}.hx-device-art{min-height:40px}.hx-hero-actions{flex-direction:column}.hx-action{width:100%}}
 </style>
 
 </head>
@@ -447,6 +778,17 @@ html[data-theme="light"] #hx-neon-home{color:#f4f8ff!important}
 </video>
 </div>
 <div aria-labelledby="gateTitle" aria-modal="true" class="auth-gate" id="authGate" role="dialog">
+<div class="auth-layout">
+<aside class="auth-showcase" aria-label="Hamouda XTools brand">
+<div class="hx-emblem" aria-label="HX logo"><span>HX</span></div>
+<div class="hx-wordmark">Hamouda <em>XTools</em></div>
+<div class="hx-developer">DEVELOPED BY MAHMOUD HAMOUDA</div>
+<div class="hx-divider"></div>
+<h2 class="hx-show-title">عالم أدوات السوفت وير<br/><span>بين إيديك</span></h2>
+<p class="hx-show-copy">منصة احترافية لخدمات الهواتف، أدوات الصيانة، حلول السوفت وير، وتحديثات الفنيين — كل أدواتك في مكان واحد.</p>
+<div class="hx-points"><span><b>✦</b> أدوات احترافية</span><span><b>✓</b> خدمات موثوقة</span><span><b>⚡</b> دعم فني</span></div>
+</aside>
+<div class="auth-form-side">
 <div class="auth-shell">
 <div class="auth-brand"><span class="logo">HX</span><div><strong>Hamouda <em>XTools</em></strong><small>بوابة الحساب الآمن</small></div></div>
 <div class="auth-welcome"><span class="pill"><span class="dot"></span> XTOOLS MEMBER ACCESS</span><h1 id="gateTitle">أهلًا بك في <span>Hamouda XTools</span></h1><p>سجّل الدخول للانتقال إلى الموقع، أو أنشئ حسابًا جديدًا بالبريد ورقم الهاتف والتحقق برمز OTP.</p></div>
@@ -457,7 +799,12 @@ html[data-theme="light"] #hx-neon-home{color:#f4f8ff!important}
 <button class="btn gate-primary" id="gateLoginButton" type="submit">تسجيل الدخول</button>
 <button class="gate-link" id="gateReset" type="button">نسيت كلمة المرور؟</button>
 <div class="gate-separator"><span></span>أو<span></span></div>
-<button class="btn outline gate-google" id="gateGoogle" type="button"><b>G</b> المتابعة باستخدام Google</button>
+<button class="btn outline gate-google" id="gateGoogle" type="button"><b aria-hidden="true">G</b> المتابعة باستخدام Google</button>
+<div class="gate-social-row" aria-label="منصات التواصل">
+<div class="gate-social" title="Apple"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 12.8c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.2 2.9-2.4.9-1.3 1.2-2.6 1.2-2.7-.1 0-2.6-1-2.6-3.9ZM14.5 6.3c.6-.8 1-1.9.9-3-.9 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.2Z"/></svg></div>
+<div class="gate-social" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></div>
+<div class="gate-social" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 6.4a5.7 5.7 0 0 1-3.5-4.7V1h-4.1v15.1a3.2 3.2 0 1 1-2.3-3.1V8.8a7.3 7.3 0 1 0 6.4 7.3V8.4a9.7 9.7 0 0 0 5.6 1.8V6.1a5.7 5.7 0 0 1-2.1.3Z"/></svg></div>
+</div>
 </form>
 <form class="gate-form" hidden="" id="gateSignupForm">
 <label for="signupName">الاسم الكامل</label><input autocomplete="name" id="signupName" minlength="2" placeholder="اسمك الكامل" required="" type="text"/>
@@ -479,18 +826,13 @@ html[data-theme="light"] #hx-neon-home{color:#f4f8ff!important}
 <p class="auth-small auth-security">لا تشارك رمز OTP أو كلمة المرور مع أي شخص.</p>
 </div>
 </div>
+</div>
+</div>
 <header><div class="wrap nav"><a class="brand" href="#"><span class="logo">HX</span><span>Hamouda <em>XTools</em></span></a><nav class="navlinks"><div class="taskbar-menu">
 <button aria-expanded="false" class="taskbar-trigger" type="button">الهواتف <span>⌄</span></button>
 <div class="taskbar-dropdown"><a href="#devices">كل الشركات</a><a data-jump="Samsung" href="#devices">Samsung</a><a data-jump="Apple" href="#devices">Apple / iPhone</a><a data-jump="Xiaomi" href="#devices">Xiaomi / Redmi / POCO</a><a data-jump="Google Pixel" href="#devices">Google Pixel</a><a data-jump="Transsion" href="#devices">TECNO / Infinix / itel</a></div></div>
 
-<a href="#ai-search">AI Search</a><a href="#tutorial-center">الشروحات</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><div class="taskbar-menu more-menu">
-<button aria-expanded="false" class="taskbar-trigger" type="button">المزيد <span>⌄</span></button>
-<div class="taskbar-dropdown more-dropdown">
-<input class="more-menu-search" type="search" placeholder="ابحث عن قسم..." aria-label="ابحث عن قسم" autocomplete="off" />
-<div class="more-menu-results">
-<a href="#payment">الدفع</a><a href="#service-center">الخدمات</a><a href="#order-center">طلباتي وتتبع الطلبات</a><a href="#download-center">التحميلات</a><a href="#membership-center">العضويات والاشتراكات</a><a href="#admin-center">لوحة الإدارة</a><a href="#analytics-center">الإحصائيات</a><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a>
-</div><p class="more-search-empty" hidden>مفيش قسم بالاسم ده.</p>
-</div></div></nav><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
+<a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><form class="hx-top-search" id="hxTopSearch" role="search"><input id="hxTopSearchInput" type="search" placeholder="ابحث في الموقع..." aria-label="ابحث في الموقع"><button type="submit" aria-label="بحث">⌕</button></form><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
 <div class="profile-modal" id="profileModal" hidden role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
  <div class="profile-backdrop" data-profile-close></div>
  <section class="profile-panel"><button class="profile-close" type="button" data-profile-close aria-label="إغلاق">×</button>
@@ -501,32 +843,80 @@ html[data-theme="light"] #hx-neon-home{color:#f4f8ff!important}
  </section>
 </div><main>
 
-<section id="hx-neon-home" aria-label="Hamouda XTools الرئيسية">
-  <div class="hx-home-bg"></div>
-  <div class="wrap hx-home-inner">
-    <div class="hx-home-copy">
-      <span class="hx-crown">♛</span>
-      <div class="hx-logo-mark" aria-label="HX logo"><span>H</span><span>X</span></div>
-      <h1>Hamouda <span>XTools</span></h1>
+<section class="hx-home-hero" id="home">
+  <div class="hx-hero-bg-glow"></div>
+  <div class="wrap hx-hero-layout">
+    <div class="hx-hero-copy">
+      <span class="hx-kicker">✦ HAMOUDA XTOOLS · MOBILE SOLUTIONS</span>
+      <h1>Hamouda <span>XTools</span><small class="hx-crown">♛</small></h1>
       <h2>كل حلول الهواتف في مكان واحد</h2>
-      <p class="hx-home-sub">فك القفل · السوفت وير · إزالة الحسابات · إصلاح الأعطال</p>
-      <div class="hx-service-grid">
-        <a href="#tools" class="hx-service"><b></b><strong>iCloud</strong><small>فك القفل</small></a>
-        <a href="#quick-tools" class="hx-service"><b>♟</b><strong>FRP</strong><small>إدارة الحسابات</small></a>
-        <a href="#tools" class="hx-service"><b>⚙</b><strong>Flash</strong><small>تفليش وتحديث</small></a>
-        <a href="#tools" class="hx-service"><b>▣</b><strong>Unlock</strong><small>فتح الشبكة</small></a>
-        <a href="#quick-tools" class="hx-service"><b>☁</b><strong>Backup</strong><small>نسخ احتياطي</small></a>
-        <a href="#contact" class="hx-service"><b>⚒</b><strong>Repair</strong><small>إصلاح الأعطال</small></a>
+      <p>فك القفل، السوفت وير، أدوات الصيانة، المراجع الفنية وتحديثات الأجهزة — في واجهة واحدة منظمة.</p>
+      <div class="hx-service-chips">
+        <a href="#iphone-prices"><span></span> iCloud</a>
+        <a href="#rest-frp"><span>♟</span> FRP</a>
+        <a href="#flashing-tools"><span>⚙</span> Flash</a>
+        <a href="#tools"><span>▣</span> Unlock</a>
+        <a href="#dumps"><span>☁</span> Backup</a>
+        <a href="#repair-lab"><span>⚒</span> Repair</a>
       </div>
-      <div class="hx-home-actions"><a class="hx-btn hx-purple" href="#tools">⬇ تحميل الأدوات</a><a class="hx-btn hx-cyan" href="#shop">🛒 تصفح المتجر</a></div>
+      <div class="hx-hero-actions">
+        <a class="hx-action hx-action-violet" href="#tools">⇩　 استكشف الأدوات</a>
+        <a class="hx-action hx-action-cyan" href="#courses">▱　 تصفح الشروحات</a>
+      </div>
     </div>
-    <div class="hx-phone-art" aria-label="أدوات الهواتف"><div class="hx-phone hx-iphone"><div class="hx-cameras">● ●<br>● ●</div><span></span></div><div class="hx-phone hx-samsung"><div class="hx-cameras">● ●<br>● ●</div><span>SAMSUNG</span></div><div class="hx-orbit"></div><div class="hx-glow-ring"></div></div>
+    <div class="hx-hero-visual">
+      <div class="hx-orbit hx-orbit-one"></div><div class="hx-orbit hx-orbit-two"></div>
+      <div class="hx-visual-glass">
+        <div class="hx-visual-top"><span>● ● ●</span><b>HAMOUDA XTOOLS</b><span>HX</span></div>
+        <img src="hamouda.png" alt="Hamouda XTools" fetchpriority="high">
+        <div class="hx-visual-caption"><b>Professional Mobile Solutions</b><span>Developed by Mahmoud Hamouda</span></div>
+      </div>
+      <div class="hx-float hx-float-left"> <small>iPhone Tools</small></div>
+      <div class="hx-float hx-float-right">♙ <small>Android Tools</small></div>
+    </div>
   </div>
-  <div class="wrap hx-stats"><div><b>↗</b><strong>+90%</strong><small>نسبة النجاح*</small></div><div><b>♧</b><strong>+1000</strong><small>مستخدم مهتم</small></div><div><b>⬡</b><strong>+50</strong><small>أداة وبرنامج</small></div><div><b>⚙</b><strong>+2000</strong><small>موديل مستهدف</small></div><div><b>◎</b><strong>دول متعددة</strong><small>تغطية الخدمات حسب التوفر</small></div></div>
-  <div class="wrap hx-categories"><a href="#tools" class="hx-category hx-cat-purple"><span></span><h3>iPhone Tools</h3><p>خدمات وأدوات الآيفون</p><div class="hx-device-row">▰ ▰ ▰</div><strong>← عرض الأدوات</strong></a><a href="#tools" class="hx-category hx-cat-blue"><span>♟</span><h3>SAMSUNG Tools</h3><p>تفليش · FRP · إصلاح الشبكة</p><div class="hx-device-row">▰ ▰ ▰</div><strong>← عرض الأدوات</strong></a><a href="#quick-tools" class="hx-category hx-cat-green"><span>♟</span><h3>Android Tools</h3><p>روت · إصلاح · أدوات متنوعة</p><div class="hx-device-row">▰ ▰ ▰</div><strong>← عرض الأدوات</strong></a><a href="#tools" class="hx-category hx-cat-purple"><span>▱</span><h3>Software &amp; Boxes</h3><p>تفعيل الأدوات والتحديثات</p><div class="hx-device-row">UFI · Z3X · CM2</div><strong>← عرض الأدوات</strong></a></div>
-  <div class="wrap hx-benefits"><div>♢ <span><b>آمن وموثوق</b><small>حافظ على بياناتك</small></span></div><div>ϟ <span><b>خدمة سريعة</b><small>خطوات واضحة</small></span></div><div>♧ <span><b>دعم فني</b><small>تواصل عبر واتساب</small></span></div><div>◉ <span><b>تحديثات مستمرة</b><small>معلومات وأدوات</small></span></div><div>◎ <span><b>دعم متعدد الدول</b><small>حسب توفر الخدمة</small></span></div></div>
+  <div class="wrap hx-trust-strip">
+    <div><b>⌁</b><span><strong>أدوات متنوعة</strong><small>روابط ومراجع فنية</small></span></div>
+    <div><b>♙</b><span><strong>دعم أجهزة متعددة</strong><small>Apple و Android</small></span></div>
+    <div><b>⬡</b><span><strong>محتوى منظم</strong><small>بحث وتصنيف سريع</small></span></div>
+    <div><b>◎</b><span><strong>تواصل مباشر</strong><small>الدعم والمساعدة</small></span></div>
+  </div>
 </section>
-
+<section class="hx-category-section">
+  <div class="wrap">
+    <div class="hx-category-heading"><div><span>EXPLORE PLATFORM</span><h2>استكشف أقسام Hamouda XTools</h2></div><a href="#tools">عرض كل الأقسام ←</a></div>
+    <div class="hx-category-grid">
+      <a class="hx-category hx-iphone" href="#iphone-prices"><div class="hx-category-icon"></div><h3>iPhone Tools</h3><p>فك قفل iCloud ومراجع وأدوات أجهزة Apple.</p><div class="hx-device-art">　▯　▯</div><span class="hx-category-cta">عرض الأدوات　←</span></a>
+      <a class="hx-category hx-samsung" href="#devices"><div class="hx-category-icon">✣</div><h3>SAMSUNG Tools</h3><p>قاعدة بيانات الموديلات وأدوات الصيانة والتفليش.</p><div class="hx-device-art">▯　▯　▯</div><span class="hx-category-cta">عرض الأدوات　←</span></a>
+      <a class="hx-category hx-android" href="#rest-frp"><div class="hx-category-icon">♟</div><h3>Android Tools</h3><p>أدوات أندرويد وموارد FRP والتشخيص.</p><div class="hx-device-art">▯　▯　▯</div><span class="hx-category-cta">عرض الأدوات　←</span></a>
+      <a class="hx-category hx-boxes" href="#tools"><div class="hx-category-icon">▱</div><h3>Software &amp; Boxes</h3><p>فهرس الأدوات والبوكسات والبرامج الرسمية.</p><div class="hx-device-art">▣　▣　▣</div><span class="hx-category-cta">عرض الأدوات　←</span></a>
+    </div>
+  </div>
+</section>
+<div class="wrap hx-pricing-wrap"><div id="hamoudaPricing" class="activation-pricing" aria-label="خطط تفعيل Hamouda XTools">
+  <h2>اختر خطة التفعيل</h2>
+  <div class="activation-plans">
+    <article class="activation-plan">
+      <span class="plan-label">تجربة مجانية</span>
+      <strong class="plan-price">$0</strong>
+      <p>تفعيل لمدة أسبوع واحد</p>
+      <a class="activation-btn trial" href="https://wa.me/201003267221?text=مرحباً، أريد تفعيل Hamouda XTools المجاني لمدة أسبوع">طلب التفعيل المجاني</a>
+    </article>
+    <article class="activation-plan">
+      <span class="plan-label">شهري</span>
+      <strong class="plan-price">$3<span>/شهر</span></strong>
+      <p>تفعيل لمدة شهر</p>
+      <a class="activation-btn" href="https://wa.me/201003267221?text=مرحباً، أريد شراء تفعيل Hamouda XTools لمدة شهر بسعر 3 دولار">شراء التفعيل الشهري</a>
+    </article>
+    <article class="activation-plan featured">
+      <span class="plan-label">سنوي</span>
+      <strong class="plan-price">$20<span>/سنة</span></strong>
+      <p>تفعيل لمدة سنة كاملة</p>
+      <a class="activation-btn" href="https://wa.me/201003267221?text=مرحباً، أريد شراء تفعيل Hamouda XTools لمدة سنة بسعر 20 دولار">شراء التفعيل السنوي</a>
+    </article>
+  </div>
+  <p class="activation-disclaimer">الأزرار تفتح واتساب لطلب التفعيل أو الشراء. مدة الترخيص والتحقق من الدفع تحتاج نظام تفعيل فعليًا؛ لا يتم إصدار مفتاح تلقائي من هذه الصفحة حاليًا.</p>
+</div></div>
 <section id="iphone-prices" class="iphone-prices-section">
   <div class="wrap">
     <div class="heading">
@@ -543,13 +933,13 @@ html[data-theme="light"] #hx-neon-home{color:#f4f8ff!important}
         <div><span class="tag">OFFICIAL UNLOCK</span><h3>أسعار الفك الرسمي للآيفون</h3><p>الأسعار بالدولار الأمريكي، ويُرجى تأكيد أهلية الجهاز وتوفر الخدمة قبل الطلب.</p></div>
       </div>
       <div class="official-unlock-grid">
-        <article class="official-unlock-card"><span>iPhone 11</span><strong>$110</strong><a class="buy-service-btn" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 11 — FAST PREMIUM" data-buy-price="$110">شراء الخدمة ↗</a><a class="buy-service-btn secondary-buy" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 11 — SLOOOOW" data-buy-price="$105">شراء SLOOOOW — $105</a></article>
-        <article class="official-unlock-card"><span>iPhone 12</span><strong>$125</strong><a class="buy-service-btn" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 12 — FAST PREMIUM" data-buy-price="$125">شراء الخدمة ↗</a><a class="buy-service-btn secondary-buy" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 12 — SLOOOOW" data-buy-price="$120">شراء SLOOOOW — $120</a></article>
-        <article class="official-unlock-card"><span>iPhone 13</span><strong>$130</strong><a class="buy-service-btn" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 13 — FAST PREMIUM" data-buy-price="$130">شراء الخدمة ↗</a><a class="buy-service-btn secondary-buy" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 13 — SLOOOOW" data-buy-price="$125">شراء SLOOOOW — $125</a></article>
-        <article class="official-unlock-card"><span>iPhone 14</span><strong>$135</strong><a class="buy-service-btn" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 14 — FAST PREMIUM" data-buy-price="$135">شراء الخدمة ↗</a><a class="buy-service-btn secondary-buy" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 14 — SLOOOOW" data-buy-price="$130">شراء SLOOOOW — $130</a></article>
-        <article class="official-unlock-card"><span>iPhone 15</span><strong>$140</strong><a class="buy-service-btn" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 15 — FAST PREMIUM" data-buy-price="$140">شراء الخدمة ↗</a><a class="buy-service-btn secondary-buy" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 15 — SLOOOOW" data-buy-price="$135">شراء SLOOOOW — $135</a></article>
-        <article class="official-unlock-card"><span>iPhone 16</span><strong>$160</strong><a class="buy-service-btn" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 16 — FAST PREMIUM" data-buy-price="$160">شراء الخدمة ↗</a><a class="buy-service-btn secondary-buy" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 16 — SLOOOOW" data-buy-price="$155">شراء SLOOOOW — $155</a></article>
-        <article class="official-unlock-card"><span>iPhone 17</span><strong>$190</strong><a class="buy-service-btn" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 17 — FAST PREMIUM" data-buy-price="$190">شراء الخدمة ↗</a><a class="buy-service-btn secondary-buy" href="#payment" data-buy-service="فك رسمي للآيفون iPhone 17 — SLOOOOW" data-buy-price="$185">شراء SLOOOOW — $185</a></article>
+        <article class="official-unlock-card"><span>iPhone 11</span><strong>$110</strong><a href="https://wa.me/201003267221?text=استفسار%20عن%20سعر%20الفك%20الرسمي%20لـ%20iPhone%2011" target="_blank" rel="noopener">استفسار واتساب ↗</a></article>
+        <article class="official-unlock-card"><span>iPhone 12</span><strong>$125</strong><a href="https://wa.me/201003267221?text=استفسار%20عن%20سعر%20الفك%20الرسمي%20لـ%20iPhone%2012" target="_blank" rel="noopener">استفسار واتساب ↗</a></article>
+        <article class="official-unlock-card"><span>iPhone 13</span><strong>$130</strong><a href="https://wa.me/201003267221?text=استفسار%20عن%20سعر%20الفك%20الرسمي%20لـ%20iPhone%2013" target="_blank" rel="noopener">استفسار واتساب ↗</a></article>
+        <article class="official-unlock-card"><span>iPhone 14</span><strong>$135</strong><a href="https://wa.me/201003267221?text=استفسار%20عن%20سعر%20الفك%20الرسمي%20لـ%20iPhone%2014" target="_blank" rel="noopener">استفسار واتساب ↗</a></article>
+        <article class="official-unlock-card"><span>iPhone 15</span><strong>$140</strong><a href="https://wa.me/201003267221?text=استفسار%20عن%20سعر%20الفك%20الرسمي%20لـ%20iPhone%2015" target="_blank" rel="noopener">استفسار واتساب ↗</a></article>
+        <article class="official-unlock-card"><span>iPhone 16</span><strong>$160</strong><a href="https://wa.me/201003267221?text=استفسار%20عن%20سعر%20الفك%20الرسمي%20لـ%20iPhone%2016" target="_blank" rel="noopener">استفسار واتساب ↗</a></article>
+        <article class="official-unlock-card"><span>iPhone 17</span><strong>$190</strong><a href="https://wa.me/201003267221?text=استفسار%20عن%20سعر%20الفك%20الرسمي%20لـ%20iPhone%2017" target="_blank" rel="noopener">استفسار واتساب ↗</a></article>
       </div>
     </div>
     <style id="official-unlock-prices-css">
@@ -801,115 +1191,6 @@ html[data-theme="light"] #hx-neon-home{color:#f4f8ff!important}
 })();
 </script>
 
-
-
-<style id="xtools-iphone-order-form-style">
-#xtOrderModal[hidden]{display:none!important}#xtOrderModal{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:16px;background:rgba(2,7,18,.78);backdrop-filter:blur(10px)}
-#xtOrderModal .xt-order-panel{width:min(100%,560px);max-height:min(92vh,820px);overflow:auto;border:1px solid rgba(37,139,255,.55);border-radius:22px;padding:clamp(20px,4vw,30px);background:linear-gradient(145deg,#101d36,#071226);color:#f2f7ff;box-shadow:0 24px 90px #0009,0 0 38px #168bff22;position:relative}
-#xtOrderModal .xt-order-close{position:absolute;left:14px;top:12px;width:38px;height:38px;border-radius:11px;border:1px solid #31517a;background:#122745;color:#fff;font-size:23px;cursor:pointer}
-#xtOrderModal .xt-order-kicker{color:#51dcff;font-size:11px;font-weight:900;letter-spacing:.14em}#xtOrderModal h2{margin:8px 0;font-size:clamp(22px,4vw,29px)}#xtOrderModal .xt-order-intro{color:#b8cbe5;font-size:13px;line-height:1.7;margin:0 0 16px}
-#xtOrderModal .xt-order-selected{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 14px;margin:14px 0 18px;border:1px solid #234b79;border-radius:13px;background:#0b1a31}#xtOrderModal .xt-order-selected strong{color:#50dfff}#xtOrderModal label{display:block;margin:12px 0 5px;font-size:13px;font-weight:800;color:#e4f0ff}#xtOrderModal input{width:100%;box-sizing:border-box;border:1px solid #29486d;border-radius:11px;background:#081426;color:#fff;padding:12px 13px;font:inherit;outline:none}#xtOrderModal input:focus{border-color:#258bff;box-shadow:0 0 0 3px #258bff2e}#xtOrderModal .xt-order-consent{display:flex;gap:9px;align-items:flex-start;color:#b8cbe5;font-size:12px;line-height:1.55;margin:14px 0}#xtOrderModal .xt-order-consent input{width:17px;min-width:17px;margin-top:3px;accent-color:#258bff}#xtOrderModal .xt-order-submit{width:100%;border:0;border-radius:12px;padding:13px;background:linear-gradient(110deg,#1769ff,#00cfe8);color:#fff;font:inherit;font-weight:900;cursor:pointer;box-shadow:0 8px 24px #168bff30}#xtOrderModal .xt-order-foot{font-size:11px;color:#91a8c8;line-height:1.6;margin:12px 0 0}
-@media(max-width:560px){#xtOrderModal{padding:9px}#xtOrderModal .xt-order-panel{padding:21px 16px;border-radius:17px}}
-</style>
-<div id="xtOrderModal" hidden role="dialog" aria-modal="true" aria-labelledby="xtOrderTitle">
- <div class="xt-order-panel">
-  <button type="button" class="xt-order-close" id="xtOrderClose" aria-label="إغلاق">×</button>
-  <span class="xt-order-kicker">HAMOUDA XTOOLS • IPHONE ORDER</span>
-  <h2 id="xtOrderTitle">بيانات طلب خدمة الآيفون</h2>
-  <p class="xt-order-intro">اكتب بيانات الجهاز والبريد الإلكتروني. هنجهز رسالة واتساب ببيانات الطلب، وبعدها تقدر تختار وسيلة الدفع.</p>
-  <div class="xt-order-selected"><div><small>الخدمة المختارة</small><div id="xtOrderServiceName">خدمة الآيفون</div></div><div><small>السعر</small><strong id="xtOrderServicePrice">—</strong></div></div>
-  <form id="xtIphoneOrderForm">
-   <label for="xtOrderSerial">Serial Number (الرقم التسلسلي)</label><input id="xtOrderSerial" name="serial" autocomplete="off" maxlength="80" required placeholder="أدخل الرقم التسلسلي للجهاز" />
-   <label for="xtOrderSN">SN (كما يظهر على الجهاز)</label><input id="xtOrderSN" name="sn" autocomplete="off" maxlength="80" required placeholder="أدخل SN" />
-   <label for="xtOrderEmail">البريد الإلكتروني</label><input id="xtOrderEmail" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="name@example.com" />
-   <label class="xt-order-consent"><input id="xtOrderConsent" type="checkbox" required /><span>أوافق على إرسال بيانات الطلب التي أدخلتها إلى واتساب الخاص بـ Hamouda XTools لمراجعة الخدمة والتواصل معي بشأن الطلب.</span></label>
-   <button class="xt-order-submit" type="submit">إرسال البيانات على واتساب والمتابعة للدفع ↗</button>
-  </form>
-  <p class="xt-order-foot">لا تدخل كلمة مرور Apple ID أو رموز التحقق. بعد فتح واتساب اضغط «إرسال» بنفسك. الدفع يدوي، ولا يتم تأكيده إلا بعد مراجعة الإيصال.</p>
- </div>
-</div>
-<script id="xtools-iphone-order-flow">
-(()=>{
- const modal=document.getElementById('xtOrderModal'),form=document.getElementById('xtIphoneOrderForm');
- const nameEl=document.getElementById('xtOrderServiceName'),priceEl=document.getElementById('xtOrderServicePrice');
- const summary=document.getElementById('checkoutSummary'),summaryName=document.getElementById('checkoutServiceName'),summaryPrice=document.getElementById('checkoutServicePrice');
- const receiptLinks=[...document.querySelectorAll('.payment-receipt-link')];
- let order={service:'',price:'',serial:'',sn:'',email:''};
- const isIphoneBuy=a=>{const t=((a.dataset.buyService||'')+' '+(a.textContent||'' )).toLowerCase();return /iphone|آيفون|الايفون|الآيفون/.test(t)&&/شراء|buy/.test(t)};
- const wa=(method,receipt=false)=>{const parts=['مرحبًا Hamouda XTools، '+(receipt?'أرسِل بيانات تأكيد الدفع للطلب التالي:':'بيانات طلب خدمة الآيفون:')];if(order.service)parts.push('الخدمة: '+order.service);if(order.price)parts.push('السعر المعروض: '+order.price);if(order.serial)parts.push('Serial Number: '+order.serial);if(order.sn)parts.push('SN: '+order.sn);if(order.email)parts.push('البريد الإلكتروني: '+order.email);if(method)parts.push('وسيلة الدفع: '+method);parts.push(receipt?'قمت بالتحويل، وسأرفق صورة إيصال الدفع. برجاء مراجعة التحويل وتأكيد الطلب.':'برجاء مراجعة أهلية الجهاز وتأكيد بيانات الطلب.');return 'https://wa.me/201003267221?text='+encodeURIComponent(parts.join('\n'));};
- const updateReceiptLinks=()=>receiptLinks.forEach(a=>{const method=a.closest('.payment-card')?.classList.contains('payment-vodafone')?'فودافون كاش':'إنستا باي';a.href=wa(method,true);});
- const openForm=a=>{order={service:a.dataset.buyService||'خدمة الآيفون',price:a.dataset.buyPrice||'',serial:'',sn:'',email:''};nameEl.textContent=order.service;priceEl.textContent=order.price;if(modal)modal.hidden=false;document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('xtOrderSerial')?.focus(),30);};
- document.querySelectorAll('[data-buy-service][data-buy-price]').forEach(a=>{if(!isIphoneBuy(a))return;a.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();openForm(a);},true);});
- const close=()=>{modal.hidden=true;document.body.style.overflow='';};document.getElementById('xtOrderClose')?.addEventListener('click',close);modal?.addEventListener('click',e=>{if(e.target===modal)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal&&!modal.hidden)close();});
- form?.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(form);order.serial=String(fd.get('serial')||'').trim();order.sn=String(fd.get('sn')||'').trim();order.email=String(fd.get('email')||'').trim();if(!order.serial||!order.sn||!order.email||!document.getElementById('xtOrderConsent').checked){form.reportValidity();return;}
-  if(summaryName)summaryName.textContent=order.service;if(summaryPrice)summaryPrice.textContent=order.price;if(summary)summary.hidden=false;
-  updateReceiptLinks();
-  // Open WhatsApp synchronously from the submit gesture. The customer still presses Send in WhatsApp.
-  const w=window.open(wa('',false),'_blank','noopener,noreferrer');
-  close();const payment=document.getElementById('payment');if(payment)payment.scrollIntoView({behavior:'smooth',block:'start'});
-  const toast=document.getElementById('paymentToast');if(toast)toast.textContent=w?'تم تجهيز رسالة بيانات الطلب في واتساب. اضغط إرسال هناك، ثم أكمل الدفع وأرسل الإيصال.':'افتح واتساب من الرابط في رسالة الطلب، ثم أكمل الدفع وأرسل الإيصال.';
- });
- // Receipt button opens a WhatsApp message containing the same order details; user attaches the actual receipt.
- updateReceiptLinks();
-})();
-</script>
-
-<section id="payment" class="payment-section">
-  <div class="wrap">
-    <div class="heading">
-      <div>
-        <span class="tag">SECURE MANUAL PAYMENT</span>
-        <h2>الدفع وشراء الخدمات</h2>
-        <p>بعد إرسال بيانات الطلب على واتساب، حوّل المبلغ ثم اضغط «إرسال الإيصال واتساب» وأرفق صورة التحويل للمراجعة والتأكيد.</p>
-      </div>
-      <span class="payment-neon-label">XTOOLS PAY</span>
-    </div>
-    <div id="checkoutSummary" class="checkout-summary" hidden aria-live="polite"><div><span class="checkout-kicker">ORDER CHECKOUT</span><h3>طلبك جاهز للدفع</h3><p id="checkoutServiceName">الخدمة المختارة</p></div><div class="checkout-price"><small>قيمة الطلب</small><strong id="checkoutServicePrice">—</strong></div><button type="button" id="clearCheckout" class="payment-btn payment-secondary">إلغاء الاختيار</button></div>
-    <div class="payment-grid">
-      <article class="payment-card payment-vodafone">
-        <div class="payment-card-top">
-          <div class="payment-icon">V</div>
-          <div><span class="payment-method-en">MOBILE WALLET</span><h3>فودافون كاش</h3></div>
-        </div>
-        <p>حوّل المبلغ بالجنيه المصري إلى رقم المحفظة التالي:</p>
-        <div class="payment-number" dir="ltr">01003267221</div>
-        <div class="payment-actions">
-          <button type="button" class="payment-btn payment-copy" data-copy-payment="01003267221">نسخ الرقم</button>
-          <a class="payment-btn payment-secondary payment-receipt-link" href="https://wa.me/201003267221" target="_blank" rel="noopener">إرسال الإيصال واتساب</a>
-        </div>
-      </article>
-      <article class="payment-card payment-instapay">
-        <div class="payment-card-top">
-          <div class="payment-icon">IP</div>
-          <div><span class="payment-method-en">INSTANT TRANSFER</span><h3>إنستا باي</h3></div>
-        </div>
-        <p>استخدم رقم الهاتف إذا كان مرتبطًا بحساب إنستا باي الخاص بالمطوّر.</p>
-        <div class="payment-number" dir="ltr">01003267221</div>
-        <div class="payment-actions">
-          <button type="button" class="payment-btn payment-copy" data-copy-payment="01003267221">نسخ الرقم</button>
-          <a class="payment-btn payment-secondary payment-receipt-link" href="https://wa.me/201003267221" target="_blank" rel="noopener">إرسال الإيصال واتساب</a>
-        </div>
-      </article>
-    </div>
-    <div class="payment-steps">
-      <div class="payment-step"><span>01</span><div><b>اختار وسيلة الدفع</b><small>استخدم فودافون كاش أو إنستا باي.</small></div></div>
-      <div class="payment-step"><span>02</span><div><b>حوّل قيمة الطلب</b><small>تأكد من المبلغ ورقم المستلم قبل تأكيد التحويل.</small></div></div>
-      <div class="payment-step"><span>03</span><div><b>أرسل الإيصال</b><small>أرسل صورة الإيصال ورقم الطلب على واتساب وانتظر التأكيد.</small></div></div>
-    </div>
-    <p class="payment-disclaimer">تنبيه: الدفع في هذه الصفحة يدوي ولا يتم التحقق من التحويل تلقائيًا. لا ترسل كلمة مرور أو رمز OTP، ولن يتم تفعيل الخدمة إلا بعد مراجعة وصول المبلغ.</p>
-    <div id="paymentToast" class="payment-toast" role="status" aria-live="polite"></div>
-  </div>
-</section>
-
-
-<section id="service-center" class="hx-upgrade-section"><div class="wrap"><div class="hx-head"><span class="hx-kicker">SERVICE CENTER</span><h2>مركز الخدمات <em>الاحترافي</em></h2><p>اختار الخدمة المناسبة، راجع الشروط، وبعدها ابعت تفاصيل الطلب للمراجعة.</p></div><div class="hx-grid hx-grid-3"><article class="hx-card"><div class="hx-icon">📱</div><h3>خدمات الآيفون</h3><p>راجع الأسعار والتوافق قبل إرسال الطلب. قبول الخدمة يعتمد على حالة الجهاز وتوفر الدعم.</p><a class="hx-btn" href="#iphone-prices">عرض الأسعار</a></article><article class="hx-card"><div class="hx-icon">🧰</div><h3>أدوات السوفت وير</h3><p>الوصول إلى الأدوات الرسمية والتعريفات ومراجع التفليش المتاحة بالموقع.</p><a class="hx-btn" href="#tools">استعراض الأدوات</a></article><article class="hx-card"><div class="hx-icon">🎓</div><h3>التدريب والشروحات</h3><p>خطوات منظمة للفنيين مع تنبيهات النسخ الاحتياطي ومخاطر التفليش.</p><a class="hx-btn" href="#tutorial-center">ابدأ التعلم</a></article></div></div></section>
-<section id="order-center" class="hx-upgrade-section"><div class="wrap"><div class="hx-head"><span class="hx-kicker">ORDER TRACKING</span><h2>طلب خدمة <em>وتتبع الحالة</em></h2><p>نموذج أولي يعمل على هذا المتصفح فقط. إرسال الطلب الحقيقي يتم عبر واتساب إلى أن يتم ربط الموقع بخادم وقاعدة بيانات.</p></div><div class="hx-two"><form class="hx-card" id="hxOrderForm"><label>الاسم<input name="name" required maxlength="80" placeholder="اسمك"></label><label>رقم واتساب<input name="phone" required inputmode="tel" maxlength="24" placeholder="01xxxxxxxxx"></label><label>الشركة والموديل<input name="device" required maxlength="100" placeholder="مثال: Samsung A55 / iPhone 13"></label><label>الخدمة المطلوبة<select name="service" required><option value="">اختار الخدمة</option><option>فحص توافق الجهاز</option><option>خدمة آيفون</option><option>تفليش / سوفت وير</option><option>استشارة فنية</option><option>خدمة أخرى</option></select></label><label>رقم الطلب للتتبع (لو عندك)<input name="track" maxlength="30" placeholder="HX-... (اختياري)"></label><label>تفاصيل إضافية<textarea name="details" rows="3" maxlength="500" placeholder="اكتب المشكلة باختصار"></textarea></label><button class="hx-btn" type="submit">إرسال الطلب عبر واتساب</button><p class="hx-note">لا ترسل كلمات مرور أو رموز OTP أو بيانات حساسة.</p><div id="hxOrderMessage" class="hx-message" role="status"></div></form><div class="hx-card"><h3>استعلام عن طلب</h3><p>يعرض الطلبات التي تم تسجيلها محليًا على نفس المتصفح فقط، وليس حالة الطلبات من السيرفر.</p><form id="hxTrackForm"><label>رقم الطلب<input name="trackId" required placeholder="HX-XXXXXX"></label><button class="hx-btn secondary" type="submit">بحث عن الطلب</button></form><div id="hxTrackResult" class="hx-result" aria-live="polite">اكتب رقم الطلب لعرض النتيجة.</div><div class="hx-status-list"><span>● جديد</span><span>● قيد المراجعة</span><span>● جارٍ التنفيذ</span><span>● مكتمل</span></div></div></div></div></section>
-<section id="tutorial-center" class="hx-upgrade-section"><div class="wrap"><div class="hx-head"><span class="hx-kicker">KNOWLEDGE BASE</span><h2>مركز الشروحات <em>الفنية</em></h2><p>محتوى تعليمي منظم؛ راجع الموديل وإصدار النظام قبل أي إجراء، وخد نسخة احتياطية من بياناتك.</p></div><div class="hx-grid hx-grid-3"><article class="hx-card hx-tutorial"><div class="hx-icon">🔌</div><h3>حل مشاكل تعريفات USB</h3><p>راجع التعريف المناسب لنظام التشغيل، الكابل، والمنفذ قبل تجربة التفليش.</p><a href="#drivers" class="hx-text-link">فتح قسم التعريفات ←</a></article><article class="hx-card hx-tutorial"><div class="hx-icon">⚙️</div><h3>أساسيات التفليش الآمن</h3><p>تأكد من رقم الموديل والمنطقة وإصدار البوتلودر، ولا تستخدم ملفات غير موثوقة.</p><a href="#flashing-tools" class="hx-text-link">فتح أدوات التفليش ←</a></article><article class="hx-card hx-tutorial"><div class="hx-icon">🧩</div><h3>فهم المعالجات والذاكرة</h3><p>مقدمة للتعرف على المنصات ومراجع الشركات قبل اختيار أداة أو ملف مناسب.</p><a href="#chipsets" class="hx-text-link">فتح دليل المعالجات ←</a></article><article class="hx-card hx-tutorial"><div class="hx-icon">🍎</div><h3>قبل طلب خدمة آيفون</h3><p>راجع التوافق وحالة الجهاز وشروط الخدمة، ولا تعتمد على نسب نجاح غير موثقة.</p><a href="#iphone-check-sites" class="hx-text-link">مواقع فحص الجهاز ←</a></article><article class="hx-card hx-tutorial"><div class="hx-icon">💾</div><h3>اختيار Firmware الصحيح</h3><p>طابق رقم الطراز والمنطقة ومراجعة الإصدار، وتجنب خلط ملفات أجهزة متقاربة الاسم.</p><a href="#dumps" class="hx-text-link">مكتبة الملفات ←</a></article><article class="hx-card hx-tutorial"><div class="hx-icon">🛡️</div><h3>حماية بيانات العميل</h3><p>اطلب موافقة مالك الجهاز، ووضح احتمالات فقد البيانات قبل بدء الصيانة.</p><a href="#contact" class="hx-text-link">اسأل الدعم ←</a></article></div></div></section>
-<section id="download-center" class="hx-upgrade-section"><div class="wrap"><div class="hx-head"><span class="hx-kicker">DOWNLOAD CENTER</span><h2>مركز التحميل <em>والتحديثات</em></h2><p>روابط منظمة للمراجع الموجودة داخل الموقع. راجع المصدر ومتطلبات التشغيل قبل تنزيل أي ملف.</p></div><div class="hx-grid hx-grid-3"><article class="hx-card"><div class="hx-icon">🧰</div><h3>أدوات السوفت وير</h3><p>استعرض دليل الأدوات وروابط المواقع الرسمية المتاحة.</p><a class="hx-btn" href="#tools">عرض الأدوات</a></article><article class="hx-card"><div class="hx-icon">📡</div><h3>تعريفات USB</h3><p>الوصول إلى مصادر التعريفات حسب الشركة المصنعة.</p><a class="hx-btn" href="#drivers">عرض التعريفات</a></article><article class="hx-card"><div class="hx-icon">💽</div><h3>Firmware وDumps</h3><p>استعرض فهرس الملفات حسب المنصة والموديل؛ تحقق من سلامة الملف قبل الاستخدام.</p><a class="hx-btn" href="#dumps">فتح المكتبة</a></article></div><p class="hx-note">ملاحظة: هذا القسم ينظم الروابط الموجودة بالموقع ولا يستضيف ملفات جديدة تلقائيًا. أضف روابط التنزيل المباشرة الموثوقة لكل إصدار عند توفرها.</p></div></section>
-<section id="membership-center" class="hx-upgrade-section"><div class="wrap"><div class="hx-head"><span class="hx-kicker">MEMBERSHIP</span><h2>العضويات <em>والاشتراكات</em></h2><p>واجهة العضويات جاهزة للعرض. إنشاء حساب آمن، الاشتراكات المدفوعة، واستعادة كلمة المرور تحتاج خادم مصادقة وقاعدة بيانات.</p></div><div class="hx-grid hx-grid-3"><article class="hx-card"><div class="hx-icon">👤</div><h3>عضو مجاني</h3><p>تصفح الأدوات والشروحات العامة والموارد المفتوحة.</p><a class="hx-btn" href="#account">الدخول / التسجيل</a></article><article class="hx-card featured"><div class="hx-icon">⭐</div><h3>عضوية فني</h3><p>خطة مقترحة للوصول إلى محتوى فني إضافي بعد تفعيل الاشتراكات.</p><a class="hx-btn" href="#contact">استفسر عن العضوية</a></article><article class="hx-card"><div class="hx-icon">🏢</div><h3>عضوية مركز صيانة</h3><p>خطة مقترحة للفرق ومراكز الصيانة، حسب الخدمات التي سيتم توفيرها.</p><a class="hx-btn" href="#contact">تواصل معنا</a></article></div><div class="hx-note">لا يتم تحصيل اشتراك من هذه البطاقات حاليًا؛ لا تُعرض أي عضوية كمدفوعة أو مفعّلة قبل ربط نظام الدفع والتحقق من الاشتراك.</div></div></section>
-<section id="admin-center" class="hx-upgrade-section"><div class="wrap"><div class="hx-head"><span class="hx-kicker">ADMIN CONSOLE</span><h2>لوحة الإدارة <em>ومراجعة الطلبات</em></h2><p>معاينة محلية لتصميم لوحة التحكم. البيانات هنا ليست محمية ولا تُشارك بين الأجهزة، لذلك لا تستخدمها لتخزين بيانات عملاء حقيقية.</p></div><div class="hx-adminbar"><div><strong>لوحة تحكم تجريبية</strong><p>المعروض هو الطلبات المحلية على هذا المتصفح فقط.</p></div><button class="hx-btn secondary" id="hxRefreshAdmin" type="button">تحديث القائمة</button></div><div class="hx-grid hx-grid-3"><div class="hx-stat"><span>الطلبات المحلية</span><strong id="hxAdminCount">0</strong></div><div class="hx-stat"><span>قيد المراجعة</span><strong id="hxAdminPending">0</strong></div><div class="hx-stat"><span>مكتملة</span><strong id="hxAdminDone">0</strong></div></div><div class="hx-table-wrap"><table class="hx-table"><thead><tr><th>رقم الطلب</th><th>العميل</th><th>الجهاز / الخدمة</th><th>الحالة</th><th>تغيير الحالة (محلي)</th></tr></thead><tbody id="hxAdminRows"><tr><td colspan="5">لا توجد طلبات محلية حتى الآن.</td></tr></tbody></table></div><p class="hx-note">لإدارة فعلية من أي جهاز: نحتاج Backend وقاعدة بيانات وصلاحيات مدير حقيقية وسجل عمليات. لا يمكن تأمين لوحة إدارة داخل ملف HTML فقط.</p></div></section>
-<section id="analytics-center" class="hx-upgrade-section"><div class="wrap"><div class="hx-head"><span class="hx-kicker">SITE ANALYTICS</span><h2>إحصائيات الموقع <em>والظهور في جوجل</em></h2><p>اربط أدوات التحليل الرسمية لعرض زيارات حقيقية؛ الأرقام أدناه لا يتم اختلاقها ولا تُحسب قبل الربط.</p></div><div class="hx-grid hx-grid-3"><article class="hx-card"><div class="hx-icon">📈</div><h3>Google Analytics</h3><p>قياس الزيارات والأحداث ومصادر الجمهور بعد إضافة معرّف القياس الخاص بك.</p><a class="hx-btn" href="https://analytics.google.com/" target="_blank" rel="noopener">فتح Analytics</a></article><article class="hx-card"><div class="hx-icon">🔎</div><h3>Google Search Console</h3><p>متابعة الفهرسة وظهور الصفحات وعبارات البحث والأخطاء.</p><a class="hx-btn" href="https://search.google.com/search-console/" target="_blank" rel="noopener">فتح Search Console</a></article><article class="hx-card"><div class="hx-icon">🗺️</div><h3>خريطة الموقع</h3><p>أنشئ sitemap.xml وrobots.txt على الاستضافة وارسل خريطة الموقع إلى Search Console.</p><a class="hx-btn" href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview" target="_blank" rel="noopener">دليل خرائط المواقع</a></article></div><div class="hx-note">تمت إضافة وصف الصفحة وبيانات مشاركة أساسية وبيانات منظمة للموقع. لا يمكن تأكيد ملكية الموقع أو تسجيله في Google من ملف HTML وحده.</div></div></section>
-
 <section id="contact"><div class="wrap"><div class="contact"><div><h2>تواصل مع المطوّر</h2><p>للاستفسارات وطلبات الدعم حول Hamouda XTools.</p><div class="contactlinks"><a class="btn whatsapp" href="https://wa.me/201003267221" rel="noopener" target="_blank">واتساب مباشر</a><a class="btn call" href="tel:+201003267221">اتصال هاتفي</a></div></div><div style="font-size:42px">✦</div></div></div></section></main>
 <footer><div class="wrap foot"><span>© <span id="year"></span> Hamouda XTools. جميع الحقوق محفوظة.</span><span>Developed by Mahmoud Hamouda</span></div></footer>
 <script>const root=document.documentElement,btn=document.getElementById('theme');try{root.setAttribute('data-theme',localStorage.getItem('hxt-theme')||'dark')}catch(e){root.setAttribute('data-theme','dark')}function syncThemeButton(){btn.innerHTML=root.getAttribute('data-theme')==='dark'?'☀':'☾';}syncThemeButton();btn.addEventListener('click',()=>{const dark=root.getAttribute('data-theme')!=='dark';root.setAttribute('data-theme',dark?'dark':'light');try{localStorage.setItem('hxt-theme',dark?'dark':'light')}catch(e){}syncThemeButton();document.querySelector('meta[name="theme-color"]').content=dark?'#080d19':'#eef3fb'});document.getElementById('year').textContent=new Date().getFullYear();// Authentication handlers are initialized in the Firebase script below.
@@ -987,7 +1268,7 @@ html[data-theme="dark"] .theme,html[data-theme="dark"] .btn.outline,html[data-th
   if(!window.firebase){say('تعذر تحميل Firebase SDK. تحقق من الإنترنت ثم حدّث الصفحة.');return;}
   try{if(!firebase.apps.length)firebase.initializeApp(config);auth=firebase.auth();auth.useDeviceLanguage();}catch(e){say('تعذر تهيئة Firebase: '+e.message);return;}
   $('showLogin').addEventListener('click',()=>showMode('login'));$('showSignup').addEventListener('click',()=>showMode('signup'));
-  loginForm.addEventListener('submit',async e=>{e.preventDefault();if(!loginForm.reportValidity())return;const b=$('gateLoginButton');b.disabled=true;b.textContent='جارٍ تسجيل الدخول…';try{await auth.signInWithEmailAndPassword($('gateEmail').value.trim(),$('gatePassword').value);say('تم تسجيل الدخول بنجاح.',true);}catch(err){say(friendly(err));}finally{b.disabled=false;b.textContent='تسجيل الدخول';}});
+  loginForm.addEventListener('submit',async e=>{e.preventDefault();if(!loginForm.reportValidity())return;const b=$('gateLoginButton');b.disabled=true;b.textContent='جارٍ تسجيل الدخول…';try{const credential=await auth.signInWithEmailAndPassword($('gateEmail').value.trim(),$('gatePassword').value);setSignedIn(credential.user||auth.currentUser);window.scrollTo({top:0,left:0,behavior:'instant'});say('تم تسجيل الدخول بنجاح.',true);}catch(err){say(friendly(err));}finally{b.disabled=false;b.textContent='تسجيل الدخول';}});
   $('gateGoogle').addEventListener('click',async()=>{try{const p=new firebase.auth.GoogleAuthProvider();await auth.signInWithPopup(p);}catch(e){say(friendly(e));}});
   $('gateReset').addEventListener('click',async()=>{const em=$('gateEmail').value.trim();if(!em){say('اكتب بريدك الإلكتروني أولًا ثم اضغط نسيت كلمة المرور.');$('gateEmail').focus();return;}try{await auth.sendPasswordResetEmail(em);say('أرسلنا رابط استعادة كلمة المرور إلى بريدك.',true);}catch(e){say(friendly(e));}});
   $('sendOtpButton').addEventListener('click',async()=>{
@@ -1296,13 +1577,13 @@ a:hover, button:hover { filter:brightness(1.12); }
     <table style="width:100%;border-collapse:collapse;min-width:290px;color:#fff">
       <thead><tr style="background:#321010;color:#ff7777"><th style="padding:12px;text-align:right;border-bottom:1px solid #633">موديل الآيفون</th><th style="padding:12px;text-align:center;border-bottom:1px solid #633">FAST PREMIUM</th><th style="padding:12px;text-align:center;border-bottom:1px solid #633">SLOOOOW</th></tr></thead>
       <tbody>
-        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 11</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 11 — FAST PREMIUM" data-buy-price="$110">$110 — شراء</a></td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 11 — SLOOOOW" data-buy-price="$105">$105 — شراء</a></td></tr>
-        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 12</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 12 — FAST PREMIUM" data-buy-price="$125">$125 — شراء</a></td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 12 — SLOOOOW" data-buy-price="$120">$120 — شراء</a></td></tr>
-        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 13</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 13 — FAST PREMIUM" data-buy-price="$130">$130 — شراء</a></td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 13 — SLOOOOW" data-buy-price="$125">$125 — شراء</a></td></tr>
-        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 14</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 14 — FAST PREMIUM" data-buy-price="$135">$135 — شراء</a></td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 14 — SLOOOOW" data-buy-price="$130">$130 — شراء</a></td></tr>
-        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 15</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 15 — FAST PREMIUM" data-buy-price="$140">$140 — شراء</a></td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 15 — SLOOOOW" data-buy-price="$135">$135 — شراء</a></td></tr>
-        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 16</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 16 — FAST PREMIUM" data-buy-price="$160">$160 — شراء</a></td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 16 — SLOOOOW" data-buy-price="$155">$155 — شراء</a></td></tr>
-        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 17</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 17 — FAST PREMIUM" data-buy-price="$190">$190 — شراء</a></td><td style="padding:11px;text-align:center;border-bottom:1px solid #333"><a class="buy-table-price" href="#payment" data-buy-service="فك آيفون iPhone 17 — SLOOOOW" data-buy-price="$185">$185 — شراء</a></td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 11</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$110</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$105</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 12</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$125</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$120</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 13</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$130</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$125</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 14</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$135</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$130</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 15</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$140</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$135</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #333">iPhone 16</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$160</td><td style="padding:11px;text-align:center;border-bottom:1px solid #333">$155</td></tr>
+        <tr><td style="padding:11px">iPhone 17</td><td style="padding:11px;text-align:center">$190</td><td style="padding:11px;text-align:center">$185</td></tr>
       </tbody>
     </table>
   </div>
@@ -1357,6 +1638,25 @@ a:hover, button:hover { filter:brightness(1.12); }
 </style>
 
 
+<script id="hx-top-search-script">
+(function(){
+ const form=document.getElementById('hxTopSearch');
+ if(!form)return;
+ form.addEventListener('submit',function(e){
+  e.preventDefault();
+  const q=(document.getElementById('hxTopSearchInput')?.value||'').trim();
+  if(!q)return;
+  const target=document.getElementById('ai-search');
+  const input=document.getElementById('aiSearchInput');
+  if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}
+  if(input){input.value=q;input.dispatchEvent(new Event('input',{bubbles:true}));}
+  if(typeof window.runAISearch==='function'){window.runAISearch();}
+  else if(input){input.focus();input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));}
+ });
+})();
+</script>
+
+</body></html>
 
 <style id="profile-modal-styles">
 .profile-avatar-button{border:0;cursor:pointer;padding:0;width:38px;height:38px;font:inherit;box-shadow:0 0 0 2px color-mix(in srgb,var(--primary) 30%,transparent);}
@@ -1366,188 +1666,3 @@ a:hover, button:hover { filter:brightness(1.12); }
 <script id="profile-modal-js">
 (()=>{const modal=document.getElementById('profileModal'),avatar=document.getElementById('headerAvatar');if(!modal||!avatar)return;const close=()=>{modal.hidden=true;};avatar.addEventListener('click',()=>{modal.hidden=false;});modal.querySelectorAll('[data-profile-close]').forEach(el=>el.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});window.__xtoolsSetProfile=(user)=>{const name=user.displayName||((user.email||'').split('@')[0])||'عضو XTools';const initials=(name.trim().split(/\s+/).slice(0,2).map(x=>x[0]).join('')||'HX').toUpperCase();document.getElementById('profileAvatarLarge').textContent=initials;document.getElementById('profileName').textContent=name;document.getElementById('profileEmail').textContent=user.email||'غير متوفر';document.getElementById('profilePhone').textContent=user.phoneNumber||'غير مرتبط';const providers=(user.providerData||[]).map(p=>p.providerId==='google.com'?'Google':p.providerId==='password'?'البريد الإلكتروني وكلمة المرور':p.providerId==='phone'?'رقم الهاتف':p.providerId).filter(Boolean);document.getElementById('profileProvider').textContent=[...new Set(providers)].join('، ')||'حساب مسجل';};})();
 </script>
-
-
-<style id="hamouda-olive-neon-payment-theme">
-/* Premium olive + acid-lime neon theme */
-:root,[data-theme="dark"]{
-  --bg:#060b18;--surface:#101a31;--text:#f2f7ff;--muted:#a9bad5;--line:#263e65;
-  --primary:#258bff;--mint:#00e5ff;--shadow:0 16px 42px rgba(0,0,0,.38);color-scheme:dark
-}
-html[data-theme="light"]{
-  --bg:#f2f7ff;--surface:#ffffff;--text:#15243c;--muted:#5c6f8c;--line:#d5e4f8;
-  --primary:#1769d2;--mint:#00a9d6;--shadow:0 12px 32px rgba(24,73,130,.10);color-scheme:light
-}
-html[data-theme="dark"] body{
- background-color:#060b18!important;
- background-image:radial-gradient(ellipse at 8% 0%,rgba(37,139,255,.17),transparent 36%),radial-gradient(ellipse at 92% 12%,rgba(0,229,255,.09),transparent 32%),linear-gradient(145deg,#080d08,#10180d 60%,#060b18)!important;
- color:var(--text)!important
-}
-html[data-theme="light"] body{
- background-color:var(--bg)!important;
- background-image:radial-gradient(ellipse at 8% 0%,rgba(37,139,255,.14),transparent 36%),radial-gradient(ellipse at 92% 12%,rgba(111,145,37,.08),transparent 32%)!important;
- color:var(--text)!important
-}
-html[data-theme="dark"] header{background:rgba(5,11,25,.90)!important;border-color:rgba(37,139,255,.28)!important;box-shadow:0 8px 32px #0005}
-html[data-theme="light"] header{background:rgba(255,255,255,.94)!important;border-color:var(--line)!important}
-.logo{background:linear-gradient(135deg,#1769d2,#00e5ff)!important;color:#11180b!important;border:1px solid #00e5ff70!important;box-shadow:0 0 24px rgba(37,139,255,.25)!important}
-.brand em,h1 span{color:var(--primary)}
-h1 span{background:linear-gradient(90deg,#258bff,#efffa0);-webkit-background-clip:text;background-clip:text;color:transparent}
-.btn,.smallbtn,.model-actions a:first-child{background:linear-gradient(115deg,#1769d2,#258bff 62%,#00e5ff)!important;color:#10170a!important;border-color:transparent!important;box-shadow:0 0 20px rgba(37,139,255,.13)!important}
-.btn:hover,.smallbtn:hover,.model-actions a:first-child:hover{filter:brightness(1.08);box-shadow:0 0 25px rgba(37,139,255,.25)!important}
-html[data-theme="dark"] .card,html[data-theme="dark"] .feature,html[data-theme="dark"] .preview,html[data-theme="dark"] .app,html[data-theme="dark"] .model-card,html[data-theme="dark"] .db-toolbar,html[data-theme="dark"] .db-stats div,html[data-theme="dark"] .selected-card,html[data-theme="dark"] .select-placeholder,html[data-theme="dark"] .tile,html[data-theme="dark"] .pill,html[data-theme="dark"] .taskbar-dropdown{background:rgba(19,29,15,.88)!important;border-color:rgba(37,139,255,.20)!important}
-html[data-theme="light"] .card,html[data-theme="light"] .feature,html[data-theme="light"] .preview,html[data-theme="light"] .app,html[data-theme="light"] .model-card,html[data-theme="light"] .db-toolbar,html[data-theme="light"] .db-stats div,html[data-theme="light"] .selected-card,html[data-theme="light"] .select-placeholder,html[data-theme="light"] .tile,html[data-theme="light"] .pill,html[data-theme="light"] .taskbar-dropdown{background:rgba(255,255,255,.94)!important;border-color:var(--line)!important}
-.card:hover,.model-card:hover{border-color:rgba(37,139,255,.75)!important;box-shadow:0 16px 42px rgba(0,0,0,.28),0 0 20px rgba(37,139,255,.10)!important}
-.icon-wrap,.model-icon,.selected-device-icon,.placeholder-icon{background:linear-gradient(145deg,rgba(37,139,255,.18),rgba(0,229,255,.05))!important;color:var(--primary)!important;border-color:rgba(37,139,255,.30)!important}
-.tag,.model-chip{background:rgba(37,139,255,.12)!important;color:var(--primary)!important}
-.contact{background:linear-gradient(115deg,#07152c,#1156a5 56%,#00a7c4)!important;border:1px solid rgba(0,229,255,.24);box-shadow:0 20px 48px rgba(73,105,25,.20)}
-.contact .btn{background:#eaf5ff!important;color:#15243c!important;border-color:#00e5ff!important}
-.theme{background:var(--surface)!important;color:var(--primary)!important;border-color:var(--line)!important}
-::selection{background:#258bff;color:#10170a}
-.auth-gate{background:radial-gradient(ellipse at 15% 15%,rgba(37,139,255,.20),transparent 42%),radial-gradient(ellipse at 85% 80%,rgba(0,229,255,.10),transparent 40%),#060b18!important}
-.auth-shell{border-color:rgba(37,139,255,.30)!important}
-.auth-brand .logo{background:linear-gradient(135deg,#1769d2,#00e5ff)!important;color:#10170a!important}
-.auth-welcome h1 span{color:#55dfff!important;text-shadow:0 0 22px rgba(37,139,255,.20)!important}
-.auth-switch button.active,.gate-primary{background:linear-gradient(120deg,#1769d2,#258bff,#00e5ff)!important;color:#10170a!important}
-.gate-form input:focus{border-color:#258bff!important;box-shadow:0 0 0 3px rgba(37,139,255,.14)!important}
-.gate-link{color:#258bff!important}
-.payment-section{position:relative;isolation:isolate;padding:42px 0 48px}
-.payment-section:before{content:"";position:absolute;inset:8% 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 20% 35%,rgba(37,139,255,.08),transparent 45%),radial-gradient(ellipse at 80% 65%,rgba(0,229,255,.06),transparent 40%)}
-.payment-neon-label{font-size:11px;font-weight:900;letter-spacing:.16em;padding:8px 12px;border-radius:10px;border:1px solid rgba(37,139,255,.4);color:var(--primary);background:rgba(37,139,255,.08);box-shadow:0 0 18px rgba(37,139,255,.08)}
-.payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.payment-card{position:relative;overflow:hidden;padding:24px;border:1px solid rgba(37,139,255,.25);border-radius:22px;background:linear-gradient(145deg,rgba(12,29,58,.97),rgba(13,20,11,.97));box-shadow:0 18px 48px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.04)}
-html[data-theme="light"] .payment-card{background:linear-gradient(145deg,#fff,#f2f8e8);border-color:#c9dca8}
-.payment-card:after{content:"";position:absolute;top:-75px;inset-inline-end:-70px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(37,139,255,.16),transparent 70%);pointer-events:none}
-.payment-card-top{display:flex;align-items:center;gap:13px;position:relative;z-index:1}
-.payment-icon{width:54px;height:54px;display:grid;place-items:center;flex-shrink:0;border-radius:17px;background:linear-gradient(135deg,#526f18,#258bff);color:#10170a;font-weight:1000;font-size:21px;box-shadow:0 0 22px rgba(37,139,255,.16)}
-.payment-instapay .payment-icon{background:linear-gradient(135deg,#6c812d,#00e5ff)}
-.payment-method-en{font-size:10px;letter-spacing:.15em;color:var(--primary);font-weight:900}
-.payment-card h3{margin:2px 0 0;font-size:21px;color:var(--text)}
-.payment-card p{font-size:13px;color:var(--muted);margin:17px 0 12px;min-height:42px}
-.payment-number{position:relative;z-index:1;padding:13px 15px;border:1px solid rgba(37,139,255,.36);border-radius:13px;background:rgba(37,139,255,.07);color:var(--text);font:800 23px/1.4 Tahoma,Arial,sans-serif;letter-spacing:.06em;text-align:center;text-shadow:0 0 18px rgba(37,139,255,.14)}
-.payment-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
-.payment-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:43px;padding:10px 13px;border:1px solid rgba(37,139,255,.36);border-radius:11px;font:800 12px Tahoma,Arial,sans-serif;text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s}
-.payment-btn:hover{transform:translateY(-2px);box-shadow:0 0 18px rgba(37,139,255,.14)}
-.payment-copy{background:linear-gradient(115deg,#1769d2,#258bff);color:#10170a;border-color:transparent}
-.payment-secondary{background:rgba(37,139,255,.07);color:var(--text)}
-html[data-theme="light"] .payment-secondary{color:#243416}
-.payment-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
-.payment-step{display:flex;gap:12px;align-items:flex-start;padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(37,139,255,.045)}
-.payment-step>span{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border-radius:11px;background:rgba(37,139,255,.14);color:var(--primary);font-weight:900;font-size:12px}
-.payment-step b{display:block;font-size:13px;color:var(--text)}
-.payment-step small{display:block;margin-top:4px;font-size:11px;line-height:1.7;color:var(--muted)}
-.payment-disclaimer{margin:15px 0 0;padding:12px 14px;border-inline-start:3px solid var(--primary);border-radius:8px;background:rgba(37,139,255,.06);font-size:12px;color:var(--muted)}
-.payment-toast{min-height:0;margin-top:0;font-size:12px;color:var(--primary);font-weight:800}
-.payment-toast:not(:empty){margin-top:10px}
-@media(max-width:700px){.payment-grid{grid-template-columns:1fr}.payment-steps{grid-template-columns:1fr}.payment-card{padding:19px}.payment-card p{min-height:0}.payment-number{font-size:21px}.payment-actions .payment-btn{flex:1}}
-</style>
-<script id="hamouda-payment-actions">
-(()=> {
- const toast=document.getElementById('paymentToast');
- document.querySelectorAll('[data-copy-payment]').forEach(btn=>{
-  btn.addEventListener('click',async()=>{
-   const value=btn.getAttribute('data-copy-payment');
-   try{
-    if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(value);}
-    else{
-     const ta=document.createElement('textarea');ta.value=value;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
-     const ok=document.execCommand('copy');ta.remove();if(!ok)throw new Error('copy failed');
-    }
-    if(toast)toast.textContent='تم نسخ الرقم: '+value;
-    const old=btn.textContent;btn.textContent='تم النسخ ✓';setTimeout(()=>{btn.textContent=old},1600);
-   }catch(e){if(toast)toast.textContent='انسخ الرقم يدويًا: '+value;}
-  });
- });
-})();
-</script>
-
-
-
-
-<script id="xtools-checkout-flow">
-(()=>{const box=document.getElementById('checkoutSummary'),service=document.getElementById('checkoutServiceName'),price=document.getElementById('checkoutServicePrice'),links=[...document.querySelectorAll('.payment-receipt-link')],toast=document.getElementById('paymentToast');let current={name:'',price:''};const url=method=>{const parts=['مرحبًا Hamouda XTools، أريد تأكيد طلب الخدمة.'];if(current.name)parts.push('الخدمة: '+current.name);if(current.price)parts.push('السعر المعروض: '+current.price);parts.push('وسيلة الدفع: '+method,'سأرفق إيصال التحويل بعد الدفع. برجاء تأكيد الطلب.');return 'https://wa.me/201003267221?text='+encodeURIComponent(parts.join('\n'));};const update=()=>links.forEach(a=>{const m=a.closest('.payment-card')?.classList.contains('payment-vodafone')?'فودافون كاش':'إنستا باي';a.href=url(m)});document.querySelectorAll('[data-buy-service][data-buy-price]').forEach(a=>a.addEventListener('click',()=>{current={name:a.dataset.buyService||'خدمة Hamouda XTools',price:a.dataset.buyPrice||''};if(service)service.textContent=current.name;if(price)price.textContent=current.price;if(box)box.hidden=false;update();if(toast)toast.textContent='تم اختيار الخدمة. حوّل المبلغ ثم أرسل الإيصال من وسيلة الدفع المناسبة.';}));document.getElementById('clearCheckout')?.addEventListener('click',()=>{current={name:'',price:''};if(box)box.hidden=true;update();if(toast)toast.textContent='تم إلغاء اختيار الخدمة.'});update();})();
-</script>
-
-<style id="xtools-burnt-blue-neon-theme">
-:root,html[data-theme="dark"]{--bg:#060b18!important;--surface:#101a31!important;--text:#f2f7ff!important;--muted:#a9bad5!important;--line:#263e65!important;--primary:#258bff!important;--mint:#00e5ff!important;--shadow:0 16px 42px rgba(0,0,0,.42)!important;color-scheme:dark!important}
-html[data-theme="light"]{--bg:#f2f7ff!important;--surface:#fff!important;--text:#15243c!important;--muted:#5c6f8c!important;--line:#d5e4f8!important;--primary:#1769d2!important;--mint:#00a9d6!important;--shadow:0 12px 32px rgba(24,73,130,.12)!important;color-scheme:light!important}
-html,html[data-theme="dark"]{background:#060b18!important}html[data-theme="dark"] body{background:radial-gradient(ellipse at 8% 0%,rgba(37,139,255,.24),transparent 37%),radial-gradient(ellipse at 92% 12%,rgba(0,229,255,.16),transparent 32%),linear-gradient(145deg,#060b18,#0a1630 58%,#060b18)!important;color:var(--text)!important}html[data-theme="light"] body{background:radial-gradient(ellipse at 8% 0%,rgba(37,139,255,.10),transparent 37%),radial-gradient(ellipse at 92% 12%,rgba(0,169,214,.11),transparent 32%),var(--bg)!important;color:var(--text)!important}
-html[data-theme="dark"] header,html[data-theme="dark"] footer{background:rgba(5,11,25,.94)!important;border-color:rgba(37,139,255,.3)!important}html[data-theme="light"] header,html[data-theme="light"] footer{background:rgba(255,255,255,.95)!important;border-color:var(--line)!important}
-html[data-theme="dark"] .card,html[data-theme="dark"] .feature,html[data-theme="dark"] .preview,html[data-theme="dark"] .app,html[data-theme="dark"] .model-card,html[data-theme="dark"] .db-toolbar,html[data-theme="dark"] .db-stats div,html[data-theme="dark"] .selected-card,html[data-theme="dark"] .select-placeholder,html[data-theme="dark"] .tile,html[data-theme="dark"] .pill,html[data-theme="dark"] .taskbar-dropdown,html[data-theme="dark"] .hx-card{background:linear-gradient(145deg,rgba(15,27,51,.97),rgba(7,15,31,.98))!important;color:var(--text)!important;border-color:rgba(37,139,255,.32)!important;box-shadow:0 12px 34px rgba(0,0,0,.3),0 0 17px rgba(0,160,255,.06)!important}
-html[data-theme="light"] .card,html[data-theme="light"] .feature,html[data-theme="light"] .preview,html[data-theme="light"] .app,html[data-theme="light"] .model-card,html[data-theme="light"] .db-toolbar,html[data-theme="light"] .db-stats div,html[data-theme="light"] .selected-card,html[data-theme="light"] .select-placeholder,html[data-theme="light"] .tile,html[data-theme="light"] .pill,html[data-theme="light"] .taskbar-dropdown,html[data-theme="light"] .hx-card{background:#fff!important;color:var(--text)!important;border-color:var(--line)!important}
-.logo,.user-avatar{background:linear-gradient(135deg,#1769ff,#00e5ff)!important;box-shadow:0 0 22px rgba(37,139,255,.38),0 0 30px rgba(0,229,255,.12)!important;color:#fff!important}.btn,.smallbtn,.model-actions a:first-child,.hx-btn{background:linear-gradient(115deg,#1769ff,#258bff 55%,#00cfe8)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 5px 20px rgba(37,139,255,.23)!important}html[data-theme="dark"] .btn.outline,html[data-theme="dark"] .theme,html[data-theme="dark"] .taskbar-trigger{background:#111f3a!important;color:#eaf5ff!important;border-color:#2d4d7d!important}html[data-theme="light"] .btn.outline,html[data-theme="light"] .theme{background:#fff!important;color:#1769d2!important;border-color:var(--line)!important}.brand em,html[data-theme="dark"] h1 span{color:#00e5ff!important;text-shadow:0 0 18px rgba(0,229,255,.2)}html[data-theme="light"] h1 span{color:#1769d2!important}.tag,.model-chip{background:rgba(0,190,255,.1)!important;color:#4edfff!important;border-color:rgba(0,190,255,.26)!important}html[data-theme="light"] .tag,html[data-theme="light"] .model-chip{color:#1769d2!important;background:#eaf5ff!important;border-color:#c6e4ff!important}.contact{background:linear-gradient(115deg,#07152c,#1156a5 58%,#00a7c4)!important;border:1px solid rgba(0,229,255,.24)!important}
-html[data-theme="dark"] .auth-gate{background:radial-gradient(ellipse at 12% 10%,rgba(37,139,255,.27),transparent 42%),radial-gradient(ellipse at 88% 85%,rgba(0,229,255,.17),transparent 40%),linear-gradient(145deg,#050a16,#0b1831)!important}html[data-theme="light"] .auth-gate{background:radial-gradient(ellipse at 12% 10%,rgba(37,139,255,.12),transparent 42%),#f2f7ff!important}
-.auth-shell{width:min(100%,900px)!important;display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;column-gap:clamp(22px,4vw,42px)!important;align-items:start!important;padding:clamp(22px,4vw,40px)!important}.auth-brand,.auth-welcome,.auth-security{grid-column:1!important}.auth-brand{margin-bottom:8px!important}.auth-welcome{align-self:center!important;padding:12px 0!important}.auth-welcome h1{font-size:clamp(25px,3vw,36px)!important}.auth-switch,.gate-form,#gateNote,.firebase-license-panel{grid-column:2!important}.auth-switch{margin:0 0 13px!important}#gateLoginForm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 12px}#gateLoginForm label{grid-column:1}#gateLoginForm input{grid-column:2;margin-top:9px}#gateLoginButton{grid-column:1 / -1;margin-top:13px}#gateReset{grid-column:1}#gateLoginForm .gate-separator{grid-column:1 / -1;margin:9px 0}#gateGoogle{grid-column:1 / -1}#gateNote{margin-top:10px!important}.auth-security{margin-top:18px!important;align-self:end}.gate-form input:focus{border-color:#258bff!important;box-shadow:0 0 0 3px rgba(37,139,255,.17)!important}.auth-brand .logo,.auth-switch button.active,.gate-primary{background:linear-gradient(115deg,#1769ff,#258bff 55%,#00cfe8)!important;color:#fff!important}.auth-shell .gate-link{color:#55dfff!important}
-.payment-card{background:linear-gradient(145deg,rgba(12,29,58,.98),rgba(5,13,29,.98))!important;border-color:rgba(37,139,255,.42)!important}html[data-theme="light"] .payment-card{background:linear-gradient(145deg,#fff,#edf6ff)!important;border-color:#c6e4ff!important}.payment-card:after{background:radial-gradient(circle,rgba(0,190,255,.19),transparent 70%)!important}.payment-icon,.payment-instapay .payment-icon{background:linear-gradient(135deg,#1769ff,#00d7ff)!important;color:#fff!important;box-shadow:0 0 22px rgba(0,190,255,.2)!important}.payment-number{border-color:rgba(0,190,255,.36)!important;background:rgba(0,190,255,.07)!important;text-shadow:0 0 18px rgba(0,190,255,.12)!important}.payment-btn{border-color:rgba(0,190,255,.35)!important}.payment-copy{background:linear-gradient(115deg,#1769ff,#00cfe8)!important;color:#fff!important}.payment-secondary{background:rgba(0,190,255,.08)!important}.payment-step{background:rgba(0,190,255,.045)!important}.payment-step>span{background:rgba(0,190,255,.13)!important;color:var(--primary)!important}.payment-disclaimer{background:rgba(0,190,255,.055)!important}
-.iphone-price-card,.official-unlock-prices,.official-unlock-card{border-color:rgba(37,139,255,.42)!important;background:linear-gradient(145deg,rgba(12,29,58,.98),rgba(5,13,29,.98))!important}html[data-theme="light"] .iphone-price-card,html[data-theme="light"] .official-unlock-prices,html[data-theme="light"] .official-unlock-card{background:linear-gradient(145deg,#fff,#edf6ff)!important;color:#15243c!important}.iphone-price-icon{background:rgba(0,190,255,.12)!important;border-color:rgba(0,190,255,.42)!important;color:#00d7ff!important}.iphone-price-card small,.official-unlock-card strong{color:#43dcff!important}.official-unlock-card a{border-color:rgba(0,190,255,.5)!important;background:rgba(0,190,255,.1)!important;color:#e9f8ff!important}
-.buy-service-btn,.buy-table-price{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:8px 12px;border-radius:9px;background:linear-gradient(110deg,#1769ff,#00cfe8)!important;color:#fff!important;text-decoration:none!important;font-size:12px;font-weight:900;border:0!important;box-shadow:0 0 15px rgba(0,170,255,.15)}.secondary-buy{background:rgba(0,190,255,.1)!important;border:1px solid rgba(0,190,255,.35)!important;color:#72e9ff!important}.buy-table-price{padding:7px 9px;white-space:nowrap}.checkout-summary{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:0 0 18px;padding:18px 20px;border:1px solid rgba(0,190,255,.42);border-radius:18px;background:linear-gradient(120deg,rgba(10,32,65,.98),rgba(8,19,40,.98));box-shadow:0 0 28px rgba(0,130,255,.12)}html[data-theme="light"] .checkout-summary{background:linear-gradient(120deg,#f4faff,#eaf7ff)!important}.checkout-summary[hidden]{display:none!important}.checkout-kicker{font-size:10px;letter-spacing:.16em;font-weight:900;color:#46dcff}.checkout-summary h3{margin:5px 0;color:var(--text)}.checkout-summary p{margin:0;color:var(--muted)}.checkout-price{display:flex;flex-direction:column;gap:3px;text-align:center}.checkout-price small{font-size:11px;color:var(--muted)}.checkout-price strong{font-size:25px;color:#45dcff}#iphone-unlock-offer{border-color:rgba(0,190,255,.35)!important;background:linear-gradient(135deg,#07152c,#0b2850)!important}#iphone-unlock-offer h2,#iphone-unlock-offer h3{color:#eaf7ff!important}#iphone-unlock-offer p{color:#c7d9ee!important}#iphone-unlock-offer .buy-table-price{margin:2px}
-@media(max-width:700px){.auth-shell{width:min(100%,520px)!important;display:block!important;padding:22px!important}.auth-brand,.auth-welcome,.auth-switch,.gate-form,#gateNote,.firebase-license-panel,.auth-security{grid-column:auto!important}.auth-welcome{padding:4px 0 10px!important}#gateLoginForm{display:block}#gateLoginForm label{display:block}#gateLoginForm input{display:block;width:100%;box-sizing:border-box;margin:7px 0 12px}#gateReset{display:block}.auth-switch{margin:16px 0!important}.checkout-summary{align-items:flex-start}}
-</style>
-
-<style id="xtools-compact-more-menu">
-.navlinks{gap:clamp(5px,.65vw,10px)!important;min-width:0!important}
-.navlinks>a,.navlinks>.taskbar-menu{flex:0 0 auto!important}
-.navlinks>a{padding:9px 7px!important}
-.more-menu .taskbar-trigger{background:linear-gradient(110deg,rgba(23,105,255,.14),rgba(0,207,232,.1))!important;border:1px solid rgba(0,190,255,.3)!important;color:var(--text)!important}
-.more-dropdown{min-width:245px!important;max-height:min(72vh,560px);overflow:auto;overscroll-behavior:contain}
-.more-menu-search{display:block;width:100%;box-sizing:border-box;padding:11px 12px;margin:0 0 7px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);outline:none;font:inherit;font-size:13px;position:sticky;top:0;z-index:1}
-.more-menu-search:focus{border-color:#258bff;box-shadow:0 0 0 3px rgba(37,139,255,.13)}
-.more-menu-results a{white-space:normal!important;line-height:1.4}
-.more-search-empty{padding:8px 12px;color:var(--muted);font-size:12px;margin:0}
-@media(max-width:1100px){.navlinks{gap:6px!important}.more-dropdown{right:auto;left:0;max-height:65vh}}
-</style>
-<script id="xtools-more-menu-search">
-(()=>{
- const menu=document.querySelector('.more-menu'); if(!menu)return;
- const input=menu.querySelector('.more-menu-search'); const links=[...menu.querySelectorAll('.more-menu-results a')]; const empty=menu.querySelector('.more-search-empty');
- input.addEventListener('input',()=>{const q=input.value.trim().toLocaleLowerCase();let count=0;links.forEach(a=>{const show=!q||a.textContent.toLocaleLowerCase().includes(q);a.hidden=!show;if(show)count++});empty.hidden=count>0;});
- links.forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');menu.querySelector('.taskbar-trigger')?.setAttribute('aria-expanded','false');}));
-})();
-</script>
-
-
-<style id="xtools-final-blue-theme-and-header">
-:root,html[data-theme="dark"]{--bg:#060b18!important;--surface:#101a31!important;--text:#f2f7ff!important;--muted:#a9bad5!important;--line:#263e65!important;--primary:#258bff!important;--mint:#00e5ff!important;--shadow:0 16px 42px rgba(0,0,0,.42)!important}
-html[data-theme="light"]{--bg:#f2f7ff!important;--surface:#fff!important;--text:#15243c!important;--muted:#5c6f8c!important;--line:#d5e4f8!important;--primary:#1769d2!important;--mint:#00a9d6!important;--shadow:0 12px 32px rgba(24,73,130,.12)!important}
-html,html[data-theme="dark"]{background:#060b18!important}
-html[data-theme="dark"] body{background:radial-gradient(ellipse at 8% 0%,rgba(37,139,255,.24),transparent 37%),radial-gradient(ellipse at 92% 12%,rgba(0,229,255,.16),transparent 32%),linear-gradient(145deg,#060b18,#0a1630 58%,#060b18)!important;color:var(--text)!important}
-html[data-theme="light"] body{background:radial-gradient(ellipse at 8% 0%,rgba(37,139,255,.10),transparent 37%),radial-gradient(ellipse at 92% 12%,rgba(0,169,214,.11),transparent 32%),#f2f7ff!important;color:var(--text)!important}
-html[data-theme="dark"] header,html[data-theme="dark"] footer{background:rgba(5,11,25,.96)!important;border-color:rgba(37,139,255,.32)!important;color:var(--text)!important}
-html[data-theme="light"] header,html[data-theme="light"] footer{background:rgba(255,255,255,.97)!important;border-color:var(--line)!important;color:var(--text)!important}
-html[data-theme="dark"] .logo,html[data-theme="light"] .logo,.user-avatar{background:linear-gradient(135deg,#1769ff,#00e5ff)!important;border-color:rgba(0,229,255,.4)!important;box-shadow:0 0 22px rgba(37,139,255,.3)!important;color:#fff!important}
-html[data-theme="dark"] .btn,html[data-theme="dark"] .smallbtn,html[data-theme="dark"] .model-actions a:first-child,html[data-theme="dark"] .hx-btn,html[data-theme="light"] .btn:not(.outline),html[data-theme="light"] .smallbtn,html[data-theme="light"] .model-actions a:first-child,html[data-theme="light"] .hx-btn{background:linear-gradient(115deg,#1769ff,#258bff 55%,#00cfe8)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 0 18px rgba(37,139,255,.16)!important}
-html[data-theme="dark"] .brand em,html[data-theme="dark"] h1 span,html[data-theme="light"] .brand em,html[data-theme="light"] h1 span{color:#00bff3!important}
-html[data-theme="dark"] .tag,html[data-theme="light"] .tag,html[data-theme="dark"] .model-chip,html[data-theme="light"] .model-chip{background:rgba(0,190,255,.1)!important;color:#258bff!important;border-color:rgba(0,190,255,.26)!important}
-html[data-theme="dark"] .contact,html[data-theme="light"] .contact{background:linear-gradient(115deg,#07152c,#1156a5 56%,#00a7c4)!important;border-color:rgba(0,229,255,.25)!important}
-html[data-theme="dark"] .auth-gate{background:radial-gradient(ellipse at 15% 15%,rgba(37,139,255,.2),transparent 42%),radial-gradient(ellipse at 85% 80%,rgba(0,229,255,.1),transparent 40%),#060b18!important}
-html[data-theme="light"] .auth-gate{background:radial-gradient(ellipse at 15% 15%,rgba(37,139,255,.12),transparent 42%),#f2f7ff!important}
-.auth-shell{border-color:rgba(37,139,255,.32)!important}
-.auth-brand .logo,.auth-switch button.active,.gate-primary{background:linear-gradient(115deg,#1769ff,#258bff 55%,#00cfe8)!important;color:#fff!important}
-.auth-welcome h1 span,.auth-shell .gate-link{color:#55dfff!important}
-input:focus,select:focus,textarea:focus,.gate-form input:focus{outline-color:#258bff!important;border-color:#258bff!important;box-shadow:0 0 0 3px rgba(37,139,255,.15)!important}
-.iphone-price-card,.official-unlock-prices,.official-unlock-card{border-color:rgba(37,139,255,.42)!important;background:linear-gradient(145deg,rgba(12,29,58,.98),rgba(5,13,29,.98))!important}
-html[data-theme="light"] .iphone-price-card,html[data-theme="light"] .official-unlock-prices,html[data-theme="light"] .official-unlock-card{background:linear-gradient(145deg,#fff,#edf6ff)!important;color:#15243c!important}
-.iphone-price-card:after{background:rgba(0,190,255,.13)!important}.iphone-price-icon{background:rgba(0,190,255,.12)!important;border-color:rgba(0,190,255,.42)!important;color:#00d7ff!important}.iphone-price-card small{color:#43dcff!important}
-.payment-card{background:linear-gradient(145deg,rgba(12,29,58,.98),rgba(5,13,29,.98))!important;border-color:rgba(37,139,255,.42)!important}
-html[data-theme="light"] .payment-card{background:linear-gradient(145deg,#fff,#edf6ff)!important;border-color:#c6e4ff!important}
-.payment-icon,.payment-instapay .payment-icon,.payment-copy{background:linear-gradient(135deg,#1769ff,#00d7ff)!important;color:#fff!important}.payment-number{border-color:rgba(0,190,255,.36)!important;background:rgba(0,190,255,.07)!important}.payment-step{background:rgba(0,190,255,.045)!important}.payment-disclaimer{background:rgba(0,190,255,.055)!important}
-/* Header: consistent typography, spacing, and clear primary links */
-body,button,input,select,textarea{font-family:Tahoma,Arial,sans-serif}
-header{z-index:500;isolation:isolate}header .wrap{width:min(1360px,97%)}header .nav{display:flex;align-items:center;justify-content:space-between;gap:clamp(8px,1vw,15px);min-height:72px;height:auto;padding:9px 0}
-header .brand{display:flex;align-items:center;gap:9px;flex:0 0 auto;font-size:clamp(14px,1.15vw,16px);line-height:1.3;white-space:nowrap}
-header .logo{flex:0 0 38px;width:38px;height:38px}
-header .navlinks{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;gap:clamp(3px,.45vw,7px);overflow-x:auto;overflow-y:visible;scrollbar-width:none;padding:5px 2px}
-header .navlinks::-webkit-scrollbar{display:none}
-header .navlinks>a,header .navlinks>.taskbar-menu{flex:0 0 auto;display:inline-flex;align-items:center}
-header .navlinks>a{font-size:clamp(11px,.9vw,13px);font-weight:750;line-height:1.35;padding:9px clamp(6px,.6vw,9px);border-radius:9px;white-space:nowrap;letter-spacing:0}
-header .navlinks>a:hover,header .taskbar-trigger:hover{background:rgba(37,139,255,.12)!important;color:#57dfff!important}
-header .taskbar-trigger{font-family:inherit;font-size:clamp(11px,.9vw,13px);font-weight:750;line-height:1.35;padding:9px clamp(6px,.6vw,9px);white-space:nowrap;border-radius:9px}
-header .actions{display:flex;align-items:center;gap:7px;flex:0 0 auto}header .actions .btn,header .actions button,header .theme{font-family:inherit;font-size:12px;font-weight:750;line-height:1.35}header .actions .btn{padding:9px 11px;white-space:nowrap}header .theme{width:38px;height:38px;flex:0 0 38px}
-header .taskbar-dropdown{z-index:10000;min-width:205px;max-width:min(300px,88vw);font-size:13px}header .taskbar-dropdown a{font-size:13px;line-height:1.45;padding:9px 11px;white-space:normal}
-.more-menu .taskbar-trigger{background:linear-gradient(110deg,rgba(23,105,255,.14),rgba(0,207,232,.1))!important;border:1px solid rgba(0,190,255,.3)!important;color:var(--text)!important}.more-dropdown{min-width:245px!important;max-height:min(72vh,560px);overflow:auto;overscroll-behavior:contain}
-@media(max-width:1150px){header .nav{flex-wrap:wrap;row-gap:5px}header .brand{font-size:15px}header .navlinks{order:3;flex:0 0 100%;width:100%;justify-content:flex-start;gap:5px}header .navlinks>a{font-size:12px;padding:8px}header .taskbar-trigger{font-size:12px;padding:8px}header .actions{margin-inline-start:auto}}
-@media(max-width:540px){header .wrap{width:94%}header .nav{padding:7px 0;min-height:0;gap:6px}header .brand{font-size:14px;gap:7px}header .logo{width:34px;height:34px;flex-basis:34px;border-radius:11px}header .navlinks{gap:3px;padding:4px 1px 7px}header .navlinks>a{font-size:11px;padding:7px 8px}header .taskbar-trigger{font-size:11px;padding:7px 8px}header .actions{gap:5px}header .actions .btn{font-size:11px;padding:8px 9px}header .theme{width:34px;height:34px;flex-basis:34px;font-size:15px}}
-</style>
-
-</body>
-</html>
