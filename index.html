@@ -406,6 +406,17 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
 .card p{font-size:13px}
 .btn,.smallbtn,.model-actions a{font-family:inherit;line-height:1.4}
 </style>
+
+<style id="xtools-header-neon-type-fix">
+/* Slightly larger, softly glowing navigation typography */
+header .navlinks{gap:clamp(12px,1.6vw,22px)!important;align-items:center!important}
+header .navlinks>a,header .taskbar-trigger{font-size:15.5px!important;font-weight:800!important;letter-spacing:.1px!important;line-height:1.35!important;color:#dceeff!important;text-shadow:0 0 7px rgba(37,139,255,.72),0 0 15px rgba(0,213,255,.32)!important;transition:color .2s ease,text-shadow .2s ease,transform .2s ease!important}
+header .navlinks>a:hover,header .taskbar-trigger:hover,header .navlinks>a:focus-visible,header .taskbar-trigger:focus-visible{color:#fff!important;text-shadow:0 0 7px #258bff,0 0 17px #00d5ff,0 0 27px rgba(0,213,255,.65)!important;transform:translateY(-1px)}
+header .taskbar-trigger{padding:9px 10px!important;border-radius:10px!important}
+@media(max-width:900px){header .navlinks{gap:8px!important}header .navlinks>a,header .taskbar-trigger{font-size:14px!important;padding:7px 8px!important}}
+@media(max-width:600px){header .navlinks>a,header .taskbar-trigger{font-size:12px!important;text-shadow:0 0 6px rgba(37,139,255,.6),0 0 11px rgba(0,213,255,.25)!important}}
+</style>
+
 </head>
 <body class="auth-locked">
 
@@ -789,13 +800,65 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
 </script>
 
 
+
+<style id="xtools-iphone-order-form-style">
+#xtOrderModal[hidden]{display:none!important}#xtOrderModal{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:16px;background:rgba(2,7,18,.78);backdrop-filter:blur(10px)}
+#xtOrderModal .xt-order-panel{width:min(100%,560px);max-height:min(92vh,820px);overflow:auto;border:1px solid rgba(37,139,255,.55);border-radius:22px;padding:clamp(20px,4vw,30px);background:linear-gradient(145deg,#101d36,#071226);color:#f2f7ff;box-shadow:0 24px 90px #0009,0 0 38px #168bff22;position:relative}
+#xtOrderModal .xt-order-close{position:absolute;left:14px;top:12px;width:38px;height:38px;border-radius:11px;border:1px solid #31517a;background:#122745;color:#fff;font-size:23px;cursor:pointer}
+#xtOrderModal .xt-order-kicker{color:#51dcff;font-size:11px;font-weight:900;letter-spacing:.14em}#xtOrderModal h2{margin:8px 0;font-size:clamp(22px,4vw,29px)}#xtOrderModal .xt-order-intro{color:#b8cbe5;font-size:13px;line-height:1.7;margin:0 0 16px}
+#xtOrderModal .xt-order-selected{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 14px;margin:14px 0 18px;border:1px solid #234b79;border-radius:13px;background:#0b1a31}#xtOrderModal .xt-order-selected strong{color:#50dfff}#xtOrderModal label{display:block;margin:12px 0 5px;font-size:13px;font-weight:800;color:#e4f0ff}#xtOrderModal input{width:100%;box-sizing:border-box;border:1px solid #29486d;border-radius:11px;background:#081426;color:#fff;padding:12px 13px;font:inherit;outline:none}#xtOrderModal input:focus{border-color:#258bff;box-shadow:0 0 0 3px #258bff2e}#xtOrderModal .xt-order-consent{display:flex;gap:9px;align-items:flex-start;color:#b8cbe5;font-size:12px;line-height:1.55;margin:14px 0}#xtOrderModal .xt-order-consent input{width:17px;min-width:17px;margin-top:3px;accent-color:#258bff}#xtOrderModal .xt-order-submit{width:100%;border:0;border-radius:12px;padding:13px;background:linear-gradient(110deg,#1769ff,#00cfe8);color:#fff;font:inherit;font-weight:900;cursor:pointer;box-shadow:0 8px 24px #168bff30}#xtOrderModal .xt-order-foot{font-size:11px;color:#91a8c8;line-height:1.6;margin:12px 0 0}
+@media(max-width:560px){#xtOrderModal{padding:9px}#xtOrderModal .xt-order-panel{padding:21px 16px;border-radius:17px}}
+</style>
+<div id="xtOrderModal" hidden role="dialog" aria-modal="true" aria-labelledby="xtOrderTitle">
+ <div class="xt-order-panel">
+  <button type="button" class="xt-order-close" id="xtOrderClose" aria-label="إغلاق">×</button>
+  <span class="xt-order-kicker">HAMOUDA XTOOLS • IPHONE ORDER</span>
+  <h2 id="xtOrderTitle">بيانات طلب خدمة الآيفون</h2>
+  <p class="xt-order-intro">اكتب بيانات الجهاز والبريد الإلكتروني. هنجهز رسالة واتساب ببيانات الطلب، وبعدها تقدر تختار وسيلة الدفع.</p>
+  <div class="xt-order-selected"><div><small>الخدمة المختارة</small><div id="xtOrderServiceName">خدمة الآيفون</div></div><div><small>السعر</small><strong id="xtOrderServicePrice">—</strong></div></div>
+  <form id="xtIphoneOrderForm">
+   <label for="xtOrderSerial">Serial Number (الرقم التسلسلي)</label><input id="xtOrderSerial" name="serial" autocomplete="off" maxlength="80" required placeholder="أدخل الرقم التسلسلي للجهاز" />
+   <label for="xtOrderSN">SN (كما يظهر على الجهاز)</label><input id="xtOrderSN" name="sn" autocomplete="off" maxlength="80" required placeholder="أدخل SN" />
+   <label for="xtOrderEmail">البريد الإلكتروني</label><input id="xtOrderEmail" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="name@example.com" />
+   <label class="xt-order-consent"><input id="xtOrderConsent" type="checkbox" required /><span>أوافق على إرسال بيانات الطلب التي أدخلتها إلى واتساب الخاص بـ Hamouda XTools لمراجعة الخدمة والتواصل معي بشأن الطلب.</span></label>
+   <button class="xt-order-submit" type="submit">إرسال البيانات على واتساب والمتابعة للدفع ↗</button>
+  </form>
+  <p class="xt-order-foot">لا تدخل كلمة مرور Apple ID أو رموز التحقق. بعد فتح واتساب اضغط «إرسال» بنفسك. الدفع يدوي، ولا يتم تأكيده إلا بعد مراجعة الإيصال.</p>
+ </div>
+</div>
+<script id="xtools-iphone-order-flow">
+(()=>{
+ const modal=document.getElementById('xtOrderModal'),form=document.getElementById('xtIphoneOrderForm');
+ const nameEl=document.getElementById('xtOrderServiceName'),priceEl=document.getElementById('xtOrderServicePrice');
+ const summary=document.getElementById('checkoutSummary'),summaryName=document.getElementById('checkoutServiceName'),summaryPrice=document.getElementById('checkoutServicePrice');
+ const receiptLinks=[...document.querySelectorAll('.payment-receipt-link')];
+ let order={service:'',price:'',serial:'',sn:'',email:''};
+ const isIphoneBuy=a=>{const t=((a.dataset.buyService||'')+' '+(a.textContent||'' )).toLowerCase();return /iphone|آيفون|الايفون|الآيفون/.test(t)&&/شراء|buy/.test(t)};
+ const wa=(method,receipt=false)=>{const parts=['مرحبًا Hamouda XTools، '+(receipt?'أرسِل بيانات تأكيد الدفع للطلب التالي:':'بيانات طلب خدمة الآيفون:')];if(order.service)parts.push('الخدمة: '+order.service);if(order.price)parts.push('السعر المعروض: '+order.price);if(order.serial)parts.push('Serial Number: '+order.serial);if(order.sn)parts.push('SN: '+order.sn);if(order.email)parts.push('البريد الإلكتروني: '+order.email);if(method)parts.push('وسيلة الدفع: '+method);parts.push(receipt?'قمت بالتحويل، وسأرفق صورة إيصال الدفع. برجاء مراجعة التحويل وتأكيد الطلب.':'برجاء مراجعة أهلية الجهاز وتأكيد بيانات الطلب.');return 'https://wa.me/201003267221?text='+encodeURIComponent(parts.join('\n'));};
+ const updateReceiptLinks=()=>receiptLinks.forEach(a=>{const method=a.closest('.payment-card')?.classList.contains('payment-vodafone')?'فودافون كاش':'إنستا باي';a.href=wa(method,true);});
+ const openForm=a=>{order={service:a.dataset.buyService||'خدمة الآيفون',price:a.dataset.buyPrice||'',serial:'',sn:'',email:''};nameEl.textContent=order.service;priceEl.textContent=order.price;if(modal)modal.hidden=false;document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('xtOrderSerial')?.focus(),30);};
+ document.querySelectorAll('[data-buy-service][data-buy-price]').forEach(a=>{if(!isIphoneBuy(a))return;a.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();openForm(a);},true);});
+ const close=()=>{modal.hidden=true;document.body.style.overflow='';};document.getElementById('xtOrderClose')?.addEventListener('click',close);modal?.addEventListener('click',e=>{if(e.target===modal)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal&&!modal.hidden)close();});
+ form?.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(form);order.serial=String(fd.get('serial')||'').trim();order.sn=String(fd.get('sn')||'').trim();order.email=String(fd.get('email')||'').trim();if(!order.serial||!order.sn||!order.email||!document.getElementById('xtOrderConsent').checked){form.reportValidity();return;}
+  if(summaryName)summaryName.textContent=order.service;if(summaryPrice)summaryPrice.textContent=order.price;if(summary)summary.hidden=false;
+  updateReceiptLinks();
+  // Open WhatsApp synchronously from the submit gesture. The customer still presses Send in WhatsApp.
+  const w=window.open(wa('',false),'_blank','noopener,noreferrer');
+  close();const payment=document.getElementById('payment');if(payment)payment.scrollIntoView({behavior:'smooth',block:'start'});
+  const toast=document.getElementById('paymentToast');if(toast)toast.textContent=w?'تم تجهيز رسالة بيانات الطلب في واتساب. اضغط إرسال هناك، ثم أكمل الدفع وأرسل الإيصال.':'افتح واتساب من الرابط في رسالة الطلب، ثم أكمل الدفع وأرسل الإيصال.';
+ });
+ // Receipt button opens a WhatsApp message containing the same order details; user attaches the actual receipt.
+ updateReceiptLinks();
+})();
+</script>
+
 <section id="payment" class="payment-section">
   <div class="wrap">
     <div class="heading">
       <div>
         <span class="tag">SECURE MANUAL PAYMENT</span>
         <h2>الدفع وشراء الخدمات</h2>
-        <p>حوّل قيمة الخدمة ثم أرسل إيصال التحويل للمراجعة وتأكيد الطلب.</p>
+        <p>بعد إرسال بيانات الطلب على واتساب، حوّل المبلغ ثم اضغط «إرسال الإيصال واتساب» وأرفق صورة التحويل للمراجعة والتأكيد.</p>
       </div>
       <span class="payment-neon-label">XTOOLS PAY</span>
     </div>
