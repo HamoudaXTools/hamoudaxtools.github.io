@@ -454,7 +454,7 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
 <button aria-expanded="false" class="taskbar-trigger" type="button">الهواتف <span>⌄</span></button>
 <div class="taskbar-dropdown"><a href="#devices">كل الشركات</a><a data-jump="Samsung" href="#devices">Samsung</a><a data-jump="Apple" href="#devices">Apple / iPhone</a><a data-jump="Xiaomi" href="#devices">Xiaomi / Redmi / POCO</a><a data-jump="Google Pixel" href="#devices">Google Pixel</a><a data-jump="Transsion" href="#devices">TECNO / Infinix / itel</a></div></div>
 
-<a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
+<a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#payment">الدفع</a><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
 <div class="profile-modal" id="profileModal" hidden role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
  <div class="profile-backdrop" data-profile-close></div>
  <section class="profile-panel"><button class="profile-close" type="button" data-profile-close aria-label="إغلاق">×</button>
@@ -780,6 +780,53 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
  search.addEventListener('input',render);select.addEventListener('change',()=>{quick='all';document.querySelectorAll('.rest-filter').forEach(b=>b.classList.toggle('active',b.dataset.filter==='all'));render()});document.querySelectorAll('.rest-filter').forEach(b=>b.addEventListener('click',()=>{quick=b.dataset.filter;select.value='all';document.querySelectorAll('.rest-filter').forEach(x=>x.classList.toggle('active',x===b));render()}));grid.addEventListener('click',async e=>{const b=e.target.closest('[data-copy]');if(!b)return;const value=b.getAttribute('data-copy');try{await navigator.clipboard.writeText(value);const old=b.textContent;b.textContent='تم النسخ ✓';setTimeout(()=>b.textContent=old,1400)}catch(err){const ta=document.createElement('textarea');ta.value=value;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');b.textContent='تم النسخ ✓'}catch(e2){alert('تعذر النسخ تلقائيًا. انسخ النص يدويًا: '+value)}ta.remove()}});render();
 })();
 </script>
+
+
+<section id="payment" class="payment-section">
+  <div class="wrap">
+    <div class="heading">
+      <div>
+        <span class="tag">SECURE MANUAL PAYMENT</span>
+        <h2>الدفع وشراء الخدمات</h2>
+        <p>حوّل قيمة الخدمة ثم أرسل إيصال التحويل للمراجعة وتأكيد الطلب.</p>
+      </div>
+      <span class="payment-neon-label">XTOOLS PAY</span>
+    </div>
+    <div class="payment-grid">
+      <article class="payment-card payment-vodafone">
+        <div class="payment-card-top">
+          <div class="payment-icon">V</div>
+          <div><span class="payment-method-en">MOBILE WALLET</span><h3>فودافون كاش</h3></div>
+        </div>
+        <p>حوّل المبلغ بالجنيه المصري إلى رقم المحفظة التالي:</p>
+        <div class="payment-number" dir="ltr">01003267221</div>
+        <div class="payment-actions">
+          <button type="button" class="payment-btn payment-copy" data-copy-payment="01003267221">نسخ الرقم</button>
+          <a class="payment-btn payment-secondary" href="https://wa.me/201003267221?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%B3%D9%84%20%D8%A5%D9%8A%D8%B5%D8%A7%D9%84%20%D8%AA%D8%AD%D9%88%D9%8A%D9%84%20%D9%81%D9%88%D8%AF%D8%A7%D9%81%D9%88%D9%86%20%D9%83%D8%A7%D8%B4%20%D9%84%D8%AA%D8%A3%D9%83%D9%8A%D8%AF%20%D8%A7%D9%84%D8%B7%D9%84%D8%A8." target="_blank" rel="noopener">إرسال الإيصال واتساب</a>
+        </div>
+      </article>
+      <article class="payment-card payment-instapay">
+        <div class="payment-card-top">
+          <div class="payment-icon">IP</div>
+          <div><span class="payment-method-en">INSTANT TRANSFER</span><h3>إنستا باي</h3></div>
+        </div>
+        <p>استخدم رقم الهاتف إذا كان مرتبطًا بحساب إنستا باي الخاص بالمطوّر.</p>
+        <div class="payment-number" dir="ltr">01003267221</div>
+        <div class="payment-actions">
+          <button type="button" class="payment-btn payment-copy" data-copy-payment="01003267221">نسخ الرقم</button>
+          <a class="payment-btn payment-secondary" href="https://wa.me/201003267221?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%B3%D9%84%20%D8%A5%D9%8A%D8%B5%D8%A7%D9%84%20%D8%AA%D8%AD%D9%88%D9%8A%D9%84%20%D8%A5%D9%86%D8%B3%D8%AA%D8%A7%20%D8%A8%D8%A7%D9%8A%20%D9%84%D8%AA%D8%A3%D9%83%D9%8A%D8%AF%20%D8%A7%D9%84%D8%B7%D9%84%D8%A8." target="_blank" rel="noopener">إرسال الإيصال واتساب</a>
+        </div>
+      </article>
+    </div>
+    <div class="payment-steps">
+      <div class="payment-step"><span>01</span><div><b>اختار وسيلة الدفع</b><small>استخدم فودافون كاش أو إنستا باي.</small></div></div>
+      <div class="payment-step"><span>02</span><div><b>حوّل قيمة الطلب</b><small>تأكد من المبلغ ورقم المستلم قبل تأكيد التحويل.</small></div></div>
+      <div class="payment-step"><span>03</span><div><b>أرسل الإيصال</b><small>أرسل صورة الإيصال ورقم الطلب على واتساب وانتظر التأكيد.</small></div></div>
+    </div>
+    <p class="payment-disclaimer">تنبيه: الدفع في هذه الصفحة يدوي ولا يتم التحقق من التحويل تلقائيًا. لا ترسل كلمة مرور أو رمز OTP، ولن يتم تفعيل الخدمة إلا بعد مراجعة وصول المبلغ.</p>
+    <div id="paymentToast" class="payment-toast" role="status" aria-live="polite"></div>
+  </div>
+</section>
 
 <section id="contact"><div class="wrap"><div class="contact"><div><h2>تواصل مع المطوّر</h2><p>للاستفسارات وطلبات الدعم حول Hamouda XTools.</p><div class="contactlinks"><a class="btn whatsapp" href="https://wa.me/201003267221" rel="noopener" target="_blank">واتساب مباشر</a><a class="btn call" href="tel:+201003267221">اتصال هاتفي</a></div></div><div style="font-size:42px">✦</div></div></div></section></main>
 <footer><div class="wrap foot"><span>© <span id="year"></span> Hamouda XTools. جميع الحقوق محفوظة.</span><span>Developed by Mahmoud Hamouda</span></div></footer>
@@ -1227,7 +1274,7 @@ a:hover, button:hover { filter:brightness(1.12); }
 }
 </style>
 
-</body></html>
+
 
 <style id="profile-modal-styles">
 .profile-avatar-button{border:0;cursor:pointer;padding:0;width:38px;height:38px;font:inherit;box-shadow:0 0 0 2px color-mix(in srgb,var(--primary) 30%,transparent);}
@@ -1237,3 +1284,147 @@ a:hover, button:hover { filter:brightness(1.12); }
 <script id="profile-modal-js">
 (()=>{const modal=document.getElementById('profileModal'),avatar=document.getElementById('headerAvatar');if(!modal||!avatar)return;const close=()=>{modal.hidden=true;};avatar.addEventListener('click',()=>{modal.hidden=false;});modal.querySelectorAll('[data-profile-close]').forEach(el=>el.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});window.__xtoolsSetProfile=(user)=>{const name=user.displayName||((user.email||'').split('@')[0])||'عضو XTools';const initials=(name.trim().split(/\s+/).slice(0,2).map(x=>x[0]).join('')||'HX').toUpperCase();document.getElementById('profileAvatarLarge').textContent=initials;document.getElementById('profileName').textContent=name;document.getElementById('profileEmail').textContent=user.email||'غير متوفر';document.getElementById('profilePhone').textContent=user.phoneNumber||'غير مرتبط';const providers=(user.providerData||[]).map(p=>p.providerId==='google.com'?'Google':p.providerId==='password'?'البريد الإلكتروني وكلمة المرور':p.providerId==='phone'?'رقم الهاتف':p.providerId).filter(Boolean);document.getElementById('profileProvider').textContent=[...new Set(providers)].join('، ')||'حساب مسجل';};})();
 </script>
+
+
+<style id="hamouda-olive-neon-payment-theme">
+/* Premium olive + acid-lime neon theme */
+:root,[data-theme="dark"]{
+  --bg:#0b100b;--surface:#141c12;--text:#f3f7e9;--muted:#b1bda4;--line:#35452a;
+  --primary:#a6d936;--mint:#d7ff55;--shadow:0 16px 42px rgba(0,0,0,.38);color-scheme:dark
+}
+html[data-theme="light"]{
+  --bg:#f4f7ed;--surface:#ffffff;--text:#1b2815;--muted:#5d6b52;--line:#d6e1c5;
+  --primary:#668d18;--mint:#a2d72a;--shadow:0 12px 32px rgba(42,63,18,.10);color-scheme:light
+}
+html[data-theme="dark"] body{
+ background-color:#0b100b!important;
+ background-image:radial-gradient(ellipse at 8% 0%,rgba(166,217,54,.17),transparent 36%),radial-gradient(ellipse at 92% 12%,rgba(215,255,85,.09),transparent 32%),linear-gradient(145deg,#080d08,#10180d 60%,#0b100b)!important;
+ color:var(--text)!important
+}
+html[data-theme="light"] body{
+ background-color:var(--bg)!important;
+ background-image:radial-gradient(ellipse at 8% 0%,rgba(166,217,54,.14),transparent 36%),radial-gradient(ellipse at 92% 12%,rgba(111,145,37,.08),transparent 32%)!important;
+ color:var(--text)!important
+}
+html[data-theme="dark"] header{background:rgba(10,16,9,.90)!important;border-color:rgba(166,217,54,.28)!important;box-shadow:0 8px 32px #0005}
+html[data-theme="light"] header{background:rgba(255,255,255,.94)!important;border-color:var(--line)!important}
+.logo{background:linear-gradient(135deg,#668d18,#d7ff55)!important;color:#11180b!important;border:1px solid #d7ff5570!important;box-shadow:0 0 24px rgba(166,217,54,.25)!important}
+.brand em,h1 span{color:var(--primary)}
+h1 span{background:linear-gradient(90deg,#a6d936,#efffa0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn,.smallbtn,.model-actions a:first-child{background:linear-gradient(115deg,#668d18,#a6d936 62%,#d7ff55)!important;color:#10170a!important;border-color:transparent!important;box-shadow:0 0 20px rgba(166,217,54,.13)!important}
+.btn:hover,.smallbtn:hover,.model-actions a:first-child:hover{filter:brightness(1.08);box-shadow:0 0 25px rgba(166,217,54,.25)!important}
+html[data-theme="dark"] .card,html[data-theme="dark"] .feature,html[data-theme="dark"] .preview,html[data-theme="dark"] .app,html[data-theme="dark"] .model-card,html[data-theme="dark"] .db-toolbar,html[data-theme="dark"] .db-stats div,html[data-theme="dark"] .selected-card,html[data-theme="dark"] .select-placeholder,html[data-theme="dark"] .tile,html[data-theme="dark"] .pill,html[data-theme="dark"] .taskbar-dropdown{background:rgba(19,29,15,.88)!important;border-color:rgba(166,217,54,.20)!important}
+html[data-theme="light"] .card,html[data-theme="light"] .feature,html[data-theme="light"] .preview,html[data-theme="light"] .app,html[data-theme="light"] .model-card,html[data-theme="light"] .db-toolbar,html[data-theme="light"] .db-stats div,html[data-theme="light"] .selected-card,html[data-theme="light"] .select-placeholder,html[data-theme="light"] .tile,html[data-theme="light"] .pill,html[data-theme="light"] .taskbar-dropdown{background:rgba(255,255,255,.94)!important;border-color:var(--line)!important}
+.card:hover,.model-card:hover{border-color:rgba(166,217,54,.75)!important;box-shadow:0 16px 42px rgba(0,0,0,.28),0 0 20px rgba(166,217,54,.10)!important}
+.icon-wrap,.model-icon,.selected-device-icon,.placeholder-icon{background:linear-gradient(145deg,rgba(166,217,54,.18),rgba(215,255,85,.05))!important;color:var(--primary)!important;border-color:rgba(166,217,54,.30)!important}
+.tag,.model-chip{background:rgba(166,217,54,.12)!important;color:var(--primary)!important}
+.contact{background:linear-gradient(115deg,#172311,#3d5919 56%,#9abe2b)!important;border:1px solid rgba(215,255,85,.24);box-shadow:0 20px 48px rgba(73,105,25,.20)}
+.contact .btn{background:#f5ffdb!important;color:#263710!important;border-color:#d7ff55!important}
+.theme{background:var(--surface)!important;color:var(--primary)!important;border-color:var(--line)!important}
+::selection{background:#a6d936;color:#10170a}
+.auth-gate{background:radial-gradient(ellipse at 15% 15%,rgba(166,217,54,.20),transparent 42%),radial-gradient(ellipse at 85% 80%,rgba(215,255,85,.10),transparent 40%),#0b100b!important}
+.auth-shell{border-color:rgba(166,217,54,.30)!important}
+.auth-brand .logo{background:linear-gradient(135deg,#668d18,#d7ff55)!important;color:#10170a!important}
+.auth-welcome h1 span{color:#b8e84d!important;text-shadow:0 0 22px rgba(166,217,54,.20)!important}
+.auth-switch button.active,.gate-primary{background:linear-gradient(120deg,#668d18,#a6d936,#d7ff55)!important;color:#10170a!important}
+.gate-form input:focus{border-color:#a6d936!important;box-shadow:0 0 0 3px rgba(166,217,54,.14)!important}
+.gate-link{color:#a6d936!important}
+.payment-section{position:relative;isolation:isolate;padding:42px 0 48px}
+.payment-section:before{content:"";position:absolute;inset:8% 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 20% 35%,rgba(166,217,54,.08),transparent 45%),radial-gradient(ellipse at 80% 65%,rgba(215,255,85,.06),transparent 40%)}
+.payment-neon-label{font-size:11px;font-weight:900;letter-spacing:.16em;padding:8px 12px;border-radius:10px;border:1px solid rgba(166,217,54,.4);color:var(--primary);background:rgba(166,217,54,.08);box-shadow:0 0 18px rgba(166,217,54,.08)}
+.payment-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.payment-card{position:relative;overflow:hidden;padding:24px;border:1px solid rgba(166,217,54,.25);border-radius:22px;background:linear-gradient(145deg,rgba(24,36,17,.97),rgba(13,20,11,.97));box-shadow:0 18px 48px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.04)}
+html[data-theme="light"] .payment-card{background:linear-gradient(145deg,#fff,#f2f8e8);border-color:#c9dca8}
+.payment-card:after{content:"";position:absolute;top:-75px;inset-inline-end:-70px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(166,217,54,.16),transparent 70%);pointer-events:none}
+.payment-card-top{display:flex;align-items:center;gap:13px;position:relative;z-index:1}
+.payment-icon{width:54px;height:54px;display:grid;place-items:center;flex-shrink:0;border-radius:17px;background:linear-gradient(135deg,#526f18,#a6d936);color:#10170a;font-weight:1000;font-size:21px;box-shadow:0 0 22px rgba(166,217,54,.16)}
+.payment-instapay .payment-icon{background:linear-gradient(135deg,#6c812d,#d7ff55)}
+.payment-method-en{font-size:10px;letter-spacing:.15em;color:var(--primary);font-weight:900}
+.payment-card h3{margin:2px 0 0;font-size:21px;color:var(--text)}
+.payment-card p{font-size:13px;color:var(--muted);margin:17px 0 12px;min-height:42px}
+.payment-number{position:relative;z-index:1;padding:13px 15px;border:1px solid rgba(166,217,54,.36);border-radius:13px;background:rgba(166,217,54,.07);color:var(--text);font:800 23px/1.4 Tahoma,Arial,sans-serif;letter-spacing:.06em;text-align:center;text-shadow:0 0 18px rgba(166,217,54,.14)}
+.payment-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.payment-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:43px;padding:10px 13px;border:1px solid rgba(166,217,54,.36);border-radius:11px;font:800 12px Tahoma,Arial,sans-serif;text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.payment-btn:hover{transform:translateY(-2px);box-shadow:0 0 18px rgba(166,217,54,.14)}
+.payment-copy{background:linear-gradient(115deg,#668d18,#a6d936);color:#10170a;border-color:transparent}
+.payment-secondary{background:rgba(166,217,54,.07);color:var(--text)}
+html[data-theme="light"] .payment-secondary{color:#243416}
+.payment-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.payment-step{display:flex;gap:12px;align-items:flex-start;padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(166,217,54,.045)}
+.payment-step>span{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border-radius:11px;background:rgba(166,217,54,.14);color:var(--primary);font-weight:900;font-size:12px}
+.payment-step b{display:block;font-size:13px;color:var(--text)}
+.payment-step small{display:block;margin-top:4px;font-size:11px;line-height:1.7;color:var(--muted)}
+.payment-disclaimer{margin:15px 0 0;padding:12px 14px;border-inline-start:3px solid var(--primary);border-radius:8px;background:rgba(166,217,54,.06);font-size:12px;color:var(--muted)}
+.payment-toast{min-height:0;margin-top:0;font-size:12px;color:var(--primary);font-weight:800}
+.payment-toast:not(:empty){margin-top:10px}
+@media(max-width:700px){.payment-grid{grid-template-columns:1fr}.payment-steps{grid-template-columns:1fr}.payment-card{padding:19px}.payment-card p{min-height:0}.payment-number{font-size:21px}.payment-actions .payment-btn{flex:1}}
+</style>
+<script id="hamouda-payment-actions">
+(()=> {
+ const toast=document.getElementById('paymentToast');
+ document.querySelectorAll('[data-copy-payment]').forEach(btn=>{
+  btn.addEventListener('click',async()=>{
+   const value=btn.getAttribute('data-copy-payment');
+   try{
+    if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(value);}
+    else{
+     const ta=document.createElement('textarea');ta.value=value;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
+     const ok=document.execCommand('copy');ta.remove();if(!ok)throw new Error('copy failed');
+    }
+    if(toast)toast.textContent='تم نسخ الرقم: '+value;
+    const old=btn.textContent;btn.textContent='تم النسخ ✓';setTimeout(()=>{btn.textContent=old},1600);
+   }catch(e){if(toast)toast.textContent='انسخ الرقم يدويًا: '+value;}
+  });
+ });
+})();
+</script>
+
+
+<style id="hamouda-olive-neon-final-override">
+/* High-priority override for legacy REDLINE rules */
+:root,html[data-theme="dark"],html[data-theme="light"]{
+ --bg:#0b100b!important;--surface:#141c12!important;--text:#f3f7e9!important;
+ --muted:#b1bda4!important;--line:#35452a!important;--primary:#a6d936!important;
+ --mint:#d7ff55!important;--shadow:0 16px 42px rgba(0,0,0,.38)!important;color-scheme:dark!important
+}
+html[data-theme="light"]{
+ --bg:#f4f7ed!important;--surface:#fff!important;--text:#1b2815!important;
+ --muted:#5d6b52!important;--line:#d6e1c5!important;--primary:#668d18!important;
+ --mint:#a2d72a!important;--shadow:0 12px 32px rgba(42,63,18,.10)!important;color-scheme:light!important
+}
+html,html[data-theme="dark"],html[data-theme="light"]{background:#0b100b!important}
+html[data-theme="dark"] body,html[data-theme="light"] body{
+ background-color:var(--bg)!important;background-image:radial-gradient(ellipse at 8% 0%,rgba(166,217,54,.15),transparent 36%),radial-gradient(ellipse at 92% 12%,rgba(215,255,85,.08),transparent 32%),linear-gradient(145deg,var(--bg),var(--bg))!important;color:var(--text)!important
+}
+html[data-theme="dark"] body:before,html[data-theme="light"] body:before{opacity:.04!important;filter:hue-rotate(35deg) saturate(.65)!important}
+html[data-theme="dark"] header,html[data-theme="dark"] footer{background:rgba(10,16,9,.92)!important;border-color:rgba(166,217,54,.25)!important;color:var(--text)!important}
+html[data-theme="light"] header,html[data-theme="light"] footer{background:rgba(255,255,255,.95)!important;border-color:var(--line)!important;color:var(--text)!important}
+html[data-theme="dark"] .logo,html[data-theme="light"] .logo{background:linear-gradient(135deg,#668d18,#d7ff55)!important;border-color:#d7ff5570!important;box-shadow:0 0 24px rgba(166,217,54,.25)!important;color:#11180b!important}
+html[data-theme="dark"] .btn,html[data-theme="dark"] .smallbtn,html[data-theme="dark"] .model-actions a:first-child,
+html[data-theme="light"] .btn:not(.outline),html[data-theme="light"] .smallbtn,html[data-theme="light"] .model-actions a:first-child{
+ background:linear-gradient(115deg,#668d18,#a6d936 62%,#d7ff55)!important;color:#10170a!important;border-color:transparent!important;box-shadow:0 0 18px rgba(166,217,54,.15)!important
+}
+html[data-theme="dark"] .brand em,html[data-theme="dark"] h1 span,html[data-theme="light"] .brand em,html[data-theme="light"] h1 span{color:var(--primary)!important}
+html[data-theme="dark"] .tag,html[data-theme="light"] .tag,html[data-theme="dark"] .model-chip,html[data-theme="light"] .model-chip{background:rgba(166,217,54,.12)!important;color:var(--primary)!important;border-color:rgba(166,217,54,.25)!important}
+html[data-theme="dark"] .contact,html[data-theme="light"] .contact{background:linear-gradient(115deg,#172311,#3d5919 56%,#9abe2b)!important;border-color:rgba(215,255,85,.24)!important}
+html[data-theme="dark"] .contact .btn,html[data-theme="light"] .contact .btn{background:#f5ffdb!important;color:#263710!important;border-color:#d7ff55!important}
+html[data-theme="dark"] .auth-gate{background:radial-gradient(ellipse at 15% 15%,rgba(166,217,54,.20),transparent 42%),radial-gradient(ellipse at 85% 80%,rgba(215,255,85,.10),transparent 40%),#0b100b!important}
+html[data-theme="dark"] .auth-shell{border-color:rgba(166,217,54,.32)!important}
+html[data-theme="dark"] .auth-brand .logo,html[data-theme="dark"] .auth-switch button.active,html[data-theme="dark"] .gate-primary{background:linear-gradient(120deg,#668d18,#a6d936,#d7ff55)!important;color:#10170a!important}
+html[data-theme="dark"] .auth-welcome h1 span,html[data-theme="dark"] .auth-shell .gate-link{color:#b8e84d!important}
+html[data-theme="light"] .auth-gate{background:radial-gradient(ellipse at 15% 15%,rgba(166,217,54,.13),transparent 42%),#f4f7ed!important}
+html[data-theme="light"] .auth-brand .logo,html[data-theme="light"] .auth-switch button.active,html[data-theme="light"] .gate-primary{background:linear-gradient(120deg,#668d18,#a6d936,#d7ff55)!important;color:#10170a!important}
+input:focus,select:focus,textarea:focus{outline-color:#a6d936!important;border-color:#a6d936!important;box-shadow:0 0 0 3px rgba(166,217,54,.14)!important}
+/* Recolor the existing iPhone price cards, not their content */
+.iphone-prices-section .heading h2 span{color:var(--primary)!important}
+.iphone-price-card{border-color:rgba(166,217,54,.42)!important;background:linear-gradient(145deg,rgba(24,36,17,.98),rgba(9,15,8,.98))!important;box-shadow:0 8px 25px rgba(0,0,0,.3),inset 0 1px rgba(215,255,85,.07)!important}
+html[data-theme="light"] .iphone-price-card{background:linear-gradient(145deg,#fff,#f0f7e5)!important;color:#1b2815!important}
+.iphone-price-card:after{background:rgba(166,217,54,.13)!important}
+.iphone-price-icon{background:rgba(166,217,54,.12)!important;border-color:rgba(166,217,54,.42)!important;color:var(--primary)!important}
+.iphone-price-card small{color:#d5ee9b!important}
+html[data-theme="light"] .iphone-price-card small{color:#526d1b!important}
+.iphone-price-note{border-color:rgba(166,217,54,.3)!important;background:rgba(166,217,54,.06)!important;color:var(--muted)!important}
+</style>
+
+</body>
+</html>
