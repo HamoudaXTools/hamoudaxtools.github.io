@@ -546,6 +546,49 @@ header .actions{gap:9px}
 @media(max-width:540px){.hx-top-search{width:calc(100vw - 36px);max-width:none;order:5}.hx-top-search input{font-size:12px!important}}
 </style>
 
+
+<style id="hx-final-cyan-violet-fix">
+/* Final palette override: remove all red accents in both themes */
+:root,[data-theme="dark"],html[data-theme="dark"]{--bg:#080d1b!important;--surface:#10182b!important;--text:#f2f7ff!important;--muted:#a8b8d7!important;--line:#34456b!important;--primary:#8c70ff!important;--mint:#43f3ed!important;--danger:#b9a0ff!important;--error:#b9a0ff!important}
+[data-theme="light"],html[data-theme="light"]{--bg:#f4f6ff!important;--surface:#ffffff!important;--text:#17213a!important;--muted:#65718d!important;--line:#d8def5!important;--primary:#7658ed!important;--mint:#0daebc!important;--danger:#8b5cf6!important;--error:#8b5cf6!important}
+body{background:radial-gradient(ellipse at 18% 0%,#7658ed28,transparent 38%),radial-gradient(ellipse at 88% 30%,#12cdd51b,transparent 35%),var(--bg)!important;overflow-x:hidden!important}
+body:not(.auth-locked){overflow-y:auto!important;height:auto!important;min-height:100vh!important}
+body:not(.auth-locked)>main,body:not(.auth-locked)>footer,body:not(.auth-locked)>header{display:block!important;visibility:visible!important}
+#authGate[hidden]{display:none!important;visibility:hidden!important;pointer-events:none!important}
+body.auth-locked{overflow:hidden!important}
+header{background:rgba(8,13,29,.82)!important;border-bottom:1px solid #43f3ed99!important;box-shadow:0 0 14px #43f3ed2b,0 0 30px #8c70ff20!important;backdrop-filter:blur(18px) saturate(160%)!important}
+header .brand,header .brand em,header .navlinks a,header .navlinks button,header .actions button,header .actions a{text-shadow:0 0 7px #43f3ed66,0 0 16px #8c70ff55!important}
+header .brand .logo{background:linear-gradient(135deg,#a58aff,#7050ff 48%,#11d5df)!important;border:1px solid #8ffcff!important;box-shadow:0 0 14px #8c70ff99,0 0 26px #43f3ed45!important}
+header .brand em{color:#43f3ed!important}
+header .btn,header .smallbtn,.smallbtn{background:linear-gradient(120deg,#7658ed,#367de8 55%,#12bfc7)!important;border-color:#43f3ed88!important;box-shadow:0 0 14px #43f3ed22!important}
+.btn.outline,.theme,header .taskbar-trigger{border-color:#43f3ed66!important;box-shadow:0 0 12px #8c70ff18!important}
+.hx-top-search{border:1px solid #43f3ed!important;box-shadow:0 0 10px #43f3ed40,0 0 22px #8c70ff25,inset 0 0 14px #43f3ed12!important}
+.hx-top-search input{color:#efffff!important;text-shadow:0 0 8px #43f3ed55!important}
+.hx-top-search input::placeholder{color:#a7c7e6!important}
+.hx-top-search button{background:linear-gradient(135deg,#8c70ff,#43dce7)!important;box-shadow:0 0 15px #43f3ed66!important}
+/* Replace the blocky HX text with a more polished metallic neon emblem */
+#authGate .hx-emblem{background:linear-gradient(145deg,#d7caff 0%,#9270ff 22%,#5337d9 53%,#0bbdc9 100%)!important;border:1px solid #c7faff!important;box-shadow:0 0 0 1px #8c70ff99,0 16px 45px #5337d955,0 0 48px #43f3ed45,inset 0 3px 4px #ffffffbd,inset 0 -12px 22px #07102c88!important;transform:rotate(-3deg)!important}
+#authGate .hx-emblem:before{inset:10px!important;border:2px solid #ffffffa8!important;border-radius:inherit!important;box-shadow:inset 0 0 18px #43f3ed44,0 0 20px #43f3ed33!important}
+#authGate .hx-emblem span{font-family:Arial,sans-serif!important;font-weight:1000!important;letter-spacing:-.13em!important;color:#fff!important;text-shadow:0 2px 0 #4631a8,0 0 8px #fff,0 0 22px #43f3edaa,3px 5px 0 #18164a88!important;filter:drop-shadow(0 0 10px #43f3ed55)!important}
+#authGate .hx-wordmark,#authGate .hx-developer,#authGate .hx-show-title,#authGate .hx-show-copy,#authGate .hx-points span,#authGate .auth-welcome h1,#authGate .gate-form label,#authGate .gate-link,#authGate #gateNote{ text-shadow:0 0 7px #43f3ed45,0 0 18px #8c70ff38!important}
+#authGate .hx-wordmark em,#authGate .hx-show-title span{color:#43f3ed!important;text-shadow:0 0 10px #43f3ed99,0 0 24px #43f3ed55!important}
+#authGate .gate-primary,#authGate .auth-switch button.active,#authGate .gate-google{background:linear-gradient(110deg,#7658ed,#367de8 55%,#12bfc7)!important;border-color:#43f3ed66!important;box-shadow:0 0 18px #43f3ed2b!important}
+#authGate .gate-form input{border-color:#53658c!important;box-shadow:inset 0 0 12px #8c70ff0b!important}
+#authGate .gate-form input:focus{border-color:#43f3ed!important;box-shadow:0 0 0 3px #43f3ed22,0 0 15px #43f3ed22!important}
+#authGate .auth-layout{border-color:#43f3ed40!important;box-shadow:0 0 50px #8c70ff1c!important}
+/* Any old red gaming styles are neutralized globally */
+.card,.feature,.contact,.db-panel,.lab-panel,.preview,.app,.tile,.toolimage,.pill{border-color:color-mix(in srgb,var(--line) 75%,#43f3ed 25%)!important}
+.card:hover{border-color:#43f3ed!important;box-shadow:0 0 20px #43f3ed22,0 16px 44px #0005!important}
+input:focus,select:focus,textarea:focus{outline-color:#43f3ed!important;border-color:#43f3ed!important;box-shadow:0 0 0 3px #43f3ed22!important}
+::selection{background:#8c70ff;color:#fff}
+@media(max-width:850px){#authGate.auth-gate{overflow-y:auto!important}#authGate .auth-layout{min-height:100dvh!important;height:auto!important;overflow:visible!important}}
+</style>
+<script id="hx-auth-layout-scroll-recovery">
+(function(){
+ function sync(){var gate=document.getElementById('authGate');if(!gate)return;var hidden=gate.hidden||getComputedStyle(gate).display==='none';if(hidden){document.body.classList.remove('auth-locked');document.body.style.overflowY='auto';document.documentElement.style.overflowY='auto';}}
+ document.addEventListener('DOMContentLoaded',sync);window.addEventListener('pageshow',sync);setInterval(sync,1200);
+})();
+</script>
 </head>
 <body class="auth-locked">
 
