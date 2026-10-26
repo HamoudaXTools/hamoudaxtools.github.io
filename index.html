@@ -791,101 +791,6 @@ footer{margin-top:28px}
 @media(max-width:520px){#hamoudaPromoBanner{width:92%;padding:22px!important;border-radius:23px!important;margin-top:18px!important}#hamoudaPromoBanner h1{font-size:42px!important}.activation-plans{grid-template-columns:1fr!important}.activation-plan{display:grid;grid-template-columns:1fr auto;gap:3px 10px;align-items:center}.activation-plan .plan-label,.activation-plan p{grid-column:1}.activation-plan .plan-price,.activation-plan .activation-btn{grid-column:2;grid-row:1/3}.activation-plan .activation-btn{grid-row:3;grid-column:1/-1}#authGate.auth-gate{padding:8px!important}#authGate .auth-layout{border-radius:21px!important;min-height:auto!important}#authGate .auth-showcase{padding:19px!important}#authGate .hx-points{gap:6px!important}#authGate .hx-points span{padding:6px 8px!important}#authGate .auth-form-side{padding:22px 18px!important}#authGate .auth-brand{margin-bottom:18px!important}#authGate .auth-welcome h1{font-size:27px!important}}
 </style>
 
-
-<style id="hamouda-live-hero-motion-v8">
-/* Bigger hero artwork, typography balance, and animated ambient background */
-@keyframes hxHeroFloat {
-  0%,100% { transform: translate3d(0,0,0) scale(1.015); }
-  50% { transform: translate3d(0,-13px,0) scale(1.035); }
-}
-@keyframes hxAmbientDrift {
-  0% { background-position: 0% 0%, 100% 15%, 50% 50%; }
-  50% { background-position: 12% 8%, 82% 25%, 48% 55%; }
-  100% { background-position: 0% 0%, 100% 15%, 50% 50%; }
-}
-@keyframes hxGlowPulse {
-  0%,100% { opacity:.48; transform:scale(1); }
-  50% { opacity:.82; transform:scale(1.07); }
-}
-body {
-  background-image:
-    radial-gradient(ellipse at 10% 8%, rgba(32,145,255,.20), transparent 34%),
-    radial-gradient(ellipse at 88% 22%, rgba(156,62,255,.20), transparent 32%),
-    radial-gradient(ellipse at 48% 92%, rgba(0,220,208,.10), transparent 36%),
-    linear-gradient(145deg,#050b18,#0a1530 54%,#090b1b) !important;
-  background-size: 130% 130%, 130% 130%, 130% 130%, 100% 100% !important;
-  animation: hxAmbientDrift 18s ease-in-out infinite !important;
-}
-#hamoudaPromoBanner {
-  grid-template-columns: minmax(0,.88fr) minmax(0,1.12fr) !important;
-  align-items: center !important;
-  gap: clamp(20px,2.7vw,42px) !important;
-  overflow: visible !important;
-  position: relative !important;
-}
-#hamoudaPromoBanner .promo-copy { min-width:0!important; position:relative!important; z-index:2!important; }
-#hamoudaPromoBanner h1 {
-  font-size: clamp(42px,5.1vw,72px) !important;
-  line-height: 1.02 !important;
-  letter-spacing: -.055em !important;
-  text-wrap: balance !important;
-  margin-top: 14px !important;
-  margin-bottom: 16px !important;
-}
-#hamoudaPromoBanner .promo-art {
-  width: calc(100% + 6%) !important;
-  max-width: none !important;
-  min-width: 0 !important;
-  margin-top: -18px !important;
-  margin-right: -3% !important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  position:relative!important;
-  isolation:isolate!important;
-}
-#hamoudaPromoBanner .promo-art:before {
-  content:"";
-  position:absolute;
-  inset:8% -3%;
-  z-index:-1;
-  border-radius:50%;
-  background:radial-gradient(ellipse,rgba(29,129,255,.34),rgba(145,53,255,.19) 45%,transparent 72%);
-  filter:blur(30px);
-  animation:hxGlowPulse 6s ease-in-out infinite;
-}
-#hamoudaPromoBanner .promo-art img {
-  display:block!important;
-  width:100%!important;
-  max-width:1200px!important;
-  height:auto!important;
-  max-height:none!important;
-  min-height:0!important;
-  object-fit:contain!important;
-  object-position:center!important;
-  transform-origin:center center!important;
-  animation:hxHeroFloat 7s ease-in-out infinite!important;
-  filter:drop-shadow(0 28px 34px rgba(0,0,0,.36)) saturate(1.08) contrast(1.035)!important;
-  border:1px solid rgba(129,177,255,.22)!important;
-  border-radius:24px!important;
-  box-shadow:0 0 0 1px rgba(255,255,255,.035),0 0 42px rgba(42,120,255,.15)!important;
-}
-@media(max-width:1050px) {
-  #hamoudaPromoBanner { grid-template-columns:minmax(0,1fr)!important; gap:20px!important; }
-  #hamoudaPromoBanner .promo-art { order:-1!important; width:100%!important; max-width:100%!important; margin:0 auto 8px!important; }
-  #hamoudaPromoBanner .promo-art img { width:100%!important; max-width:1100px!important; }
-  #hamoudaPromoBanner h1 { font-size:clamp(40px,7vw,64px)!important; }
-}
-@media(max-width:600px) {
-  #hamoudaPromoBanner { padding:17px!important; }
-  #hamoudaPromoBanner .promo-art img { border-radius:16px!important; animation:hxHeroFloat 7s ease-in-out infinite!important; }
-  #hamoudaPromoBanner h1 { font-size:clamp(34px,9vw,46px)!important; line-height:1.08!important; }
-}
-@media(prefers-reduced-motion:reduce) {
-  body,#hamoudaPromoBanner .promo-art img,#hamoudaPromoBanner .promo-art:before { animation:none!important; }
-}
-</style>
-
 </head>
 <body class="auth-locked">
 
@@ -2033,6 +1938,98 @@ background-attachment:fixed!important;transition:background-color .25s ease!impo
     root.style.setProperty('--hx-pointer-y','35%');
   }, {passive:true});
 })();
+</script>
+
+
+<style id="hamouda-hero-layout-and-pricing-v9">
+/* Hero: title and large tool preview side-by-side, pricing neatly underneath */
+#hamoudaPromoBanner{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.08fr)!important;
+  align-items:center!important;
+  gap:clamp(22px,3vw,44px)!important;
+  overflow:visible!important;
+  padding-top:clamp(24px,4vw,48px)!important;
+  padding-bottom:clamp(20px,3vw,36px)!important;
+}
+#hamoudaPromoBanner .promo-copy{min-width:0!important;position:relative!important;z-index:2!important}
+#hamoudaPromoBanner .promo-copy h1{
+  font-size:clamp(42px,5.2vw,72px)!important;
+  line-height:1.03!important;
+  letter-spacing:-.055em!important;
+  margin:14px 0 16px!important;
+}
+#hamoudaPromoBanner .promo-art{
+  grid-column:2!important;
+  grid-row:1!important;
+  width:calc(100% + 5%)!important;
+  max-width:none!important;
+  min-width:0!important;
+  margin:-32px -3% 0 0!important;
+  align-self:center!important;
+  position:relative!important;
+  isolation:isolate!important;
+}
+#hamoudaPromoBanner .promo-art:before{
+  content:""!important;position:absolute!important;inset:8% -3%!important;z-index:-1!important;
+  border-radius:50%!important;
+  background:radial-gradient(ellipse,rgba(32,145,255,.34),rgba(145,62,255,.2) 48%,transparent 72%)!important;
+  filter:blur(28px)!important;animation:hxGlowPulse 6s ease-in-out infinite!important;
+}
+#hamoudaPromoBanner .promo-art img{
+  width:100%!important;max-width:1150px!important;height:auto!important;max-height:none!important;
+  object-fit:contain!important;display:block!important;border-radius:22px!important;
+  border:1px solid rgba(129,177,255,.25)!important;
+  box-shadow:0 24px 65px rgba(0,0,0,.38),0 0 38px rgba(42,120,255,.13)!important;
+  animation:hxHeroFloat 7s ease-in-out infinite!important;
+  filter:drop-shadow(0 20px 30px rgba(0,0,0,.22)) saturate(1.06) contrast(1.04)!important;
+}
+#hamoudaPricing{
+  width:min(1120px,92%)!important;max-width:1120px!important;
+  margin:4px auto 30px!important;padding:clamp(18px,3vw,30px)!important;
+  border-radius:22px!important;border:1px solid rgba(125,151,255,.28)!important;
+  background:linear-gradient(135deg,rgba(19,29,54,.96),rgba(12,31,44,.96))!important;
+  box-shadow:0 18px 48px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.05)!important;
+}
+#hamoudaPricing h2{font-size:clamp(22px,2.5vw,30px)!important;line-height:1.2!important;margin:0 0 16px!important}
+#hamoudaPricing .activation-plans{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important;
+}
+#hamoudaPricing .activation-plan{
+  min-width:0!important;padding:20px!important;border-radius:17px!important;
+  border:1px solid rgba(153,173,255,.24)!important;
+  background:linear-gradient(145deg,rgba(35,48,80,.88),rgba(16,27,48,.95))!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.18)!important;
+}
+#hamoudaPricing .activation-plan.featured{
+  border-color:rgba(54,223,207,.58)!important;
+  box-shadow:0 0 0 1px rgba(54,223,207,.1),0 12px 30px rgba(0,0,0,.2)!important;
+}
+#hamoudaPricing .plan-price{display:block!important;font-size:clamp(25px,3vw,36px)!important;margin:9px 0!important}
+#hamoudaPricing .activation-btn{display:flex!important;justify-content:center!important;text-align:center!important;width:100%!important;box-sizing:border-box!important;border-radius:11px!important}
+#iphone-unlock-offer{display:none!important}
+@media(max-width:850px){
+ #hamoudaPromoBanner{grid-template-columns:minmax(0,1fr)!important;gap:18px!important;padding-top:20px!important}
+ #hamoudaPromoBanner .promo-art{grid-column:1!important;grid-row:1!important;width:100%!important;margin:0 auto 4px!important}
+ #hamoudaPromoBanner .promo-copy{grid-column:1!important;grid-row:2!important}
+ #hamoudaPromoBanner .promo-copy h1{font-size:clamp(38px,8vw,58px)!important}
+ #hamoudaPricing .activation-plans{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){
+ #hamoudaPromoBanner .promo-art img,#hamoudaPromoBanner .promo-art:before{animation:none!important}
+}
+</style>
+<script id="hamouda-pricing-reorder-v9">
+document.addEventListener('DOMContentLoaded',function(){
+  const hero=document.getElementById('hamoudaPromoBanner');
+  const pricing=document.getElementById('hamoudaPricing');
+  const iphoneOffer=document.getElementById('iphone-unlock-offer');
+  if(hero&&pricing&&hero.parentElement){
+    /* Move activation cards below the complete hero, instead of inside the text column. */
+    hero.insertAdjacentElement('afterend',pricing);
+  }
+  if(iphoneOffer) iphoneOffer.hidden=true;
+});
 </script>
 
 </body></html>
