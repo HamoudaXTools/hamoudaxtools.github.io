@@ -434,6 +434,40 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
 #authGate .auth-shell{max-width:480px!important}
 @media(max-width:850px){#authGate.auth-gate{height:100dvh!important}#authGate .auth-layout{grid-template-columns:1fr!important;min-height:100dvh!important;height:auto!important}#authGate .auth-showcase{padding:24px 20px 20px!important;border-inline-end:0!important;border-bottom:1px solid #9d8aff30!important}#authGate .hx-emblem{width:100px!important;height:100px!important;border-radius:26px!important;margin-bottom:14px!important}#authGate .hx-emblem span{font-size:52px!important;letter-spacing:-.12em!important}#authGate .hx-emblem:before{inset:6px!important;border-radius:20px!important}#authGate .hx-wordmark{font-size:27px!important}#authGate .hx-developer{font-size:11px!important;margin-top:7px!important}#authGate .hx-divider{margin:14px 0!important}#authGate .hx-show-title{font-size:20px!important}#authGate .hx-show-copy{font-size:12px!important}#authGate .hx-points{margin-top:10px!important}#authGate .auth-form-side{padding:24px 22px 32px!important}}
 
+
+/* HX fit-to-screen + compact authentication form */
+@media (min-width: 851px){
+  html,body{height:100%;min-height:100%;overflow:hidden!important}
+  #authGate.auth-gate{height:100dvh!important;min-height:0!important;overflow:hidden!important}
+  #authGate .auth-layout{height:100dvh!important;min-height:0!important;overflow:hidden!important}
+  #authGate .auth-showcase{padding:clamp(18px,3vh,36px) clamp(22px,3vw,48px)!important}
+  #authGate .hx-emblem{width:clamp(125px,20vh,210px)!important;height:clamp(125px,20vh,210px)!important;margin-bottom:clamp(10px,2vh,22px)!important;border-radius:36px!important}
+  #authGate .hx-emblem span{font-size:clamp(70px,12vh,112px)!important}
+  #authGate .hx-wordmark{font-size:clamp(27px,3vw,42px)!important}
+  #authGate .hx-developer{font-size:11px!important;margin-top:8px!important;letter-spacing:1.5px!important}
+  #authGate .hx-divider{margin:clamp(10px,2vh,20px) 0!important}
+  #authGate .hx-show-title{font-size:clamp(20px,2.5vh,27px)!important;margin-bottom:6px!important}
+  #authGate .hx-show-copy{font-size:12px!important;line-height:1.65!important}
+  #authGate .hx-points{margin-top:12px!important;gap:6px!important}
+  #authGate .hx-points span{font-size:10px!important;padding:5px 8px!important}
+  #authGate .auth-form-side{padding:clamp(14px,2.7vh,28px) clamp(22px,4vw,58px)!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important}
+  #authGate .auth-shell{width:min(100%,430px)!important;max-width:430px!important;padding:clamp(16px,2.7vh,26px)!important}
+  #authGate .auth-welcome h1,#authGate #gateTitle{font-size:clamp(21px,3vh,29px)!important;line-height:1.25!important;margin:0 0 5px!important}
+  #authGate .auth-welcome p{font-size:11px!important;line-height:1.5!important;margin:0 0 10px!important}
+  #authGate .gate-tabs{margin:10px 0!important}
+  #authGate .gate-form label{font-size:11px!important;margin:5px 0 3px!important}
+  #authGate .gate-form input{height:38px!important;min-height:38px!important;padding:8px 11px!important;font-size:12px!important}
+  #authGate .gate-primary,#authGate .gate-google{min-height:38px!important;padding:8px 12px!important;font-size:12px!important}
+  #authGate .gate-link{font-size:11px!important;padding:5px!important}
+  #authGate .gate-separator{margin:8px 0!important;font-size:10px!important}
+  #authGate .gate-note{font-size:11px!important;margin:5px 0!important}
+  #authGate .gate-social-row{margin-top:7px!important}
+}
+@media(max-width:850px){
+  #authGate.auth-gate{overflow-y:auto!important;overscroll-behavior:contain!important}
+  #authGate .auth-layout{overflow:visible!important}
+  #authGate .auth-form-side{overflow:visible!important}
+}
 </style>
 </head>
 <body class="auth-locked">
@@ -905,7 +939,7 @@ html[data-theme="dark"] .theme,html[data-theme="dark"] .btn.outline,html[data-th
   if(!window.firebase){say('تعذر تحميل Firebase SDK. تحقق من الإنترنت ثم حدّث الصفحة.');return;}
   try{if(!firebase.apps.length)firebase.initializeApp(config);auth=firebase.auth();auth.useDeviceLanguage();}catch(e){say('تعذر تهيئة Firebase: '+e.message);return;}
   $('showLogin').addEventListener('click',()=>showMode('login'));$('showSignup').addEventListener('click',()=>showMode('signup'));
-  loginForm.addEventListener('submit',async e=>{e.preventDefault();if(!loginForm.reportValidity())return;const b=$('gateLoginButton');b.disabled=true;b.textContent='جارٍ تسجيل الدخول…';try{await auth.signInWithEmailAndPassword($('gateEmail').value.trim(),$('gatePassword').value);say('تم تسجيل الدخول بنجاح.',true);}catch(err){say(friendly(err));}finally{b.disabled=false;b.textContent='تسجيل الدخول';}});
+  loginForm.addEventListener('submit',async e=>{e.preventDefault();if(!loginForm.reportValidity())return;const b=$('gateLoginButton');b.disabled=true;b.textContent='جارٍ تسجيل الدخول…';try{const credential=await auth.signInWithEmailAndPassword($('gateEmail').value.trim(),$('gatePassword').value);setSignedIn(credential.user||auth.currentUser);window.scrollTo({top:0,left:0,behavior:'instant'});say('تم تسجيل الدخول بنجاح.',true);}catch(err){say(friendly(err));}finally{b.disabled=false;b.textContent='تسجيل الدخول';}});
   $('gateGoogle').addEventListener('click',async()=>{try{const p=new firebase.auth.GoogleAuthProvider();await auth.signInWithPopup(p);}catch(e){say(friendly(e));}});
   $('gateReset').addEventListener('click',async()=>{const em=$('gateEmail').value.trim();if(!em){say('اكتب بريدك الإلكتروني أولًا ثم اضغط نسيت كلمة المرور.');$('gateEmail').focus();return;}try{await auth.sendPasswordResetEmail(em);say('أرسلنا رابط استعادة كلمة المرور إلى بريدك.',true);}catch(e){say(friendly(e));}});
   $('sendOtpButton').addEventListener('click',async()=>{
