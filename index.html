@@ -512,6 +512,40 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
 }
 </style>
 
+
+<style id="hx-neon-polish">
+:root{--hx-neon-cyan:#43f3ed;--hx-neon-violet:#b9a0ff;--hx-neon-blue:#6fcaff;--hx-neon-green:#56f0c2;--hx-neon-pink:#d49bff}
+/* Slightly larger, cleaner login form; remove any remaining form frame */
+#authGate .auth-form-side{padding:clamp(24px,4vw,66px)!important}
+#authGate .auth-shell{padding:clamp(12px,1.5vw,22px)!important;border:0!important;outline:0!important;box-shadow:none!important;background:transparent!important}
+#authGate .gate-form input{font-size:13px!important;min-height:42px!important}
+#authGate .gate-primary,#authGate .gate-google{min-height:42px!important;font-size:13px!important}
+#authGate .auth-welcome h1,#authGate .gate-form label,#authGate .auth-switch button{ text-shadow:0 0 7px #9b8cff45,0 0 16px #45e9e933 }
+/* Neon typography throughout, with restrained glow for readability */
+body:not(.plain-text) h1,body h2,body h3,body .brand,body .navlinks a,body .navlinks button,body .card strong,body .card h3,body .heading h2,body .hero h1,body .pill,body .btn,body label,body .hx-wordmark,body .hx-developer,body .hx-show-title,body .hx-points span,body .gate-link,body .gate-note{ text-shadow:0 0 7px #46e8ef30,0 0 15px #9c75ff22 }
+#authGate .hx-wordmark{color:#fff!important;text-shadow:0 0 10px #b39aff66,0 0 28px #4be9ed30!important}
+#authGate .hx-developer{color:#d3caff!important;text-shadow:0 0 9px #a98aff70!important}
+#authGate .hx-show-title span,#authGate .hx-points b{color:var(--hx-neon-cyan)!important;text-shadow:0 0 8px #43f3ed8c,0 0 20px #43f3ed45!important}
+#authGate .gate-primary{background:linear-gradient(110deg,#7658ed,#367de8 55%,#12bfc7)!important;box-shadow:0 0 16px #5b76ff30!important}
+#authGate .auth-switch button.active{background:linear-gradient(110deg,#7658ed,#367de8 60%,#12bfc7)!important}
+/* Replace red/error accents with violet/cyan; errors remain distinguishable by text */
+:root{--danger:#b98cff;--error:#b98cff}
+.error,.danger,.invalid,.status-error,[aria-invalid="true"]{border-color:#b98cff!important;color:#e5d6ff!important}
+/* Icon-only social tiles */
+#authGate .gate-social-row{grid-template-columns:repeat(3,54px)!important;justify-content:center!important;gap:12px!important}
+#authGate .gate-social{width:54px!important;height:46px!important;min-height:46px!important;padding:0!important;font-size:0!important;color:#b7f8ff!important;border-color:#5b78b866!important;background:linear-gradient(145deg,#ffffff0b,#8b7dff0c)!important;box-shadow:inset 0 0 14px #8c76ff0c,0 0 12px #3de7ed10!important}
+#authGate .gate-social svg{width:22px!important;height:22px!important;filter:drop-shadow(0 0 5px #47eaf0a0)}
+#authGate .gate-social:hover{border-color:#43f3ed!important;box-shadow:0 0 16px #43f3ed35!important}
+/* Header search */
+.hx-top-search{display:flex;align-items:center;gap:0;width:clamp(150px,17vw,245px);height:36px;border:1px solid #6d7dba66;border-radius:11px;overflow:hidden;background:#080f20aa;box-shadow:inset 0 0 12px #9c75ff0d,0 0 12px #43f3ed0c}
+.hx-top-search input{width:100%;min-width:0;height:100%;border:0!important;outline:0!important;background:transparent!important;color:#e9faff!important;padding:0 11px!important;font:inherit;font-size:12px!important;box-shadow:none!important}
+.hx-top-search input::placeholder{color:#a4b3d3!important}
+.hx-top-search button{height:100%;width:38px;flex:0 0 38px;border:0;background:linear-gradient(130deg,#7658ed,#1aaecb);color:white;font-size:23px;line-height:1;cursor:pointer;text-shadow:0 0 8px #fff8}
+header .actions{gap:9px}
+@media(max-width:1050px){.hx-top-search{order:4;width:100%;max-width:360px;margin:4px 0}header .actions{flex-wrap:wrap}}
+@media(max-width:540px){.hx-top-search{width:calc(100vw - 36px);max-width:none;order:5}.hx-top-search input{font-size:12px!important}}
+</style>
+
 </head>
 <body class="auth-locked">
 
@@ -547,9 +581,9 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
 <div class="gate-separator"><span></span>أو<span></span></div>
 <button class="btn outline gate-google" id="gateGoogle" type="button"><b aria-hidden="true">G</b> المتابعة باستخدام Google</button>
 <div class="gate-social-row" aria-label="منصات التواصل">
-<div class="gate-social" title="Apple"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 12.8c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.2 2.9-2.4.9-1.3 1.2-2.6 1.2-2.7-.1 0-2.6-1-2.6-3.9ZM14.5 6.3c.6-.8 1-1.9.9-3-.9 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.2Z"/></svg>Apple</div>
-<div class="gate-social" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>YouTube</div>
-<div class="gate-social" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 6.4a5.7 5.7 0 0 1-3.5-4.7V1h-4.1v15.1a3.2 3.2 0 1 1-2.3-3.1V8.8a7.3 7.3 0 1 0 6.4 7.3V8.4a9.7 9.7 0 0 0 5.6 1.8V6.1a5.7 5.7 0 0 1-2.1.3Z"/></svg>TikTok</div>
+<div class="gate-social" title="Apple"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 12.8c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.2 2.9-2.4.9-1.3 1.2-2.6 1.2-2.7-.1 0-2.6-1-2.6-3.9ZM14.5 6.3c.6-.8 1-1.9.9-3-.9 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.2Z"/></svg></div>
+<div class="gate-social" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></div>
+<div class="gate-social" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 6.4a5.7 5.7 0 0 1-3.5-4.7V1h-4.1v15.1a3.2 3.2 0 1 1-2.3-3.1V8.8a7.3 7.3 0 1 0 6.4 7.3V8.4a9.7 9.7 0 0 0 5.6 1.8V6.1a5.7 5.7 0 0 1-2.1.3Z"/></svg></div>
 </div>
 </form>
 <form class="gate-form" hidden="" id="gateSignupForm">
@@ -578,7 +612,7 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
 <button aria-expanded="false" class="taskbar-trigger" type="button">الهواتف <span>⌄</span></button>
 <div class="taskbar-dropdown"><a href="#devices">كل الشركات</a><a data-jump="Samsung" href="#devices">Samsung</a><a data-jump="Apple" href="#devices">Apple / iPhone</a><a data-jump="Xiaomi" href="#devices">Xiaomi / Redmi / POCO</a><a data-jump="Google Pixel" href="#devices">Google Pixel</a><a data-jump="Transsion" href="#devices">TECNO / Infinix / itel</a></div></div>
 
-<a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
+<a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><form class="hx-top-search" id="hxTopSearch" role="search"><input id="hxTopSearchInput" type="search" placeholder="ابحث في الموقع..." aria-label="ابحث في الموقع"><button type="submit" aria-label="بحث">⌕</button></form><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
 <div class="profile-modal" id="profileModal" hidden role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
  <div class="profile-backdrop" data-profile-close></div>
  <section class="profile-panel"><button class="profile-close" type="button" data-profile-close aria-label="إغلاق">×</button>
@@ -1350,6 +1384,25 @@ a:hover, button:hover { filter:brightness(1.12); }
  #rest-frp .rest-command-actions { grid-column: 1 / -1; }
 }
 </style>
+
+
+<script id="hx-top-search-script">
+(function(){
+ const form=document.getElementById('hxTopSearch');
+ if(!form)return;
+ form.addEventListener('submit',function(e){
+  e.preventDefault();
+  const q=(document.getElementById('hxTopSearchInput')?.value||'').trim();
+  if(!q)return;
+  const target=document.getElementById('ai-search');
+  const input=document.getElementById('aiSearchInput');
+  if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}
+  if(input){input.value=q;input.dispatchEvent(new Event('input',{bubbles:true}));}
+  if(typeof window.runAISearch==='function'){window.runAISearch();}
+  else if(input){input.focus();input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));}
+ });
+})();
+</script>
 
 </body></html>
 
