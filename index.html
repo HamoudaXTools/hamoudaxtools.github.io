@@ -1713,6 +1713,62 @@ a:hover, button:hover { filter:brightness(1.12); }
 
 <a href="web-tools.html" style="position:fixed;bottom:22px;right:22px;z-index:9999;background:linear-gradient(100deg,#2878f0,#7654ef);color:white;padding:13px 20px;border-radius:14px;text-decoration:none;font:700 15px Arial;box-shadow:0 5px 18px #0003" aria-label="فتح معمل أدوات الويب">🧰 معمل أدوات الويب</a>
 <a href="./pyodinweb/index.html" style="position:fixed;bottom:78px;right:22px;z-index:9999;background:linear-gradient(100deg,#2878f0,#7654ef);color:white;padding:12px 18px;border-radius:13px;text-decoration:none;font:700 14px Arial;box-shadow:0 5px 18px #0003" aria-label="فتح Samsung Flash Lab">⚡ Samsung Flash Lab</a>
+
+<style id="hamouda-real-homepage-redesign-v2">
+/* Actual signed-in homepage redesign — preserve existing sections and functionality */
+:root{--hx-bg:#070b16;--hx-panel:#10182b;--hx-line:rgba(151,170,224,.20);--hx-purple:#9b6bff;--hx-cyan:#22e3d2}
+html[data-theme="dark"] body{background-color:#070b16!important;background-image:radial-gradient(ellipse at 8% 0%,rgba(126,76,255,.22),transparent 34%),radial-gradient(ellipse at 94% 18%,rgba(20,221,210,.13),transparent 30%),linear-gradient(145deg,#070b16,#0b1325 58%,#080d1b)!important}
+header{position:sticky!important;top:0!important;background:rgba(7,11,24,.88)!important;border-bottom:1px solid rgba(155,107,255,.32)!important;box-shadow:0 10px 36px rgba(0,0,0,.22)!important;backdrop-filter:blur(22px) saturate(145%)!important;-webkit-backdrop-filter:blur(22px) saturate(145%)!important}
+.nav{min-height:76px!important}
+.brand{font-size:clamp(16px,1.3vw,20px)!important;letter-spacing:-.3px}
+.brand .logo{width:46px!important;height:46px!important;border-radius:15px!important;background:linear-gradient(135deg,#9860ff,#4d6bff 55%,#18d9ce)!important;box-shadow:0 0 28px rgba(137,92,255,.38)!important}
+.navlinks a,.taskbar-trigger{transition:background .2s,color .2s,border-color .2s!important}
+.navlinks a:hover,.taskbar-trigger:hover{color:#bba0ff!important;background:rgba(155,107,255,.12)!important}
+#hamoudaPromoBanner{position:relative!important;isolation:isolate!important;min-height:420px!important;margin:34px auto 40px!important;padding:clamp(28px,4vw,58px)!important;grid-template-columns:minmax(0,1.04fr) minmax(300px,.96fr)!important;gap:clamp(24px,4vw,60px)!important;border:1px solid rgba(155,107,255,.34)!important;border-radius:32px!important;background:linear-gradient(120deg,rgba(15,21,42,.97),rgba(14,23,45,.89) 53%,rgba(12,45,55,.75))!important;box-shadow:0 28px 85px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.06)!important;overflow:hidden!important}
+#hamoudaPromoBanner:before{content:"";position:absolute;inset:-2px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 80% 18%,rgba(32,227,210,.19),transparent 36%),radial-gradient(ellipse at 5% 100%,rgba(155,92,255,.22),transparent 42%)}
+#hamoudaPromoBanner .promo-kicker{background:rgba(155,107,255,.13)!important;border:1px solid rgba(183,153,255,.32)!important;color:#d4c3ff!important;letter-spacing:1.1px!important;padding:9px 14px!important}
+#hamoudaPromoBanner h1{font-size:clamp(40px,5.3vw,68px)!important;letter-spacing:-1.8px!important;line-height:1.08!important;margin:22px 0 16px!important;color:#f8f9ff!important}
+#hamoudaPromoBanner h1 span{background:linear-gradient(95deg,#c3a2ff,#8c7bff 48%,#45eee0)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+#hamoudaPromoBanner .promo-copy>p:not(.promo-note){font-size:clamp(15px,1.3vw,18px)!important;line-height:1.95!important;color:#c0cbe2!important;max-width:570px!important}
+#hamoudaPromoBanner .promo-actions{gap:12px!important;margin-top:28px!important}
+#hamoudaPromoBanner .promo-actions .btn{padding:14px 22px!important;border-radius:13px!important;background:linear-gradient(110deg,#8c52f6,#5f68ff 55%,#17bfb8)!important;box-shadow:0 10px 30px rgba(112,80,255,.25)!important}
+#hamoudaPromoBanner .promo-download{padding:14px 20px!important;border:1px solid rgba(90,230,203,.35)!important;border-radius:13px!important;background:rgba(30,204,169,.12)!important;color:#8af5dc!important;box-shadow:none!important}
+#hamoudaPromoBanner .promo-note{font-size:11px!important;color:#a3b0ca!important;margin-top:15px!important}
+#hamoudaPromoBanner .promo-art{position:relative!important}
+#hamoudaPromoBanner .promo-art:before{content:"";position:absolute;inset:9% 4%;border-radius:30px;background:linear-gradient(135deg,rgba(155,92,255,.25),rgba(32,227,210,.12));filter:blur(35px);z-index:-1}
+#hamoudaPromoBanner .promo-art img{width:min(100%,700px)!important;max-height:450px!important;object-fit:contain!important;border-radius:22px!important;border:1px solid rgba(255,255,255,.16)!important;background:rgba(255,255,255,.035)!important;box-shadow:0 25px 70px rgba(0,0,0,.42),0 0 0 7px rgba(255,255,255,.018)!important;animation:hamoudaHeroFloat 6s ease-in-out infinite!important}
+@keyframes hamoudaHeroFloat{0%,100%{transform:translateY(0) scale(.985)}50%{transform:translateY(-9px) scale(1.01)}}
+.activation-pricing{margin-top:30px!important;padding:20px!important;border:1px solid rgba(155,107,255,.25)!important;border-radius:20px!important;background:rgba(5,10,24,.42)!important;box-shadow:inset 0 1px rgba(255,255,255,.04)!important}
+.activation-pricing h2{font-size:19px!important;color:#f4f3ff!important}
+.activation-plan{border:1px solid rgba(151,170,224,.18)!important;border-radius:15px!important;background:linear-gradient(145deg,rgba(28,36,65,.76),rgba(14,20,39,.8))!important;transition:transform .2s,border-color .2s!important}
+.activation-plan:hover{transform:translateY(-3px)!important;border-color:rgba(32,227,210,.5)!important}
+.activation-plan.featured{border-color:rgba(155,107,255,.7)!important;box-shadow:0 0 25px rgba(155,107,255,.12)!important}
+.activation-plan .plan-price{color:#fff!important}
+.activation-plan .plan-price span,.activation-plan p{color:#aebbd4!important}
+.activation-btn{background:linear-gradient(110deg,#8955f5,#5e67ff 55%,#14b9b4)!important}
+#devices .heading h2,section .heading h2{color:#f5f7ff}
+.card,.feature,.preview,.db-toolbar,.model-card,.selected-card,.select-placeholder,.app{border-radius:20px!important;border-color:rgba(151,170,224,.20)!important;box-shadow:0 15px 40px rgba(0,0,0,.20),inset 0 1px rgba(255,255,255,.035)!important;transition:transform .22s,border-color .22s,box-shadow .22s!important}
+.card:hover,.feature:hover,.model-card:hover{transform:translateY(-4px)!important;border-color:rgba(32,227,210,.45)!important;box-shadow:0 22px 50px rgba(0,0,0,.27),0 0 24px rgba(32,227,210,.05)!important}
+section .heading h2{font-size:clamp(23px,2.3vw,31px)!important}
+section .heading p{color:#aebbd4!important}
+.tag{border:1px solid rgba(32,227,210,.16)!important}
+.contact{border:1px solid rgba(255,255,255,.17)!important;border-radius:26px!important;box-shadow:0 20px 55px rgba(70,49,160,.23)!important}
+footer{border-color:rgba(151,170,224,.18)!important}
+html[data-theme="light"] body{background:#f4f6ff!important;background-image:radial-gradient(ellipse at 8% 0%,rgba(126,76,255,.10),transparent 34%),radial-gradient(ellipse at 94% 18%,rgba(20,180,190,.08),transparent 30%)!important;color:#10182b!important}
+html[data-theme="light"] header{background:rgba(255,255,255,.88)!important;border-color:rgba(101,87,232,.18)!important}
+html[data-theme="light"] #hamoudaPromoBanner{background:linear-gradient(120deg,#fff,#f4f2ff 58%,#edfbfb)!important;border-color:rgba(120,91,225,.24)!important;box-shadow:0 24px 70px rgba(44,54,100,.12)!important}
+html[data-theme="light"] #hamoudaPromoBanner h1{color:#151b30!important}
+html[data-theme="light"] #hamoudaPromoBanner .promo-copy>p:not(.promo-note){color:#56627b!important}
+html[data-theme="light"] .activation-pricing{background:rgba(246,247,255,.85)!important}
+html[data-theme="light"] .activation-pricing h2,html[data-theme="light"] .activation-plan .plan-price{color:#172039!important}
+html[data-theme="light"] .activation-plan{background:linear-gradient(145deg,#fff,#f2f4ff)!important}
+html[data-theme="light"] section .heading h2{color:#172039!important}
+html[data-theme="light"] section .heading p{color:#5e6a84!important}
+@media(max-width:900px){#hamoudaPromoBanner{grid-template-columns:1fr!important;min-height:0!important;padding:28px!important}#hamoudaPromoBanner .promo-art{order:-1!important;max-width:650px;margin:0 auto;width:100%}#hamoudaPromoBanner .promo-art img{max-height:340px!important}#hamoudaPromoBanner h1{font-size:clamp(38px,8vw,58px)!important}}
+@media(max-width:560px){#hamoudaPromoBanner{width:94%!important;margin:18px auto 28px!important;padding:20px!important;border-radius:23px!important;gap:20px!important}#hamoudaPromoBanner .promo-art img{max-height:245px!important}#hamoudaPromoBanner h1{font-size:38px!important;margin:15px 0 10px!important}#hamoudaPromoBanner .promo-copy>p:not(.promo-note){font-size:14px!important}#hamoudaPromoBanner .promo-actions{display:grid!important;grid-template-columns:1fr!important}#hamoudaPromoBanner .promo-actions>*{width:100%!important}#hamoudaPromoBanner .activation-pricing{padding:13px!important}.activation-plans{grid-template-columns:1fr!important}}
+@media(prefers-reduced-motion:reduce){#hamoudaPromoBanner .promo-art img{animation:none!important}}
+</style>
+
 </body></html>
 
 <style id="profile-modal-styles">
