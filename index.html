@@ -702,68 +702,37 @@ header .brand .logo,.logo{background:linear-gradient(135deg,#9c7bff,#6541d9 48%,
 </style>
 
 
-<style id="hx-reference-homepage-redesign">
-:root{--hx-cyan:#25e7ff;--hx-violet:#9b5cff;--hx-deep:#050a19}
-html{scroll-behavior:smooth}
-.hx-home-hero{position:relative;isolation:isolate;overflow:hidden;padding:44px 0 20px;background:radial-gradient(ellipse at 14% 35%,rgba(112,45,255,.25),transparent 34%),radial-gradient(ellipse at 86% 55%,rgba(0,204,255,.2),transparent 32%),linear-gradient(135deg,#05091a,#09152e 58%,#050a18);color:#f6f8ff;border-bottom:1px solid rgba(37,231,255,.28)}
-.hx-home-hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.25;background-image:linear-gradient(rgba(63,139,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(63,139,255,.09) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,#000,transparent)}
-.hx-hero-layout{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;min-height:380px}
-.hx-hero-copy{position:relative;z-index:2}
-.hx-kicker{display:inline-flex;border:1px solid rgba(37,231,255,.35);border-radius:30px;padding:6px 12px;color:var(--hx-cyan);font-weight:900;font-size:11px;letter-spacing:.09em;background:rgba(3,18,42,.7);box-shadow:0 0 22px rgba(37,231,255,.08)}
-.hx-hero-copy h1{position:relative;font-size:clamp(36px,4.6vw,64px);line-height:1.1;letter-spacing:-1.8px;margin:20px 0 12px;font-weight:1000;color:#fff;text-shadow:0 0 25px rgba(37,231,255,.16)}
-.hx-hero-copy h1 span{background:linear-gradient(90deg,#22eaff 5%,#8b72ff 55%,#ed69ff);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none}
-.hx-crown{position:absolute;font-size:22px;color:#ffd66e;top:-13px;margin-inline-start:5px;text-shadow:0 0 14px #ffb52c}
-.hx-hero-copy h2{font-size:clamp(22px,2.4vw,32px);line-height:1.3;margin:0 0 10px;color:#f8f9ff}
-.hx-hero-copy>p{color:#b8c9e9;font-size:15px;max-width:590px;margin:0;line-height:1.9}
-.hx-service-chips{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:20px 0}
-.hx-service-chips a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 4px;border:1px solid rgba(155,92,255,.65);border-radius:13px;background:linear-gradient(145deg,rgba(22,24,65,.9),rgba(4,15,36,.9));color:#f5f7ff;font-size:12px;font-weight:800;box-shadow:inset 0 1px rgba(255,255,255,.07);transition:.2s}
-.hx-service-chips a span{font-size:23px;color:var(--hx-cyan);text-shadow:0 0 13px currentColor}
-.hx-service-chips a:hover{transform:translateY(-3px);border-color:var(--hx-cyan);box-shadow:0 0 22px rgba(37,231,255,.16)}
-.hx-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.hx-action{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 22px;border-radius:15px;color:#fff;font-weight:900;border:1px solid transparent;transition:.2s}
-.hx-action:hover{transform:translateY(-2px);filter:brightness(1.12)}
-.hx-action-violet{background:linear-gradient(110deg,#7028ff,#ad4fff);box-shadow:0 0 25px rgba(139,54,255,.35)}
-.hx-action-cyan{background:linear-gradient(110deg,#007bcb,#00d5e6);box-shadow:0 0 25px rgba(0,213,230,.25)}
-.hx-hero-visual{position:relative;min-height:350px;display:grid;place-items:center;isolation:isolate}
-.hx-visual-glass{position:relative;width:min(100%,420px);padding:12px;border:1px solid rgba(114,213,255,.45);border-radius:26px;background:linear-gradient(145deg,rgba(17,37,75,.82),rgba(20,12,58,.72));box-shadow:0 20px 70px rgba(0,0,0,.35),0 0 35px rgba(44,110,255,.15),inset 0 1px rgba(255,255,255,.18);transform:perspective(1000px) rotateY(-4deg)}
-.hx-visual-top{display:flex;align-items:center;justify-content:space-between;color:#a9c9ff;font-size:11px;padding:4px 7px 10px}
-.hx-visual-top span:first-child{color:#ff6b9c;letter-spacing:3px}
-.hx-visual-top span:last-child{font-weight:1000;color:var(--hx-cyan);font-size:18px}
-.hx-visual-glass img{display:block;width:100%;height:260px;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(35,140,255,.2));border-radius:15px}
-.hx-visual-caption{display:flex;flex-direction:column;gap:2px;text-align:center;padding:10px 4px 5px;color:#fff}
-.hx-visual-caption span{font-size:10px;letter-spacing:.12em;color:#8cecff}
-.hx-orbit{position:absolute;border:1px solid rgba(53,131,255,.22);border-radius:50%;z-index:-1;transform:rotate(-25deg)}
-.hx-orbit-one{width:410px;height:220px;box-shadow:0 0 55px rgba(65,69,255,.1)}
-.hx-orbit-two{width:330px;height:310px;border-color:rgba(0,227,255,.18)}
-.hx-float{position:absolute;z-index:2;display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:13px;background:rgba(6,17,41,.88);border:1px solid rgba(37,231,255,.45);box-shadow:0 0 25px rgba(37,231,255,.12);color:#9cefff;font-size:23px}
-.hx-float small{font-size:10px;color:#f6f8ff;font-weight:800}
-.hx-float-left{left:-5px;bottom:45px}.hx-float-right{right:-4px;top:42px}
-.hx-trust-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:22px;border:1px solid rgba(37,231,255,.35);border-radius:17px;background:rgba(2,13,32,.7);box-shadow:0 0 25px rgba(0,130,255,.08)}
-.hx-trust-strip>div{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 10px;border-inline-start:1px solid rgba(100,151,255,.12)}
-.hx-trust-strip>div:first-child{border-inline-start:0}
-.hx-trust-strip>div>b{font-size:28px;color:var(--hx-cyan);text-shadow:0 0 15px rgba(37,231,255,.6)}
-.hx-trust-strip span{display:flex;flex-direction:column;line-height:1.45}.hx-trust-strip strong{font-size:13px;color:#fff}.hx-trust-strip small{font-size:11px;color:#9cb6dc}
-.hx-category-section{padding:30px 0 36px;background:linear-gradient(180deg,#070c1a,#0a1021)}
-.hx-category-heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:17px;color:#fff}
-.hx-category-heading>div>span{font-size:10px;letter-spacing:.15em;color:var(--hx-cyan);font-weight:900}
-.hx-category-heading h2{margin:4px 0 0;font-size:clamp(21px,2.5vw,29px);color:#f8f9ff}
-.hx-category-heading>a{color:#85edff;font-size:12px;font-weight:800;white-space:nowrap}
+<style id="hx-functional-homepage-repair">
+:root{--hx-cyan:#25e8ff;--hx-violet:#9b5cff;--hx-blue:#1578ff}
+#hamoudaPromoBanner{position:relative;isolation:isolate;overflow:hidden;margin-top:22px!important;margin-bottom:16px!important;padding:clamp(22px,3vw,42px)!important;border:1px solid rgba(37,232,255,.42)!important;border-radius:26px!important;background:radial-gradient(ellipse at 12% 12%,rgba(116,52,255,.30),transparent 38%),radial-gradient(ellipse at 88% 85%,rgba(0,204,255,.20),transparent 34%),linear-gradient(135deg,#050b20,#0a1430 52%,#080d20)!important;box-shadow:0 18px 50px #02061488,0 0 30px #743cff22!important;grid-template-columns:minmax(0,1fr) minmax(280px,.9fr)!important;gap:26px!important;color:#f7f9ff!important}
+#hamoudaPromoBanner:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 15%,rgba(36,216,255,.05),transparent 75%);pointer-events:none}
+#hamoudaPromoBanner .promo-kicker{color:#55eaff!important;font-weight:900;letter-spacing:.08em}
+#hamoudaPromoBanner h1{font-size:clamp(36px,5vw,68px)!important;line-height:1.1!important;color:#fff!important;text-shadow:0 0 24px #218cff55}
+#hamoudaPromoBanner h1 span{background:linear-gradient(90deg,#25e8ff,#9b5cff,#ee73ff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+#hamoudaPromoBanner .promo-copy>p{color:#cbd8f5!important}
+#hamoudaPromoBanner .promo-download{background:linear-gradient(100deg,#743cff,#087eff,#00bfc8)!important;color:#fff!important;border:1px solid #69eaff!important;box-shadow:0 0 22px #277bff44!important}
+#hamoudaPromoBanner .promo-art img{width:100%;max-height:360px;object-fit:contain;border-radius:18px;box-shadow:0 0 32px #237bff22;animation:none!important;transform:none!important}
+#hamoudaPricing{position:relative;z-index:1;border-color:#38527d!important;background:rgba(7,14,34,.76)!important;color:#fff!important}
+#hamoudaPricing h2,#hamoudaPricing p{color:#f3f6ff!important}
+#hamoudaPricing .activation-plan{background:linear-gradient(145deg,#111c3b,#0a1127)!important;border-color:#354c80!important;color:#fff!important}
+#hamoudaPricing .activation-plan.featured{border-color:#29dfff!important;box-shadow:0 0 22px #168dff22!important}
+.hx-home-categories{padding:12px 0 34px!important}
+.hx-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0 0 18px;border:1px solid #147cc6;border-radius:17px;overflow:hidden;background:linear-gradient(100deg,#061126,#081a33,#061126);box-shadow:0 0 22px #168dff1a}
+.hx-stats>div{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:13px 10px;border-inline-start:1px solid #19314e;gap:3px}.hx-stats>div:first-child{border-inline-start:0}.hx-stats b{font-size:clamp(17px,2.2vw,27px);line-height:1.2;color:#37dfff;text-shadow:0 0 16px #168dff66}.hx-stats span{font-size:12px;color:#c7d8f6}
 .hx-category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.hx-category{position:relative;overflow:hidden;display:flex;flex-direction:column;min-width:0;min-height:260px;padding:18px;border:1px solid rgba(139,92,255,.7);border-radius:18px;background:radial-gradient(ellipse at 50% 110%,rgba(123,40,255,.28),transparent 58%),linear-gradient(145deg,rgba(18,23,64,.98),rgba(5,12,31,.98));color:#fff;box-shadow:0 13px 35px rgba(0,0,0,.25);transition:.22s}
-.hx-category:hover{transform:translateY(-4px);border-color:var(--hx-cyan);box-shadow:0 16px 40px rgba(0,0,0,.32),0 0 22px rgba(37,231,255,.12)}
-.hx-category-icon{font-size:32px;line-height:1.2;color:#e2c8ff;text-shadow:0 0 18px rgba(173,91,255,.7)}
-.hx-category h3{font-size:18px;margin:12px 0 5px;color:#fff}
-.hx-category p{font-size:12px;line-height:1.75;margin:0;color:#b7cbea;min-height:43px}
-.hx-device-art{display:flex;align-items:center;justify-content:center;flex:1;min-height:68px;font-size:39px;letter-spacing:4px;color:#92eaff;text-shadow:0 0 20px rgba(37,231,255,.55)}
-.hx-category-cta{align-self:flex-start;padding:7px 13px;border-radius:99px;border:1px solid rgba(37,231,255,.75);color:#fff;font-size:12px;font-weight:900;background:rgba(0,152,255,.16)}
-.hx-iphone{border-color:rgba(180,74,255,.75);background:radial-gradient(ellipse at 50% 100%,rgba(132,30,255,.35),transparent 55%),linear-gradient(145deg,#17113b,#080d22)}
-.hx-samsung{border-color:rgba(61,131,255,.8);background:radial-gradient(ellipse at 50% 100%,rgba(22,93,255,.3),transparent 55%),linear-gradient(145deg,#0b1c46,#080d22)}
-.hx-android{border-color:rgba(0,225,205,.7);background:radial-gradient(ellipse at 50% 100%,rgba(0,209,178,.23),transparent 55%),linear-gradient(145deg,#082c37,#080d22)}
-.hx-boxes{border-color:rgba(176,71,255,.75);background:radial-gradient(ellipse at 50% 100%,rgba(160,35,255,.26),transparent 55%),linear-gradient(145deg,#24103f,#080d22)}
-.hx-pricing-wrap{padding-top:10px;padding-bottom:16px}.hx-pricing-wrap .activation-pricing{margin-top:0;background:#0d1428;border-color:rgba(155,92,255,.32);color:#f5f7ff}.hx-pricing-wrap .activation-pricing p{color:#b7cbea}
-@media(max-width:900px){.hx-hero-layout{grid-template-columns:1fr 0.85fr;gap:18px}.hx-service-chips{grid-template-columns:repeat(3,minmax(0,1fr))}.hx-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hx-visual-glass img{height:220px}}
-@media(max-width:650px){.hx-home-hero{padding:28px 0 15px}.hx-hero-layout{grid-template-columns:minmax(0,1fr);gap:14px}.hx-hero-copy h1{font-size:clamp(34px,10vw,49px);margin-top:14px}.hx-hero-copy h2{font-size:23px}.hx-hero-copy>p{font-size:13px}.hx-service-chips{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:15px 0}.hx-service-chips a{padding:8px 3px;font-size:11px}.hx-service-chips a span{font-size:20px}.hx-action{flex:1 1 140px;padding:10px 12px;font-size:12px}.hx-hero-visual{min-height:260px}.hx-visual-glass{width:min(90%,360px);transform:none}.hx-visual-glass img{height:190px}.hx-float-left{left:0;bottom:25px}.hx-float-right{right:0;top:18px}.hx-float{font-size:18px;padding:7px 9px}.hx-float small{font-size:9px}.hx-trust-strip{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}.hx-trust-strip>div{justify-content:flex-start;padding:11px 9px}.hx-trust-strip>div:nth-child(3){border-inline-start:0}.hx-trust-strip>div>b{font-size:23px}.hx-trust-strip strong{font-size:11px}.hx-trust-strip small{font-size:10px}.hx-category-section{padding:24px 0}.hx-category-grid{gap:9px}.hx-category{padding:13px;min-height:235px}.hx-category h3{font-size:15px}.hx-category p{font-size:11px;min-height:56px}.hx-device-art{font-size:29px;min-height:50px}.hx-category-cta{font-size:11px;padding:6px 10px}.hx-category-heading{align-items:flex-start;flex-direction:column}.hx-category-heading h2{font-size:22px}.hx-pricing-wrap .activation-plans{grid-template-columns:1fr}}
-@media(max-width:380px){.hx-category-grid{grid-template-columns:1fr}.hx-category{min-height:215px}.hx-device-art{min-height:40px}.hx-hero-actions{flex-direction:column}.hx-action{width:100%}}
+.hx-category{position:relative;min-width:0;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:10px;text-align:center;padding:20px 15px;border:1px solid rgba(123,100,255,.7);border-radius:19px;background:radial-gradient(ellipse at 50% 0%,rgba(129,63,255,.2),transparent 60%),linear-gradient(145deg,#101737,#070d20);color:#fff!important;box-shadow:inset 0 1px #ffffff12,0 12px 28px #0003;transition:transform .2s,border-color .2s,box-shadow .2s}
+.hx-category:hover{transform:translateY(-4px);border-color:#2ce7ff;box-shadow:0 0 24px #2ce7ff20,0 14px 30px #0005}
+.hx-category .hx-cat-icon{width:62px;height:62px;display:grid;place-items:center;border-radius:18px;background:linear-gradient(145deg,#803bff,#0d9eff);color:white;font-size:37px;font-weight:900;text-shadow:0 0 16px #fff8;box-shadow:0 0 22px #713cff55}
+.hx-category strong{font-size:clamp(15px,1.5vw,20px);color:#fff}.hx-category small{font-size:12px;line-height:1.6;color:#a9ddff}.hx-category .hx-cat-link{margin-top:auto;border:1px solid #25dfff;border-radius:999px;padding:7px 16px;color:#fff;font-weight:800;font-size:12px;background:linear-gradient(90deg,#632bde,#075dba);box-shadow:0 0 14px #087eff33}
+.hx-category.samsung{border-color:#167bff}.hx-category.android{border-color:#0abfae;background:radial-gradient(ellipse at 50% 0%,#00bfae22,transparent 60%),linear-gradient(145deg,#0c2534,#071320)}.hx-category.android .hx-cat-icon{background:linear-gradient(145deg,#00d8a2,#087eff)}.hx-category.boxes{border-color:#a44dff}
+#tools .toolimage{background:radial-gradient(ellipse at 50% 0%,#713cff25,transparent 65%),linear-gradient(145deg,#08142b,#101b38)!important;border-color:#334c78!important}
+#tools .toolimage img{object-fit:contain;padding:8px}
+#tools .card{border-color:#273e69}
+/* Avoid missing-image holes: render a branded visual fallback for absent optional image files. */
+img.hx-image-fallback{object-fit:contain!important;padding:16px!important;background:radial-gradient(circle at 50% 35%,#753cff55,transparent 58%),linear-gradient(145deg,#0b1834,#070d1d)!important}
+@media(max-width:900px){#hamoudaPromoBanner{grid-template-columns:1fr!important}.hx-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hx-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.hx-stats>div{border-bottom:1px solid #19314e}.hx-stats>div:nth-child(odd){border-inline-start:0}}
+@media(max-width:540px){#hamoudaPromoBanner{padding:19px!important;margin-top:12px!important;border-radius:18px!important}.hx-category-grid{gap:9px}.hx-category{min-height:190px;padding:15px 9px}.hx-category .hx-cat-icon{width:50px;height:50px;font-size:29px}.hx-category strong{font-size:14px}.hx-category small{font-size:11px}.hx-stats span{font-size:11px}.hx-stats>div{padding:11px 6px}}
+.hx-download-shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.hx-download-shortcuts a{display:flex;flex-direction:column;gap:8px;padding:17px;border:1px solid #344b78;border-radius:14px;background:linear-gradient(145deg,#111b39,#071326);color:#f7f9ff;font-weight:900;box-shadow:0 10px 28px #0003}.hx-download-shortcuts b{font-size:12px;color:#45e4ff}@media(max-width:650px){.hx-download-shortcuts{grid-template-columns:1fr 1fr}}@media(max-width:420px){.hx-download-shortcuts{grid-template-columns:1fr}}
 </style>
 
 </head>
@@ -832,7 +801,7 @@ html{scroll-behavior:smooth}
 <button aria-expanded="false" class="taskbar-trigger" type="button">الهواتف <span>⌄</span></button>
 <div class="taskbar-dropdown"><a href="#devices">كل الشركات</a><a data-jump="Samsung" href="#devices">Samsung</a><a data-jump="Apple" href="#devices">Apple / iPhone</a><a data-jump="Xiaomi" href="#devices">Xiaomi / Redmi / POCO</a><a data-jump="Google Pixel" href="#devices">Google Pixel</a><a data-jump="Transsion" href="#devices">TECNO / Infinix / itel</a></div></div>
 
-<a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><form class="hx-top-search" id="hxTopSearch" role="search"><input id="hxTopSearchInput" type="search" placeholder="ابحث في الموقع..." aria-label="ابحث في الموقع"><button type="submit" aria-label="بحث">⌕</button></form><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
+<a href="#ai-search">AI Search</a><div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">الأدوات <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">كل الأدوات</a><a href="#dumps"><strong>مكتبة الدمبات</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>أدوات التفليش</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">تعريفات USB</a><a href="#chipsets">المعالجات</a><a href="#repair-lab">مختبر الفني</a><a href="#drivers">التعريفات</a></div></div><a href="#tools">التنزيلات</a><a href="#iphone-prices">أسعار الآيفون</a><a href="#courses">الكورسات</a><a href="connect-device.html">توصيل الجهاز</a><a href="#about">عن المطور</a><a href="#contact">تواصل</a></nav><div class="actions"><form class="hx-top-search" id="hxTopSearch" role="search"><input id="hxTopSearchInput" type="search" placeholder="ابحث في الموقع..." aria-label="ابحث في الموقع"><button type="submit" aria-label="بحث">⌕</button></form><button aria-label="تبديل الثيم" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">تسجيل الدخول</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="فتح الملف الشخصي" title="الملف الشخصي">MH</button></div></div></div></header>
 <div class="profile-modal" id="profileModal" hidden role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
  <div class="profile-backdrop" data-profile-close></div>
  <section class="profile-panel"><button class="profile-close" type="button" data-profile-close aria-label="إغلاق">×</button>
@@ -843,57 +812,18 @@ html{scroll-behavior:smooth}
  </section>
 </div><main>
 
-<section class="hx-home-hero" id="home">
-  <div class="hx-hero-bg-glow"></div>
-  <div class="wrap hx-hero-layout">
-    <div class="hx-hero-copy">
-      <span class="hx-kicker">✦ HAMOUDA XTOOLS · MOBILE SOLUTIONS</span>
-      <h1>Hamouda <span>XTools</span><small class="hx-crown">♛</small></h1>
-      <h2>كل حلول الهواتف في مكان واحد</h2>
-      <p>فك القفل، السوفت وير، أدوات الصيانة، المراجع الفنية وتحديثات الأجهزة — في واجهة واحدة منظمة.</p>
-      <div class="hx-service-chips">
-        <a href="#iphone-prices"><span></span> iCloud</a>
-        <a href="#rest-frp"><span>♟</span> FRP</a>
-        <a href="#flashing-tools"><span>⚙</span> Flash</a>
-        <a href="#tools"><span>▣</span> Unlock</a>
-        <a href="#dumps"><span>☁</span> Backup</a>
-        <a href="#repair-lab"><span>⚒</span> Repair</a>
-      </div>
-      <div class="hx-hero-actions">
-        <a class="hx-action hx-action-violet" href="#tools">⇩　 استكشف الأدوات</a>
-        <a class="hx-action hx-action-cyan" href="#courses">▱　 تصفح الشروحات</a>
-      </div>
+<div class="wrap" id="hamoudaPromoBanner">
+  <div class="promo-copy">
+    <span class="promo-kicker">✦ HAMOUDA XTOOLS · OFFICIAL TOOL</span>
+    <h1>Hamouda <span>XTools</span></h1>
+    <p>أدوات احترافية لصيانة الهواتف وأجهزة Apple، وروابط ومراجع فنية في مكان واحد. أهلًا بك في منصة المطور محمود حمودة.</p>
+    <div class="promo-actions">
+      <a class="btn" href="#tools">استكشف الأدوات ↙</a>
+      <a class="promo-download" href="#tools">⬇ تصفح الأدوات والتنزيلات الرسمية</a>
     </div>
-    <div class="hx-hero-visual">
-      <div class="hx-orbit hx-orbit-one"></div><div class="hx-orbit hx-orbit-two"></div>
-      <div class="hx-visual-glass">
-        <div class="hx-visual-top"><span>● ● ●</span><b>HAMOUDA XTOOLS</b><span>HX</span></div>
-        <img src="hamouda.png" alt="Hamouda XTools" fetchpriority="high">
-        <div class="hx-visual-caption"><b>Professional Mobile Solutions</b><span>Developed by Mahmoud Hamouda</span></div>
-      </div>
-      <div class="hx-float hx-float-left"> <small>iPhone Tools</small></div>
-      <div class="hx-float hx-float-right">♙ <small>Android Tools</small></div>
-    </div>
-  </div>
-  <div class="wrap hx-trust-strip">
-    <div><b>⌁</b><span><strong>أدوات متنوعة</strong><small>روابط ومراجع فنية</small></span></div>
-    <div><b>♙</b><span><strong>دعم أجهزة متعددة</strong><small>Apple و Android</small></span></div>
-    <div><b>⬡</b><span><strong>محتوى منظم</strong><small>بحث وتصنيف سريع</small></span></div>
-    <div><b>◎</b><span><strong>تواصل مباشر</strong><small>الدعم والمساعدة</small></span></div>
-  </div>
-</section>
-<section class="hx-category-section">
-  <div class="wrap">
-    <div class="hx-category-heading"><div><span>EXPLORE PLATFORM</span><h2>استكشف أقسام Hamouda XTools</h2></div><a href="#tools">عرض كل الأقسام ←</a></div>
-    <div class="hx-category-grid">
-      <a class="hx-category hx-iphone" href="#iphone-prices"><div class="hx-category-icon"></div><h3>iPhone Tools</h3><p>فك قفل iCloud ومراجع وأدوات أجهزة Apple.</p><div class="hx-device-art">　▯　▯</div><span class="hx-category-cta">عرض الأدوات　←</span></a>
-      <a class="hx-category hx-samsung" href="#devices"><div class="hx-category-icon">✣</div><h3>SAMSUNG Tools</h3><p>قاعدة بيانات الموديلات وأدوات الصيانة والتفليش.</p><div class="hx-device-art">▯　▯　▯</div><span class="hx-category-cta">عرض الأدوات　←</span></a>
-      <a class="hx-category hx-android" href="#rest-frp"><div class="hx-category-icon">♟</div><h3>Android Tools</h3><p>أدوات أندرويد وموارد FRP والتشخيص.</p><div class="hx-device-art">▯　▯　▯</div><span class="hx-category-cta">عرض الأدوات　←</span></a>
-      <a class="hx-category hx-boxes" href="#tools"><div class="hx-category-icon">▱</div><h3>Software &amp; Boxes</h3><p>فهرس الأدوات والبوكسات والبرامج الرسمية.</p><div class="hx-device-art">▣　▣　▣</div><span class="hx-category-cta">عرض الأدوات　←</span></a>
-    </div>
-  </div>
-</section>
-<div class="wrap hx-pricing-wrap"><div id="hamoudaPricing" class="activation-pricing" aria-label="خطط تفعيل Hamouda XTools">
+    <p class="promo-note">روابط الأدوات والتنزيلات الرسمية موجودة بالأسفل؛ افتح صفحة الأداة للحصول على الإصدار المناسب والترخيص.</p>
+
+<div id="hamoudaPricing" class="activation-pricing" aria-label="خطط تفعيل Hamouda XTools">
   <h2>اختر خطة التفعيل</h2>
   <div class="activation-plans">
     <article class="activation-plan">
@@ -916,7 +846,25 @@ html{scroll-behavior:smooth}
     </article>
   </div>
   <p class="activation-disclaimer">الأزرار تفتح واتساب لطلب التفعيل أو الشراء. مدة الترخيص والتحقق من الدفع تحتاج نظام تفعيل فعليًا؛ لا يتم إصدار مفتاح تلقائي من هذه الصفحة حاليًا.</p>
-</div></div>
+</div>
+
+  </div>
+  <div class="promo-art"><img src="hamouda.png" alt="واجهة Hamouda XTools التي أرسلها المطور" fetchpriority="high"></div>
+</div>
+<div class="wrap hero compact-hidden"><div><span class="pill"><span class="dot"></span> منصة صيانة الأجهزة الذكية</span><h1>كل أدواتك،<br/><span>في مكان واحد.</span></h1><p class="lead">أنا محمود حمودة، مهتم بتطوير أدوات السوفت وير وصيانة الهواتف وتبسيط المعرفة الفنية. جمعت هنا روابط الأدوات ومراجعها الرسمية، مع مساحة مخصصة للكورسات والمحتوى التعليمي.</p><div class="btnrow"><a class="btn" href="#tools">استكشف الأدوات　↙</a><a class="btn outline" href="#courses">استكشف الكورسات</a></div><div class="facts"><div><b>Android &amp; Apple</b><small>أقسام متخصصة</small></div><div><b>وضع فاتح وداكن</b><small>حسب تفضيلك</small></div><div><b>Mahmoud Hamouda</b><small>المطوّر</small></div></div></div>
+<div class="preview xtools-carousel" aria-label="معرض صور Hamouda XTools"><div class="carousel-frame"><img id="xtoolsSlide" src="site-images/HamoudaXTools_SetA_01.jpg" alt="صور واجهة Hamouda XTools" loading="eager"><button class="carousel-arrow prev" id="xtoolsPrev" aria-label="الصورة السابقة">❮</button><button class="carousel-arrow next" id="xtoolsNext" aria-label="الصورة التالية">❯</button><div class="carousel-caption"><b id="xtoolsSlideTitle">Hamouda XTools</b><span id="xtoolsSlideCount">1 / 21</span></div></div><div class="carousel-dots" id="xtoolsDots" aria-label="اختيار الصورة"></div><p class="carousel-hint">صور الأداة تتبدل تلقائيًا — اضغط الأسهم للتنقل</p></div></div>
+
+
+<section id="home-categories" class="hx-home-categories"><div class="wrap">
+ <div class="hx-stats"><div><b>+90%</b><span>نسبة النجاح المعلنة للحالات المؤهلة</span></div><div><b>+50</b><span>أداة ومصدر فني</span></div><div><b>+2000</b><span>موديل ضمن أدلة ومراجع</span></div><div><b>كل الدول</b><span>دعم واستفسارات عبر واتساب</span></div></div>
+ <div class="hx-category-grid">
+  <a class="hx-category iphone" href="#iphone-prices"><span class="hx-cat-icon"></span><strong>iPhone Tools</strong><small>خدمات الآيفون وفحص الجهاز</small><span class="hx-cat-link">عرض الخدمات ←</span></a>
+  <a class="hx-category samsung" href="#tools"><span class="hx-cat-icon">▣</span><strong>SAMSUNG Tools</strong><small>تفليش وتعريفات ومراجع رسمية</small><span class="hx-cat-link">عرض الأدوات ←</span></a>
+  <a class="hx-category android" href="#rest-frp"><span class="hx-cat-icon">♟</span><strong>Android Tools</strong><small>تشخيص ومراجع Android وFRP</small><span class="hx-cat-link">فتح الأدوات ←</span></a>
+  <a class="hx-category boxes" href="#tools"><span class="hx-cat-icon">▤</span><strong>Software &amp; Boxes</strong><small>Chimera وUMT وEFT وPandora وغيرها</small><span class="hx-cat-link">التنزيلات الرسمية ←</span></a>
+ </div>
+</div></section>
+
 <section id="iphone-prices" class="iphone-prices-section">
   <div class="wrap">
     <div class="heading">
@@ -1079,16 +1027,16 @@ html{scroll-behavior:smooth}
 <article class="card"><h3>Google Pixel</h3><p>Factory images وOTA الرسمية</p><a class="smallbtn" href="https://developers.google.com/android/images" rel="noopener" target="_blank">Factory Images ↗</a></article>
 <article class="card"><h3>Apple</h3><p>Firmware IPSW للأجهزة المدعومة</p><a class="smallbtn" href="https://ipsw.me/" rel="noopener" target="_blank">IPSW ↗</a></article>
 </div><p style="color:var(--muted);font-size:12px;margin-bottom:0">ملفات Dump الخام تختلف عن ملفات السوفت وير الرسمية؛ لا تنشر Dump من جهاز عميل دون إذنه، وتأكد من خلو الملفات من بيانات شخصية.</p></div></div></section>
-<section id="tools"><div class="wrap"><div class="heading"><div><h2>دليل الأدوات والروابط الرسمية</h2><p>افتح الموقع الرسمي لكل أداة للتفاصيل والتحديثات والتراخيص. روابط التنزيل قد تتطلب حسابًا أو ترخيصًا.</p></div><span class="tag">Official links</span></div><div class="cards">
-<article class="card"><div class="toolimage"><img alt="SK Unlocker" loading="lazy" src="sk-unlocker.jpg"/></div><h3>SK Unlocker</h3><p>أداة لخدمات وصيانة الهواتف. تأكد من النطاق الرسمي قبل شراء أي تفعيل.</p><div class="cardfoot"><span class="tag">ANDROID</span><a class="smallbtn" href="https://sk-unlocker.com/" rel="noopener" target="_blank">الموقع / التحقق ↗</a></div></article>
-<article class="card"><div class="toolimage"><img alt="UMT Pro" loading="lazy" src="umt-pro.jpg"/></div><h3>UMT Pro</h3><p>Ultimate Multi Tool — معلومات الأداة والدعم والتحديثات عبر الجهة المطورة.</p><div class="cardfoot"><span class="tag">SERVICE</span><a class="smallbtn" href="https://www.ultimatemultitool.com/" rel="noopener" target="_blank">الموقع الرسمي ↗</a></div></article>
-<article class="card"><div class="toolimage"><img alt="EFT Pro" loading="lazy" src="eft-pro.jpg"/></div><h3>EFT Pro</h3><p>أداة خدمات للهواتف؛ تحقق من التوافق والإصدارات من مصدرها المعتمد.</p><div class="cardfoot"><span class="tag">SERVICE</span><a class="smallbtn" href="https://eftpro.com/" rel="noopener" target="_blank">الموقع / التحقق ↗</a></div></article>
-<article class="card"><div class="toolimage"><img alt="Chimera Tool" loading="lazy" src="chimera.jpg"/></div><h3>Chimera Tool</h3><p>معلومات المنتجات والتوافق والتحديثات والدعم من الموقع الرسمي.</p><div class="cardfoot"><span class="tag">SERVICE</span><a class="smallbtn" href="https://chimera-tool.com/" rel="noopener" target="_blank">الموقع الرسمي ↗</a></div></article>
-<article class="card"><div class="toolimage"><img alt="Pandora Box" loading="lazy" src="pandora-box.jpg"/></div><h3>Pandora Box</h3><p>موارد الأداة ودعمها؛ استخدم صفحة الشركة/المطور للتأكد من الروابط الحالية.</p><div class="cardfoot"><span class="tag">HARDWARE</span><a class="smallbtn" href="https://z3x-team.com/" rel="noopener" target="_blank">موقع المطور ↗</a></div></article>
+<section id="downloads"><div class="wrap"><div class="heading"><div><h2>مركز التنزيلات الرسمية</h2><p>اختار الأداة وافتح صفحة المطوّر الرسمية للتنزيلات والتحديثات؛ بعض الأدوات تتطلب حسابًا أو ترخيصًا.</p></div><span class="tag">DOWNLOAD CENTER</span></div><div class="hx-download-shortcuts"><a href="https://chimera-tool.com/" target="_blank" rel="noopener">Chimera Tool <b>فتح المصدر الرسمي ↗</b></a><a href="https://www.ultimatemultitool.com/" target="_blank" rel="noopener">UMT Pro <b>فتح المصدر الرسمي ↗</b></a><a href="https://eftpro.com/" target="_blank" rel="noopener">EFT Pro <b>فتح المصدر الرسمي ↗</b></a><a href="https://z3x-team.com/" target="_blank" rel="noopener">Pandora / Z3X <b>فتح المصدر الرسمي ↗</b></a><a href="https://sk-unlocker.com/" target="_blank" rel="noopener">SK Unlocker <b>فتح المصدر الرسمي ↗</b></a><a href="https://www.3u.com/" target="_blank" rel="noopener">3uTools <b>فتح المصدر الرسمي ↗</b></a></div></div></section><section id="tools"><div class="wrap"><div class="heading"><div><h2>دليل الأدوات والروابط الرسمية</h2><p>افتح الموقع الرسمي لكل أداة للتفاصيل والتحديثات والتراخيص. روابط التنزيل قد تتطلب حسابًا أو ترخيصًا.</p></div><span class="tag">Official links</span></div><div class="cards">
+<article class="card"><div class="toolimage"><img alt="SK Unlocker" loading="lazy" src="hx-tool-art/sk-unlocker.svg"/></div><h3>SK Unlocker</h3><p>أداة لخدمات وصيانة الهواتف. تأكد من النطاق الرسمي قبل شراء أي تفعيل.</p><div class="cardfoot"><span class="tag">ANDROID</span><a class="smallbtn" href="https://sk-unlocker.com/" rel="noopener" target="_blank">الموقع / التحقق ↗</a></div></article>
+<article class="card"><div class="toolimage"><img alt="UMT Pro" loading="lazy" src="hx-tool-art/umt-pro.svg"/></div><h3>UMT Pro</h3><p>Ultimate Multi Tool — معلومات الأداة والدعم والتحديثات عبر الجهة المطورة.</p><div class="cardfoot"><span class="tag">SERVICE</span><a class="smallbtn" href="https://www.ultimatemultitool.com/" rel="noopener" target="_blank">الموقع الرسمي ↗</a></div></article>
+<article class="card"><div class="toolimage"><img alt="EFT Pro" loading="lazy" src="hx-tool-art/eft-pro.svg"/></div><h3>EFT Pro</h3><p>أداة خدمات للهواتف؛ تحقق من التوافق والإصدارات من مصدرها المعتمد.</p><div class="cardfoot"><span class="tag">SERVICE</span><a class="smallbtn" href="https://eftpro.com/" rel="noopener" target="_blank">الموقع / التحقق ↗</a></div></article>
+<article class="card"><div class="toolimage"><img alt="Chimera Tool" loading="lazy" src="hx-tool-art/chimera.svg"/></div><h3>Chimera Tool</h3><p>معلومات المنتجات والتوافق والتحديثات والدعم من الموقع الرسمي.</p><div class="cardfoot"><span class="tag">SERVICE</span><a class="smallbtn" href="https://chimera-tool.com/" rel="noopener" target="_blank">الموقع الرسمي ↗</a></div></article>
+<article class="card"><div class="toolimage"><img alt="Pandora Box" loading="lazy" src="hx-tool-art/pandora-box.svg"/></div><h3>Pandora Box</h3><p>موارد الأداة ودعمها؛ استخدم صفحة الشركة/المطور للتأكد من الروابط الحالية.</p><div class="cardfoot"><span class="tag">HARDWARE</span><a class="smallbtn" href="https://z3x-team.com/" rel="noopener" target="_blank">موقع المطور ↗</a></div></article>
 <article class="card"><div class="toolimage"><span class="icon-wrap"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><rect height="11" rx="2" width="18" x="3" y="10"></rect><path d="M7 10V7a5 5 0 0 1 9.6-2"></path><circle cx="12" cy="15.5" r="1"></circle><path d="M12 16.5v2"></path></svg></span></div><h3>UnlockTool</h3><p>أداة لخدمات صيانة الهواتف؛ راجع الموقع الرسمي للتوافق والتحديثات والتراخيص المتاحة.</p><div class="cardfoot"><span class="tag">SERVICE</span><a class="smallbtn" href="https://unlocktool.net/" rel="noopener" target="_blank">الموقع الرسمي ↗</a></div></article>
 <article class="card"><div class="toolimage"><span class="icon-wrap"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="4"></rect><path d="M7 8h10M7 12h6M7 16h8"></path></svg></span></div><h3>HalabTech — حلب تك</h3><p>منصة لمراجع صيانة الهواتف، الفيرموير، الأدوات والشروحات الفنية.</p><div class="cardfoot"><span class="tag">RESOURCE</span><a class="smallbtn" href="https://halabtech.com/" rel="noopener" target="_blank">الموقع الرسمي ↗</a></div><div class="cardfoot"><a class="smallbtn" href="https://support.halabtech.com/" rel="noopener" target="_blank">مركز الدعم ↗</a><a class="smallbtn" href="https://course.halabtech.com/" rel="noopener" target="_blank">الكورسات ↗</a></div></article>
 <article class="card"><div class="toolimage"><span class="icon-wrap"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8M8 12h5M8 15h7"></path></svg></span></div><h3>Arab Unlock — عرب أنلوك</h3><p>موقع لخدمات وأدوات السوفت وير ومراجع الدعم الفني. تحقق من شروط الخدمة قبل الاشتراك أو الشراء.</p><div class="cardfoot"><span class="tag">RESOURCE</span><a class="smallbtn" href="https://arabunlock.com/" rel="noopener" target="_blank">الموقع الرسمي ↗</a></div><div class="cardfoot"><a class="smallbtn" href="https://support.arabunlock.com/" rel="noopener" target="_blank">مركز الدعم ↗</a><a class="smallbtn" href="https://blog.arabunlock.com/" rel="noopener" target="_blank">المقالات ↗</a></div></article>
-<article class="card"><div class="toolimage"><img alt="Hamouda XTools" loading="lazy" src="hamouda-xtools-splash.jpg"/></div><h3>Hamouda XTools</h3><p>مشروع محمود حمودة لتجميع موارد الصيانة والأدوات والمحتوى التعليمي في مكان واحد.</p><div class="cardfoot"><span class="tag">PROJECT</span><a class="smallbtn" href="https://github.com/mahmoudhamouda564-droid/Hamouda-XTools" rel="noopener" target="_blank">مستودع المشروع ↗</a></div></article>
+<article class="card"><div class="toolimage"><img alt="Hamouda XTools" loading="lazy" src="hx-tool-art/hamouda-xtools-splash.svg"/></div><h3>Hamouda XTools</h3><p>مشروع محمود حمودة لتجميع موارد الصيانة والأدوات والمحتوى التعليمي في مكان واحد.</p><div class="cardfoot"><span class="tag">PROJECT</span><a class="smallbtn" href="https://github.com/mahmoudhamouda564-droid/Hamouda-XTools" rel="noopener" target="_blank">مستودع المشروع ↗</a></div></article>
 </div><p style="color:var(--muted);font-size:12px;margin-top:14px">ملاحظة: روابط الجهات الخارجية قد تتغير. لم أضع روابط تنزيل مباشرة غير مؤكدة، لتجنب الملفات غير الرسمية.</p></div></section>
 <section id="courses"><div class="wrap"><div class="heading"><div><h2>أكاديمية Hamouda XTools</h2><p>مساحة مخصصة للكورسات والشروحات الفنية — يمكن إضافة الدروس وروابط الفيديو لاحقًا.</p></div><span class="tag">تعلم وتدرّب</span></div><div class="cards">
 <article class="card"><div class="toolimage"><span class="icon-wrap"><svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><rect height="20" rx="2" width="12" x="6" y="2"></rect><path d="M10 18h4"></path></svg></span></div><h3>أساسيات سوفت وير الهواتف</h3><p>التعريف بالأدوات، التعريفات، أوضاع الاتصال، وقراءة معلومات الجهاز بطريقة آمنة.</p><div class="cardfoot"><span class="tag">مبتدئ</span><a class="smallbtn" href="https://www.youtube.com/results?search_query=mobile+software+repair+basics" rel="noopener" target="_blank">استكشف الدروس ↗</a></div></article>
@@ -1653,6 +1601,21 @@ a:hover, button:hover { filter:brightness(1.12); }
   if(typeof window.runAISearch==='function'){window.runAISearch();}
   else if(input){input.focus();input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));}
  });
+})();
+</script>
+
+
+<script id="hx-missing-image-recovery">
+(function(){
+ function fallback(img){
+  if(!img || img.dataset.hxFallback==='1') return;
+  img.dataset.hxFallback='1';
+  const label=(img.getAttribute('alt')||'Hamouda XTools').replace(/[<>&]/g,' ').slice(0,42);
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111b3b"/><stop offset=".55" stop-color="#17104a"/><stop offset="1" stop-color="#063d59"/></linearGradient><linearGradient id="n"><stop stop-color="#22e8ff"/><stop offset=".55" stop-color="#8c55ff"/><stop offset="1" stop-color="#ee69ff"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="10"/></filter></defs><rect width="900" height="560" rx="34" fill="url(#g)"/><circle cx="170" cy="130" r="150" fill="#6a35ff" opacity=".16"/><circle cx="760" cy="400" r="180" fill="#00d9ff" opacity=".12"/><rect x="315" y="95" width="270" height="270" rx="54" fill="url(#n)" opacity=".25" filter="url(#glow)"/><rect x="330" y="90" width="240" height="240" rx="48" fill="url(#n)" stroke="#9defff" stroke-width="3"/><text x="450" y="245" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="100" fill="white">HX</text><text x="450" y="410" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="30" fill="#fff">${label}</text><text x="450" y="455" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#83eaff">HAMOUDA XTOOLS</text></svg>`;
+  img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+  img.classList.add('hx-image-fallback');
+ }
+ document.querySelectorAll('img').forEach(img=>{img.addEventListener('error',()=>fallback(img),{once:true}); if(img.complete && img.naturalWidth===0 && img.getAttribute('src')) fallback(img);});
 })();
 </script>
 
