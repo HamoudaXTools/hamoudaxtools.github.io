@@ -791,6 +791,30 @@ footer{margin-top:28px}
 @media(max-width:520px){#hamoudaPromoBanner{width:92%;padding:22px!important;border-radius:23px!important;margin-top:18px!important}#hamoudaPromoBanner h1{font-size:42px!important}.activation-plans{grid-template-columns:1fr!important}.activation-plan{display:grid;grid-template-columns:1fr auto;gap:3px 10px;align-items:center}.activation-plan .plan-label,.activation-plan p{grid-column:1}.activation-plan .plan-price,.activation-plan .activation-btn{grid-column:2;grid-row:1/3}.activation-plan .activation-btn{grid-row:3;grid-column:1/-1}#authGate.auth-gate{padding:8px!important}#authGate .auth-layout{border-radius:21px!important;min-height:auto!important}#authGate .auth-showcase{padding:19px!important}#authGate .hx-points{gap:6px!important}#authGate .hx-points span{padding:6px 8px!important}#authGate .auth-form-side{padding:22px 18px!important}#authGate .auth-brand{margin-bottom:18px!important}#authGate .auth-welcome h1{font-size:27px!important}}
 </style>
 
+
+<style id="hx-mobile-nav-search-fix">
+.hx-top-search{display:none!important}.nav{position:relative;flex-wrap:nowrap;min-width:0}.brand{flex:0 0 auto}.navlinks{align-items:center;gap:8px;flex:1;min-width:0;justify-content:center}.navlinks>a,.taskbar-trigger{white-space:nowrap}.navlinks .taskbar-menu{position:relative}.actions{flex:0 0 auto}
+.hx-icon-btn{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);font-size:20px;line-height:1;cursor:pointer}
+.hx-menu-toggle{display:none}
+.hx-search-overlay[hidden]{display:none!important}.hx-search-overlay{position:fixed;inset:0;z-index:100100;display:flex;justify-content:center;align-items:flex-start;padding:10vh 16px 20px;background:rgba(3,8,20,.72);backdrop-filter:blur(8px)}
+.hx-search-panel{width:min(680px,100%);max-height:80vh;overflow:auto;border:1px solid var(--line);border-radius:20px;padding:18px;background:var(--surface);color:var(--text);box-shadow:0 24px 80px #0006}
+.hx-search-top{display:flex;align-items:center;gap:10px}.hx-search-input{flex:1;min-width:0;padding:14px 15px;border:1px solid var(--line);border-radius:13px;background:var(--bg);color:var(--text);font:inherit;outline:none}.hx-search-close{font-size:25px}.hx-search-results{display:grid;gap:8px;margin-top:14px}.hx-search-result{display:block;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}.hx-search-result small{display:block;color:var(--muted)}.hx-search-empty{color:var(--muted);padding:12px}
+@media(max-width:1050px){
+ .nav{height:auto;min-height:68px;flex-wrap:wrap;padding:10px 0;gap:8px}
+ .brand{margin-inline-end:auto}
+ .actions{margin-inline-start:0}
+ .hx-menu-toggle{display:inline-flex}
+ .navlinks{display:none;order:3;flex:0 0 100%;width:100%;max-width:none;overflow:visible;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:5px;padding:10px 0 4px}
+ .navlinks.hx-mobile-open{display:flex}
+ .navlinks>a,.navlinks>.taskbar-menu{width:100%;display:block}
+ .navlinks>a{padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--bg)}
+ .navlinks .taskbar-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--text);font-size:14px}
+ .navlinks .taskbar-dropdown{position:static;display:none;width:100%;max-height:none;overflow:visible;margin-top:4px;border:1px solid var(--line);border-radius:11px;box-shadow:none}
+ .navlinks .taskbar-menu.hx-open .taskbar-dropdown{display:block}
+ .navlinks .taskbar-dropdown a{display:block;padding:10px 14px}
+}
+@media(min-width:1051px){.navlinks{flex-wrap:nowrap}.hx-menu-toggle{display:none}}
+</style>
 </head>
 <body class="auth-locked">
 
@@ -2080,6 +2104,50 @@ header .navlinks .hx-framed-menu{flex:0 0 auto!important;margin:0!important}
 }
 </style>
 
+
+<script id="hx-mobile-nav-search-script">
+(function(){
+ const nav=document.querySelector('header .navlinks');
+ if(nav){
+   const items=[...nav.children];
+   const findMenu=(txt)=>items.find(el=>el.classList && el.classList.contains('taskbar-menu') && (el.querySelector('.taskbar-trigger')?.textContent||'').trim().startsWith(txt));
+   const devices=findMenu('Devices'), tools=findMenu('Tools'), webtools=findMenu('Web Tools Lab'), payments=findMenu('Payments');
+   const pricing=items.find(el=>el.matches?.('a[href="#iphone-prices"]'));
+   const courses=items.find(el=>el.matches?.('a[href="#courses"]'));
+   const about=items.find(el=>el.matches?.('a[href="#about"]'));
+   const contact=items.find(el=>el.matches?.('a[href="#contact"]'));
+   [devices,tools,webtools,payments,pricing,courses,about,contact].filter(Boolean).forEach(el=>nav.appendChild(el));
+   nav.querySelectorAll('.taskbar-trigger').forEach(btn=>btn.addEventListener('click',function(e){
+     e.preventDefault(); const parent=btn.closest('.taskbar-menu'); if(!parent)return;
+     const isOpen=parent.classList.toggle('hx-open'); btn.setAttribute('aria-expanded',String(isOpen));
+     nav.querySelectorAll('.taskbar-menu').forEach(other=>{if(other!==parent){other.classList.remove('hx-open');other.querySelector('.taskbar-trigger')?.setAttribute('aria-expanded','false')}});
+   }));
+ }
+ const actions=document.querySelector('header .actions');
+ if(actions && !document.getElementById('hxMobileMenuToggle')){
+   const menu=document.createElement('button');menu.type='button';menu.id='hxMobileMenuToggle';menu.className='hx-icon-btn hx-menu-toggle';menu.setAttribute('aria-label','فتح القائمة');menu.setAttribute('aria-expanded','false');menu.innerHTML='☰';
+   actions.prepend(menu);
+   menu.addEventListener('click',()=>{const n=document.querySelector('header .navlinks');if(!n)return;const open=n.classList.toggle('hx-mobile-open');menu.setAttribute('aria-expanded',String(open));menu.innerHTML=open?'✕':'☰';});
+ }
+ if(actions && !document.getElementById('hxGlobalSearchButton')){
+   const search=document.createElement('button');search.type='button';search.id='hxGlobalSearchButton';search.className='hx-icon-btn';search.setAttribute('aria-label','بحث في الموقع');search.title='بحث في الموقع';search.innerHTML='🔍';actions.prepend(search);
+   const overlay=document.createElement('div');overlay.className='hx-search-overlay';overlay.hidden=true;overlay.innerHTML='<div class="hx-search-panel" role="dialog" aria-modal="true" aria-label="بحث في الموقع"><div class="hx-search-top"><input class="hx-search-input" type="search" placeholder="ابحث في كل الموقع..." aria-label="ابحث في كل الموقع"><button type="button" class="hx-icon-btn hx-search-close" aria-label="إغلاق البحث">×</button></div><div class="hx-search-results" aria-live="polite"></div></div>';
+   document.body.appendChild(overlay);
+   const input=overlay.querySelector('input'),results=overlay.querySelector('.hx-search-results');
+   const searchable=[...document.querySelectorAll('body h1,body h2,body h3,body h4,body p,body a,body button,body .card,body .tool-card,body li')].filter(el=>!el.closest('.hx-search-overlay')&&!el.closest('header')&&el.textContent.trim().length>2);
+   const entries=searchable.map(el=>({el,text:el.textContent.trim().replace(/\s+/g,' ').slice(0,180)})).filter((v,i,a)=>a.findIndex(x=>x.el===v.el)===i);
+   function runSearch(){const q=input.value.trim().toLocaleLowerCase();results.innerHTML='';if(!q){results.innerHTML='<div class="hx-search-empty">اكتب كلمة للبحث في الأدوات والأقسام والمحتوى.</div>';return}
+     const matches=entries.filter(x=>x.text.toLocaleLowerCase().includes(q)).slice(0,30);
+     if(!matches.length){results.innerHTML='<div class="hx-search-empty">مفيش نتائج مطابقة. جرّب كلمة تانية.</div>';return}
+     matches.forEach(({el,text})=>{const a=document.createElement('a');a.className='hx-search-result';a.href=el.closest('section[id]')?'#'+el.closest('section[id]').id:(el.id?'#'+el.id:'#');a.innerHTML='<span></span><small>اضغط للانتقال للمحتوى</small>';a.querySelector('span').textContent=text;a.addEventListener('click',e=>{e.preventDefault();overlay.hidden=true;el.scrollIntoView({behavior:'smooth',block:'center'});el.style.outline='2px solid var(--primary)';setTimeout(()=>el.style.outline='',1500);});results.appendChild(a)});
+   }
+   search.addEventListener('click',()=>{overlay.hidden=false;input.value='';runSearch();setTimeout(()=>input.focus(),30)});
+   input.addEventListener('input',runSearch);overlay.querySelector('.hx-search-close').addEventListener('click',()=>overlay.hidden=true);
+   overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.hidden=true});
+   document.addEventListener('keydown',e=>{if(e.key==='Escape'){overlay.hidden=true;const n=document.querySelector('header .navlinks');n?.classList.remove('hx-mobile-open');const b=document.getElementById('hxMobileMenuToggle');if(b){b.setAttribute('aria-expanded','false');b.innerHTML='☰'}}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search.click()}});
+ }
+})();
+</script>
 </body></html>
 
 <style id="profile-modal-styles">
