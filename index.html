@@ -1940,6 +1940,41 @@ background-attachment:fixed!important;transition:background-color .25s ease!impo
 })();
 </script>
 
+
+<style id="iphone-unlock-collapsible-styles">
+  #iphone-unlock-offer{padding:12px!important;margin:22px auto!important;border-radius:16px!important;transition:padding .2s ease}
+  #iphone-unlock-offer .iphone-offer-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid rgba(255,75,75,.55);border-radius:12px;background:linear-gradient(110deg,rgba(255,48,48,.15),rgba(20,20,20,.75));color:#fff;text-align:left;font:inherit;font-weight:850;cursor:pointer}
+  #iphone-unlock-offer .iphone-offer-toggle .iphone-offer-label{display:flex;align-items:center;gap:10px}
+  #iphone-unlock-offer .iphone-offer-toggle .iphone-offer-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:rgba(255,48,48,.16);color:#ff7777;font-size:19px}
+  #iphone-unlock-offer .iphone-offer-toggle .iphone-offer-chevron{font-size:18px;color:#ff7777;transition:transform .2s ease}
+  #iphone-unlock-offer .iphone-offer-content{display:none;padding:18px 4px 4px}
+  #iphone-unlock-offer.is-open .iphone-offer-content{display:block}
+  #iphone-unlock-offer.is-open .iphone-offer-chevron{transform:rotate(180deg)}
+  #iphone-unlock-offer .iphone-offer-toggle:focus-visible{outline:2px solid #ff7777;outline-offset:3px}
+  @media(max-width:540px){#iphone-unlock-offer{padding:9px!important}#iphone-unlock-offer .iphone-offer-toggle{padding:11px 12px;font-size:14px}#iphone-unlock-offer .iphone-offer-content{padding:13px 1px 2px}}
+</style>
+<script id="iphone-unlock-collapsible-script">
+document.addEventListener('DOMContentLoaded', function () {
+  const section = document.getElementById('iphone-unlock-offer');
+  if (!section || section.dataset.collapsibleReady === 'true') return;
+  section.dataset.collapsibleReady = 'true';
+  const content = document.createElement('div');
+  content.className = 'iphone-offer-content';
+  while (section.firstElementChild) content.appendChild(section.firstElementChild);
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'iphone-offer-toggle';
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.innerHTML = '<span class="iphone-offer-label"><span class="iphone-offer-icon" aria-hidden="true">🍎</span><span>iPhone Unlock Services &amp; Pricing</span></span><span class="iphone-offer-chevron" aria-hidden="true">⌄</span>';
+  section.appendChild(toggle);
+  section.appendChild(content);
+  toggle.addEventListener('click', function () {
+    const open = section.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+});
+</script>
+
 </body></html>
 
 <style id="profile-modal-styles">
