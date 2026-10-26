@@ -435,22 +435,43 @@ header .taskbar-trigger{padding:9px 10px!important;border-radius:10px!important}
 </style>
 
 
-<style id="xtools-layout-overlap-fix">
-/* Final layout guard: keep the login experience in its own stable two-column grid. */
-.auth-gate{box-sizing:border-box!important;overflow:auto!important;align-items:center!important;justify-items:center!important}
-.auth-gate .auth-shell.xt-auth-wide{width:min(100%,1500px)!important;max-width:1500px!important;min-height:0!important;height:auto!important;display:grid!important;grid-template-columns:minmax(0,1.12fr) minmax(390px,.88fr)!important;grid-template-rows:auto!important;gap:clamp(22px,3vw,42px)!important;align-items:stretch!important;justify-items:stretch!important;padding:clamp(22px,3vw,44px)!important;overflow:visible!important;box-sizing:border-box!important}
-.auth-gate .auth-shell.xt-auth-wide>.xt-auth-visual{grid-column:1!important;grid-row:1!important;min-width:0!important;width:auto!important;max-width:none!important;overflow:visible!important;display:flex!important;flex-direction:column!important;gap:18px!important;align-self:stretch!important}
-.auth-gate .auth-shell.xt-auth-wide>.xt-auth-form-panel{grid-column:2!important;grid-row:1!important;min-width:0!important;width:auto!important;max-width:none!important;align-self:stretch!important;box-sizing:border-box!important;overflow:visible!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
-.auth-gate .xt-auth-form-panel .gate-form{display:flex!important;flex-direction:column!important;gap:0!important;width:100%!important;min-width:0!important}
-.auth-gate .xt-auth-form-panel .gate-form label,.auth-gate .xt-auth-form-panel .gate-form input{width:100%!important;max-width:100%!important;box-sizing:border-box!important;grid-column:auto!important}
-.auth-gate .xt-auth-form-panel .gate-form input{margin:0 0 7px!important}
-.auth-gate .xt-auth-form-panel .auth-switch{width:100%!important;box-sizing:border-box!important}
-.auth-gate .xt-auth-form-panel .xt-social-login{width:100%!important;box-sizing:border-box!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
-.auth-gate .xt-auth-form-panel .xt-social{min-width:0!important;box-sizing:border-box!important}
-.auth-gate .xt-auth-visual .xt-stats,.auth-gate .xt-auth-visual .xt-category-row{width:100%!important;box-sizing:border-box!important}
-@media(max-width:1000px){.auth-gate .auth-shell.xt-auth-wide{grid-template-columns:minmax(0,1fr) minmax(340px,.9fr)!important;gap:18px!important;padding:22px!important}.auth-gate .xt-auth-visual .auth-brand{gap:12px!important}.auth-gate .xt-auth-visual .auth-brand strong{font-size:clamp(23px,3vw,36px)!important}.auth-gate .xt-device-stage{height:220px!important}}
-@media(max-width:760px){.auth-gate{display:block!important;padding:10px!important}.auth-gate .auth-shell.xt-auth-wide{display:flex!important;flex-direction:column!important;width:100%!important;max-width:600px!important;min-height:0!important;margin:0 auto!important;padding:16px!important;gap:20px!important}.auth-gate .auth-shell.xt-auth-wide>.xt-auth-visual,.auth-gate .auth-shell.xt-auth-wide>.xt-auth-form-panel{width:100%!important;min-width:0!important;max-width:none!important;grid-column:auto!important;grid-row:auto!important}.auth-gate .xt-auth-visual .xt-device-stage{height:190px!important}.auth-gate .xt-auth-visual .xt-support-row{flex-wrap:wrap!important}.auth-gate .xt-auth-form-panel{padding:22px 16px!important}.auth-gate .xt-auth-form-panel .xt-social-login{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
-@media(max-width:420px){.auth-gate .xt-auth-visual .auth-brand .logo{width:56px!important;height:60px!important}.auth-gate .xt-auth-visual .auth-brand strong{font-size:21px!important}.auth-gate .xt-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}.auth-gate .xt-category-row{grid-template-columns:repeat(2,minmax(0,1fr))!important}.auth-gate .xt-social{font-size:9px!important;min-height:62px!important}}
+
+
+
+<style id="xtools-login-layout-final-correction">
+/* Final structural correction: prevent hidden forms from rendering and keep desktop layout horizontal. */
+.auth-gate{position:fixed!important;inset:0!important;z-index:99999!important;display:grid!important;place-items:center!important;box-sizing:border-box!important;padding:18px!important;overflow:auto!important}
+.auth-gate .auth-shell.xt-auth-wide{display:grid!important;grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr)!important;grid-template-rows:auto!important;gap:clamp(18px,2.2vw,34px)!important;width:min(100%,1500px)!important;max-width:1500px!important;min-height:0!important;height:auto!important;margin:auto!important;padding:clamp(20px,2.5vw,38px)!important;box-sizing:border-box!important;align-items:stretch!important;justify-items:stretch!important;overflow:visible!important;border-radius:26px!important}
+.auth-gate .auth-shell.xt-auth-wide>.xt-auth-visual{grid-column:1!important;grid-row:1!important;display:flex!important;flex-direction:column!important;gap:clamp(12px,1.4vw,20px)!important;min-width:0!important;width:auto!important;max-width:none!important;align-self:stretch!important;overflow:visible!important}
+.auth-gate .auth-shell.xt-auth-wide>.xt-auth-form-panel{grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-self:stretch!important;min-width:0!important;width:auto!important;max-width:none!important;box-sizing:border-box!important;padding:clamp(20px,2.4vw,36px)!important;overflow:visible!important}
+.auth-gate .xt-auth-form-panel #gateLoginForm:not([hidden]),.auth-gate .xt-auth-form-panel #gateSignupForm:not([hidden]){display:flex!important;flex-direction:column!important;gap:0!important;width:100%!important;min-width:0!important}
+.auth-gate .xt-auth-form-panel #gateLoginForm[hidden],.auth-gate .xt-auth-form-panel #gateSignupForm[hidden]{display:none!important}
+.auth-gate .xt-auth-form-panel .gate-form label{display:block!important;width:100%!important;box-sizing:border-box!important;margin:10px 0 6px!important;line-height:1.5!important}
+.auth-gate .xt-auth-form-panel .gate-form input{display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;min-height:52px!important;box-sizing:border-box!important;margin:0 0 6px!important;padding:12px 15px!important;line-height:1.4!important}
+.auth-gate .xt-auth-form-panel .auth-switch{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important;min-width:0!important;gap:0!important;margin:14px 0 12px!important;box-sizing:border-box!important}
+.auth-gate .xt-auth-form-panel .auth-switch button{min-width:0!important;white-space:normal!important;padding:10px 8px!important}
+.auth-gate .xt-auth-form-panel #gateLoginButton,.auth-gate .xt-auth-form-panel #createAccountButton{display:block!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;margin:15px 0 8px!important;white-space:normal!important}
+.auth-gate .xt-auth-form-panel #gateReset{align-self:flex-start!important;margin:3px 0 0!important}
+.auth-gate .xt-auth-form-panel .gate-separator{display:flex!important;align-items:center!important;gap:10px!important;margin:14px 0 12px!important;line-height:1.5!important;text-align:center!important}
+.auth-gate .xt-auth-form-panel .xt-social-login{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;width:100%!important;min-width:0!important;margin:10px 0 0!important;box-sizing:border-box!important}
+.auth-gate .xt-auth-form-panel .xt-social{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:6px!important;min-width:0!important;min-height:68px!important;padding:8px 3px!important;box-sizing:border-box!important;white-space:nowrap!important;overflow:hidden!important}
+.auth-gate .xt-auth-form-panel .xt-social span{font-size:clamp(10px, .9vw, 12px)!important;line-height:1.2!important}
+.auth-gate .xt-auth-form-panel .xt-account-prompt{margin:16px 0 0!important;line-height:1.8!important}
+.auth-gate .xt-auth-visual .auth-brand{display:flex!important;align-items:center!important;gap:16px!important;min-width:0!important;flex-wrap:nowrap!important}
+.auth-gate .xt-auth-visual .auth-brand>div{min-width:0!important}
+.auth-gate .xt-auth-visual .auth-brand strong{font-size:clamp(24px,2.7vw,42px)!important;line-height:1.15!important;overflow-wrap:anywhere!important}
+.auth-gate .xt-auth-visual .auth-brand small{display:block!important;line-height:1.7!important}
+.auth-gate .xt-auth-visual .auth-welcome h1{line-height:1.35!important;overflow-wrap:anywhere!important}
+.auth-gate .xt-auth-visual .xt-stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;width:100%!important;min-width:0!important}
+.auth-gate .xt-auth-visual .xt-stats>div{min-width:0!important;box-sizing:border-box!important}
+.auth-gate .xt-auth-visual .xt-device-stage{height:clamp(170px,21vw,280px)!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+.auth-gate .xt-auth-visual .xt-category-row{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;width:100%!important;min-width:0!important}
+.auth-gate .xt-auth-visual .xt-category-row>div{min-width:0!important;box-sizing:border-box!important;padding:9px 4px!important;text-align:center!important}
+.auth-gate .xt-auth-visual .xt-category-row span{overflow-wrap:anywhere!important}
+.auth-gate .xt-auth-visual .xt-support-row{display:flex!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;gap:12px!important;flex-wrap:wrap!important;min-width:0!important;box-sizing:border-box!important}
+@media(max-width:1050px) and (min-width:761px){.auth-gate .auth-shell.xt-auth-wide{grid-template-columns:minmax(0,1fr) minmax(350px,.92fr)!important;gap:16px!important;padding:18px!important}.auth-gate .xt-auth-form-panel{padding:18px!important}.auth-gate .xt-auth-visual .xt-device-stage{height:175px!important}.auth-gate .xt-auth-visual .xt-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}.auth-gate .xt-auth-visual .xt-category-row{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:760px){.auth-gate{display:block!important;padding:10px!important}.auth-gate .auth-shell.xt-auth-wide{display:flex!important;flex-direction:column!important;gap:18px!important;width:100%!important;max-width:620px!important;margin:0 auto!important;padding:14px!important}.auth-gate .auth-shell.xt-auth-wide>.xt-auth-visual,.auth-gate .auth-shell.xt-auth-wide>.xt-auth-form-panel{display:flex!important;width:100%!important;min-width:0!important;max-width:none!important;grid-column:auto!important;grid-row:auto!important}.auth-gate .xt-auth-visual .xt-device-stage{height:190px!important}.auth-gate .xt-auth-visual .xt-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}.auth-gate .xt-auth-visual .xt-category-row{grid-template-columns:repeat(2,minmax(0,1fr))!important}.auth-gate .xt-auth-form-panel{padding:20px 15px!important}.auth-gate .xt-auth-form-panel .xt-social-login{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(max-width:420px){.auth-gate .xt-auth-visual .auth-brand .logo{flex:0 0 48px!important;width:48px!important;height:52px!important;font-size:28px!important}.auth-gate .xt-auth-visual .auth-brand strong{font-size:21px!important}.auth-gate .xt-auth-form-panel .xt-social-login{gap:5px!important}.auth-gate .xt-auth-form-panel .xt-social{min-height:60px!important}.auth-gate .xt-auth-form-panel .xt-social b{font-size:23px!important}}
 </style>
 
 </head>
@@ -1517,7 +1538,7 @@ html[data-theme="dark"] .card,html[data-theme="dark"] .feature,html[data-theme="
 html[data-theme="light"] .card,html[data-theme="light"] .feature,html[data-theme="light"] .preview,html[data-theme="light"] .app,html[data-theme="light"] .model-card,html[data-theme="light"] .db-toolbar,html[data-theme="light"] .db-stats div,html[data-theme="light"] .selected-card,html[data-theme="light"] .select-placeholder,html[data-theme="light"] .tile,html[data-theme="light"] .pill,html[data-theme="light"] .taskbar-dropdown,html[data-theme="light"] .hx-card{background:#fff!important;color:var(--text)!important;border-color:var(--line)!important}
 .logo,.user-avatar{background:linear-gradient(135deg,#1769ff,#00e5ff)!important;box-shadow:0 0 22px rgba(37,139,255,.38),0 0 30px rgba(0,229,255,.12)!important;color:#fff!important}.btn,.smallbtn,.model-actions a:first-child,.hx-btn{background:linear-gradient(115deg,#1769ff,#258bff 55%,#00cfe8)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 5px 20px rgba(37,139,255,.23)!important}html[data-theme="dark"] .btn.outline,html[data-theme="dark"] .theme,html[data-theme="dark"] .taskbar-trigger{background:#111f3a!important;color:#eaf5ff!important;border-color:#2d4d7d!important}html[data-theme="light"] .btn.outline,html[data-theme="light"] .theme{background:#fff!important;color:#1769d2!important;border-color:var(--line)!important}.brand em,html[data-theme="dark"] h1 span{color:#00e5ff!important;text-shadow:0 0 18px rgba(0,229,255,.2)}html[data-theme="light"] h1 span{color:#1769d2!important}.tag,.model-chip{background:rgba(0,190,255,.1)!important;color:#4edfff!important;border-color:rgba(0,190,255,.26)!important}html[data-theme="light"] .tag,html[data-theme="light"] .model-chip{color:#1769d2!important;background:#eaf5ff!important;border-color:#c6e4ff!important}.contact{background:linear-gradient(115deg,#07152c,#1156a5 58%,#00a7c4)!important;border:1px solid rgba(0,229,255,.24)!important}
 html[data-theme="dark"] .auth-gate{background:radial-gradient(ellipse at 12% 10%,rgba(37,139,255,.27),transparent 42%),radial-gradient(ellipse at 88% 85%,rgba(0,229,255,.17),transparent 40%),linear-gradient(145deg,#050a16,#0b1831)!important}html[data-theme="light"] .auth-gate{background:radial-gradient(ellipse at 12% 10%,rgba(37,139,255,.12),transparent 42%),#f2f7ff!important}
-.auth-shell{width:min(100%,900px)!important;display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;column-gap:clamp(22px,4vw,42px)!important;align-items:start!important;padding:clamp(22px,4vw,40px)!important}.auth-brand,.auth-welcome,.auth-security{grid-column:1!important}.auth-brand{margin-bottom:8px!important}.auth-welcome{align-self:center!important;padding:12px 0!important}.auth-welcome h1{font-size:clamp(25px,3vw,36px)!important}.auth-switch,.gate-form,#gateNote,.firebase-license-panel{grid-column:2!important}.auth-switch{margin:0 0 13px!important}#gateLoginForm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 12px}#gateLoginForm label{grid-column:1}#gateLoginForm input{grid-column:2;margin-top:9px}#gateLoginButton{grid-column:1 / -1;margin-top:13px}#gateReset{grid-column:1}#gateLoginForm .gate-separator{grid-column:1 / -1;margin:9px 0}#gateGoogle{grid-column:1 / -1}#gateNote{margin-top:10px!important}.auth-security{margin-top:18px!important;align-self:end}.gate-form input:focus{border-color:#258bff!important;box-shadow:0 0 0 3px rgba(37,139,255,.17)!important}.auth-brand .logo,.auth-switch button.active,.gate-primary{background:linear-gradient(115deg,#1769ff,#258bff 55%,#00cfe8)!important;color:#fff!important}.auth-shell .gate-link{color:#55dfff!important}
+.auth-shell{width:min(100%,900px)!important;display:grid!important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important;column-gap:clamp(22px,4vw,42px)!important;align-items:start!important;padding:clamp(22px,4vw,40px)!important}.auth-brand,.auth-welcome,.auth-security{grid-column:1!important}.auth-brand{margin-bottom:8px!important}.auth-welcome{align-self:center!important;padding:12px 0!important}.auth-welcome h1{font-size:clamp(25px,3vw,36px)!important}.auth-switch,.gate-form,#gateNote,.firebase-license-panel{grid-column:2!important}.auth-switch{margin:0 0 13px!important}#gateLoginForm{display:flex;flex-direction:column;gap:0}#gateLoginForm label{display:block}#gateLoginForm input{display:block;width:100%;box-sizing:border-box;margin:0 0 5px}#gateLoginButton{width:100%;margin-top:18px}#gateReset{align-self:flex-start}#gateLoginForm .gate-separator{width:100%;margin:15px 0}#gateGoogle{width:100%}#gateNote{margin-top:10px!important}.auth-security{margin-top:18px!important;align-self:end}.gate-form input:focus{border-color:#258bff!important;box-shadow:0 0 0 3px rgba(37,139,255,.17)!important}.auth-brand .logo,.auth-switch button.active,.gate-primary{background:linear-gradient(115deg,#1769ff,#258bff 55%,#00cfe8)!important;color:#fff!important}.auth-shell .gate-link{color:#55dfff!important}
 .payment-card{background:linear-gradient(145deg,rgba(12,29,58,.98),rgba(5,13,29,.98))!important;border-color:rgba(37,139,255,.42)!important}html[data-theme="light"] .payment-card{background:linear-gradient(145deg,#fff,#edf6ff)!important;border-color:#c6e4ff!important}.payment-card:after{background:radial-gradient(circle,rgba(0,190,255,.19),transparent 70%)!important}.payment-icon,.payment-instapay .payment-icon{background:linear-gradient(135deg,#1769ff,#00d7ff)!important;color:#fff!important;box-shadow:0 0 22px rgba(0,190,255,.2)!important}.payment-number{border-color:rgba(0,190,255,.36)!important;background:rgba(0,190,255,.07)!important;text-shadow:0 0 18px rgba(0,190,255,.12)!important}.payment-btn{border-color:rgba(0,190,255,.35)!important}.payment-copy{background:linear-gradient(115deg,#1769ff,#00cfe8)!important;color:#fff!important}.payment-secondary{background:rgba(0,190,255,.08)!important}.payment-step{background:rgba(0,190,255,.045)!important}.payment-step>span{background:rgba(0,190,255,.13)!important;color:var(--primary)!important}.payment-disclaimer{background:rgba(0,190,255,.055)!important}
 .iphone-price-card,.official-unlock-prices,.official-unlock-card{border-color:rgba(37,139,255,.42)!important;background:linear-gradient(145deg,rgba(12,29,58,.98),rgba(5,13,29,.98))!important}html[data-theme="light"] .iphone-price-card,html[data-theme="light"] .official-unlock-prices,html[data-theme="light"] .official-unlock-card{background:linear-gradient(145deg,#fff,#edf6ff)!important;color:#15243c!important}.iphone-price-icon{background:rgba(0,190,255,.12)!important;border-color:rgba(0,190,255,.42)!important;color:#00d7ff!important}.iphone-price-card small,.official-unlock-card strong{color:#43dcff!important}.official-unlock-card a{border-color:rgba(0,190,255,.5)!important;background:rgba(0,190,255,.1)!important;color:#e9f8ff!important}
 .buy-service-btn,.buy-table-price{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:8px 12px;border-radius:9px;background:linear-gradient(110deg,#1769ff,#00cfe8)!important;color:#fff!important;text-decoration:none!important;font-size:12px;font-weight:900;border:0!important;box-shadow:0 0 15px rgba(0,170,255,.15)}.secondary-buy{background:rgba(0,190,255,.1)!important;border:1px solid rgba(0,190,255,.35)!important;color:#72e9ff!important}.buy-table-price{padding:7px 9px;white-space:nowrap}.checkout-summary{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:0 0 18px;padding:18px 20px;border:1px solid rgba(0,190,255,.42);border-radius:18px;background:linear-gradient(120deg,rgba(10,32,65,.98),rgba(8,19,40,.98));box-shadow:0 0 28px rgba(0,130,255,.12)}html[data-theme="light"] .checkout-summary{background:linear-gradient(120deg,#f4faff,#eaf7ff)!important}.checkout-summary[hidden]{display:none!important}.checkout-kicker{font-size:10px;letter-spacing:.16em;font-weight:900;color:#46dcff}.checkout-summary h3{margin:5px 0;color:var(--text)}.checkout-summary p{margin:0;color:var(--muted)}.checkout-price{display:flex;flex-direction:column;gap:3px;text-align:center}.checkout-price small{font-size:11px;color:var(--muted)}.checkout-price strong{font-size:25px;color:#45dcff}#iphone-unlock-offer{border-color:rgba(0,190,255,.35)!important;background:linear-gradient(135deg,#07152c,#0b2850)!important}#iphone-unlock-offer h2,#iphone-unlock-offer h3{color:#eaf7ff!important}#iphone-unlock-offer p{color:#c7d9ee!important}#iphone-unlock-offer .buy-table-price{margin:2px}
@@ -1592,3 +1613,71 @@ header .taskbar-dropdown{z-index:10000;min-width:205px;max-width:min(300px,88vw)
 <script id="xtools-social-shortcuts">(()=>{document.getElementById('xtGoogleSocial')?.addEventListener('click',()=>document.getElementById('gateGoogle')?.click());document.getElementById('xtCreateAccountLink')?.addEventListener('click',()=>document.getElementById('showSignup')?.click());})();</script>
 </body>
 </html>
+
+<!-- Strict separation: authentication screen first, full homepage only after successful sign-in -->
+<style id="xt-auth-home-separation-final">
+/* Signed-out users see only the standalone login screen, never the homepage behind it. */
+body.auth-locked{overflow:hidden!important;min-height:100vh!important;background:#020817!important}
+body.auth-locked> :not(#authGate):not(.motion-backdrop):not(script):not(style){display:none!important}
+body.auth-locked>#authGate{display:grid!important;position:fixed!important;inset:0!important;z-index:2147483000!important;overflow-y:auto!important;overscroll-behavior:contain!important}
+body:not(.auth-locked)>#authGate{display:none!important}
+body:not(.auth-locked){overflow-x:hidden}
+#gateLoginForm[hidden],#gateSignupForm[hidden],#authGate [hidden]{display:none!important}
+@media(max-width:760px){body.auth-locked>#authGate{display:block!important}}
+</style>
+<script id="xt-auth-home-separation-final-js">
+(()=>{
+ const gate=document.getElementById('authGate');
+ if(!gate)return;
+ const login=document.getElementById('gateLoginForm');
+ const signup=document.getElementById('gateSignupForm');
+ const showLogin=document.getElementById('showLogin');
+ const showSignup=document.getElementById('showSignup');
+ function mode(which){
+  const isLogin=which==='login';
+  if(login){login.hidden=!isLogin;login.style.removeProperty('display');}
+  if(signup){signup.hidden=isLogin;signup.style.removeProperty('display');}
+  if(showLogin){showLogin.classList.toggle('active',isLogin);showLogin.setAttribute('aria-pressed',String(isLogin));}
+  if(showSignup){showSignup.classList.toggle('active',!isLogin);showSignup.setAttribute('aria-pressed',String(!isLogin));}
+  const title=document.getElementById('gateTitle'); if(title)title.textContent=isLogin?'تسجيل الدخول':'إنشاء حساب جديد';
+  const subtitle=document.querySelector('.xt-login-subtitle'); if(subtitle)subtitle.textContent=isLogin?'مرحبًا بك مجددًا، سجّل دخولك للوصول إلى جميع الخدمات':'أنشئ حسابك للوصول إلى خدمات Hamouda XTools';
+ }
+ showLogin?.addEventListener('click',()=>mode('login'));
+ showSignup?.addEventListener('click',()=>mode('signup'));
+ document.getElementById('xtCreateAccountLink')?.addEventListener('click',()=>mode('signup'));
+ // Always begin at login when signed out; Firebase's existing auth-state listener reveals the homepage after sign-in.
+ if(document.body.classList.contains('auth-locked')){gate.hidden=false;mode('login');}
+ const observer=new MutationObserver(()=>{
+  const locked=document.body.classList.contains('auth-locked');
+  if(locked){gate.hidden=false;} else {gate.hidden=true;}
+ });
+ observer.observe(document.body,{attributes:true,attributeFilter:['class']});
+})();
+</script>
+
+<style id="xt-final-auth-layout-repair">
+/* Keep authentication as a separate screen and never render hidden forms. */
+#authGate[hidden], #gateLoginForm[hidden], #gateSignupForm[hidden], #authGate [hidden] { display:none !important; }
+body.auth-locked { overflow:hidden !important; }
+body.auth-locked > :not(#authGate):not(.motion-backdrop):not(script):not(style) { display:none !important; }
+body.auth-locked > #authGate:not([hidden]) { display:grid !important; position:fixed !important; inset:0 !important; z-index:2147483000 !important; overflow-y:auto !important; align-items:center !important; justify-items:center !important; padding:clamp(12px,2vw,28px) !important; box-sizing:border-box !important; }
+body:not(.auth-locked) > #authGate { display:none !important; }
+#authGate .auth-shell.xt-auth-wide { width:min(100%,1320px) !important; max-width:1320px !important; display:grid !important; grid-template-columns:minmax(0,1.12fr) minmax(390px,.88fr) !important; align-items:stretch !important; gap:clamp(22px,3vw,46px) !important; box-sizing:border-box !important; margin:auto !important; }
+#authGate .xt-auth-visual, #authGate .xt-auth-form-panel { min-width:0 !important; width:auto !important; box-sizing:border-box !important; }
+#authGate .xt-auth-form-panel { grid-column:2 !important; align-self:stretch !important; }
+#authGate .xt-auth-visual { grid-column:1 !important; }
+#authGate #gateLoginForm:not([hidden]), #authGate #gateSignupForm:not([hidden]) { display:flex !important; flex-direction:column !important; gap:0 !important; width:100% !important; min-width:0 !important; }
+#authGate .gate-form label { display:block !important; width:100% !important; margin:12px 0 6px !important; }
+#authGate .gate-form input { display:block !important; width:100% !important; max-width:100% !important; box-sizing:border-box !important; margin:0 0 5px !important; }
+#authGate .xt-social-login { display:grid !important; grid-template-columns:repeat(4,minmax(0,1fr)) !important; gap:10px !important; width:100% !important; }
+#authGate .xt-social { min-width:0 !important; }
+@media(max-width:760px) {
+ body.auth-locked > #authGate:not([hidden]) { display:block !important; }
+ #authGate .auth-shell.xt-auth-wide { width:min(100%,560px) !important; max-width:560px !important; display:flex !important; flex-direction:column !important; gap:22px !important; margin:0 auto !important; }
+ #authGate .xt-auth-visual, #authGate .xt-auth-form-panel { width:100% !important; }
+ #authGate .xt-auth-visual { grid-column:auto !important; }
+ #authGate .xt-auth-form-panel { grid-column:auto !important; }
+ #authGate .xt-device-stage { max-width:100% !important; }
+}
+@media(max-width:420px) { #authGate .xt-social-login { grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
+</style>
