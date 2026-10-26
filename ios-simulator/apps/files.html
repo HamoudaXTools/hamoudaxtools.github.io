@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Files</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, sans-serif; height: 100%; background: #000; color: white; overflow: hidden; }
+        .files-app { display: flex; flex-direction: column; height: 100%; }
+        .header { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; background: #1c1c1e; }
+        .header h1 { font-size: 32px; font-weight: 700; }
+        .header-btn { background: none; border: none; color: #007aff; font-size: 18px; cursor: pointer; }
+        .content { flex: 1; overflow-y: auto; padding: 15px; }
+        .section-title { font-size: 13px; color: #8e8e93; text-transform: uppercase; font-weight: 600; margin: 20px 0 10px; }
+        /* Location Cards */
+        .location-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+        .location-card { background: #1c1c1e; border-radius: 12px; padding: 15px; cursor: pointer; }
+        .location-icon { font-size: 36px; margin-bottom: 10px; }
+        .location-name { font-size: 16px; font-weight: 500; }
+        .location-count { font-size: 13px; color: #8e8e93; }
+        /* File List */
+        .file-list { background: #1c1c1e; border-radius: 12px; overflow: hidden; }
+        .file-item { display: flex; gap: 12px; padding: 12px 15px; border-bottom: 1px solid #333; align-items: center; cursor: pointer; }
+        .file-item:last-child { border-bottom: none; }
+        .file-icon { width: 45px; height: 45px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .file-info { flex: 1; }
+        .file-name { font-size: 16px; font-weight: 500; }
+        .file-meta { font-size: 13px; color: #8e8e93; }
+        .file-arrow { color: #8e8e93; }
+        /* Quick Access */
+        .quick-grid { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; }
+        .quick-item { flex-shrink: 0; width: 80px; text-align: center; cursor: pointer; }
+        .quick-icon { width: 60px; height: 60px; margin: 0 auto 8px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; background: #1c1c1e; }
+        .quick-name { font-size: 11px; color: #8e8e93; }
+        /* Colors */
+        .bg-blue { background: #007aff; }
+        .bg-orange { background: #ff9500; }
+        .bg-green { background: #30d158; }
+        .bg-purple { background: #af52de; }
+        .bg-gray { background: #8e8e93; }
+    </style>
+</head>
+<body>
+    <div class="files-app">
+        <div class="header">
+            <h1>Browse</h1>
+            <button class="header-btn">⋯</button>
+        </div>
+        <div class="content">
+            <div class="section-title">Locations</div>
+            <div class="location-grid">
+                <div class="location-card">
+                    <div class="location-icon">☁️</div>
+                    <div class="location-name">iCloud Drive</div>
+                    <div class="location-count">24 items</div>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon">📱</div>
+                    <div class="location-name">On My iPhone</div>
+                    <div class="location-count">12 items</div>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon">🗑</div>
+                    <div class="location-name">Recently Deleted</div>
+                    <div class="location-count">3 items</div>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon">📤</div>
+                    <div class="location-name">Shared</div>
+                    <div class="location-count">5 items</div>
+                </div>
+            </div>
+            <div class="section-title">Favorites</div>
+            <div class="quick-grid">
+                <div class="quick-item"><div class="quick-icon bg-blue">📁</div><div class="quick-name">Documents</div></div>
+                <div class="quick-item"><div class="quick-icon bg-orange">⬇️</div><div class="quick-name">Downloads</div></div>
+                <div class="quick-item"><div class="quick-icon bg-green">🖼</div><div class="quick-name">Photos</div></div>
+                <div class="quick-item"><div class="quick-icon bg-purple">🎵</div><div class="quick-name">Music</div></div>
+            </div>
+            <div class="section-title">Recent</div>
+            <div class="file-list">
+                <div class="file-item">
+                    <div class="file-icon" style="background: #ff3b30;">📄</div>
+                    <div class="file-info"><div class="file-name">Project_Report.pdf</div><div class="file-meta">2.4 MB • Today</div></div>
+                    <span class="file-arrow">›</span>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon" style="background: #30d158;">📊</div>
+                    <div class="file-info"><div class="file-name">Budget_2024.xlsx</div><div class="file-meta">156 KB • Yesterday</div></div>
+                    <span class="file-arrow">›</span>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon" style="background: #007aff;">📝</div>
+                    <div class="file-info"><div class="file-name">Meeting_Notes.docx</div><div class="file-meta">48 KB • Dec 21</div></div>
+                    <span class="file-arrow">›</span>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon" style="background: #ff9500;">🖼</div>
+                    <div class="file-info"><div class="file-name">vacation_photo.jpg</div><div class="file-meta">3.8 MB • Dec 20</div></div>
+                    <span class="file-arrow">›</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

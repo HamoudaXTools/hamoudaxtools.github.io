@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>App Store</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, sans-serif; height: 100%; background: #000; color: white; overflow: hidden; }
+        .appstore { display: flex; flex-direction: column; height: 100%; }
+        .header { padding: 15px 20px; }
+        .header h1 { font-size: 32px; font-weight: 700; }
+        .content { flex: 1; overflow-y: auto; padding-bottom: 80px; }
+        .section { padding: 20px 15px; }
+        .section-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .section-title { font-size: 20px; font-weight: 600; }
+        .see-all { color: #007aff; font-size: 15px; }
+        /* Featured Card */
+        .featured-card { border-radius: 12px; overflow: hidden; margin-bottom: 15px; cursor: pointer; }
+        .featured-image { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+        .featured-info { padding: 12px 15px; background: #1c1c1e; }
+        .featured-label { font-size: 11px; color: #007aff; text-transform: uppercase; font-weight: 600; }
+        .featured-title { font-size: 18px; font-weight: 600; margin: 5px 0; }
+        .featured-desc { font-size: 14px; color: #8e8e93; }
+        /* App Row */
+        .app-row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #333; align-items: center; }
+        .app-row:last-child { border-bottom: none; }
+        .app-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+        .app-info { flex: 1; }
+        .app-name { font-size: 16px; font-weight: 500; }
+        .app-category { font-size: 13px; color: #8e8e93; }
+        .get-btn { padding: 6px 18px; background: #2c2c2e; border-radius: 15px; color: #007aff; font-size: 14px; font-weight: 600; border: none; cursor: pointer; }
+        /* Horizontal Scroll */
+        .app-scroll { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; }
+        .app-card { flex-shrink: 0; width: 160px; cursor: pointer; }
+        .app-card-icon { width: 160px; height: 160px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 60px; margin-bottom: 10px; }
+        .app-card-name { font-size: 14px; font-weight: 500; }
+        .app-card-cat { font-size: 12px; color: #8e8e93; }
+        /* Tab Bar */
+        .tab-bar { position: fixed; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-around; padding: 10px 0 25px; background: #1c1c1e; border-top: 1px solid #333; }
+        .tab-item { display: flex; flex-direction: column; align-items: center; gap: 4px; background: none; border: none; color: #8e8e93; font-size: 10px; cursor: pointer; }
+        .tab-item.active { color: #007aff; }
+        .tab-icon { font-size: 22px; }
+    </style>
+</head>
+<body>
+    <div class="appstore">
+        <div class="header"><h1>Today</h1></div>
+        <div class="content">
+            <!-- Featured -->
+            <div class="section">
+                <div class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">🎮</div>
+                    <div class="featured-info">
+                        <div class="featured-label">Game of the Day</div>
+                        <div class="featured-title">Adventure Quest</div>
+                        <div class="featured-desc">Epic RPG adventure awaits</div>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #11998e, #38ef7d);">📱</div>
+                    <div class="featured-info">
+                        <div class="featured-label">App of the Day</div>
+                        <div class="featured-title">Productivity Pro</div>
+                        <div class="featured-desc">Get more done, stress less</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Charts -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-title">Top Free Apps</span>
+                    <span class="see-all">See All</span>
+                </div>
+                <div class="app-row">
+                    <div class="app-icon" style="background: #30d158;">📸</div>
+                    <div class="app-info"><div class="app-name">PhotoEdit Pro</div><div class="app-category">Photo & Video</div></div>
+                    <button class="get-btn">GET</button>
+                </div>
+                <div class="app-row">
+                    <div class="app-icon" style="background: #ff2d55;">💪</div>
+                    <div class="app-info"><div class="app-name">FitTrack</div><div class="app-category">Health & Fitness</div></div>
+                    <button class="get-btn">GET</button>
+                </div>
+                <div class="app-row">
+                    <div class="app-icon" style="background: #007aff;">📚</div>
+                    <div class="app-info"><div class="app-name">LearnLang</div><div class="app-category">Education</div></div>
+                    <button class="get-btn">GET</button>
+                </div>
+            </div>
+            <!-- Must-Have Apps -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="section-title">Must-Have Apps</span>
+                    <span class="see-all">See All</span>
+                </div>
+                <div class="app-scroll">
+                    <div class="app-card">
+                        <div class="app-card-icon" style="background: linear-gradient(135deg, #fc5c7d, #6a82fb);">🎵</div>
+                        <div class="app-card-name">MusicFlow</div>
+                        <div class="app-card-cat">Music</div>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-icon" style="background: linear-gradient(135deg, #ee0979, #ff6a00);">🎬</div>
+                        <div class="app-card-name">VideoMaker</div>
+                        <div class="app-card-cat">Photo & Video</div>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-card-icon" style="background: linear-gradient(135deg, #00b4db, #0083b0);">💬</div>
+                        <div class="app-card-name">ChatNow</div>
+                        <div class="app-card-cat">Social</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-bar">
+            <button class="tab-item active"><span class="tab-icon">📅</span><span>Today</span></button>
+            <button class="tab-item"><span class="tab-icon">🎮</span><span>Games</span></button>
+            <button class="tab-item"><span class="tab-icon">📱</span><span>Apps</span></button>
+            <button class="tab-item"><span class="tab-icon">🕹</span><span>Arcade</span></button>
+            <button class="tab-item"><span class="tab-icon">🔍</span><span>Search</span></button>
+        </div>
+    </div>
+</body>
+</html>

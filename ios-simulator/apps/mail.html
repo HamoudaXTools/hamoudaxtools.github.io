@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Mail</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, sans-serif; height: 100%; background: #000; color: white; overflow: hidden; }
+        .mail-app { display: flex; flex-direction: column; height: 100%; }
+        .header { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; background: #1c1c1e; }
+        .header h1 { font-size: 32px; font-weight: 700; }
+        .header-btn { background: none; border: none; color: #007aff; font-size: 16px; cursor: pointer; }
+        .filter-bar { display: flex; gap: 10px; padding: 10px 15px; background: #1c1c1e; }
+        .filter-btn { padding: 6px 12px; background: #2c2c2e; border: none; border-radius: 15px; color: #8e8e93; font-size: 13px; cursor: pointer; }
+        .filter-btn.active { background: #007aff; color: white; }
+        .mail-list { flex: 1; overflow-y: auto; }
+        .mail-item { display: flex; gap: 12px; padding: 12px 15px; border-bottom: 1px solid #333; cursor: pointer; }
+        .mail-item:active { background: #1c1c1e; }
+        .mail-indicator { width: 10px; height: 10px; background: #007aff; border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+        .mail-indicator.read { background: transparent; }
+        .mail-content { flex: 1; min-width: 0; }
+        .mail-header { display: flex; justify-content: space-between; margin-bottom: 2px; }
+        .mail-sender { font-size: 16px; font-weight: 600; }
+        .mail-sender.read { font-weight: 400; color: #8e8e93; }
+        .mail-time { font-size: 14px; color: #8e8e93; }
+        .mail-subject { font-size: 15px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mail-subject.read { color: #8e8e93; }
+        .mail-preview { font-size: 14px; color: #8e8e93; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .mail-arrow { color: #8e8e93; align-self: center; }
+        .compose-btn { position: fixed; bottom: 30px; right: 20px; width: 56px; height: 56px; border-radius: 50%; background: #007aff; border: none; color: white; font-size: 28px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,122,255,0.4); }
+        /* Mail View */
+        .mail-view { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #000; display: none; flex-direction: column; z-index: 100; }
+        .mail-view.active { display: flex; }
+        .mail-view-header { display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: #1c1c1e; }
+        .btn-back { background: none; border: none; color: #007aff; font-size: 28px; cursor: pointer; }
+        .mail-view-content { flex: 1; overflow-y: auto; padding: 20px; }
+        .mail-view-subject { font-size: 22px; font-weight: 600; margin-bottom: 15px; }
+        .mail-view-meta { display: flex; gap: 12px; margin-bottom: 20px; }
+        .sender-avatar { width: 45px; height: 45px; border-radius: 50%; background: #007aff; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        .sender-info { flex: 1; }
+        .sender-name { font-size: 16px; font-weight: 600; }
+        .sender-email { font-size: 13px; color: #8e8e93; }
+        .mail-body { font-size: 16px; line-height: 1.6; color: #ccc; }
+    </style>
+</head>
+<body>
+    <div class="mail-app">
+        <div class="header">
+            <button class="header-btn">Mailboxes</button>
+            <h1>Inbox</h1>
+            <button class="header-btn">Edit</button>
+        </div>
+        <div class="filter-bar">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Unread</button>
+            <button class="filter-btn">Flagged</button>
+        </div>
+        <div class="mail-list" id="mail-list"></div>
+        <button class="compose-btn">✏️</button>
+        <!-- Mail View -->
+        <div class="mail-view" id="mail-view">
+            <div class="mail-view-header">
+                <button class="btn-back" id="btn-back">‹</button>
+                <span style="flex:1"></span>
+                <button class="header-btn">🗑</button>
+                <button class="header-btn">↩️</button>
+            </div>
+            <div class="mail-view-content">
+                <div class="mail-view-subject" id="view-subject">Subject</div>
+                <div class="mail-view-meta">
+                    <div class="sender-avatar" id="view-avatar">A</div>
+                    <div class="sender-info">
+                        <div class="sender-name" id="view-sender">Sender</div>
+                        <div class="sender-email" id="view-email">email@example.com</div>
+                    </div>
+                </div>
+                <div class="mail-body" id="view-body">Email content</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const emails = [
+            { id: 1, sender: 'Apple', email: 'no-reply@apple.com', avatar: '🍎', subject: 'Your receipt from Apple', preview: 'Thank you for your App Store purchase...', time: '10:30 AM', read: false, body: 'Thank you for your App Store purchase. Your payment of $4.99 has been processed successfully.\n\nOrder ID: ABC123456\nDate: December 23, 2024\n\nIf you have any questions, please contact Apple Support.' },
+            { id: 2, sender: 'GitHub', email: 'noreply@github.com', avatar: '🐙', subject: 'Security alert: new sign-in', preview: 'We noticed a new sign-in to your account...', time: '9:15 AM', read: false, body: 'We noticed a new sign-in to your GitHub account.\n\nLocation: Bangkok, Thailand\nDevice: Chrome on Mac\nTime: December 23, 2024 9:15 AM\n\nIf this was you, you can ignore this email.' },
+            { id: 3, sender: 'Netflix', email: 'info@netflix.com', avatar: '🎬', subject: 'New on Netflix this week', preview: 'Check out the latest movies and shows...', time: 'Yesterday', read: true, body: 'New releases this week:\n\n• The Crown Season 6\n• Leave the World Behind\n• Squid Game: The Challenge\n\nWatch now on Netflix!' },
+            { id: 4, sender: 'LinkedIn', email: 'messages@linkedin.com', avatar: '💼', subject: 'You have 5 new profile views', preview: 'See who viewed your profile this week...', time: 'Yesterday', read: true, body: 'Your profile was viewed 5 times this week!\n\nPeople are interested in your experience and skills. Update your profile to attract more views.' },
+            { id: 5, sender: 'Amazon', email: 'shipment@amazon.com', avatar: '📦', subject: 'Your order has shipped!', preview: 'Your package is on its way...', time: 'Dec 21', read: true, body: 'Great news! Your order has shipped.\n\nTracking Number: TH123456789\nEstimated Delivery: December 25, 2024\n\nTrack your package in the Amazon app.' }
+        ];
+        const list = document.getElementById('mail-list');
+        list.innerHTML = emails.map(e => `
+            <div class="mail-item" data-id="${e.id}">
+                <div class="mail-indicator ${e.read ? 'read' : ''}"></div>
+                <div class="mail-content">
+                    <div class="mail-header"><span class="mail-sender ${e.read ? 'read' : ''}">${e.sender}</span><span class="mail-time">${e.time}</span></div>
+                    <div class="mail-subject ${e.read ? 'read' : ''}">${e.subject}</div>
+                    <div class="mail-preview">${e.preview}</div>
+                </div>
+                <span class="mail-arrow">›</span>
+            </div>
+        `).join('');
+        const mailView = document.getElementById('mail-view');
+        document.querySelectorAll('.mail-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const email = emails.find(e => e.id == item.dataset.id);
+                document.getElementById('view-subject').textContent = email.subject;
+                document.getElementById('view-sender').textContent = email.sender;
+                document.getElementById('view-email').textContent = email.email;
+                document.getElementById('view-avatar').textContent = email.avatar;
+                document.getElementById('view-body').textContent = email.body;
+                mailView.classList.add('active');
+            });
+        });
+        document.getElementById('btn-back').addEventListener('click', () => mailView.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

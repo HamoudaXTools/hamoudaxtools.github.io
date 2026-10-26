@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Wallet</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, sans-serif; height: 100%; background: #000; color: white; overflow: hidden; }
+        .wallet-app { display: flex; flex-direction: column; height: 100%; }
+        .header { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 32px; font-weight: 700; }
+        .header-btn { background: none; border: none; color: #007aff; font-size: 18px; cursor: pointer; }
+        .content { flex: 1; overflow-y: auto; padding: 0 15px 30px; }
+        /* Card Stack */
+        .card-stack { position: relative; margin-bottom: 30px; }
+        .wallet-card { height: 200px; border-radius: 16px; padding: 20px; position: relative; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; overflow: hidden; }
+        .wallet-card:not(:first-child) { margin-top: -160px; }
+        .wallet-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); z-index: 10; }
+        .card-1 { background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); z-index: 3; }
+        .card-2 { background: linear-gradient(135deg, #c9a227 0%, #e6c84a 100%); z-index: 2; }
+        .card-3 { background: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%); z-index: 1; }
+        .card-logo { font-size: 28px; margin-bottom: auto; }
+        .card-chip { width: 40px; height: 30px; background: linear-gradient(135deg, #ffd700, #ffaa00); border-radius: 6px; position: absolute; top: 60px; left: 20px; }
+        .card-number { position: absolute; bottom: 60px; left: 20px; font-size: 18px; letter-spacing: 3px; font-family: monospace; }
+        .card-holder { position: absolute; bottom: 20px; left: 20px; }
+        .card-holder-label { font-size: 10px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
+        .card-holder-name { font-size: 14px; font-weight: 500; }
+        .card-expiry { position: absolute; bottom: 20px; right: 20px; text-align: right; }
+        .card-type { position: absolute; top: 20px; right: 20px; font-size: 36px; }
+        /* Apple Pay */
+        .apple-pay-section { margin-bottom: 25px; }
+        .apple-pay-btn { width: 100%; padding: 16px; background: white; border: none; border-radius: 12px; color: #000; font-size: 18px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        /* Transactions */
+        .section-title { font-size: 20px; font-weight: 600; margin: 20px 0 15px; }
+        .transaction-list { background: #1c1c1e; border-radius: 16px; overflow: hidden; }
+        .transaction-item { display: flex; gap: 12px; padding: 15px; border-bottom: 1px solid #333; align-items: center; }
+        .transaction-item:last-child { border-bottom: none; }
+        .transaction-icon { width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .transaction-info { flex: 1; }
+        .transaction-name { font-size: 16px; font-weight: 500; }
+        .transaction-date { font-size: 13px; color: #8e8e93; }
+        .transaction-amount { font-size: 16px; font-weight: 600; }
+        .transaction-amount.negative { color: white; }
+        .transaction-amount.positive { color: #30d158; }
+        /* Passes */
+        .passes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .pass-card { background: #1c1c1e; border-radius: 12px; padding: 15px; text-align: center; cursor: pointer; }
+        .pass-icon { font-size: 36px; margin-bottom: 10px; }
+        .pass-name { font-size: 14px; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <div class="wallet-app">
+        <div class="header">
+            <h1>Wallet</h1>
+            <button class="header-btn">+</button>
+        </div>
+        <div class="content">
+            <!-- Card Stack -->
+            <div class="card-stack">
+                <div class="wallet-card card-1">
+                    <div class="card-logo">🍎 Apple Card</div>
+                    <div class="card-chip"></div>
+                    <div class="card-number">•••• •••• •••• 4829</div>
+                    <div class="card-holder">
+                        <div class="card-holder-label">Card Holder</div>
+                        <div class="card-holder-name">JOHN DOE</div>
+                    </div>
+                    <div class="card-expiry">
+                        <div class="card-holder-label">Expires</div>
+                        <div class="card-holder-name">12/28</div>
+                    </div>
+                    <div class="card-type">💳</div>
+                </div>
+                <div class="wallet-card card-2">
+                    <div class="card-logo">Gold Card</div>
+                    <div class="card-chip"></div>
+                    <div class="card-number">•••• •••• •••• 1234</div>
+                    <div class="card-holder">
+                        <div class="card-holder-label">Card Holder</div>
+                        <div class="card-holder-name">JOHN DOE</div>
+                    </div>
+                    <div class="card-type" style="color: #333;">💳</div>
+                </div>
+                <div class="wallet-card card-3">
+                    <div class="card-logo">Travel Card</div>
+                    <div class="card-chip"></div>
+                    <div class="card-number">•••• •••• •••• 5678</div>
+                    <div class="card-holder">
+                        <div class="card-holder-label">Card Holder</div>
+                        <div class="card-holder-name">JOHN DOE</div>
+                    </div>
+                    <div class="card-type">✈️</div>
+                </div>
+            </div>
+            <!-- Apple Pay -->
+            <div class="apple-pay-section">
+                <button class="apple-pay-btn">🍎 Pay</button>
+            </div>
+            <!-- Transactions -->
+            <div class="section-title">Latest Transactions</div>
+            <div class="transaction-list">
+                <div class="transaction-item">
+                    <div class="transaction-icon" style="background: #30d158;">☕</div>
+                    <div class="transaction-info">
+                        <div class="transaction-name">Starbucks</div>
+                        <div class="transaction-date">Today, 10:30 AM</div>
+                    </div>
+                    <div class="transaction-amount negative">-฿185</div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-icon" style="background: #ff9500;">🛒</div>
+                    <div class="transaction-info">
+                        <div class="transaction-name">7-Eleven</div>
+                        <div class="transaction-date">Yesterday</div>
+                    </div>
+                    <div class="transaction-amount negative">-฿89</div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-icon" style="background: #007aff;">💰</div>
+                    <div class="transaction-info">
+                        <div class="transaction-name">Transfer Received</div>
+                        <div class="transaction-date">Dec 21</div>
+                    </div>
+                    <div class="transaction-amount positive">+฿5,000</div>
+                </div>
+            </div>
+            <!-- Passes -->
+            <div class="section-title">Passes</div>
+            <div class="passes-grid">
+                <div class="pass-card"><div class="pass-icon">✈️</div><div class="pass-name">Boarding Pass</div></div>
+                <div class="pass-card"><div class="pass-icon">🎫</div><div class="pass-name">Event Ticket</div></div>
+                <div class="pass-card"><div class="pass-icon">🏨</div><div class="pass-name">Hotel Key</div></div>
+                <div class="pass-card"><div class="pass-icon">🎬</div><div class="pass-name">Movie Ticket</div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Maps</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, sans-serif; height: 100%; background: #1a1a2e; color: white; overflow: hidden; }
+        .maps-app { display: flex; flex-direction: column; height: 100%; }
+        .map-container { flex: 1; background: linear-gradient(135deg, #1a3a4a 0%, #2a4a5a 30%, #1a3a4a 60%, #0a2a3a 100%); position: relative; overflow: hidden; }
+        /* Stylized Map */
+        .map-grid { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+        .road { position: absolute; background: rgba(255,255,255,0.15); }
+        .road-h { height: 8px; width: 100%; }
+        .road-v { width: 8px; height: 100%; }
+        .road-h.main { height: 12px; background: rgba(255,200,100,0.3); }
+        .road-v.main { width: 12px; background: rgba(255,200,100,0.3); }
+        .block { position: absolute; background: rgba(50,70,90,0.8); border-radius: 4px; }
+        .water { position: absolute; background: linear-gradient(135deg, #1a5a7a, #2a6a8a); border-radius: 50%; }
+        .park { position: absolute; background: rgba(50,150,80,0.4); border-radius: 8px; }
+        /* Current Location */
+        .current-location { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; background: #007aff; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 20px rgba(0,122,255,0.5); z-index: 10; }
+        .location-pulse { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(0,122,255,0.2); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; } 50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.2; } }
+        /* POI Markers */
+        .poi { position: absolute; width: 30px; height: 30px; background: #ff3b30; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; z-index: 5; }
+        .poi span { transform: rotate(45deg); font-size: 14px; }
+        /* Search Bar */
+        .search-bar { position: absolute; top: 15px; left: 15px; right: 15px; z-index: 20; }
+        .search-input { width: 100%; padding: 12px 15px; background: rgba(28,28,30,0.95); border: none; border-radius: 12px; color: white; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .search-input::placeholder { color: #8e8e93; }
+        /* Controls */
+        .map-controls { position: absolute; right: 15px; top: 80px; display: flex; flex-direction: column; gap: 10px; z-index: 20; }
+        .control-btn { width: 44px; height: 44px; background: rgba(28,28,30,0.95); border: none; border-radius: 10px; color: white; font-size: 20px; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        /* Bottom Sheet */
+        .bottom-sheet { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(28,28,30,0.98); border-radius: 15px 15px 0 0; padding: 15px; z-index: 20; backdrop-filter: blur(20px); }
+        .sheet-handle { width: 40px; height: 5px; background: #555; border-radius: 3px; margin: 0 auto 15px; }
+        .sheet-title { font-size: 20px; font-weight: 600; margin-bottom: 15px; }
+        .place-list { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 20px; }
+        .place-item { flex-shrink: 0; text-align: center; width: 70px; cursor: pointer; }
+        .place-icon { width: 50px; height: 50px; background: #2c2c2e; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 0 auto 8px; }
+        .place-name { font-size: 12px; color: #8e8e93; }
+    </style>
+</head>
+<body>
+    <div class="maps-app">
+        <div class="map-container">
+            <!-- Stylized Map Elements -->
+            <div class="map-grid">
+                <div class="road road-h main" style="top: 40%"></div>
+                <div class="road road-h" style="top: 20%"></div>
+                <div class="road road-h" style="top: 60%"></div>
+                <div class="road road-h" style="top: 80%"></div>
+                <div class="road road-v main" style="left: 50%"></div>
+                <div class="road road-v" style="left: 20%"></div>
+                <div class="road road-v" style="left: 35%"></div>
+                <div class="road road-v" style="left: 65%"></div>
+                <div class="road road-v" style="left: 80%"></div>
+                <div class="block" style="top: 5%; left: 5%; width: 25%; height: 12%"></div>
+                <div class="block" style="top: 5%; left: 55%; width: 20%; height: 12%"></div>
+                <div class="block" style="top: 25%; left: 22%; width: 10%; height: 12%"></div>
+                <div class="block" style="top: 45%; left: 5%; width: 12%; height: 12%"></div>
+                <div class="block" style="top: 65%; left: 22%; width: 10%; height: 12%"></div>
+                <div class="block" style="top: 45%; left: 68%; width: 10%; height: 10%"></div>
+                <div class="block" style="top: 65%; left: 55%; width: 22%; height: 12%"></div>
+                <div class="park" style="top: 25%; left: 68%; width: 25%; height: 12%"></div>
+                <div class="water" style="top: 82%; left: 5%; width: 20%; height: 15%"></div>
+            </div>
+            <!-- POI Markers -->
+            <div class="poi" style="top: 30%; left: 25%;"><span>☕</span></div>
+            <div class="poi" style="top: 55%; left: 70%; background: #30d158;"><span>🏪</span></div>
+            <div class="poi" style="top: 70%; left: 30%; background: #ff9500;"><span>🍔</span></div>
+            <!-- Current Location -->
+            <div class="location-pulse"></div>
+            <div class="current-location"></div>
+            <!-- Search -->
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="🔍 Search Maps">
+            </div>
+            <!-- Controls -->
+            <div class="map-controls">
+                <button class="control-btn">📍</button>
+                <button class="control-btn">🧭</button>
+                <button class="control-btn">3D</button>
+            </div>
+        </div>
+        <!-- Bottom Sheet -->
+        <div class="bottom-sheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-title">Explore Nearby</div>
+            <div class="place-list">
+                <div class="place-item"><div class="place-icon">🍽</div><div class="place-name">Restaurants</div></div>
+                <div class="place-item"><div class="place-icon">☕</div><div class="place-name">Coffee</div></div>
+                <div class="place-item"><div class="place-icon">⛽</div><div class="place-name">Gas</div></div>
+                <div class="place-item"><div class="place-icon">🏪</div><div class="place-name">Grocery</div></div>
+                <div class="place-item"><div class="place-icon">🏨</div><div class="place-name">Hotels</div></div>
+                <div class="place-item"><div class="place-icon">💊</div><div class="place-name">Pharmacy</div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

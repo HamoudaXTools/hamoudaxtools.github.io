@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            height: 100%;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+
+        .clock-app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Header */
+        .header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .header-btn {
+            background: none;
+            border: none;
+            color: #ff9f0a;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 20px;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* Tab Bar */
+        .tab-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0 25px;
+            background: #1c1c1e;
+            border-top: 1px solid #333;
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            color: #8e8e93;
+            font-size: 10px;
+            cursor: pointer;
+            padding: 5px 15px;
+        }
+
+        .tab-item.active {
+            color: #ff9f0a;
+        }
+
+        .tab-icon {
+            font-size: 24px;
+        }
+
+        /* World Clock */
+        .world-clock-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .city-info .city-diff {
+            font-size: 14px;
+            color: #8e8e93;
+        }
+
+        .city-info .city-name {
+            font-size: 28px;
+            font-weight: 300;
+        }
+
+        .city-time {
+            font-size: 50px;
+            font-weight: 200;
+        }
+
+        .city-time small {
+            font-size: 24px;
+        }
+
+        /* Alarm List */
+        .alarm-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .alarm-time {
+            font-size: 50px;
+            font-weight: 200;
+            color: #fff;
+        }
+
+        .alarm-time small {
+            font-size: 24px;
+        }
+
+        .alarm-label {
+            font-size: 14px;
+            color: #8e8e93;
+        }
+
+        .alarm-time.disabled, .alarm-label.disabled {
+            color: #555;
+        }
+
+        /* Toggle Switch */
+        .toggle {
+            width: 51px;
+            height: 31px;
+            background: #39393d;
+            border-radius: 16px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle.active {
+            background: #30d158;
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 27px;
+            height: 27px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .toggle.active::after {
+            transform: translateX(20px);
+        }
+
+        /* Stopwatch */
+        .stopwatch-display {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .stopwatch-time {
+            font-size: 80px;
+            font-weight: 200;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stopwatch-controls {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 0;
+        }
+
+        .stopwatch-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-lap {
+            background: #333;
+            border-color: #333;
+            color: white;
+        }
+
+        .btn-start {
+            background: rgba(48, 209, 88, 0.3);
+            border-color: #30d158;
+            color: #30d158;
+        }
+
+        .btn-stop {
+            background: rgba(255, 59, 48, 0.3);
+            border-color: #ff3b30;
+            color: #ff3b30;
+        }
+
+        .lap-list {
+            border-top: 1px solid #333;
+        }
+
+        .lap-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+            font-size: 16px;
+        }
+
+        .lap-item.best { color: #30d158; }
+        .lap-item.worst { color: #ff3b30; }
+
+        /* Timer */
+        .timer-display {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .timer-picker {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 40px;
+            font-weight: 200;
+        }
+
+        .timer-picker select {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 40px;
+            font-weight: 200;
+            text-align: center;
+            -webkit-appearance: none;
+        }
+
+        .timer-picker select option {
+            background: #1c1c1e;
+        }
+
+        .timer-time {
+            font-size: 80px;
+            font-weight: 200;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timer-controls {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-app">
+        <div class="header">
+            <h1 id="header-title">World Clock</h1>
+            <button class="header-btn" id="header-btn">+</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- World Clock Tab -->
+            <div class="tab-panel active" id="panel-world">
+                <div class="world-clock-item">
+                    <div class="city-info">
+                        <div class="city-diff">Today, +0HRS</div>
+                        <div class="city-name">Bangkok</div>
+                    </div>
+                    <div class="city-time" id="bangkok-time">21:53</div>
+                </div>
+                <div class="world-clock-item">
+                    <div class="city-info">
+                        <div class="city-diff">Today, +2HRS</div>
+                        <div class="city-name">Tokyo</div>
+                    </div>
+                    <div class="city-time" id="tokyo-time">23:53</div>
+                </div>
+                <div class="world-clock-item">
+                    <div class="city-info">
+                        <div class="city-diff">Yesterday, -7HRS</div>
+                        <div class="city-name">London</div>
+                    </div>
+                    <div class="city-time" id="london-time">14:53</div>
+                </div>
+                <div class="world-clock-item">
+                    <div class="city-info">
+                        <div class="city-diff">Yesterday, -12HRS</div>
+                        <div class="city-name">New York</div>
+                    </div>
+                    <div class="city-time" id="newyork-time">09:53</div>
+                </div>
+            </div>
+
+            <!-- Alarm Tab -->
+            <div class="tab-panel" id="panel-alarm">
+                <div class="alarm-item">
+                    <div>
+                        <div class="alarm-time">06:30<small> AM</small></div>
+                        <div class="alarm-label">Wake Up</div>
+                    </div>
+                    <div class="toggle active" data-alarm="1"></div>
+                </div>
+                <div class="alarm-item">
+                    <div>
+                        <div class="alarm-time disabled">07:00<small> AM</small></div>
+                        <div class="alarm-label disabled">Weekdays</div>
+                    </div>
+                    <div class="toggle" data-alarm="2"></div>
+                </div>
+                <div class="alarm-item">
+                    <div>
+                        <div class="alarm-time">08:00<small> AM</small></div>
+                        <div class="alarm-label">Weekend</div>
+                    </div>
+                    <div class="toggle active" data-alarm="3"></div>
+                </div>
+            </div>
+
+            <!-- Stopwatch Tab -->
+            <div class="tab-panel" id="panel-stopwatch">
+                <div class="stopwatch-display">
+                    <div class="stopwatch-time" id="stopwatch-display">00:00.00</div>
+                </div>
+                <div class="stopwatch-controls">
+                    <button class="stopwatch-btn btn-lap" id="btn-lap">Lap</button>
+                    <button class="stopwatch-btn btn-start" id="btn-stopwatch">Start</button>
+                </div>
+                <div class="lap-list" id="lap-list"></div>
+            </div>
+
+            <!-- Timer Tab -->
+            <div class="tab-panel" id="panel-timer">
+                <div class="timer-display" id="timer-picker-container">
+                    <div class="timer-picker">
+                        <select id="timer-hours">
+                            ${[...Array(24)].map((_, i) => `<option value="${i}">${i}</option>`).join('')}
+                        </select>
+                        <span>:</span>
+                        <select id="timer-minutes">
+                            ${[...Array(60)].map((_, i) => `<option value="${i}">${i.toString().padStart(2, '0')}</option>`).join('')}
+                        </select>
+                        <span>:</span>
+                        <select id="timer-seconds">
+                            ${[...Array(60)].map((_, i) => `<option value="${i}">${i.toString().padStart(2, '0')}</option>`).join('')}
+                        </select>
+                    </div>
+                </div>
+                <div class="timer-display" id="timer-running-container" style="display:none;">
+                    <div class="timer-time" id="timer-display">00:00:00</div>
+                </div>
+                <div class="timer-controls">
+                    <button class="stopwatch-btn btn-lap" id="btn-timer-cancel">Cancel</button>
+                    <button class="stopwatch-btn btn-start" id="btn-timer">Start</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-bar">
+            <button class="tab-item active" data-tab="world">
+                <span class="tab-icon">🌍</span>
+                <span>World Clock</span>
+            </button>
+            <button class="tab-item" data-tab="alarm">
+                <span class="tab-icon">⏰</span>
+                <span>Alarm</span>
+            </button>
+            <button class="tab-item" data-tab="stopwatch">
+                <span class="tab-icon">⏱</span>
+                <span>Stopwatch</span>
+            </button>
+            <button class="tab-item" data-tab="timer">
+                <span class="tab-icon">⏲</span>
+                <span>Timer</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        const tabs = document.querySelectorAll('.tab-item');
+        const panels = document.querySelectorAll('.tab-panel');
+        const headerTitle = document.getElementById('header-title');
+        const titles = { world: 'World Clock', alarm: 'Alarm', stopwatch: 'Stopwatch', timer: 'Timer' };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(`panel-${tab.dataset.tab}`).classList.add('active');
+                headerTitle.textContent = titles[tab.dataset.tab];
+            });
+        });
+
+        // Toggle switches
+        document.querySelectorAll('.toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                toggle.classList.toggle('active');
+                const item = toggle.closest('.alarm-item');
+                const time = item.querySelector('.alarm-time');
+                const label = item.querySelector('.alarm-label');
+                time.classList.toggle('disabled', !toggle.classList.contains('active'));
+                label.classList.toggle('disabled', !toggle.classList.contains('active'));
+            });
+        });
+
+        // World Clock - Update times
+        function updateWorldClocks() {
+            const now = new Date();
+            const bangkokTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }));
+            const tokyoTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
+            const londonTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/London' }));
+            const nyTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+
+            const format = (d) => d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
+
+            document.getElementById('bangkok-time').textContent = format(bangkokTime);
+            document.getElementById('tokyo-time').textContent = format(tokyoTime);
+            document.getElementById('london-time').textContent = format(londonTime);
+            document.getElementById('newyork-time').textContent = format(nyTime);
+        }
+        setInterval(updateWorldClocks, 1000);
+        updateWorldClocks();
+
+        // Stopwatch
+        let stopwatchInterval = null;
+        let stopwatchTime = 0;
+        let laps = [];
+        const stopwatchDisplay = document.getElementById('stopwatch-display');
+        const btnStopwatch = document.getElementById('btn-stopwatch');
+        const btnLap = document.getElementById('btn-lap');
+        const lapList = document.getElementById('lap-list');
+
+        function formatStopwatch(ms) {
+            const mins = Math.floor(ms / 60000);
+            const secs = Math.floor((ms % 60000) / 1000);
+            const cents = Math.floor((ms % 1000) / 10);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${cents.toString().padStart(2, '0')}`;
+        }
+
+        function updateStopwatch() {
+            stopwatchTime += 10;
+            stopwatchDisplay.textContent = formatStopwatch(stopwatchTime);
+        }
+
+        function renderLaps() {
+            if (laps.length === 0) {
+                lapList.innerHTML = '';
+                return;
+            }
+            const best = Math.min(...laps.map(l => l.time));
+            const worst = Math.max(...laps.map(l => l.time));
+            lapList.innerHTML = laps.slice().reverse().map(lap => {
+                let cls = '';
+                if (laps.length > 2) {
+                    if (lap.time === best) cls = 'best';
+                    else if (lap.time === worst) cls = 'worst';
+                }
+                return `<div class="lap-item ${cls}"><span>Lap ${lap.num}</span><span>${formatStopwatch(lap.time)}</span></div>`;
+            }).join('');
+        }
+
+        btnStopwatch.addEventListener('click', () => {
+            if (stopwatchInterval) {
+                clearInterval(stopwatchInterval);
+                stopwatchInterval = null;
+                btnStopwatch.textContent = 'Start';
+                btnStopwatch.classList.remove('btn-stop');
+                btnStopwatch.classList.add('btn-start');
+                btnLap.textContent = 'Reset';
+            } else {
+                stopwatchInterval = setInterval(updateStopwatch, 10);
+                btnStopwatch.textContent = 'Stop';
+                btnStopwatch.classList.remove('btn-start');
+                btnStopwatch.classList.add('btn-stop');
+                btnLap.textContent = 'Lap';
+            }
+        });
+
+        btnLap.addEventListener('click', () => {
+            if (stopwatchInterval) {
+                const lastLapEnd = laps.length > 0 ? laps[laps.length - 1].total : 0;
+                laps.push({ num: laps.length + 1, time: stopwatchTime - lastLapEnd, total: stopwatchTime });
+                renderLaps();
+            } else if (stopwatchTime > 0) {
+                stopwatchTime = 0;
+                laps = [];
+                stopwatchDisplay.textContent = '00:00.00';
+                lapList.innerHTML = '';
+                btnLap.textContent = 'Lap';
+            }
+        });
+
+        // Timer
+        let timerInterval = null;
+        let timerTime = 0;
+        const timerDisplay = document.getElementById('timer-display');
+        const btnTimer = document.getElementById('btn-timer');
+        const btnTimerCancel = document.getElementById('btn-timer-cancel');
+        const timerPickerContainer = document.getElementById('timer-picker-container');
+        const timerRunningContainer = document.getElementById('timer-running-container');
+
+        function formatTimer(secs) {
+            const h = Math.floor(secs / 3600);
+            const m = Math.floor((secs % 3600) / 60);
+            const s = secs % 60;
+            return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        function updateTimer() {
+            timerTime--;
+            timerDisplay.textContent = formatTimer(timerTime);
+            if (timerTime <= 0) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                alert('⏰ Timer finished!');
+                resetTimer();
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerPickerContainer.style.display = 'block';
+            timerRunningContainer.style.display = 'none';
+            btnTimer.textContent = 'Start';
+            btnTimer.classList.remove('btn-stop');
+            btnTimer.classList.add('btn-start');
+        }
+
+        btnTimer.addEventListener('click', () => {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                btnTimer.textContent = 'Resume';
+                btnTimer.classList.remove('btn-stop');
+                btnTimer.classList.add('btn-start');
+            } else {
+                if (timerPickerContainer.style.display !== 'none') {
+                    const h = parseInt(document.getElementById('timer-hours').value);
+                    const m = parseInt(document.getElementById('timer-minutes').value);
+                    const s = parseInt(document.getElementById('timer-seconds').value);
+                    timerTime = h * 3600 + m * 60 + s;
+                    if (timerTime === 0) return;
+                    timerPickerContainer.style.display = 'none';
+                    timerRunningContainer.style.display = 'block';
+                }
+                timerDisplay.textContent = formatTimer(timerTime);
+                timerInterval = setInterval(updateTimer, 1000);
+                btnTimer.textContent = 'Pause';
+                btnTimer.classList.remove('btn-start');
+                btnTimer.classList.add('btn-stop');
+            }
+        });
+
+        btnTimerCancel.addEventListener('click', resetTimer);
+
+        // Create select options
+        function createOptions(select, max) {
+            for (let i = 0; i < max; i++) {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = i.toString().padStart(2, '0');
+                select.appendChild(opt);
+            }
+        }
+        createOptions(document.getElementById('timer-hours'), 24);
+        createOptions(document.getElementById('timer-minutes'), 60);
+        createOptions(document.getElementById('timer-seconds'), 60);
+    </script>
+</body>
+</html>

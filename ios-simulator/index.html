@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Simulator - Professional iPhone Experience</title>
+    <meta name="description" content="Experience iOS in your browser with this realistic iPhone simulator">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="simulator.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-container">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="stars"></div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="page-title">
+        <h1>📱 iOS Simulator</h1>
+        <p>Experience the iPhone in your browser</p>
+    </div>
+
+    <div class="simulator-container">
+        <div class="iphone-frame">
+            <!-- Dynamic Island -->
+            <div class="dynamic-island" id="dynamic-island">
+                <div class="island-content">
+                    <div class="island-camera"></div>
+                    <div class="island-indicator" id="island-indicator"></div>
+                </div>
+            </div>
+
+            <!-- Screen Content -->
+            <div class="screen" id="screen">
+                <!-- Lock Screen -->
+                <div class="lock-screen" id="lock-screen">
+                    <div class="lock-status-bar">
+                        <div class="lock-time" id="lock-time">21:15</div>
+                        <div class="lock-date" id="lock-date">Monday, December 23</div>
+                    </div>
+                    
+                    <div class="lock-widgets">
+                        <div class="widget weather-widget" id="lock-weather-widget">
+                            <div class="widget-icon">☀️</div>
+                            <div class="widget-info">
+                                <span class="widget-temp">28°</span>
+                                <span class="widget-location">Bangkok</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lock-bottom">
+                        <div class="flashlight-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2v6l2 1v2h8V9l2-1V2H6zm3 9v11h6V11H9z"/></svg>
+                        </div>
+                        <div class="swipe-indicator">
+                            <span>Swipe up to unlock</span>
+                        </div>
+                        <div class="camera-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.2c1.8 0 3.2-1.4 3.2-3.2s-1.4-3.2-3.2-3.2-3.2 1.4-3.2 3.2 1.4 3.2 3.2 3.2zM9 2L7.2 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.2L15 2H9zm3 15c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Screen -->
+                <div class="home-screen" id="home-screen" style="display: none;">
+                    <!-- Status Bar -->
+                    <div class="status-bar">
+                        <div class="status-left">
+                            <span class="time" id="status-time">21:15</span>
+                        </div>
+                        <div class="status-right">
+                            <div class="signal-bars">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+                            <span class="wifi-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/>
+                                </svg>
+                            </span>
+                            <span class="battery">
+                                <div class="battery-level"></div>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Wallpaper -->
+                    <div class="wallpaper" id="wallpaper"></div>
+
+                    <!-- App Grid -->
+                    <div class="app-grid">
+                        <!-- Page 1 -->
+                        <div class="app-page active" id="page-1">
+                            <!-- Row 1 -->
+                            <div class="app-icon" data-app="weather">
+                                <div class="icon-img weather-app-icon">
+                                    <div class="weather-icon-bg">
+                                        <span class="temp-display">28°</span>
+                                        <div class="cloud-icon"></div>
+                                    </div>
+                                </div>
+                                <span class="app-name">Weather</span>
+                            </div>
+                            <div class="app-icon" data-app="clock">
+                                <div class="icon-img clock-app-icon">
+                                    <div class="clock-face">
+                                        <div class="clock-hand hour"></div>
+                                        <div class="clock-hand minute"></div>
+                                    </div>
+                                </div>
+                                <span class="app-name">Clock</span>
+                            </div>
+                            <div class="app-icon" data-app="calculator">
+                                <div class="icon-img calculator-icon">
+                                    <div class="calc-display">+</div>
+                                    <div class="calc-buttons">
+                                        <span></span><span></span><span></span>
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                                <span class="app-name">Calculator</span>
+                            </div>
+                            <div class="app-icon" data-app="photos">
+                                <div class="icon-img photos-icon">
+                                    <div class="photo-flower"></div>
+                                </div>
+                                <span class="app-name">Photos</span>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="app-icon" data-app="camera">
+                                <div class="icon-img camera-icon">
+                                    <div class="camera-lens"></div>
+                                </div>
+                                <span class="app-name">Camera</span>
+                            </div>
+                            <div class="app-icon" data-app="notes">
+                                <div class="icon-img notes-icon">
+                                    <div class="notes-lines"></div>
+                                </div>
+                                <span class="app-name">Notes</span>
+                            </div>
+                            <div class="app-icon" data-app="settings">
+                                <div class="icon-img settings-icon">
+                                    <div class="gear"></div>
+                                </div>
+                                <span class="app-name">Settings</span>
+                            </div>
+                            <div class="app-icon" data-app="safari">
+                                <div class="icon-img safari-icon">
+                                    <div class="compass"></div>
+                                </div>
+                                <span class="app-name">Safari</span>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="app-icon" data-app="music">
+                                <div class="icon-img music-icon">
+                                    <div class="music-note">♪</div>
+                                </div>
+                                <span class="app-name">Music</span>
+                            </div>
+                            <div class="app-icon" data-app="maps">
+                                <div class="icon-img maps-icon">
+                                    <div class="map-marker"></div>
+                                </div>
+                                <span class="app-name">Maps</span>
+                            </div>
+                            <div class="app-icon" data-app="messages">
+                                <div class="icon-img messages-icon">
+                                    <div class="message-bubble">...</div>
+                                </div>
+                                <span class="app-name">Messages</span>
+                            </div>
+                            <div class="app-icon" data-app="mail">
+                                <div class="icon-img mail-icon">
+                                    <div class="mail-envelope"></div>
+                                </div>
+                                <span class="app-name">Mail</span>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="app-icon" data-app="appstore">
+                                <div class="icon-img appstore-icon">
+                                    <div class="appstore-a">A</div>
+                                </div>
+                                <span class="app-name">App Store</span>
+                            </div>
+                            <div class="app-icon" data-app="files">
+                                <div class="icon-img files-icon">
+                                    <div class="folder"></div>
+                                </div>
+                                <span class="app-name">Files</span>
+                            </div>
+                            <div class="app-icon" data-app="health">
+                                <div class="icon-img health-icon">
+                                    <div class="heart">❤️</div>
+                                </div>
+                                <span class="app-name">Health</span>
+                            </div>
+                            <div class="app-icon" data-app="wallet">
+                                <div class="icon-img wallet-icon">
+                                    <div class="cards"></div>
+                                </div>
+                                <span class="app-name">Wallet</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page Dots -->
+                    <div class="page-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+
+                    <!-- Dock -->
+                    <div class="dock">
+                        <div class="dock-bg"></div>
+                        <div class="dock-icons">
+                            <div class="app-icon dock-icon" data-app="phone">
+                                <div class="icon-img phone-icon">
+                                    <div class="phone-receiver"></div>
+                                </div>
+                            </div>
+                            <div class="app-icon dock-icon" data-app="safari">
+                                <div class="icon-img safari-icon">
+                                    <div class="compass"></div>
+                                </div>
+                            </div>
+                            <div class="app-icon dock-icon" data-app="messages">
+                                <div class="icon-img messages-icon">
+                                    <div class="message-bubble">...</div>
+                                </div>
+                            </div>
+                            <div class="app-icon dock-icon" data-app="music">
+                                <div class="icon-img music-icon">
+                                    <div class="music-note">♪</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App View Container -->
+                <div class="app-view" id="app-view" style="display: none;">
+                    <iframe id="app-iframe" src="" frameborder="0"></iframe>
+                    <div class="app-loading" id="app-loading">
+                        <div class="app-loading-icon"></div>
+                        <p>Loading...</p>
+                    </div>
+                </div>
+
+                <!-- Control Center -->
+                <div class="control-center" id="control-center">
+                    <div class="control-handle"></div>
+                    <div class="control-grid">
+                        <div class="control-group connectivity">
+                            <div class="control-btn active" id="airplane-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+                            </div>
+                            <div class="control-btn active" id="wifi-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                            </div>
+                            <div class="control-btn" id="bluetooth-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.71 7.71L12 2h-1v7.59L6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 11 14.41V22h1l5.71-5.71-4.3-4.29 4.3-4.29zM13 5.83l1.88 1.88L13 9.59V5.83zm1.88 10.46L13 18.17v-3.76l1.88 1.88z"/></svg>
+                            </div>
+                            <div class="control-btn" id="airdrop-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            </div>
+                        </div>
+                        <div class="control-group media">
+                            <div class="control-large music-control">
+                                <div class="now-playing">
+                                    <div class="album-art">🎵</div>
+                                    <div class="track-info">
+                                        <span class="track-name">Not Playing</span>
+                                        <span class="artist-name">—</span>
+                                    </div>
+                                </div>
+                                <div class="playback-controls">
+                                    <button class="play-btn">⏸</button>
+                                    <button class="next-btn">⏭</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group utilities">
+                            <div class="control-btn" id="flashlight-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2v6l2 1v2h8V9l2-1V2H6zm3 9v11h6V11H9z"/></svg>
+                            </div>
+                            <div class="control-btn" id="timer-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+                            </div>
+                            <div class="control-btn" id="calc-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14h-2v-2h2v2zm0-4h-2V9h2v4zm4 4h-2v-6h2v6zm0-8h-2V7h2v2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2z"/></svg>
+                            </div>
+                            <div class="control-btn" id="camera-ctrl-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.2c1.8 0 3.2-1.4 3.2-3.2s-1.4-3.2-3.2-3.2-3.2 1.4-3.2 3.2 1.4 3.2 3.2 3.2zM9 2L7.2 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.2L15 2H9z"/></svg>
+                            </div>
+                        </div>
+                        <div class="control-group sliders">
+                            <div class="slider-control brightness">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
+                                <div class="slider-track">
+                                    <div class="slider-fill" style="height: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="slider-control volume">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                                <div class="slider-track">
+                                    <div class="slider-fill" style="height: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Indicator -->
+                <div class="home-indicator" id="home-indicator"></div>
+            </div>
+
+            <!-- Side Buttons -->
+            <div class="side-button volume-up"></div>
+            <div class="side-button volume-down"></div>
+            <div class="side-button power"></div>
+            <div class="side-button silent-switch"></div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toast-message"></span>
+    </div>
+
+    <script src="simulator.js"></script>
+</body>
+</html>

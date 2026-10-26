@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            height: 100%;
+            background: #000;
+            color: white;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .calculator {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 0 8px 20px;
+        }
+
+        /* Display */
+        .display {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 20px 15px;
+            min-height: 120px;
+        }
+
+        .display-value {
+            font-size: 70px;
+            font-weight: 300;
+            letter-spacing: -2px;
+            line-height: 1;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: font-size 0.1s ease;
+        }
+
+        .display-value.small { font-size: 55px; }
+        .display-value.smaller { font-size: 45px; }
+        .display-value.smallest { font-size: 35px; }
+
+        /* Button Grid */
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .btn {
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: none;
+            font-size: 32px;
+            font-weight: 400;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.1s ease;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Number buttons */
+        .btn-number {
+            background: #333;
+            color: white;
+        }
+
+        .btn-number:active {
+            background: #737373;
+        }
+
+        /* Zero button - wide */
+        .btn-zero {
+            grid-column: span 2;
+            border-radius: 40px;
+            aspect-ratio: auto;
+            height: 80px;
+            justify-content: flex-start;
+            padding-left: 32px;
+        }
+
+        /* Operator buttons */
+        .btn-operator {
+            background: #ff9f0a;
+            color: white;
+        }
+
+        .btn-operator:active,
+        .btn-operator.active {
+            background: white;
+            color: #ff9f0a;
+        }
+
+        /* Function buttons */
+        .btn-function {
+            background: #a5a5a5;
+            color: #000;
+        }
+
+        .btn-function:active {
+            background: #d9d9d9;
+        }
+
+        /* Scientific Mode Toggle */
+        .mode-toggle {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Scientific buttons */
+        .scientific-row {
+            display: none;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .scientific-row.active {
+            display: grid;
+        }
+
+        .btn-sci {
+            height: 45px;
+            border-radius: 8px;
+            background: #1c1c1c;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-sci:active {
+            background: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <button class="mode-toggle" id="mode-toggle">⚙️</button>
+        
+        <div class="display">
+            <div class="display-value" id="display">0</div>
+        </div>
+
+        <!-- Scientific Row -->
+        <div class="scientific-row" id="scientific-row">
+            <button class="btn-sci" data-action="sin">sin</button>
+            <button class="btn-sci" data-action="cos">cos</button>
+            <button class="btn-sci" data-action="tan">tan</button>
+            <button class="btn-sci" data-action="log">log</button>
+            <button class="btn-sci" data-action="ln">ln</button>
+            <button class="btn-sci" data-action="sqrt">√</button>
+            <button class="btn-sci" data-action="pow2">x²</button>
+            <button class="btn-sci" data-action="pow3">x³</button>
+            <button class="btn-sci" data-action="pi">π</button>
+            <button class="btn-sci" data-action="e">e</button>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-function" data-action="clear">AC</button>
+            <button class="btn btn-function" data-action="negate">±</button>
+            <button class="btn btn-function" data-action="percent">%</button>
+            <button class="btn btn-operator" data-action="divide">÷</button>
+
+            <button class="btn btn-number" data-number="7">7</button>
+            <button class="btn btn-number" data-number="8">8</button>
+            <button class="btn btn-number" data-number="9">9</button>
+            <button class="btn btn-operator" data-action="multiply">×</button>
+
+            <button class="btn btn-number" data-number="4">4</button>
+            <button class="btn btn-number" data-number="5">5</button>
+            <button class="btn btn-number" data-number="6">6</button>
+            <button class="btn btn-operator" data-action="subtract">−</button>
+
+            <button class="btn btn-number" data-number="1">1</button>
+            <button class="btn btn-number" data-number="2">2</button>
+            <button class="btn btn-number" data-number="3">3</button>
+            <button class="btn btn-operator" data-action="add">+</button>
+
+            <button class="btn btn-number btn-zero" data-number="0">0</button>
+            <button class="btn btn-number" data-action="decimal">.</button>
+            <button class="btn btn-operator" data-action="equals">=</button>
+        </div>
+    </div>
+
+    <script>
+        let currentValue = '0';
+        let previousValue = null;
+        let operation = null;
+        let shouldResetDisplay = false;
+
+        const display = document.getElementById('display');
+
+        function updateDisplay() {
+            let val = currentValue;
+            
+            // Format number
+            if (!isNaN(parseFloat(val)) && val !== '') {
+                const num = parseFloat(val);
+                if (Math.abs(num) >= 1e10) {
+                    val = num.toExponential(5);
+                } else if (val.includes('.')) {
+                    // Keep decimals as typed
+                } else {
+                    val = num.toLocaleString('en-US', { maximumFractionDigits: 8 });
+                }
+            }
+            
+            display.textContent = val;
+            
+            // Adjust font size based on length
+            display.classList.remove('small', 'smaller', 'smallest');
+            if (val.length > 9) display.classList.add('smallest');
+            else if (val.length > 7) display.classList.add('smaller');
+            else if (val.length > 5) display.classList.add('small');
+        }
+
+        function inputNumber(num) {
+            if (shouldResetDisplay) {
+                currentValue = num;
+                shouldResetDisplay = false;
+            } else {
+                if (currentValue === '0' && num !== '.') {
+                    currentValue = num;
+                } else if (currentValue.replace(/[^0-9]/g, '').length < 9) {
+                    currentValue += num;
+                }
+            }
+            document.querySelector('.btn-function[data-action="clear"]').textContent = 'C';
+            updateDisplay();
+        }
+
+        function inputDecimal() {
+            if (shouldResetDisplay) {
+                currentValue = '0.';
+                shouldResetDisplay = false;
+            } else if (!currentValue.includes('.')) {
+                currentValue += '.';
+            }
+            updateDisplay();
+        }
+
+        function calculate() {
+            if (previousValue === null || operation === null) return;
+            
+            const prev = parseFloat(previousValue);
+            const curr = parseFloat(currentValue);
+            let result;
+
+            switch (operation) {
+                case 'add': result = prev + curr; break;
+                case 'subtract': result = prev - curr; break;
+                case 'multiply': result = prev * curr; break;
+                case 'divide': result = curr !== 0 ? prev / curr : 'Error'; break;
+            }
+
+            currentValue = result === 'Error' ? 'Error' : String(result);
+            previousValue = null;
+            operation = null;
+            shouldResetDisplay = true;
+            
+            // Remove active state from operators
+            document.querySelectorAll('.btn-operator').forEach(b => b.classList.remove('active'));
+            updateDisplay();
+        }
+
+        function setOperation(op) {
+            if (operation !== null && !shouldResetDisplay) {
+                calculate();
+            }
+            previousValue = currentValue;
+            operation = op;
+            shouldResetDisplay = true;
+            
+            // Highlight active operator
+            document.querySelectorAll('.btn-operator').forEach(b => b.classList.remove('active'));
+            const opMap = { add: '+', subtract: '−', multiply: '×', divide: '÷' };
+            document.querySelectorAll('.btn-operator').forEach(b => {
+                if (b.textContent === opMap[op]) b.classList.add('active');
+            });
+        }
+
+        function clear() {
+            const btn = document.querySelector('.btn-function[data-action="clear"]');
+            if (btn.textContent === 'C') {
+                currentValue = '0';
+                btn.textContent = 'AC';
+            } else {
+                currentValue = '0';
+                previousValue = null;
+                operation = null;
+            }
+            shouldResetDisplay = false;
+            document.querySelectorAll('.btn-operator').forEach(b => b.classList.remove('active'));
+            updateDisplay();
+        }
+
+        function negate() {
+            if (currentValue !== '0') {
+                currentValue = currentValue.startsWith('-') 
+                    ? currentValue.slice(1) 
+                    : '-' + currentValue;
+                updateDisplay();
+            }
+        }
+
+        function percent() {
+            currentValue = String(parseFloat(currentValue) / 100);
+            updateDisplay();
+        }
+
+        // Scientific functions
+        function scientificFunc(func) {
+            const val = parseFloat(currentValue);
+            let result;
+            switch(func) {
+                case 'sin': result = Math.sin(val * Math.PI / 180); break;
+                case 'cos': result = Math.cos(val * Math.PI / 180); break;
+                case 'tan': result = Math.tan(val * Math.PI / 180); break;
+                case 'log': result = Math.log10(val); break;
+                case 'ln': result = Math.log(val); break;
+                case 'sqrt': result = Math.sqrt(val); break;
+                case 'pow2': result = Math.pow(val, 2); break;
+                case 'pow3': result = Math.pow(val, 3); break;
+                case 'pi': result = Math.PI; break;
+                case 'e': result = Math.E; break;
+            }
+            currentValue = String(result);
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        // Event Listeners
+        document.querySelectorAll('.btn-number').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const num = btn.dataset.number;
+                if (num) inputNumber(num);
+            });
+        });
+
+        document.querySelectorAll('.btn-operator').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.dataset.action;
+                if (action === 'equals') calculate();
+                else if (action === 'decimal') inputDecimal();
+                else setOperation(action);
+            });
+        });
+
+        document.querySelectorAll('.btn-function').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.dataset.action;
+                if (action === 'clear') clear();
+                else if (action === 'negate') negate();
+                else if (action === 'percent') percent();
+            });
+        });
+
+        document.querySelectorAll('.btn-sci').forEach(btn => {
+            btn.addEventListener('click', () => scientificFunc(btn.dataset.action));
+        });
+
+        document.getElementById('mode-toggle').addEventListener('click', () => {
+            document.getElementById('scientific-row').classList.toggle('active');
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9') inputNumber(e.key);
+            else if (e.key === '.') inputDecimal();
+            else if (e.key === '+') setOperation('add');
+            else if (e.key === '-') setOperation('subtract');
+            else if (e.key === '*') setOperation('multiply');
+            else if (e.key === '/') setOperation('divide');
+            else if (e.key === 'Enter' || e.key === '=') calculate();
+            else if (e.key === 'Escape' || e.key === 'c') clear();
+            else if (e.key === '%') percent();
+        });
+
+        updateDisplay();
+    </script>
+</body>
+</html>

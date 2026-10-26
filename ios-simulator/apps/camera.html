@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Camera</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            font-family: -apple-system, sans-serif;
+            height: 100%;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+
+        .camera-app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Viewfinder */
+        .viewfinder {
+            flex: 1;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .focus-square {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #ffcc00;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .focus-square.active {
+            opacity: 1;
+            animation: focusPulse 0.5s ease;
+        }
+
+        @keyframes focusPulse {
+            0% { transform: scale(1.3); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .preview-icon {
+            font-size: 100px;
+            opacity: 0.3;
+        }
+
+        /* Top Controls */
+        .top-controls {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 30px;
+        }
+
+        .top-btn {
+            background: rgba(0, 0, 0, 0.4);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .top-btn.active { color: #ffcc00; }
+
+        /* Mode Selector */
+        .mode-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .mode-btn {
+            background: none;
+            border: none;
+            color: #8e8e93;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .mode-btn.active {
+            color: #ffcc00;
+        }
+
+        /* Bottom Controls */
+        .bottom-controls {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 25px 40px 40px;
+            background: #000;
+        }
+
+        .gallery-preview {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: 2px solid white;
+        }
+
+        .shutter-btn {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.1s;
+        }
+
+        .shutter-btn:active {
+            transform: scale(0.95);
+        }
+
+        .shutter-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: 2px solid #333;
+        }
+
+        .flip-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Flash Effect */
+        .flash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .flash-overlay.active {
+            animation: flash 0.3s ease;
+        }
+
+        @keyframes flash {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Zoom Indicator */
+        .zoom-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .zoom-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .zoom-btn.active {
+            background: #ffcc00;
+            color: #000;
+            border-color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="camera-app">
+        <div class="viewfinder" id="viewfinder">
+            <div class="top-controls">
+                <button class="top-btn" id="btn-flash">⚡</button>
+                <button class="top-btn">HDR</button>
+                <button class="top-btn" id="btn-timer">⏱</button>
+                <button class="top-btn">🔲</button>
+            </div>
+            
+            <div class="preview-icon">📷</div>
+            
+            <div class="focus-square" id="focus-square"></div>
+            
+            <div class="zoom-indicator">
+                <button class="zoom-btn">.5</button>
+                <button class="zoom-btn active">1x</button>
+                <button class="zoom-btn">3</button>
+            </div>
+        </div>
+
+        <div class="mode-selector">
+            <button class="mode-btn">CINEMATIC</button>
+            <button class="mode-btn">VIDEO</button>
+            <button class="mode-btn active">PHOTO</button>
+            <button class="mode-btn">PORTRAIT</button>
+            <button class="mode-btn">PANO</button>
+        </div>
+
+        <div class="bottom-controls">
+            <div class="gallery-preview">🖼</div>
+            <button class="shutter-btn" id="shutter-btn"></button>
+            <button class="flip-btn">🔄</button>
+        </div>
+
+        <div class="flash-overlay" id="flash-overlay"></div>
+    </div>
+
+    <script>
+        const shutterBtn = document.getElementById('shutter-btn');
+        const flashOverlay = document.getElementById('flash-overlay');
+        const viewfinder = document.getElementById('viewfinder');
+        const focusSquare = document.getElementById('focus-square');
+        const btnFlash = document.getElementById('btn-flash');
+        let flashEnabled = false;
+
+        // Shutter
+        shutterBtn.addEventListener('click', () => {
+            flashOverlay.classList.add('active');
+            setTimeout(() => flashOverlay.classList.remove('active'), 300);
+        });
+
+        // Focus on tap
+        viewfinder.addEventListener('click', (e) => {
+            const rect = viewfinder.getBoundingClientRect();
+            const x = e.clientX - rect.left - 40;
+            const y = e.clientY - rect.top - 40;
+            
+            focusSquare.style.left = x + 'px';
+            focusSquare.style.top = y + 'px';
+            focusSquare.classList.remove('active');
+            void focusSquare.offsetWidth;
+            focusSquare.classList.add('active');
+            
+            setTimeout(() => focusSquare.classList.remove('active'), 1500);
+        });
+
+        // Flash toggle
+        btnFlash.addEventListener('click', () => {
+            flashEnabled = !flashEnabled;
+            btnFlash.classList.toggle('active', flashEnabled);
+        });
+
+        // Mode selector
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Zoom
+        document.querySelectorAll('.zoom-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.zoom-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

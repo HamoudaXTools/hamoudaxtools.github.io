@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Photos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            height: 100%;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+
+        .photos-app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1c1c1e;
+        }
+
+        .header h1 { font-size: 18px; font-weight: 600; }
+
+        .header-btn {
+            background: none;
+            border: none;
+            color: #007aff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 80px;
+        }
+
+        /* Photo Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .photo-item {
+            aspect-ratio: 1;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        /* Months */
+        .month-header {
+            padding: 15px 15px 10px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Tab Bar */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0 25px;
+            background: #1c1c1e;
+            border-top: 1px solid #333;
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            color: #8e8e93;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        .tab-item.active { color: #007aff; }
+        .tab-icon { font-size: 22px; }
+
+        /* Viewer */
+        .photo-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000;
+            display: none;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .photo-viewer.active { display: flex; }
+
+        .viewer-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .btn-close, .btn-edit {
+            background: none;
+            border: none;
+            color: #007aff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .viewer-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .viewer-content .photo-placeholder {
+            font-size: 150px;
+        }
+
+        .viewer-footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #007aff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="photos-app">
+        <div class="header">
+            <button class="header-btn">Select</button>
+            <h1>Photos</h1>
+            <button class="header-btn">⋯</button>
+        </div>
+
+        <div class="content">
+            <div class="month-header">December 2024</div>
+            <div class="photo-grid" id="photo-grid">
+                <!-- Photos will be rendered here -->
+            </div>
+
+            <div class="month-header">November 2024</div>
+            <div class="photo-grid" id="photo-grid-2">
+            </div>
+        </div>
+
+        <div class="tab-bar">
+            <button class="tab-item active">
+                <span class="tab-icon">🖼</span>
+                <span>Library</span>
+            </button>
+            <button class="tab-item">
+                <span class="tab-icon">📅</span>
+                <span>For You</span>
+            </button>
+            <button class="tab-item">
+                <span class="tab-icon">📁</span>
+                <span>Albums</span>
+            </button>
+            <button class="tab-item">
+                <span class="tab-icon">🔍</span>
+                <span>Search</span>
+            </button>
+        </div>
+
+        <!-- Photo Viewer -->
+        <div class="photo-viewer" id="photo-viewer">
+            <div class="viewer-header">
+                <button class="btn-close" id="btn-close">✕</button>
+                <button class="btn-edit">Edit</button>
+            </div>
+            <div class="viewer-content">
+                <div class="photo-placeholder" id="viewer-photo">🖼</div>
+            </div>
+            <div class="viewer-footer">
+                <button class="action-btn">📤</button>
+                <button class="action-btn">❤️</button>
+                <button class="action-btn">🗑</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const photos = [
+            { emoji: '🌅', color: '#ff9500' },
+            { emoji: '🏔', color: '#5ac8fa' },
+            { emoji: '🌸', color: '#ff2d55' },
+            { emoji: '🏖', color: '#ffcc00' },
+            { emoji: '🌃', color: '#5856d6' },
+            { emoji: '🐶', color: '#ff9500' },
+            { emoji: '🎄', color: '#30d158' },
+            { emoji: '🎁', color: '#ff3b30' },
+            { emoji: '❄️', color: '#5ac8fa' },
+            { emoji: '🎉', color: '#af52de' },
+            { emoji: '🌻', color: '#ffcc00' },
+            { emoji: '🦋', color: '#007aff' },
+        ];
+
+        const photos2 = [
+            { emoji: '🍁', color: '#ff9500' },
+            { emoji: '🎃', color: '#ff9500' },
+            { emoji: '🦃', color: '#8b4513' },
+            { emoji: '☕', color: '#8b4513' },
+            { emoji: '📚', color: '#34c759' },
+            { emoji: '🎨', color: '#ff2d55' },
+        ];
+
+        function renderPhotos(container, photoArray) {
+            container.innerHTML = photoArray.map((photo, i) => `
+                <div class="photo-item" data-index="${i}">
+                    <div class="photo-placeholder" style="background: ${photo.color}">${photo.emoji}</div>
+                </div>
+            `).join('');
+        }
+
+        renderPhotos(document.getElementById('photo-grid'), photos);
+        renderPhotos(document.getElementById('photo-grid-2'), photos2);
+
+        // Photo viewer
+        const viewer = document.getElementById('photo-viewer');
+        const viewerPhoto = document.getElementById('viewer-photo');
+
+        document.querySelectorAll('.photo-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const placeholder = item.querySelector('.photo-placeholder');
+                viewerPhoto.textContent = placeholder.textContent;
+                viewerPhoto.style.color = 'inherit';
+                viewer.classList.add('active');
+            });
+        });
+
+        document.getElementById('btn-close').addEventListener('click', () => {
+            viewer.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

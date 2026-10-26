@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Health</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, sans-serif; height: 100%; background: #000; color: white; overflow: hidden; }
+        .health-app { display: flex; flex-direction: column; height: 100%; }
+        .header { padding: 15px 20px; }
+        .header h1 { font-size: 32px; font-weight: 700; }
+        .header p { font-size: 15px; color: #8e8e93; margin-top: 5px; }
+        .content { flex: 1; overflow-y: auto; padding: 0 15px 30px; }
+        .section-title { font-size: 20px; font-weight: 600; margin: 20px 0 15px; }
+        /* Summary Cards */
+        .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .summary-card { background: #1c1c1e; border-radius: 16px; padding: 15px; }
+        .card-icon { font-size: 24px; margin-bottom: 10px; }
+        .card-title { font-size: 13px; color: #8e8e93; margin-bottom: 5px; }
+        .card-value { font-size: 28px; font-weight: 600; }
+        .card-unit { font-size: 14px; color: #8e8e93; }
+        .card-value.red { color: #ff3b30; }
+        .card-value.blue { color: #5ac8fa; }
+        .card-value.green { color: #30d158; }
+        .card-value.orange { color: #ff9500; }
+        .card-value.pink { color: #ff2d55; }
+        /* Progress Ring */
+        .ring-card { background: #1c1c1e; border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
+        .ring-container { position: relative; width: 100px; height: 100px; }
+        .ring { transform: rotate(-90deg); }
+        .ring-bg { fill: none; stroke: #333; stroke-width: 8; }
+        .ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 0.5s; }
+        .ring-fill.red { stroke: #ff3b30; }
+        .ring-fill.green { stroke: #30d158; }
+        .ring-fill.blue { stroke: #5ac8fa; }
+        .ring-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+        .ring-value { font-size: 24px; font-weight: 600; }
+        .ring-label { font-size: 10px; color: #8e8e93; }
+        .ring-info h3 { font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+        .ring-info p { font-size: 14px; color: #8e8e93; line-height: 1.4; }
+        /* Activity Rings */
+        .activity-card { background: #1c1c1e; border-radius: 16px; padding: 20px; margin-bottom: 15px; }
+        .activity-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .activity-title { font-size: 18px; font-weight: 600; }
+        .activity-rings { display: flex; justify-content: center; margin-bottom: 15px; }
+        .rings-container { position: relative; width: 120px; height: 120px; }
+        .activity-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
+        .stat-item { }
+        .stat-color { width: 12px; height: 12px; border-radius: 50%; margin: 0 auto 5px; }
+        .stat-color.move { background: #ff3b30; }
+        .stat-color.exercise { background: #30d158; }
+        .stat-color.stand { background: #5ac8fa; }
+        .stat-label { font-size: 11px; color: #8e8e93; }
+        .stat-value { font-size: 14px; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="health-app">
+        <div class="header">
+            <h1>Summary</h1>
+            <p>December 23, 2024</p>
+        </div>
+        <div class="content">
+            <!-- Activity Rings -->
+            <div class="activity-card">
+                <div class="activity-header">
+                    <span class="activity-title">Activity</span>
+                    <span style="color: #007aff; font-size: 14px;">Show More</span>
+                </div>
+                <div class="activity-rings">
+                    <svg class="rings-container" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="#3a1c1c" stroke-width="10"/>
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="#ff3b30" stroke-width="10" stroke-dasharray="314" stroke-dashoffset="78" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                        <circle cx="60" cy="60" r="38" fill="none" stroke="#1c3a1c" stroke-width="10"/>
+                        <circle cx="60" cy="60" r="38" fill="none" stroke="#30d158" stroke-width="10" stroke-dasharray="238" stroke-dashoffset="71" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                        <circle cx="60" cy="60" r="26" fill="none" stroke="#1c3a3a" stroke-width="10"/>
+                        <circle cx="60" cy="60" r="26" fill="none" stroke="#5ac8fa" stroke-width="10" stroke-dasharray="163" stroke-dashoffset="16" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                    </svg>
+                </div>
+                <div class="activity-stats">
+                    <div class="stat-item"><div class="stat-color move"></div><div class="stat-label">Move</div><div class="stat-value">420/500 CAL</div></div>
+                    <div class="stat-item"><div class="stat-color exercise"></div><div class="stat-label">Exercise</div><div class="stat-value">25/30 MIN</div></div>
+                    <div class="stat-item"><div class="stat-color stand"></div><div class="stat-label">Stand</div><div class="stat-value">10/12 HRS</div></div>
+                </div>
+            </div>
+            <!-- Heart Rate -->
+            <div class="ring-card">
+                <div class="ring-container">
+                    <svg class="ring" viewBox="0 0 100 100">
+                        <circle class="ring-bg" cx="50" cy="50" r="40"/>
+                        <circle class="ring-fill red" cx="50" cy="50" r="40" stroke-dasharray="251" stroke-dashoffset="50"/>
+                    </svg>
+                    <div class="ring-center">
+                        <div class="ring-value">72</div>
+                        <div class="ring-label">BPM</div>
+                    </div>
+                </div>
+                <div class="ring-info">
+                    <h3>❤️ Heart Rate</h3>
+                    <p>Your resting heart rate is within normal range</p>
+                </div>
+            </div>
+            <!-- Summary Grid -->
+            <div class="section-title">Highlights</div>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="card-icon">👣</div>
+                    <div class="card-title">Steps</div>
+                    <div class="card-value green">8,432</div>
+                    <div class="card-unit">steps today</div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon">🔥</div>
+                    <div class="card-title">Calories</div>
+                    <div class="card-value orange">420</div>
+                    <div class="card-unit">kcal burned</div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon">🏃</div>
+                    <div class="card-title">Distance</div>
+                    <div class="card-value blue">5.2</div>
+                    <div class="card-unit">km walked</div>
+                </div>
+                <div class="summary-card">
+                    <div class="card-icon">😴</div>
+                    <div class="card-title">Sleep</div>
+                    <div class="card-value pink">7h 23m</div>
+                    <div class="card-unit">last night</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

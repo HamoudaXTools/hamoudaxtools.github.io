@@ -1,0 +1,1421 @@
+/* ============================================
+   iOS Simulator - Professional iPhone Experience
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    --iphone-width: 390px;
+    --iphone-height: 844px;
+    --iphone-radius: 55px;
+    --screen-radius: 48px;
+    --notch-width: 125px;
+    --notch-height: 35px;
+
+    /* Colors */
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --accent-blue: #007AFF;
+    --accent-green: #30D158;
+    --accent-orange: #FF9500;
+    --accent-red: #FF3B30;
+
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 30%, #16213e 60%, #0f0f23 100%);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    padding: 30px 20px;
+    gap: 20px;
+}
+
+/* Background */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+    animation: float 25s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    top: -150px;
+    left: -150px;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -8s;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    top: 40%;
+    left: 60%;
+    animation-delay: -16s;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 40px 70px, white, transparent),
+        radial-gradient(1px 1px at 90px 40px, white, transparent),
+        radial-gradient(2px 2px at 160px 120px, white, transparent);
+    background-repeat: repeat;
+    background-size: 550px 200px;
+    animation: twinkle 5s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(60px, -60px) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-40px, 40px) scale(0.95);
+    }
+
+    75% {
+        transform: translate(40px, 60px) scale(1.05);
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    animation: fadeInDown 0.8s ease;
+}
+
+.page-title h1 {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #a8c0ff 50%, #3f87ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.page-title p {
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Simulator Container */
+.simulator-container {
+    animation: scaleIn 0.6s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* iPhone Frame */
+.iphone-frame {
+    position: relative;
+    width: var(--iphone-width);
+    height: var(--iphone-height);
+    background: linear-gradient(145deg, #3a3a3a 0%, #2a2a2a 20%, #1a1a1a 50%, #0a0a0a 100%);
+    border-radius: var(--iphone-radius);
+    padding: 14px;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.15),
+        0 0 0 3px rgba(0, 0, 0, 0.3),
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iphone-frame:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 0 0 3px rgba(0, 0, 0, 0.3),
+        0 40px 100px rgba(0, 0, 0, 0.7),
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.15);
+}
+
+/* Side Buttons */
+.side-button {
+    position: absolute;
+    background: linear-gradient(180deg, #4a4a4a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    border-radius: 3px;
+}
+
+.silent-switch {
+    width: 4px;
+    height: 25px;
+    left: -4px;
+    top: 100px;
+}
+
+.volume-up {
+    width: 4px;
+    height: 40px;
+    left: -4px;
+    top: 160px;
+}
+
+.volume-down {
+    width: 4px;
+    height: 40px;
+    left: -4px;
+    top: 215px;
+}
+
+.power {
+    width: 4px;
+    height: 90px;
+    right: -4px;
+    top: 190px;
+}
+
+/* Dynamic Island */
+.dynamic-island {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--notch-width);
+    height: var(--notch-height);
+    background: #000;
+    border-radius: 24px;
+    z-index: 100;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.dynamic-island.expanded {
+    width: 280px;
+    height: 90px;
+    border-radius: 40px;
+}
+
+.island-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 0 16px;
+    gap: 12px;
+}
+
+.island-camera {
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle at 35% 35%, #2a2a4a, #000);
+    border-radius: 50%;
+    box-shadow: inset 0 0 4px rgba(100, 100, 200, 0.3);
+}
+
+.island-indicator {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.island-indicator.active {
+    opacity: 1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Screen */
+.screen {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--screen-radius);
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+/* ============= LOCK SCREEN ============= */
+.lock-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.4) 100%),
+        linear-gradient(135deg, #1a1a3e 0%, #2d1b4e 30%, #1e3a5f 60%, #0d1b2a 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 60px 30px 30px;
+    z-index: 50;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+}
+
+.lock-screen.unlocking {
+    transform: scale(1.1);
+    opacity: 0;
+}
+
+.lock-status-bar {
+    text-align: center;
+    margin-bottom: auto;
+}
+
+.lock-time {
+    font-size: 86px;
+    font-weight: 300;
+    letter-spacing: -4px;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.lock-date {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.lock-widgets {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: auto;
+}
+
+.widget {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.widget:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
+}
+
+.widget-icon {
+    font-size: 32px;
+}
+
+.widget-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-temp {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.widget-location {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.lock-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.flashlight-btn,
+.camera-btn {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.flashlight-btn:hover,
+.camera-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.flashlight-btn svg,
+.camera-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.swipe-indicator {
+    text-align: center;
+}
+
+.swipe-indicator span {
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.swipe-bar {
+    width: 140px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+/* ============= HOME SCREEN ============= */
+.home-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px 10px;
+    height: 54px;
+    position: relative;
+    z-index: 50;
+}
+
+.status-left .time {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.signal-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 13px;
+}
+
+.signal-bars .bar {
+    width: 3px;
+    background: white;
+    border-radius: 1px;
+}
+
+.signal-bars .bar:nth-child(1) {
+    height: 4px;
+}
+
+.signal-bars .bar:nth-child(2) {
+    height: 7px;
+}
+
+.signal-bars .bar:nth-child(3) {
+    height: 9px;
+}
+
+.signal-bars .bar:nth-child(4) {
+    height: 12px;
+}
+
+.wifi-icon {
+    width: 17px;
+    height: 17px;
+}
+
+.wifi-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.battery {
+    width: 27px;
+    height: 13px;
+    border: 1.5px solid white;
+    border-radius: 4px;
+    padding: 2px;
+    position: relative;
+}
+
+.battery::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5px;
+    height: 6px;
+    background: white;
+    border-radius: 0 2px 2px 0;
+}
+
+.battery-level {
+    width: 100%;
+    height: 100%;
+    background: var(--accent-green);
+    border-radius: 2px;
+}
+
+/* Wallpaper */
+.wallpaper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%),
+        linear-gradient(135deg,
+            #1a1a3e 0%,
+            #2d1b4e 20%,
+            #4a2c6a 40%,
+            #1e3a5f 60%,
+            #0d1b2a 80%,
+            #1a1a2e 100%);
+    z-index: 0;
+}
+
+/* App Grid */
+.app-grid {
+    flex: 1;
+    padding: 20px 25px;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.app-page {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 15px;
+    justify-items: center;
+}
+
+/* App Icons */
+.app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.app-icon:hover {
+    transform: scale(1.1);
+}
+
+.app-icon:active {
+    transform: scale(0.95);
+}
+
+.icon-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.app-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    max-width: 80px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Weather App Icon */
+.weather-app-icon {
+    background: linear-gradient(180deg, #47bfff 0%, #1e90ff 100%);
+}
+
+.weather-icon-bg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.temp-display {
+    font-size: 28px;
+    font-weight: 300;
+    color: white;
+}
+
+.cloud-icon {
+    width: 30px;
+    height: 18px;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    margin-top: -5px;
+}
+
+.cloud-icon::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: white;
+    border-radius: 50%;
+    top: -8px;
+    left: 5px;
+}
+
+.cloud-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    top: -5px;
+    right: 5px;
+}
+
+/* Clock App Icon */
+.clock-app-icon {
+    background: #000;
+}
+
+.clock-face {
+    width: 50px;
+    height: 50px;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.clock-hand {
+    position: absolute;
+    background: white;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom center;
+    border-radius: 2px;
+}
+
+.clock-hand.hour {
+    width: 3px;
+    height: 15px;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+.clock-hand.minute {
+    width: 2px;
+    height: 20px;
+    transform: translateX(-50%) rotate(0deg);
+}
+
+/* Calculator Icon */
+.calculator-icon {
+    background: linear-gradient(180deg, #2e2e2e 0%, #1a1a1a 100%);
+}
+
+.calc-display {
+    font-size: 24px;
+    color: #ff9500;
+    margin-bottom: 5px;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+}
+
+.calc-buttons span {
+    width: 12px;
+    height: 8px;
+    background: #4a4a4a;
+    border-radius: 2px;
+}
+
+/* Photos Icon */
+.photos-icon {
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #5f27cd 75%, #ff6b6b 100%);
+}
+
+.photo-flower {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50% 0 50% 0;
+    transform: rotate(45deg);
+    position: relative;
+}
+
+.photo-flower::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50% 0 50% 0;
+    transform: rotate(90deg);
+}
+
+/* Camera Icon */
+.camera-icon {
+    background: linear-gradient(180deg, #3a3a3a 0%, #1a1a1a 100%);
+}
+
+.camera-lens {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, #666 0%, #333 100%);
+    border-radius: 50%;
+    border: 3px solid #555;
+    position: relative;
+}
+
+.camera-lens::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: #222;
+    border-radius: 50%;
+}
+
+/* Notes Icon */
+.notes-icon {
+    background: linear-gradient(180deg, #fff9c4 0%, #fff176 100%);
+}
+
+.notes-lines {
+    width: 40px;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.notes-lines::before,
+.notes-lines::after {
+    content: '';
+    height: 3px;
+    background: #bbb;
+    border-radius: 2px;
+}
+
+.notes-lines::before {
+    width: 100%;
+}
+
+.notes-lines::after {
+    width: 70%;
+}
+
+/* Settings Icon */
+.settings-icon {
+    background: linear-gradient(180deg, #8e8e93 0%, #636366 100%);
+}
+
+.gear {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #aaa 0%, #666 100%);
+    border-radius: 50%;
+    position: relative;
+}
+
+.gear::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: #444;
+    border-radius: 50%;
+}
+
+/* Safari Icon */
+.safari-icon {
+    background: linear-gradient(180deg, #5ac8fa 0%, #007aff 100%);
+}
+
+.compass {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.compass::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 4px;
+    height: 30px;
+    background: linear-gradient(180deg, #ff3b30 50%, white 50%);
+}
+
+/* Music Icon */
+.music-icon {
+    background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);
+}
+
+.music-note {
+    font-size: 36px;
+    color: white;
+}
+
+/* Maps Icon */
+.maps-icon {
+    background: linear-gradient(180deg, #4cd964 0%, #34c759 100%);
+}
+
+.map-marker {
+    width: 20px;
+    height: 30px;
+    background: #ff3b30;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: relative;
+}
+
+.map-marker::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* Messages Icon */
+.messages-icon {
+    background: linear-gradient(180deg, #5ed57c 0%, #34c759 100%);
+}
+
+.message-bubble {
+    width: 40px;
+    height: 35px;
+    background: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #34c759;
+    position: relative;
+}
+
+.message-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 8px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 0 0 12px 0;
+}
+
+/* Mail Icon */
+.mail-icon {
+    background: linear-gradient(180deg, #5ac8fa 0%, #007aff 100%);
+}
+
+.mail-envelope {
+    width: 40px;
+    height: 28px;
+    background: white;
+    border-radius: 4px;
+    position: relative;
+}
+
+.mail-envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 14px solid #007aff;
+}
+
+/* App Store Icon */
+.appstore-icon {
+    background: linear-gradient(180deg, #5ac8fa 0%, #007aff 100%);
+}
+
+.appstore-a {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    font-style: italic;
+}
+
+/* Files Icon */
+.files-icon {
+    background: linear-gradient(180deg, #5ac8fa 0%, #007aff 100%);
+}
+
+.folder {
+    width: 40px;
+    height: 30px;
+    background: white;
+    border-radius: 0 5px 5px 5px;
+    position: relative;
+}
+
+.folder::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 18px;
+    height: 8px;
+    background: white;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Health Icon */
+.health-icon {
+    background: linear-gradient(180deg, #fff 0%, #f0f0f0 100%);
+}
+
+.heart {
+    font-size: 36px;
+}
+
+/* Wallet Icon */
+.wallet-icon {
+    background: linear-gradient(180deg, #1c1c1e 0%, #000 100%);
+}
+
+.cards {
+    width: 40px;
+    height: 30px;
+    position: relative;
+}
+
+.cards::before,
+.cards::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 22px;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cards::before {
+    background: #ff9500;
+    top: 0;
+}
+
+.cards::after {
+    background: #5ac8fa;
+    top: 8px;
+}
+
+/* Phone Icon */
+.phone-icon {
+    background: linear-gradient(180deg, #5ed57c 0%, #34c759 100%);
+}
+
+.phone-receiver {
+    width: 30px;
+    height: 30px;
+    border: 4px solid white;
+    border-radius: 8px;
+    transform: rotate(-45deg);
+    position: relative;
+}
+
+.phone-receiver::before,
+.phone-receiver::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+}
+
+.phone-receiver::before {
+    top: -2px;
+    left: -2px;
+}
+
+.phone-receiver::after {
+    bottom: -2px;
+    right: -2px;
+}
+
+/* Page Dots */
+.page-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* Dock */
+.dock {
+    position: relative;
+    padding: 12px 20px 30px;
+    z-index: 20;
+}
+
+.dock-bg {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    right: 15px;
+    bottom: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dock-icons {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    z-index: 1;
+}
+
+.dock-icon .app-name {
+    display: none;
+}
+
+.dock-icon .icon-img {
+    width: 55px;
+    height: 55px;
+}
+
+/* App View */
+.app-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 80;
+}
+
+.app-view iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: var(--screen-radius);
+}
+
+.app-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    gap: 15px;
+}
+
+.app-loading-icon {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Control Center */
+.control-center {
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    right: 10px;
+    height: 450px;
+    background: rgba(30, 30, 30, 0.9);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-radius: 40px;
+    z-index: 90;
+    padding: 15px 20px 30px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-center.active {
+    transform: translateY(-100%);
+}
+
+.control-handle {
+    width: 40px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    margin: 0 auto 20px;
+}
+
+.control-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.control-group {
+    display: grid;
+    gap: 10px;
+}
+
+.control-group.connectivity {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.control-btn {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.control-btn.active {
+    background: var(--accent-blue);
+}
+
+.control-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.control-large {
+    grid-column: span 2;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.music-control {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.now-playing {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.album-art {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.artist-name {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.playback-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.playback-controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.control-group.utilities {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.control-group.sliders {
+    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.slider-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.slider-control svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.slider-track {
+    width: 35px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 18px;
+}
+
+/* Home Indicator */
+.home-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 3px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 14px 28px;
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    :root {
+        --iphone-width: 380px;
+        --iphone-height: 820px;
+        --iphone-radius: 55px;
+        --screen-radius: 48px;
+    }
+
+    .icon-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .dock-icon .icon-img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .lock-time {
+        font-size: 72px;
+    }
+}

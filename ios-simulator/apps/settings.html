@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            height: 100%;
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .settings-app {
+            min-height: 100%;
+            background: #000;
+        }
+
+        .header {
+            padding: 15px 20px;
+            text-align: center;
+            background: #1c1c1e;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header h1 { font-size: 18px; font-weight: 600; }
+
+        .content {
+            padding: 20px 0;
+            padding-bottom: 40px;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: #1c1c1e;
+            border-radius: 12px;
+            margin: 0 15px 25px;
+            cursor: pointer;
+        }
+
+        .profile-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #5ac8fa, #007aff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .profile-info h2 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .profile-info p {
+            font-size: 13px;
+            color: #8e8e93;
+        }
+
+        .profile-arrow {
+            margin-left: auto;
+            color: #8e8e93;
+        }
+
+        /* Settings Groups */
+        .settings-group {
+            background: #1c1c1e;
+            border-radius: 12px;
+            margin: 0 15px 25px;
+            overflow: hidden;
+        }
+
+        .settings-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-bottom: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .settings-item:last-child { border-bottom: none; }
+
+        .settings-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-right: 12px;
+        }
+
+        .settings-label {
+            flex: 1;
+            font-size: 16px;
+        }
+
+        .settings-value {
+            color: #8e8e93;
+            font-size: 15px;
+            margin-right: 5px;
+        }
+
+        .settings-arrow {
+            color: #8e8e93;
+            font-size: 14px;
+        }
+
+        /* Toggle Switch */
+        .toggle {
+            width: 51px;
+            height: 31px;
+            background: #39393d;
+            border-radius: 16px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle.active { background: #30d158; }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 27px;
+            height: 27px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .toggle.active::after { transform: translateX(20px); }
+
+        /* Icon Colors */
+        .icon-blue { background: #007aff; }
+        .icon-green { background: #30d158; }
+        .icon-orange { background: #ff9500; }
+        .icon-red { background: #ff3b30; }
+        .icon-purple { background: #af52de; }
+        .icon-pink { background: #ff2d55; }
+        .icon-gray { background: #8e8e93; }
+        .icon-teal { background: #5ac8fa; }
+    </style>
+</head>
+<body>
+    <div class="settings-app">
+        <div class="header">
+            <h1>Settings</h1>
+        </div>
+
+        <div class="content">
+            <!-- Profile -->
+            <div class="profile-section">
+                <div class="profile-avatar">👤</div>
+                <div class="profile-info">
+                    <h2>Apple ID</h2>
+                    <p>iCloud, Media & Purchases</p>
+                </div>
+                <span class="profile-arrow">›</span>
+            </div>
+
+            <!-- Main Settings -->
+            <div class="settings-group">
+                <div class="settings-item">
+                    <div class="settings-icon icon-orange">✈️</div>
+                    <span class="settings-label">Airplane Mode</span>
+                    <div class="toggle" data-setting="airplane"></div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-blue">📶</div>
+                    <span class="settings-label">Wi-Fi</span>
+                    <span class="settings-value">Home_WiFi</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-blue">📱</div>
+                    <span class="settings-label">Bluetooth</span>
+                    <span class="settings-value">On</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-green">📡</div>
+                    <span class="settings-label">Cellular</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-green">🔗</div>
+                    <span class="settings-label">Personal Hotspot</span>
+                    <span class="settings-value">Off</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <div class="settings-item">
+                    <div class="settings-icon icon-red">🔔</div>
+                    <span class="settings-label">Notifications</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-purple">🔊</div>
+                    <span class="settings-label">Sounds & Haptics</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-purple">🌙</div>
+                    <span class="settings-label">Focus</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-blue">⏰</div>
+                    <span class="settings-label">Screen Time</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <div class="settings-item">
+                    <div class="settings-icon icon-gray">⚙️</div>
+                    <span class="settings-label">General</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-blue">🎚️</div>
+                    <span class="settings-label">Control Center</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-blue">💡</div>
+                    <span class="settings-label">Display & Brightness</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-teal">🏠</div>
+                    <span class="settings-label">Home Screen</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-blue">♿</div>
+                    <span class="settings-label">Accessibility</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-pink">🎨</div>
+                    <span class="settings-label">Wallpaper</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <div class="settings-item">
+                    <div class="settings-icon icon-green">🔋</div>
+                    <span class="settings-label">Battery</span>
+                    <span class="settings-value">87%</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-icon icon-gray">🔐</div>
+                    <span class="settings-label">Privacy & Security</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <div class="settings-item">
+                    <div class="settings-icon" style="background: linear-gradient(135deg, #5ac8fa, #007aff);">🔑</div>
+                    <span class="settings-label">Passwords</span>
+                    <span class="settings-arrow">›</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle switches
+        document.querySelectorAll('.toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                toggle.classList.toggle('active');
+            });
+        });
+
+        // Clickable items
+        document.querySelectorAll('.settings-item').forEach(item => {
+            if (!item.querySelector('.toggle')) {
+                item.addEventListener('click', () => {
+                    const label = item.querySelector('.settings-label').textContent;
+                    alert(`${label} settings would open here`);
+                });
+            }
+        });
+
+        document.querySelector('.profile-section').addEventListener('click', () => {
+            alert('Apple ID settings would open here');
+        });
+    </script>
+</body>
+</html>

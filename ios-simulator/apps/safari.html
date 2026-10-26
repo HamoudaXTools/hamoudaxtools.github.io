@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Safari</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            font-family: -apple-system, sans-serif;
+            height: 100%;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+
+        .safari-app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Content */
+        .browser-content {
+            flex: 1;
+            background: white;
+            overflow-y: auto;
+            color: #333;
+        }
+
+        /* Start Page */
+        .start-page {
+            padding: 20px;
+            background: #f2f2f7;
+            min-height: 100%;
+        }
+
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .favorite-item {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .favorite-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .favorite-name {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 20px 0 15px;
+            color: #333;
+        }
+
+        .reading-list {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .reading-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .reading-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .reading-info { flex: 1; }
+        .reading-title { font-size: 14px; font-weight: 500; color: #333; }
+        .reading-url { font-size: 12px; color: #8e8e93; }
+
+        /* Address Bar */
+        .address-bar {
+            display: flex;
+            gap: 10px;
+            padding: 10px 15px 25px;
+            background: #1c1c1e;
+            border-top: 1px solid #333;
+        }
+
+        .url-input {
+            flex: 1;
+            background: #2c2c2e;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 15px;
+            color: white;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .url-input::placeholder { color: #8e8e93; }
+
+        /* Toolbar */
+        .toolbar {
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 15px;
+            background: #1c1c1e;
+        }
+
+        .toolbar-btn {
+            background: none;
+            border: none;
+            color: #007aff;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .toolbar-btn:disabled {
+            color: #555;
+        }
+
+        /* Web View */
+        .web-view {
+            display: none;
+            flex: 1;
+            background: white;
+        }
+
+        .web-view.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .web-content {
+            flex: 1;
+            padding: 20px;
+            color: #333;
+        }
+
+        .web-content h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .web-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="safari-app">
+        <!-- Start Page -->
+        <div class="browser-content" id="start-page">
+            <div class="start-page">
+                <div class="favorites-grid">
+                    <div class="favorite-item" data-url="apple">
+                        <div class="favorite-icon" style="background: #f5f5f7;">🍎</div>
+                        <div class="favorite-name">Apple</div>
+                    </div>
+                    <div class="favorite-item" data-url="google">
+                        <div class="favorite-icon" style="background: white;">🔍</div>
+                        <div class="favorite-name">Google</div>
+                    </div>
+                    <div class="favorite-item" data-url="youtube">
+                        <div class="favorite-icon" style="background: #ff0000;">▶️</div>
+                        <div class="favorite-name">YouTube</div>
+                    </div>
+                    <div class="favorite-item" data-url="twitter">
+                        <div class="favorite-icon" style="background: #1da1f2;">🐦</div>
+                        <div class="favorite-name">Twitter</div>
+                    </div>
+                    <div class="favorite-item" data-url="facebook">
+                        <div class="favorite-icon" style="background: #1877f2;">📘</div>
+                        <div class="favorite-name">Facebook</div>
+                    </div>
+                    <div class="favorite-item" data-url="instagram">
+                        <div class="favorite-icon" style="background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);">📷</div>
+                        <div class="favorite-name">Instagram</div>
+                    </div>
+                    <div class="favorite-item" data-url="amazon">
+                        <div class="favorite-icon" style="background: #ff9900;">📦</div>
+                        <div class="favorite-name">Amazon</div>
+                    </div>
+                    <div class="favorite-item" data-url="wikipedia">
+                        <div class="favorite-icon" style="background: white;">📚</div>
+                        <div class="favorite-name">Wikipedia</div>
+                    </div>
+                </div>
+
+                <div class="section-title">Reading List</div>
+                <div class="reading-list">
+                    <div class="reading-item">
+                        <div class="reading-thumb">📰</div>
+                        <div class="reading-info">
+                            <div class="reading-title">iOS 18 Features You Need to Know</div>
+                            <div class="reading-url">apple.com</div>
+                        </div>
+                    </div>
+                    <div class="reading-item">
+                        <div class="reading-thumb">💻</div>
+                        <div class="reading-info">
+                            <div class="reading-title">Web Development Trends 2024</div>
+                            <div class="reading-url">dev.to</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Web View -->
+        <div class="web-view" id="web-view">
+            <div class="web-content" id="web-content">
+                <h1>Welcome</h1>
+                <p>This is a simulated web page.</p>
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <button class="toolbar-btn" id="btn-back" disabled>◀</button>
+            <button class="toolbar-btn" id="btn-forward" disabled>▶</button>
+            <button class="toolbar-btn">📤</button>
+            <button class="toolbar-btn">📖</button>
+            <button class="toolbar-btn">⊞</button>
+        </div>
+
+        <div class="address-bar">
+            <input type="text" class="url-input" id="url-input" placeholder="Search or enter website">
+        </div>
+    </div>
+
+    <script>
+        const startPage = document.getElementById('start-page');
+        const webView = document.getElementById('web-view');
+        const webContent = document.getElementById('web-content');
+        const urlInput = document.getElementById('url-input');
+        const btnBack = document.getElementById('btn-back');
+
+        const pages = {
+            apple: {
+                title: 'Apple',
+                content: '<h1>🍎 Apple</h1><p>Think Different. Explore our latest products including iPhone, iPad, Mac, and more.</p><p>The future is here with Apple Intelligence.</p>'
+            },
+            google: {
+                title: 'Google',
+                content: '<h1>🔍 Google</h1><p>Search the world\'s information, including webpages, images, videos and more.</p><p>Google has many special features to help you find exactly what you\'re looking for.</p>'
+            },
+            youtube: {
+                title: 'YouTube',
+                content: '<h1>▶️ YouTube</h1><p>Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.</p>'
+            },
+            twitter: {
+                title: 'X (Twitter)',
+                content: '<h1>🐦 X</h1><p>See what\'s happening in the world right now. Join the conversation.</p>'
+            },
+            facebook: {
+                title: 'Facebook',
+                content: '<h1>📘 Facebook</h1><p>Connect with friends and the world around you on Facebook.</p>'
+            },
+            instagram: {
+                title: 'Instagram',
+                content: '<h1>📷 Instagram</h1><p>Create and share photos and videos with friends and followers.</p>'
+            },
+            amazon: {
+                title: 'Amazon',
+                content: '<h1>📦 Amazon</h1><p>Shop millions of products. Free shipping with Prime.</p>'
+            },
+            wikipedia: {
+                title: 'Wikipedia',
+                content: '<h1>📚 Wikipedia</h1><p>The free encyclopedia that anyone can edit. Millions of articles in hundreds of languages.</p>'
+            }
+        };
+
+        function loadPage(key) {
+            const page = pages[key];
+            if (page) {
+                webContent.innerHTML = page.content;
+                urlInput.value = key + '.com';
+                startPage.style.display = 'none';
+                webView.classList.add('active');
+                btnBack.disabled = false;
+            }
+        }
+
+        document.querySelectorAll('.favorite-item').forEach(item => {
+            item.addEventListener('click', () => {
+                loadPage(item.dataset.url);
+            });
+        });
+
+        btnBack.addEventListener('click', () => {
+            startPage.style.display = 'block';
+            webView.classList.remove('active');
+            urlInput.value = '';
+            btnBack.disabled = true;
+        });
+
+        urlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const url = urlInput.value.toLowerCase().replace('.com', '').replace('www.', '');
+                if (pages[url]) {
+                    loadPage(url);
+                } else {
+                    webContent.innerHTML = `<h1>🌐 ${urlInput.value}</h1><p>Page loaded (simulated)</p>`;
+                    startPage.style.display = 'none';
+                    webView.classList.add('active');
+                    btnBack.disabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

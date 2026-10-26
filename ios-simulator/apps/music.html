@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Music</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            height: 100%;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .music-app {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Header */
+        .header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 { font-size: 28px; font-weight: 700; }
+
+        /* Content */
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 20px 120px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 20px 0 15px;
+        }
+
+        /* Album Grid */
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .album-item {
+            cursor: pointer;
+        }
+
+        .album-cover {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin-bottom: 8px;
+        }
+
+        .album-title {
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .album-artist {
+            font-size: 13px;
+            color: #8e8e93;
+        }
+
+        /* Song List */
+        .song-list {
+            margin-top: 10px;
+        }
+
+        .song-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+
+        .song-item:active {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .song-num {
+            width: 30px;
+            color: #8e8e93;
+            font-size: 14px;
+        }
+
+        .song-info {
+            flex: 1;
+        }
+
+        .song-title {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+
+        .song-artist {
+            font-size: 13px;
+            color: #8e8e93;
+        }
+
+        .song-duration {
+            color: #8e8e93;
+            font-size: 14px;
+        }
+
+        .song-item.playing .song-title {
+            color: #ff2d55;
+        }
+
+        .song-item.playing .song-num {
+            color: #ff2d55;
+        }
+
+        /* Now Playing Bar */
+        .now-playing {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 30, 40, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 10px 15px 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .now-playing-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .now-playing-cover {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .now-playing-info {
+            flex: 1;
+        }
+
+        .now-playing-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .now-playing-artist {
+            font-size: 12px;
+            color: #8e8e93;
+        }
+
+        .now-playing-controls {
+            display: flex;
+            gap: 20px;
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #ff2d55;
+            border-radius: 2px;
+            width: 35%;
+            transition: width 0.3s;
+        }
+
+        /* Full Player */
+        .full-player {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, #2a1a3e 0%, #0f0f1a 100%);
+            display: none;
+            flex-direction: column;
+            padding: 20px;
+            z-index: 100;
+        }
+
+        .full-player.active { display: flex; }
+
+        .full-player-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-minimize {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .full-cover {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1;
+            margin: 0 auto 30px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .full-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .full-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .full-artist {
+            font-size: 16px;
+            color: #ff2d55;
+        }
+
+        .full-progress {
+            margin: 20px 0;
+        }
+
+        .full-progress-bar {
+            height: 5px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+        }
+
+        .full-progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 3px;
+            width: 35%;
+        }
+
+        .full-times {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #8e8e93;
+        }
+
+        .full-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .full-controls .control-btn {
+            font-size: 28px;
+        }
+
+        .btn-play-large {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="music-app">
+        <div class="header">
+            <h1>Listen Now</h1>
+        </div>
+
+        <div class="content">
+            <div class="section-title">Recently Played</div>
+            <div class="album-grid">
+                <div class="album-item">
+                    <div class="album-cover" style="background: linear-gradient(135deg, #fc5c7d, #6a82fb);">🎵</div>
+                    <div class="album-title">Chill Vibes</div>
+                    <div class="album-artist">Various Artists</div>
+                </div>
+                <div class="album-item">
+                    <div class="album-cover" style="background: linear-gradient(135deg, #11998e, #38ef7d);">🎸</div>
+                    <div class="album-title">Rock Classics</div>
+                    <div class="album-artist">Various Artists</div>
+                </div>
+                <div class="album-item">
+                    <div class="album-cover" style="background: linear-gradient(135deg, #ee0979, #ff6a00);">🎤</div>
+                    <div class="album-title">Pop Hits 2024</div>
+                    <div class="album-artist">Various Artists</div>
+                </div>
+                <div class="album-item">
+                    <div class="album-cover" style="background: linear-gradient(135deg, #8e2de2, #4a00e0);">🎹</div>
+                    <div class="album-title">Electronic</div>
+                    <div class="album-artist">Various Artists</div>
+                </div>
+            </div>
+
+            <div class="section-title">Top Songs</div>
+            <div class="song-list" id="song-list">
+                <div class="song-item playing" data-song="1">
+                    <span class="song-num">♪</span>
+                    <div class="song-info">
+                        <div class="song-title">Blinding Lights</div>
+                        <div class="song-artist">The Weeknd</div>
+                    </div>
+                    <span class="song-duration">3:20</span>
+                </div>
+                <div class="song-item" data-song="2">
+                    <span class="song-num">2</span>
+                    <div class="song-info">
+                        <div class="song-title">Shape of You</div>
+                        <div class="song-artist">Ed Sheeran</div>
+                    </div>
+                    <span class="song-duration">3:53</span>
+                </div>
+                <div class="song-item" data-song="3">
+                    <span class="song-num">3</span>
+                    <div class="song-info">
+                        <div class="song-title">Dance Monkey</div>
+                        <div class="song-artist">Tones and I</div>
+                    </div>
+                    <span class="song-duration">3:29</span>
+                </div>
+                <div class="song-item" data-song="4">
+                    <span class="song-num">4</span>
+                    <div class="song-info">
+                        <div class="song-title">Someone You Loved</div>
+                        <div class="song-artist">Lewis Capaldi</div>
+                    </div>
+                    <span class="song-duration">3:02</span>
+                </div>
+                <div class="song-item" data-song="5">
+                    <span class="song-num">5</span>
+                    <div class="song-info">
+                        <div class="song-title">Bad Guy</div>
+                        <div class="song-artist">Billie Eilish</div>
+                    </div>
+                    <span class="song-duration">3:14</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Now Playing Bar -->
+        <div class="now-playing" id="now-playing">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="now-playing-content">
+                <div class="now-playing-cover">🎵</div>
+                <div class="now-playing-info">
+                    <div class="now-playing-title" id="np-title">Blinding Lights</div>
+                    <div class="now-playing-artist" id="np-artist">The Weeknd</div>
+                </div>
+                <div class="now-playing-controls">
+                    <button class="control-btn" id="btn-play">⏸</button>
+                    <button class="control-btn" id="btn-next">⏭</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Player -->
+        <div class="full-player" id="full-player">
+            <div class="full-player-header">
+                <button class="btn-minimize" id="btn-minimize">▼</button>
+            </div>
+            <div class="full-cover">🎵</div>
+            <div class="full-info">
+                <div class="full-title" id="full-title">Blinding Lights</div>
+                <div class="full-artist" id="full-artist">The Weeknd</div>
+            </div>
+            <div class="full-progress">
+                <div class="full-progress-bar">
+                    <div class="full-progress-fill" id="full-progress-fill"></div>
+                </div>
+                <div class="full-times">
+                    <span id="time-current">1:08</span>
+                    <span id="time-total">3:20</span>
+                </div>
+            </div>
+            <div class="full-controls">
+                <button class="control-btn">⏮</button>
+                <button class="control-btn btn-play-large" id="btn-play-full">⏸</button>
+                <button class="control-btn">⏭</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isPlaying = true;
+        let progress = 35;
+
+        const btnPlay = document.getElementById('btn-play');
+        const btnPlayFull = document.getElementById('btn-play-full');
+        const progressFill = document.getElementById('progress-fill');
+        const fullProgressFill = document.getElementById('full-progress-fill');
+        const fullPlayer = document.getElementById('full-player');
+        const nowPlaying = document.getElementById('now-playing');
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            btnPlay.textContent = isPlaying ? '⏸' : '▶️';
+            btnPlayFull.textContent = isPlaying ? '⏸' : '▶️';
+        }
+
+        btnPlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            togglePlay();
+        });
+
+        btnPlayFull.addEventListener('click', togglePlay);
+
+        nowPlaying.addEventListener('click', () => {
+            fullPlayer.classList.add('active');
+        });
+
+        document.getElementById('btn-minimize').addEventListener('click', () => {
+            fullPlayer.classList.remove('active');
+        });
+
+        // Song selection
+        document.querySelectorAll('.song-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.song-item').forEach(s => s.classList.remove('playing'));
+                item.classList.add('active');
+                item.classList.add('playing');
+                const num = item.querySelector('.song-num');
+                document.querySelectorAll('.song-num').forEach((n, i) => {
+                    n.textContent = i + 1;
+                });
+                num.textContent = '♪';
+                
+                const title = item.querySelector('.song-title').textContent;
+                const artist = item.querySelector('.song-artist').textContent;
+                document.getElementById('np-title').textContent = title;
+                document.getElementById('np-artist').textContent = artist;
+                document.getElementById('full-title').textContent = title;
+                document.getElementById('full-artist').textContent = artist;
+                
+                isPlaying = true;
+                btnPlay.textContent = '⏸';
+                btnPlayFull.textContent = '⏸';
+            });
+        });
+
+        // Simulate progress
+        setInterval(() => {
+            if (isPlaying) {
+                progress = (progress + 0.5) % 100;
+                progressFill.style.width = progress + '%';
+                fullProgressFill.style.width = progress + '%';
+                
+                const totalSec = 200;
+                const currentSec = Math.floor(totalSec * progress / 100);
+                const mins = Math.floor(currentSec / 60);
+                const secs = currentSec % 60;
+                document.getElementById('time-current').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+        }, 500);
+    </script>
+</body>
+</html>

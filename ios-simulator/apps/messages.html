@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Messages</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, sans-serif; height: 100%; background: #000; color: white; overflow: hidden; }
+        .messages-app { display: flex; flex-direction: column; height: 100%; }
+        .header { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; background: #1c1c1e; }
+        .header h1 { font-size: 32px; font-weight: 700; }
+        .header-btn { background: none; border: none; color: #007aff; font-size: 24px; cursor: pointer; }
+        .search-bar { padding: 10px 15px; background: #1c1c1e; }
+        .search-input { width: 100%; padding: 10px 15px; background: #2c2c2e; border: none; border-radius: 10px; color: white; font-size: 16px; }
+        .search-input::placeholder { color: #8e8e93; }
+        .conversation-list { flex: 1; overflow-y: auto; }
+        .conversation-item { display: flex; gap: 12px; padding: 12px 15px; border-bottom: 1px solid #333; cursor: pointer; }
+        .conversation-item:active { background: #1c1c1e; }
+        .avatar { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+        .conv-info { flex: 1; min-width: 0; }
+        .conv-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .conv-name { font-size: 17px; font-weight: 600; }
+        .conv-time { font-size: 14px; color: #8e8e93; }
+        .conv-preview { font-size: 15px; color: #8e8e93; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .conv-arrow { color: #8e8e93; align-self: center; }
+        .unread .conv-name { color: #007aff; }
+        .unread::after { content: ''; width: 10px; height: 10px; background: #007aff; border-radius: 50%; align-self: center; }
+        /* Chat View */
+        .chat-view { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #000; display: none; flex-direction: column; z-index: 100; }
+        .chat-view.active { display: flex; }
+        .chat-header { display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: #1c1c1e; }
+        .btn-back { background: none; border: none; color: #007aff; font-size: 28px; cursor: pointer; }
+        .chat-avatar { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .chat-name { flex: 1; font-size: 17px; font-weight: 600; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 8px; }
+        .message { max-width: 75%; padding: 10px 14px; border-radius: 18px; font-size: 16px; line-height: 1.4; }
+        .message.received { background: #2c2c2e; align-self: flex-start; border-bottom-left-radius: 4px; }
+        .message.sent { background: #007aff; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .chat-input-area { display: flex; gap: 10px; padding: 10px 15px 30px; background: #1c1c1e; }
+        .chat-input { flex: 1; padding: 10px 15px; background: #2c2c2e; border: none; border-radius: 20px; color: white; font-size: 16px; }
+        .btn-send { background: #007aff; border: none; width: 35px; height: 35px; border-radius: 50%; color: white; font-size: 18px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="messages-app">
+        <div class="header">
+            <button class="header-btn">Edit</button>
+            <h1>Messages</h1>
+            <button class="header-btn">✏️</button>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search">
+        </div>
+        <div class="conversation-list" id="conversation-list"></div>
+        <!-- Chat View -->
+        <div class="chat-view" id="chat-view">
+            <div class="chat-header">
+                <button class="btn-back" id="btn-back">‹</button>
+                <div class="chat-avatar" id="chat-avatar" style="background: #007aff;">👤</div>
+                <div class="chat-name" id="chat-name">Contact</div>
+                <button class="header-btn">📞</button>
+            </div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chat-input" placeholder="iMessage">
+                <button class="btn-send" id="btn-send">↑</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const conversations = [
+            { id: 1, name: 'Mom', avatar: '👩', color: '#ff2d55', preview: 'See you tomorrow! 💕', time: '2:30 PM', unread: true, messages: [
+                { text: 'Hi sweetheart!', sent: false }, { text: 'How are you doing?', sent: false }, { text: 'I\'m good mom! Just working', sent: true }, { text: 'See you tomorrow! 💕', sent: false }
+            ]},
+            { id: 2, name: 'John', avatar: '👨', color: '#007aff', preview: 'Sounds good, let me know', time: '1:15 PM', unread: false, messages: [
+                { text: 'Hey, are we still on for lunch?', sent: true }, { text: 'Yes! How about 12:30?', sent: false }, { text: 'Perfect, I\'ll meet you there', sent: true }, { text: 'Sounds good, let me know', sent: false }
+            ]},
+            { id: 3, name: 'Work Group', avatar: '💼', color: '#ff9500', preview: 'Sarah: Meeting at 3pm', time: '11:00 AM', unread: true, messages: [
+                { text: 'Team meeting update', sent: false }, { text: 'Sarah: Meeting at 3pm', sent: false }
+            ]},
+            { id: 4, name: 'Alex', avatar: '🧑', color: '#30d158', preview: 'That was fun! 🎉', time: 'Yesterday', unread: false, messages: [
+                { text: 'Great party last night!', sent: true }, { text: 'That was fun! 🎉', sent: false }
+            ]}
+        ];
+        const list = document.getElementById('conversation-list');
+        list.innerHTML = conversations.map(c => `
+            <div class="conversation-item ${c.unread ? 'unread' : ''}" data-id="${c.id}">
+                <div class="avatar" style="background: ${c.color}">${c.avatar}</div>
+                <div class="conv-info">
+                    <div class="conv-header"><span class="conv-name">${c.name}</span><span class="conv-time">${c.time}</span></div>
+                    <div class="conv-preview">${c.preview}</div>
+                </div>
+                <span class="conv-arrow">›</span>
+            </div>
+        `).join('');
+        const chatView = document.getElementById('chat-view');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatName = document.getElementById('chat-name');
+        const chatAvatar = document.getElementById('chat-avatar');
+        const chatInput = document.getElementById('chat-input');
+        document.querySelectorAll('.conversation-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const conv = conversations.find(c => c.id == item.dataset.id);
+                chatName.textContent = conv.name;
+                chatAvatar.textContent = conv.avatar;
+                chatAvatar.style.background = conv.color;
+                chatMessages.innerHTML = conv.messages.map(m => `<div class="message ${m.sent ? 'sent' : 'received'}">${m.text}</div>`).join('');
+                chatView.classList.add('active');
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            });
+        });
+        document.getElementById('btn-back').addEventListener('click', () => chatView.classList.remove('active'));
+        document.getElementById('btn-send').addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendMessage(); });
+        function sendMessage() {
+            if (chatInput.value.trim()) {
+                chatMessages.innerHTML += `<div class="message sent">${chatInput.value}</div>`;
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
