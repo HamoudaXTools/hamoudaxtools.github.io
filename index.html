@@ -469,6 +469,49 @@ header .taskbar-dropdown a{font-size:var(--xt-nav-font);line-height:1.45;padding
   #authGate .auth-form-side{overflow:visible!important}
 }
 </style>
+
+<style id="hx-final-login-fixes">
+/* Final overrides: respect hidden state so successful sign-in reveals the site. */
+#authGate[hidden], #firebaseLicensePanel[hidden], [hidden] { display: none !important; }
+@media (min-width: 851px) {
+  #authGate.auth-gate { height: 100vh !important; min-height: 0 !important; overflow: hidden !important; }
+  #authGate .auth-layout { height: 100vh !important; min-height: 0 !important; overflow: hidden !important; }
+  #authGate .auth-showcase { padding: 24px clamp(24px,3vw,48px) !important; }
+  #authGate .hx-emblem { width: clamp(125px,20vh,190px) !important; height: clamp(125px,20vh,190px) !important; margin-bottom: 14px !important; }
+  #authGate .hx-emblem span { font-size: clamp(70px,11vh,100px) !important; }
+  #authGate .hx-wordmark { font-size: clamp(27px,3vw,42px) !important; }
+  #authGate .hx-divider { margin: 14px 0 !important; }
+  #authGate .hx-show-title { font-size: clamp(20px,2.5vh,27px) !important; margin: 0 0 6px !important; }
+  #authGate .hx-show-copy { font-size: 11px !important; line-height: 1.55 !important; margin: 6px 0 !important; }
+  #authGate .hx-points { margin-top: 8px !important; gap: 5px !important; }
+  #authGate .hx-points span { font-size: 10px !important; padding: 4px 7px !important; }
+  #authGate .auth-form-side { padding: 10px clamp(20px,3vw,44px) !important; overflow: hidden !important; }
+  #authGate .auth-shell { width: min(100%,420px) !important; max-width: 420px !important; padding: 12px 18px !important; }
+  #authGate .auth-brand { margin-bottom: 8px !important; }
+  #authGate .auth-brand .logo { width: 36px !important; height: 36px !important; }
+  #authGate .auth-brand strong { font-size: 15px !important; }
+  #authGate .auth-brand small { font-size: 10px !important; }
+  #authGate .auth-welcome h1, #authGate #gateTitle { font-size: clamp(18px,2.5vh,24px) !important; margin: 4px 0 !important; }
+  #authGate .auth-welcome p { font-size: 10px !important; line-height: 1.4 !important; margin: 4px 0 7px !important; }
+  #authGate .auth-switch { margin: 8px 0 !important; padding: 3px !important; }
+  #authGate .auth-switch button { padding: 7px !important; font-size: 11px !important; }
+  #authGate .gate-form label { font-size: 10px !important; margin: 5px 0 3px !important; }
+  #authGate .gate-form input { height: 35px !important; min-height: 35px !important; padding: 6px 10px !important; font-size: 11px !important; }
+  #authGate .gate-primary, #authGate .gate-google { min-height: 35px !important; padding: 7px 10px !important; font-size: 11px !important; margin-top: 9px !important; }
+  #authGate .gate-link { font-size: 10px !important; margin-top: 4px !important; padding: 3px !important; }
+  #authGate .gate-separator { margin: 6px 0 !important; font-size: 10px !important; }
+  #authGate .gate-social-row { margin-top: 5px !important; }
+  #authGate #gateNote { font-size: 10px !important; margin: 5px 0 0 !important; }
+  #authGate .auth-security { font-size: 9px !important; padding-top: 5px !important; }
+}
+@media (max-height: 700px) and (min-width: 851px) {
+ #authGate .hx-emblem { width: 105px !important; height: 105px !important; }
+ #authGate .hx-emblem span { font-size: 58px !important; }
+ #authGate .auth-shell { padding: 8px 14px !important; }
+ #authGate .auth-welcome .pill { display:none !important; }
+}
+</style>
+
 </head>
 <body class="auth-locked">
 
