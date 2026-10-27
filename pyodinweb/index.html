@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HX Flash Lab | Mahmoud Hamouda</title>
+    <title>Hamouda XTools | Samsung Flash Lab</title>
 
     <!-- Favicon and Icons -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
 
-    <meta name="description" content="HX Flash Lab by Mahmoud Hamouda — Samsung firmware flashing interface.">
+    <meta name="description" content="Hamouda XTools Samsung Flash Lab — WebUSB firmware tool.">
     <meta name="author" content="Mahmoud Hamouda · Hamouda XTools">
     <meta name="theme-color" content="#0b1220">
     <meta name="msapplication-TileColor" content="#667eea">
@@ -554,83 +554,17 @@
         .alert { border-radius:13px; line-height:1.8; }
         @media(max-width:650px) { body{padding:0 10px 20px}.xtools-topbar{align-items:flex-start}.xtools-home{font-size:11px;padding:8px}.header{padding-top:8px}.main-card{padding:16px} }
 
-
-        /* HX Flash Lab custom Odin-inspired layout */
-        :root {
-          --primary-color:#4b8dff; --secondary-color:#94a3b8; --success-color:#16a085;
-          --danger-color:#ef5364; --warning-color:#f0b44c; --dark-color:#e7eefb;
-          --light-color:#151f30; --border-radius:8px; --transition:all .18s ease;
-        }
-        html { background:#0a101a; }
-        body { background:radial-gradient(ellipse at 50% -15%,#182d4d 0,transparent 52%),#0a101a; color:#d9e4f5; padding:0 18px 28px; }
-        .xtools-topbar { max-width:1120px; border-bottom:1px solid #27364d; }
-        .xtools-brand { color:#f1f6ff; }
-        .xtools-mark { border-radius:10px; background:linear-gradient(135deg,#317bff,#6e5bff); box-shadow:0 0 24px #3978f633; }
-        .xtools-brand small { color:#8fa5c4; }
-        .xtools-home { background:#121d2c; border-color:#2a3a53; color:#d4e2f7; }
-        .header { text-align:right; padding:18px 0 20px; margin-bottom:12px; }
-        .header h1 { color:#f5f8ff; font-size:clamp(1.8rem,3vw,2.35rem); letter-spacing:.1px; }
-        .header p { color:#8fa5c4; }
-        .main-card { max-width:980px; margin:0 auto; background:#101a29; border:1px solid #2b3b54; border-radius:12px; padding:clamp(14px,2.2vw,26px); box-shadow:0 24px 70px #0005; }
-        .section { margin-bottom:18px; padding:0 0 18px; border-bottom:1px solid #28374d; }
-        .section-title { display:block; width:100%; font-size:1rem; color:#e9f1ff; background:#172438; border:1px solid #2c4261; border-right:4px solid #4b8dff; border-radius:7px; padding:10px 13px; margin-bottom:13px; }
-        .device-status { display:flex; flex-wrap:wrap; background:#0c1522; border:1px solid #2b3b54; border-radius:8px; gap:12px; }
-        .device-info { min-width:220px; }
-        .device-info h3 { color:#eaf2ff; }
-        .device-info p { color:#9aacc5; }
-        .partition-grid { display:flex !important; flex-direction:column; gap:9px; margin-bottom:12px; }
-        .partition-input { display:grid; grid-template-columns:minmax(125px, 180px) minmax(0,1fr); align-items:center; gap:8px 14px; padding:12px; background:#0c1522; border:1px solid #2b3b54; border-radius:8px; }
-        .partition-input label { margin:0 !important; color:#a9c8ff !important; font-size:13px; }
-        .partition-input input[type=file] { min-width:0; color:#cbd7e8; font-size:12px; }
-        .partition-input input[type=file]::-webkit-file-upload-button { background:#1d3150; border-color:#426da8; border-radius:6px; color:#e9f2ff; }
-        .partition-file-name { grid-column:2; color:#9aaec8; font-size:12px; overflow-wrap:anywhere; }
-        .file-upload { background:#0c1522; border-color:#344863; border-radius:8px; }
-        .file-upload:hover,.file-upload.active { background:#13243a; border-color:#4b8dff; }
-        .file-info,.firmware-items { background:#0c1522; color:#dce7f7; border-color:#2b3b54; border-radius:8px; }
-        .options-grid { display:flex; flex-direction:column; gap:8px; }
-        .checkbox-option { background:#0c1522; border:1px solid #2b3b54; border-radius:7px; padding:10px 12px; }
-        .checkbox-option label { color:#d4e1f3; }
-        .btn { border-radius:7px; padding:10px 15px; }
-        .btn-primary { background:#2f70d6; border-color:#4b8dff; }
-        .btn-primary:hover:not(:disabled) { background:#3e82ef; border-color:#70a6ff; }
-        .btn-success { background:#0c8a6d; border-color:#15a984; }
-        .btn-danger { background:#a82f43; border-color:#d94a60; }
-        .button-group { display:flex; flex-direction:column; gap:9px; }
-        .button-group .btn { width:100%; }
-        .alert { border-radius:8px; }
-        .alert-info { background:#13243a; color:#c9dcf8; border-color:#2a4c75; }
-        .alert-warning { background:#2b2417; color:#f5d9a0; border-color:#6d5428; }
-        .alert-danger { background:#321b25; color:#ffc8d0; border-color:#763346; }
-        .progress-bar { height:18px; background:#202e42; border:1px solid #344761; border-radius:5px; }
-        .progress-fill { background:linear-gradient(90deg,#2869d2,#6d63ef); }
-        .progress-info { color:#9aacc5; }
-        .log-container { background:#070d15; color:#c8d7ed; border:1px solid #2b3b54; border-radius:8px; }
-        .footer { color:#7f93b0; border-top-color:#26364d; }
-        .footer a { color:#8ab8ff; }
-        .modal-content { background:#101a29; color:#dbe7f7; border:1px solid #354963; }
-        .modal-content h2,.modal-content p,.modal-content li { color:#dbe7f7; }
-        .modal-content a { color:#8ab8ff !important; }
-        @media(max-width:600px) {
-          body { padding:0 9px 18px; }
-          .xtools-topbar { align-items:center; }
-          .xtools-home { max-width:145px; text-align:center; }
-          .partition-input { grid-template-columns:1fr; }
-          .partition-file-name { grid-column:1; }
-          .device-status .btn { width:100%; }
-          .main-card { padding:12px; }
-        }
-        
     </style>
 </head>
 <body>
     <div class="xtools-topbar">
-      <a class="xtools-brand" href="../index.html"><span class="xtools-mark">HX</span><span><strong>HX Flash Lab</strong><small>Developed by Mahmoud Hamouda</small></span></a>
+      <a class="xtools-brand" href="../index.html"><span class="xtools-mark">HX</span><span><strong>Hamouda XTools</strong><small>Samsung Flash Lab</small></span></a>
       <a class="xtools-home" href="../web-tools.html">العودة إلى معمل الأدوات ←</a>
     </div>
     <div class="container">
         <div class="header">
-            <h1>HX Flash Lab</h1>
-            <p>Samsung Firmware Utility · HX Edition</p>
+            <h1>Samsung Flash Lab</h1>
+            <p>أداة تفليش سامسونج عبر USB · Powered by WebUSB</p>
         </div>
 
         <div class="alert alert-warning" style="max-width:1200px;margin:0 auto 16px;border-radius:14px;line-height:1.8">
@@ -807,7 +741,7 @@
         </div>
 
         <div class="footer">
-            <p>HX Flash Lab · Developed by Mahmoud Hamouda</p><p>Based on the open-source PyOdin Web project.</p>
+            <p>Hamouda XTools · Developed by Mahmoud Hamouda</p><p>Based on the open-source PyOdin Web project.</p>
             <p><a href="https://github.com/pyodin/pyodin" target="_blank">GitHub</a> | 
                <a href="#" onclick="alert('See README for documentation'); return false;">Documentation</a> | 
                Use at your own risk</p>

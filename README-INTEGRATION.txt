@@ -13,3 +13,7 @@ Important technical boundary:
 - GitHub Pages is static hosting and cannot run AEmulator's native Android/ARM emulator engine.
 
 Deploy: upload/merge index.html, ios-simulator/ and android-lab.html into the root of the GitHub Pages repository. Keep all ios-simulator subfolders intact.
+
+
+Added: flash-tools-center.html — embedded OpenFlash and Android Flash Tool workspace.
+Note: Android Flash Tool may refuse iframe embedding; its button opens the official tool in the same tab. OpenFlash runs only on supported fastboot/ADB devices.
