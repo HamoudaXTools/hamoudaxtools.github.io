@@ -849,7 +849,7 @@ html[dir="rtl"] .hx-project-sidebar{transform:translateX(105%)}
 </style>
 
 </head>
-<body class="auth-locked">
+<body>
 
 <button class="hx-side-toggle" id="hxProjectSidebarToggle" type="button" aria-controls="hxProjectSidebar" aria-expanded="false" aria-label="Open project sidebar">
   <span class="hx-toggle-icon" aria-hidden="true">☰</span><span class="hx-toggle-label">Projects</span>
@@ -900,72 +900,13 @@ html[dir="rtl"] .hx-project-sidebar{transform:translateX(105%)}
 <source src="https://freestockfootagearchive.com/wp-content/uploads/2020/10/Abstract-Energy-Flow-Dark-Background-Video-Loop.mp4" type="video/mp4"/>
 </video>
 </div>
-<div aria-labelledby="gateTitle" aria-modal="true" class="auth-gate" id="authGate" role="dialog">
-<div class="auth-layout">
-<aside class="auth-showcase" aria-label="Hamouda XTools brand">
-<div class="hx-emblem" aria-label="HX logo"><span>HX</span></div>
-<div class="hx-wordmark">Hamouda <em>XTools</em></div>
-<div class="hx-developer">DEVELOPED BY MAHMOUD HAMOUDA</div>
-<div class="hx-divider"></div>
-<h2 class="hx-show-title">Your Mobile Tools<br/><span>All in One Place</span></h2>
-<p class="hx-show-copy">A professional hub for mobile servicing, repair utilities, software solutions, and technician updates — everything you need in one place.</p>
-<div class="hx-points"><span><b>✦</b> PRO TOOLS</span><span><b>✓</b> TRUSTED SERVICES</span><span><b>⚡</b> TECH SUPPORT</span></div>
-</aside>
-<div class="auth-form-side">
-<div class="auth-shell">
-<div class="auth-brand"><span class="logo">HX</span><div><strong>Hamouda <em>XTools</em></strong><small>SECURE ACCOUNT PORTAL</small></div></div>
-<div class="auth-welcome"><span class="pill"><span class="dot"></span> XTOOLS MEMBER ACCESS</span><h1 id="gateTitle">Welcome to <span>Hamouda XTools</span></h1><p>Sign in to continue, or create an account with your email, phone number, and OTP verification.</p></div>
-<div class="auth-switch"><button class="active" id="showLogin" type="button">Sign In</button><button id="showSignup" type="button">Create Account</button></div>
-<form class="gate-form" id="gateLoginForm">
-<label for="gateEmail">Email Address</label><input autocomplete="username" id="gateEmail" placeholder="name@example.com" required="" type="email"/>
-<label for="gatePassword">Password</label><input autocomplete="current-password" id="gatePassword" minlength="6" placeholder="Password" required="" type="password"/>
-<button class="btn gate-primary" id="gateLoginButton" type="submit">Sign In</button>
-<button class="gate-link" id="gateReset" type="button">Forgot password?</button>
-<div class="gate-separator"><span></span>OR<span></span></div>
-<button class="btn outline gate-google" id="gateGoogle" type="button"><b aria-hidden="true">G</b> Continue with Google</button>
-<div class="gate-social-row" aria-label="Social platforms">
-<div class="gate-social" title="Apple"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.7 12.8c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.2 2.9-2.4.9-1.3 1.2-2.6 1.2-2.7-.1 0-2.6-1-2.6-3.9ZM14.5 6.3c.6-.8 1-1.9.9-3-.9 0-2.1.6-2.8 1.4-.6.7-1.1 1.8-1 2.8 1.1.1 2.2-.5 2.9-1.2Z"/></svg></div>
-<div class="gate-social" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg></div>
-<div class="gate-social" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 6.4a5.7 5.7 0 0 1-3.5-4.7V1h-4.1v15.1a3.2 3.2 0 1 1-2.3-3.1V8.8a7.3 7.3 0 1 0 6.4 7.3V8.4a9.7 9.7 0 0 0 5.6 1.8V6.1a5.7 5.7 0 0 1-2.1.3Z"/></svg></div>
-</div>
-</form>
-<form class="gate-form" hidden="" id="gateSignupForm">
-<label for="signupName">Full Name</label><input autocomplete="name" id="signupName" minlength="2" placeholder="Your full name" required="" type="text"/>
-<label for="signupEmail">Email Address</label><input autocomplete="email" id="signupEmail" placeholder="name@example.com" required="" type="email"/>
-<label for="signupPassword">Password</label><input autocomplete="new-password" id="signupPassword" minlength="6" placeholder="At least 6 characters" required="" type="password"/>
-<label for="signupPhone">Phone Number (with country code)</label><input autocomplete="tel" id="signupPhone" placeholder="+201XXXXXXXXX" required="" type="tel"/>
-<div class="otp-row"><button class="btn outline" id="sendOtpButton" type="button">Send OTP Code</button><span id="otpStatus">Phone verification required</span></div>
-<label for="signupOtp">SMS Verification Code</label><input autocomplete="one-time-code" id="signupOtp" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" placeholder="Enter the 6-digit code" required="" type="text"/>
-<div id="recaptcha-container"></div><p class="auth-small">If the SMS does not arrive, check Firebase Phone sign-in settings, SMS region policy, international number format, and message quota. Avoid repeated requests.</p>
-<button class="btn gate-primary" id="createAccountButton" type="submit">Verify & Create Account</button>
-<p class="auth-small">OTP requires Phone sign-in enabled in Firebase Authentication, an authorized domain, and available SMS quota. Messaging charges may apply.</p>
-</form>
-<p aria-live="polite" id="gateNote" role="status">Sign in or create an account to continue.</p>
-<div class="firebase-license-panel" id="firebaseLicensePanel" hidden>
- <h3>Subscription & Activation Status</h3><p id="licenseStatus" aria-live="polite">Sign in to view license status.</p>
- <form id="redeemLicenseForm"><label for="licenseCode">Activation code</label><input id="licenseCode" autocomplete="off" placeholder="HX-XXXX-XXXX-XXXX" required minlength="8"/><button class="btn gate-primary" type="submit">Activate Code</button></form>
- <button class="btn outline" id="refreshLicense" type="button">Refresh Subscription Status</button>
-</div>
-<p class="auth-small auth-security">Never share your OTP or password with anyone.</p>
-</div>
-</div>
-</div>
-</div>
 <header><div class="wrap nav"><a class="brand" href="#"><span class="logo">HX</span><span>Hamouda <em>XTools</em></span></a><nav class="navlinks"><div class="taskbar-menu">
 <button aria-expanded="false" class="taskbar-trigger" type="button">Devices <span>⌄</span></button>
 <div class="taskbar-dropdown"><a href="#devices">All Brands</a><a data-jump="Samsung" href="#devices">Samsung</a><a data-jump="Apple" href="#devices">Apple / iPhone</a><a data-jump="Xiaomi" href="#devices">Xiaomi / Redmi / POCO</a><a data-jump="Google Pixel" href="#devices">Google Pixel</a><a data-jump="Transsion" href="#devices">TECNO / Infinix / itel</a></div></div>
 
 <div class="taskbar-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">Tools <span>⌄</span></button><div class="taskbar-dropdown"><a href="#tools">All Tools</a><a href="#dumps"><strong>Dump Library</strong></a><a href="#dumps">Samsung Dumps</a><a href="#dumps">Qualcomm Dumps</a><a href="#dumps">MediaTek Dumps</a><a href="#dumps">UFS / eMMC</a><a href="#dumps">Firmware / Stock ROM</a><a href="#rest-frp"><strong>Rest FRP — Android Quick Actions</strong></a><a href="#flashing-tools"><strong>Flashing Tools</strong></a><a href="#flashing-tools">Android Platform Tools</a><a href="#flashing-tools">3uTools — Apple</a><a href="#flashing-tools">Qualcomm / Firehose</a><a href="#flashing-tools">MediaTek / SP Flash</a><a href="#flashing-tools">Samsung / Odin</a><a href="#drivers">USB Drivers</a><a href="#chipsets">Chipsets</a><a href="#repair-lab">Technician Lab</a><a href="#drivers">Drivers</a></div></div><a href="#iphone-prices">iPhone Pricing</a><a href="#courses">Courses</a><div class="taskbar-menu hx-framed-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">Web Tools Lab <span>⌄</span></button><div class="taskbar-dropdown"><a href="web-tools.html">🧰 Web Tools Lab</a><a href="connect-device.html">🔌 Connect Device</a></div></div><a href="#about">About</a><a href="#contact">Contact</a>
-<div class="taskbar-menu hx-framed-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">Payments <span>⌄</span></button><div class="taskbar-dropdown"><a href="#payments">💳 Payments &amp; Activation</a><a href="#serial-uploads">📤 Serial Uploads</a></div></div></nav><div class="actions"><form class="hx-top-search" id="hxTopSearch" role="search"><input id="hxTopSearchInput" type="search" placeholder="Search the website..." aria-label="Search the website"><button type="submit" aria-label="Search">⌕</button></form><button aria-label="Toggle theme" class="theme" id="theme">☾</button><a class="btn outline phone-short" href="#authGate" id="headerLoginLink">Sign In</a><div class="header-user" hidden id="headerUser"><button class="user-avatar profile-avatar-button" id="headerAvatar" type="button" aria-label="Open profile" title="Profile">MH</button></div></div></div></header>
-<div class="profile-modal" id="profileModal" hidden role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
- <div class="profile-backdrop" data-profile-close></div>
- <section class="profile-panel"><button class="profile-close" type="button" data-profile-close aria-label="Close">×</button>
-  <div class="profile-big-avatar" id="profileAvatarLarge">MH</div><h2 id="profileModalTitle">Profile</h2>
-  <p class="profile-subtitle">Your Hamouda XTools account</p>
-  <div class="profile-details"><div><span>Name</span><strong id="profileName">XTools Member</strong></div><div><span>Email Address</span><strong id="profileEmail">—</strong></div><div><span>Phone Number</span><strong id="profilePhone">—</strong></div><div><span>Sign-in Method</span><strong id="profileProvider">—</strong></div></div>
-  <button class="btn profile-logout" id="logoutButton" type="button">Sign Out</button>
- </section>
-</div><main>
+<div class="taskbar-menu hx-framed-menu"><button aria-expanded="false" class="taskbar-trigger" type="button">Payments <span>⌄</span></button><div class="taskbar-dropdown"><a href="#payments">💳 Payments &amp; Activation</a><a href="#serial-uploads">📤 Serial Uploads</a></div></div></nav><div class="actions"><form class="hx-top-search" id="hxTopSearch" role="search"><input id="hxTopSearchInput" type="search" placeholder="Search the website..." aria-label="Search the website"><button type="submit" aria-label="Search">⌕</button></form><button aria-label="Toggle theme" class="theme" id="theme">☾</button><div class="header-user" id="headerUser"><span class="user-avatar" id="headerAvatar" aria-label="User" title="User">👤</span></div></div></div></header>
+<main>
 
 <div class="wrap" id="hamoudaPromoBanner">
   <div class="promo-copy">
@@ -974,9 +915,8 @@ html[dir="rtl"] .hx-project-sidebar{transform:translateX(105%)}
     <p>PRO TOOLS for phone and Apple device servicing, with technical links and references in one place. Welcome to Mahmoud Hamouda’s platform.</p>
     <div class="promo-actions">
       <a class="btn" href="#tools">Explore Tools ↙</a>
-      <a class="promo-download" href="https://www.mediafire.com/" target="_blank" rel="noopener noreferrer">⬇ Download Tool from MediaFire</a>
+      <a class="promo-download" href="https://www.mediafire.com/file/dpp856z2zoddz51/HamoudaVoxerTool.zip/file" target="_blank" rel="noopener noreferrer" download>⬇ Download Tool from MediaFire</a>
     </div>
-    <p class="promo-note">Note: The current MediaFire link opens the general website, not a specific download. Upload your file to MediaFire and replace this link with the actual share URL.</p>
 
 <div id="hamoudaPricing" class="activation-pricing" aria-label="Hamouda XTools Activation Plans">
   <h2>Choose an Activation Plan</h2>
@@ -1272,7 +1212,6 @@ html[dir="rtl"] .hx-project-sidebar{transform:translateX(105%)}
 })();
 </script>
 
-<section id="account"><div class="wrap"><div class="heading"><div><h2>User Account</h2><p>Sign in with your email address and password, or continue with Google.</p></div><span class="tag">EMAIL + GOOGLE</span></div><div class="card" style="max-width:520px;margin:auto"><h3 style="margin-top:0">Welcome to Hamouda XTools</h3><form class="auth-form" id="emailAuthForm"><label for="authEmail">Email Address (Gmail or any provider)</label><input autocomplete="email" id="authEmail" name="email" placeholder="name@gmail.com" required="" style="display:block;width:100%;box-sizing:border-box;padding:13px;margin:7px 0 15px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text)" type="email"/><label for="authPassword">Password</label><input autocomplete="current-password" id="authPassword" minlength="6" name="password" placeholder="At least 6 characters" required="" style="display:block;width:100%;box-sizing:border-box;padding:13px;margin:7px 0 15px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text)" type="password"/><div class="btnrow"><button class="btn" id="emailLogin" type="submit">Sign In</button><button class="btn outline" id="emailSignup" type="button">Create Account</button></div></form><div style="display:flex;align-items:center;gap:12px;margin:18px 0;color:var(--muted);font-size:13px"><span style="height:1px;background:var(--line);flex:1"></span>OR<span style="height:1px;background:var(--line);flex:1"></span></div><button class="btn outline" id="googleLogin" style="width:100%" type="button"><b style="font-size:17px;margin-left:8px">G</b> Continue with Google</button><p aria-live="polite" id="authNote" role="status" style="font-size:13px;color:var(--muted);margin-top:14px">Firebase Authentication is ready for email or Google sign-in. Enter your details or choose Google.</p></div></div></section>
 <section id="about"><div class="wrap"><div class="heading"><div><h2>Who Is Mahmoud Hamouda?</h2><p>A short introduction to the developer and platform owner.</p></div></div><div class="features">
 <div class="feature"><span>👨‍💻</span><div><b>Mahmoud Hamouda</b><small>A developer focused on mobile software tools and phone repair, building learning resources that help technicians find tools and information in an organized way.</small></div></div>
 <div class="feature"><span>🛠️</span><div><b>Experience & Interests</b><small>Mobile software, repair tools, flashing, JTAG and memory concepts, and sharing technical knowledge.</small></div></div>
@@ -1410,58 +1349,7 @@ html[data-theme="light"] .navlinks,html[data-theme="light"] p,html[data-theme="l
 html[data-theme="light"] .theme,html[data-theme="light"] .btn.outline,html[data-theme="light"] .taskbar-trigger,html[data-theme="light"] .db-toolbar select,html[data-theme="light"] .searchbox,html[data-theme="light"] .searchbox input{background:#fff!important;color:var(--text)!important;border-color:var(--line)!important}
 html[data-theme="dark"] .theme,html[data-theme="dark"] .btn.outline,html[data-theme="dark"] .taskbar-trigger,html[data-theme="dark"] .db-toolbar select,html[data-theme="dark"] .searchbox,html[data-theme="dark"] .searchbox input{background:#141d35!important;color:var(--text)!important;border-color:#3a4568!important}
 </style>
-<script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth-compat.js"></script>
-<script>
-(function(){
-  const config={apiKey:"AIzaSyDazoweV3zvrloqjZm-FBxdkhZ5YyQKpi4",authDomain:"hamouda-xtools.firebaseapp.com",projectId:"hamouda-xtools",storageBucket:"hamouda-xtools.firebasestorage.app",messagingSenderId:"607364375258",appId:"1:607364375258:web:c34c9a2cdf127cdd637be3",measurementId:"G-Z21KD013B0"};
-  const $=id=>document.getElementById(id);
-  const gate=$('authGate'),note=$('gateNote'),loginForm=$('gateLoginForm'),signupForm=$('gateSignupForm');
-  let auth=null,recaptcha=null,confirmation=null,otpPhone='',otpVerifiedCredential=null;
-  function say(text,ok=false){if(note){note.textContent=text;note.style.color=ok?'#0d9488':'var(--primary)';}}
-  function friendly(e){const m={'auth/invalid-email':'Email Address غير صحيح.','auth/user-not-found':'None حساب بهذا البريد.','auth/wrong-password':'Password غير صحيحة.','auth/invalid-credential':'البريد OR Password غير صحيحة.','auth/email-already-in-use':'البريد مسجل بالفعل؛ سجّل الدخول بدلًا من Create Account.','auth/weak-password':'Password ضعيفة؛ استخدم At least 6 characters.','auth/popup-closed-by-user':'أُغلقت نافذة Google قبل إكمال الدخول.','auth/unauthorized-domain':'نطاق الموقع غير مصرح به في Firebase Authentication > Settings > Authorized domains.','auth/operation-not-allowed':'فعّل Sign-in Method المطلوبة في Firebase Authentication > Sign-in method.','auth/network-request-failed':'تعذر الاتصال بالإنترنت؛ حاول مرة أخرى.','auth/too-many-requests':'محاولات كثيرة؛ انتظر قليلًا ثم حاول مجددًا.','auth/invalid-phone-number':'Phone Number غير صحيح؛ استخدم الصيغة الدولية مثل +201XXXXXXXXX.','auth/quota-exceeded':'تجاوز المشروع حد رسائل SMS. تحقق من حصة Firebase OR جرّب لاحقًا.' ,'auth/billing-not-enabled':'قد يتطلب Send SMS تفعيل الفوترة في مشروع Firebase. راجع خطة المشروع وحدود الرسائل.' ,'auth/missing-app-credential':'تعذر التحقق الأمني. أكمل reCAPTCHA الظاهر وتأكد أن نطاق الموقع مضاف في Authorized domains.' ,'auth/captcha-check-failed':'فشل التحقق الأمني reCAPTCHA؛ أكمل مربع التحقق الظاهر ثم حاول مرة أخرى.','auth/captcha-check-failed':'فشل التحقق الأمني reCAPTCHA؛ حدّث الصفحة وحاول مرة أخرى.','auth/missing-phone-number':'اكتب Phone Number ORلًا.','auth/invalid-verification-code':'رمز OTP غير صحيح OR انتهت صلاحيته.','auth/code-expired':'انتهت صلاحية رمز OTP؛ أرسل رمزًا جديدًا.','auth/account-exists-with-different-credential':'هذا البريد مرتبط بطريقة دخول أخرى. جرّب Sign In بالطريقة الأصلية.'};return m[e.code]||('تعذر إكمال Operation: '+(e.code||'unknown')+' — '+(e.message||'خطأ غير معروف'));}
-  function showMode(mode){const signup=mode==='signup';loginForm.hidden=signup;signupForm.hidden=!signup;$('showLogin').classList.toggle('active',!signup);$('showSignup').classList.toggle('active',signup);$('gateTitle').innerHTML=signup?'أنشئ حسابك في <span>Hamouda XTools</span>':'Welcome to <span>Hamouda XTools</span>';say(signup?'أدخل بياناتك,  ثم تحقّق من Phone Number برسالة SMS.':'سجّل الدخول للانتقال إلى الموقع.');}
-  function setSignedIn(user){document.body.classList.remove('auth-locked');gate.hidden=true;$('headerLoginLink').hidden=true;$('headerUser').hidden=false;const name=user.displayName||((user.email||'').split('@')[0])||'XTools Member';$('headerAvatar').textContent=(name.trim().split(/\s+/).slice(0,2).map(x=>x[0]).join('')||'HX').toUpperCase();if(window.__xtoolsSetProfile)window.__xtoolsSetProfile(user);}
-  function setSignedOut(){document.body.classList.add('auth-locked');gate.hidden=false;$('headerLoginLink').hidden=false;$('headerUser').hidden=true;const pm=$('profileModal');if(pm)pm.hidden=true;}
-  if(!window.firebase){say('Could not load Firebase SDK. Check your connection and refresh the page.');return;}
-  try{if(!firebase.apps.length)firebase.initializeApp(config);auth=firebase.auth();auth.useDeviceLanguage();}catch(e){say('Could not initialize Firebase: '+e.message);return;}
-  $('showLogin').addEventListener('click',()=>showMode('login'));$('showSignup').addEventListener('click',()=>showMode('signup'));
-  loginForm.addEventListener('submit',async e=>{e.preventDefault();if(!loginForm.reportValidity())return;const b=$('gateLoginButton');b.disabled=true;b.textContent='Signing in…';try{const credential=await auth.signInWithEmailAndPassword($('gateEmail').value.trim(),$('gatePassword').value);setSignedIn(credential.user||auth.currentUser);window.scrollTo({top:0,left:0,behavior:'instant'});say('Signed in successfully.',true);}catch(err){say(friendly(err));}finally{b.disabled=false;b.textContent='Sign In';}});
-  $('gateGoogle').addEventListener('click',async()=>{try{const p=new firebase.auth.GoogleAuthProvider();await auth.signInWithPopup(p);}catch(e){say(friendly(e));}});
-  $('gateReset').addEventListener('click',async()=>{const em=$('gateEmail').value.trim();if(!em){say('Enter your email address first, then click Forgot Password.');$('gateEmail').focus();return;}try{await auth.sendPasswordResetEmail(em);say('We sent a password reset link to your email..',true);}catch(e){say(friendly(e));}});
-  $('sendOtpButton').addEventListener('click',async()=>{
-    const phone=$('signupPhone').value.trim();
-    if(!phone){say('Enter your phone number with country code first.');$('signupPhone').focus();return;}
-    if(!/^\+[1-9]\d{7,14}$/.test(phone)){say('Enter your phone number in international format, e.g. +201XXXXXXXXX.');return;}
-    const b=$('sendOtpButton');
-    if(confirmation && otpPhone===phone){say('A code has already been requested. Check your SMS, then enter the 6-digit code.',true);return;}
-    b.disabled=true;b.textContent='Preparing verification…';
-    try{
-      if(!recaptcha){
-        recaptcha=new firebase.auth.RecaptchaVerifier('recaptcha-container',{
-          size:'normal',
-          callback:()=>say('Security verification complete. Click “Send OTP Code” again to send the message.',true),
-          'expired-callback':()=>say('reCAPTCHA expired. Complete the checkbox again.')
-        });
-        await recaptcha.render();
-        say('Complete the visible reCAPTCHA, then click “Send OTP Code” again. No SMS has been sent yet.',true);
-        return;
-      }
-      b.textContent='Sending code…';
-      confirmation=await auth.signInWithPhoneNumber(phone,recaptcha);
-      otpPhone=phone;
-      $('otpStatus').textContent='Code requested for '+phone;
-      say('Code requested. Check your SMS; delivery may take a little while.',true);
-    }catch(e){
-      say(friendly(e));
-      if(recaptcha){try{recaptcha.clear();}catch(_){}recaptcha=null;}
-    }finally{b.disabled=false;b.textContent='Send OTP Code';}
-  });
-  signupForm.addEventListener('submit',async e=>{e.preventDefault();if(!signupForm.reportValidity())return;const name=$('signupName').value.trim(),email=$('signupEmail').value.trim(),password=$('signupPassword').value,phone=$('signupPhone').value.trim(),code=$('signupOtp').value.trim(),b=$('createAccountButton');if(!confirmation||otpPhone!==phone){say('Click Send OTP Code and wait for the message first.');return;}if(!/^\d{6}$/.test(code)){say('Enter the 6-digit OTP code.');return;}b.disabled=true;b.textContent='Verifying and creating account…';try{const phoneCredential=firebase.auth.PhoneAuthProvider.credential(confirmation.verificationId,code);const result=await auth.createUserWithEmailAndPassword(email,password);const user=result.user;try{await user.linkWithCredential(phoneCredential);}catch(linkErr){if(linkErr.code==='auth/credential-already-in-use'||linkErr.code==='auth/provider-already-linked'){throw linkErr;}throw linkErr;}await user.updateProfile({displayName:name});await user.reload();confirmation=null;otpPhone='';say('Account created and phone number verified successfully.',true);setSignedIn(auth.currentUser||user);}catch(err){say(friendly(err));}finally{b.disabled=false;b.textContent='Verify & Create Account';}});
-  $('logoutButton').addEventListener('click',async()=>{try{await auth.signOut();showMode('login');say('Signed out.');}catch(e){say(friendly(e));}});
-  auth.onAuthStateChanged(user=>{if(user){setSignedIn(user);}else{setSignedOut();}});
-})();
-</script>
+
 <button aria-label="افتح Hamouda AI Assistant" class="ai-chat-fab" id="aiChatFab" title="Hamouda AI Assistant" type="button">✦</button>
 <div aria-label="Hamouda AI Assistant" aria-modal="false" class="ai-chat-window" id="aiChatWindow" role="dialog"><div class="ai-chat-head"><div class="ai-orb">✦</div><div><strong>Hamouda AI Assistant</strong><small>Software Resources Assistant · Local Version</small></div><button aria-label="Close" class="ai-chat-close" id="aiChatClose" type="button">×</button></div><div aria-live="polite" class="ai-chat-log" id="aiChatLog"><div class="ai-msg bot">Welcome to Hamouda XTools ✦\nEnter a chipset, model, or error message and I’ll help you find resources on this website.\n\nNote: This version uses a local index. Full generative responses require a server-side API.</div></div><form class="ai-chat-input" id="aiChatForm"><input aria-label="Your message" autocomplete="off" id="aiChatInput" placeholder="Type your question here…" type="text"/><button type="submit">Send</button></form><div class="ai-chat-note">Do not enter passwords or private customer data.</div></div>
 <script>
@@ -2225,11 +2113,8 @@ header .navlinks .hx-framed-menu{flex:0 0 auto!important;margin:0!important}
 </script>
 </body></html>
 
-<style id="profile-modal-styles">
-.profile-avatar-button{border:0;cursor:pointer;padding:0;width:38px;height:38px;font:inherit;box-shadow:0 0 0 2px color-mix(in srgb,var(--primary) 30%,transparent);}
-.profile-modal[hidden]{display:none!important}.profile-modal{position:fixed;inset:0;z-index:100000;display:grid;place-items:center;padding:18px}.profile-backdrop{position:absolute;inset:0;background:rgba(3,7,18,.72);backdrop-filter:blur(5px)}.profile-panel{position:relative;z-index:1;width:min(100%,410px);max-height:calc(100dvh - 36px);overflow:auto;border:1px solid var(--line);border-radius:22px;padding:25px;background:var(--surface);color:var(--text);box-shadow:0 24px 90px rgba(0,0,0,.45);text-align:center}.profile-close{position:absolute;top:10px;inset-inline-end:12px;border:0;background:transparent;color:var(--text);font-size:28px;cursor:pointer}.profile-big-avatar{width:76px;height:76px;margin:8px auto 12px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#22d3ee);color:#fff;font-weight:900;font-size:24px}.profile-panel h2{font-size:21px;margin:6px 0}.profile-subtitle{font-size:12px;color:var(--muted);margin:0 0 20px}.profile-details{display:grid;gap:9px;text-align:start}.profile-details div{padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);display:grid;gap:5px;min-width:0}.profile-details span{font-size:11px;color:var(--muted)}.profile-details strong{font-size:13px;overflow-wrap:anywhere}.profile-logout{width:100%;margin-top:17px}
-@media(max-width:600px){.header-user{max-width:none}.profile-panel{padding:22px 17px}.profile-details strong{font-size:12px}}
+
+<style id="xtools-header-user-icon-only">
+.header-user{display:flex!important;align-items:center!important;justify-content:center!important;width:38px!important;height:38px!important;max-width:38px!important;flex:0 0 38px!important}
+.header-user .user-avatar{display:grid!important;place-items:center!important;width:36px!important;height:36px!important;border:1px solid var(--line)!important;border-radius:50%!important;background:linear-gradient(135deg,var(--primary),var(--mint))!important;color:#fff!important;font-size:19px!important;line-height:1!important;box-shadow:0 4px 14px rgba(0,0,0,.16)!important}
 </style>
-<script id="profile-modal-js">
-(()=>{const modal=document.getElementById('profileModal'),avatar=document.getElementById('headerAvatar');if(!modal||!avatar)return;const close=()=>{modal.hidden=true;};avatar.addEventListener('click',()=>{modal.hidden=false;});modal.querySelectorAll('[data-profile-close]').forEach(el=>el.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});window.__xtoolsSetProfile=(user)=>{const name=user.displayName||((user.email||'').split('@')[0])||'XTools Member';const initials=(name.trim().split(/\s+/).slice(0,2).map(x=>x[0]).join('')||'HX').toUpperCase();document.getElementById('profileAvatarLarge').textContent=initials;document.getElementById('profileName').textContent=name;document.getElementById('profileEmail').textContent=user.email||'Not available';document.getElementById('profilePhone').textContent=user.phoneNumber||'Not linked';const providers=(user.providerData||[]).map(p=>p.providerId==='google.com'?'Google':p.providerId==='password'?'Email Address & Password':p.providerId==='phone'?'Phone Number':p.providerId).filter(Boolean);document.getElementById('profileProvider').textContent=[...new Set(providers)].join(',  ')||'Registered account';};})();
-</script>
