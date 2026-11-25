@@ -942,14 +942,14 @@ function setLanguage(next){
 function applyTheme(){
  const themeButton=document.getElementById('themeBtn');
  if(themeButton){
-   themeButton.setAttribute('aria-label',theme==='dark'?'Turn light mode on':'Turn dark mode on');
-   themeButton.setAttribute('title',theme==='dark'?'Dark mode is active':'Light mode is active');
+   themeButton.setAttribute('aria-label','Toggle color theme');
+   themeButton.setAttribute('title','Toggle color theme');
    themeButton.classList.toggle('is-dark',theme==='dark');
  }
 
  document.documentElement.dataset.theme=theme;
  const b=document.getElementById('themeBtn');
- if(b)b.textContent=theme==='dark'?(lang==='ar'?'☀ الوضع الفاتح':'☀ Light'):(lang==='ar'?'☾ الوضع الداكن':'☾ Dark');
+ // Keep the theme control icon-only; do not replace its SVG with text.
  localStorage.setItem('hxtools-theme',theme);
 }
 function toggleTheme(){theme=theme==='dark'?'light':'dark';applyTheme()}
