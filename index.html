@@ -522,6 +522,21 @@ html[dir="rtl"] body{font-family:'Cairo','Segoe UI',Tahoma,sans-serif!important}
 .register-modal-box .btn{min-height:42px;padding:9px 14px}
 @media(max-height:650px){.register-modal-box{padding:12px 16px}.register-modal-box h3{font-size:18px}.register-modal-box p{margin:4px 0}.register-modal-box input{padding:7px 10px;min-height:36px;margin:3px 0}}
 
+
+@media(max-width:1000px){
+ .nav{position:relative}
+ .navtools{margin-inline-start:auto}
+ .navtools #themeBtn{display:inline-flex;align-items:center;justify-content:center}
+ .navlinks.open{display:flex;align-items:stretch;gap:8px;max-height:calc(100dvh - 82px);overflow-y:auto}
+ .navlinks .mobile-menu-control{display:flex!important;width:100%;justify-content:center;align-items:center;min-height:42px}
+ .navlinks .language-menu-wrap.mobile-menu-control{position:relative;justify-content:center}
+ .navlinks .language-menu-wrap .language-menu{position:static;max-height:190px;overflow-y:auto;width:100%;margin-top:8px}
+ .navlinks .language-menu-wrap[open]{display:block!important}
+ .navlinks .language-menu-wrap summary{margin:auto}
+ .navlinks .mobile-menu-control.btn{color:#fff}
+}
+@media(min-width:1001px){.mobile-menu-control{display:none!important}}
+
 </style>
 <style>
 .brand-mark.logo-frame{width:74px;height:62px;min-width:74px;padding:8px 10px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.96);border:1px solid rgba(15,23,42,.08);box-shadow:0 5px 18px rgba(15,23,42,.08)}
@@ -1079,6 +1094,33 @@ setLanguage(lang);
 </script>
 \n
 
+
+
+<script>
+(function(){
+ const nav=document.getElementById('navlinks');
+ const tools=document.querySelector('.navtools');
+ if(!nav||!tools)return;
+ const language=document.getElementById('languageMenuDetails');
+ const login=tools.querySelector('button[onclick="openLogin()"]');
+ const register=tools.querySelector('button[onclick="openRegister()"]');
+ const theme=document.getElementById('themeBtn');
+ const menu=tools.querySelector('.menu-btn');
+ const items=[language,login,register].filter(Boolean);
+ function arrange(){
+   const mobile=window.matchMedia('(max-width: 1000px)').matches;
+   if(mobile){
+     items.forEach(el=>{el.classList.add('mobile-menu-control');nav.appendChild(el);});
+   }else{
+     items.forEach(el=>{el.classList.remove('mobile-menu-control');tools.insertBefore(el,theme);});
+     nav.classList.remove('open');
+   }
+ }
+ if(menu)menu.addEventListener('click',()=>{setTimeout(()=>{if(nav.classList.contains('open'))arrange();},0);});
+ window.addEventListener('resize',arrange);
+ arrange();
+})();
+</script>
 
 </body>
 </html>
